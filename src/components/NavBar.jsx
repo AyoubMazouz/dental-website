@@ -1,114 +1,75 @@
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import CallToAction from './CallToAction';
 
 
 const Header = () => {
+
+  const [toggle, setToggle] = useState(false)
+
   return (
     <>
-      <NavFull />
-      <NavSmall />
+
+    {/* NavBarFull */}
+    <nav className='hidden md:block bg-slate-100'>
+      <ul className='flex items-center px-10 lg:px-36 xl:px-56 h-12'>
+        <div className='mr-auto'>
+          <Logo />
+        </div>
+        <a className='nav-links-full'
+          href="#">
+          home</a>
+        <a className='nav-links-full'
+          href="#">
+          about</a>
+        <a className='nav-links-full'
+          href="#">
+          services</a>
+        <a className='nav-links-full'
+          href="#">
+          gallery</a>
+        <div className='ml-auto'>
+          <CallToAction />
+        </div>
+      </ul>
+    </nav>
+
+    {/* NavBarSmall */}
+    <nav className={toggle ? 'menu-small h-[14rem] rounded-b-2xl' : 'menu-small h-12'}>
+      <div className=''>
+        <Logo />
+      </div>
+      <ul className={(toggle ? 'menu-small-open' : 'hidden')}>
+        <a className='nav-links-small'
+          href="#">
+          home</a>
+        <a className='nav-links-small'
+          href="#">
+          about</a>
+        <a className='nav-links-small'
+          href="#">
+          services</a>
+        <a className='nav-links-small'
+          href="#">
+          gallery</a>
+        <div className='mt-2'>
+          <CallToAction />
+        </div>
+      </ul>
+      <div className=''>
+        <ToggleButton toggle={toggle} setToggle={setToggle} />
+      </div>
+    </nav>
+    
     </>
   )
 }
 
-const NavFull = () => {
-  return (
-
-    <nav className='bg-slate-100 items-center justify-between px-12 py-4 my-6 rounded shadow-lg hidden lg:flex'>
-
-      <Logo />
-
-      <ul className='flex space-x-2'>
-        <a href="#"
-          className='text-gray-700 capitalize px-2 py-1 hover:text-sky-500 trans'>
-          home
-        </a>
-        <a href="#"
-          className='text-gray-700 capitalize px-2 py-1 hover:text-sky-500 trans'>
-          services
-        </a>
-        <a href="#"
-          className='text-gray-700 capitalize px-2 py-1 hover:text-sky-500 trans'>
-          about
-        </a>
-        <a href="#"
-          className='text-gray-700 capitalize px-2 py-1 hover:text-sky-500 trans'>
-          gallery
-        </a>
-        <a href="#"
-          className='text-gray-700 capitalize px-2 py-1 hover:text-sky-500 trans'>
-          contact
-        </a>
-      </ul>
-
-      <CallToAction />
-
-    </nav>
-
-  )
-}
-
-const NavSmall = () => {
-
-  const [navLinks, setNavLinks] = useState(false);
-
-  const linkStyles = [
-    'links flex flex-col space-y-2 text-center',
-    'links hidden flex-col space-y-2'
-  ]
-  const navStyles = [
-    'bg-slate-100 flex items-center justify-around px-12 py-4 my-6 rounded shadow-lg lg:hidden',
-    'bg-slate-100 flex items-center justify-between px-12 py-4 my-6 rounded shadow-lg lg:hidden'
-  ]
-
-  return (
-
-    <nav className={navLinks ? navStyles[0] : navStyles[1]}>
-
-      <Logo navLinks={navLinks} />
-
-      <ul className={navLinks ? linkStyles[0] : linkStyles[1]}>
-        <Logo className='hidden mb-4' />
-        <a href="#"
-          className='text-gray-700 capitalize px-2 py-1 hover:text-sky-500 trans'>
-          home
-        </a>
-        <a href="#"
-          className='text-gray-700 capitalize px-2 py-1 hover:text-sky-500 trans'>
-          services
-        </a>
-        <a href="#"
-          className='text-gray-700 capitalize px-2 py-1 hover:text-sky-500 trans'>
-          about
-        </a>
-        <a href="#"
-          className='text-gray-700 capitalize px-2 py-1 hover:text-sky-500 trans'>
-          gallery
-        </a>
-        <a href="#"
-          className='text-gray-700 capitalize px-2 py-1 hover:text-sky-500 trans'>
-          contact
-        </a>
-        <CallToAction />
-      </ul>
-
-      <ToggleButton navLinks={navLinks} setNavLinks={setNavLinks} />
-
-    </nav>
-
-  )
-}
-
-const Logo = ({ navLinks=false }) => {
-
-  const styles = [
-    'text-lg text-slate-700 capitalize hidden',
-    'text-lg text-slate-700 capitalize block'
-  ]
+const Logo = () => {
 
   return (
     <a href="#"
-      className={navLinks ? styles[0] : styles[1]}>
+      className='text-lg text-slate-700 capitalize' >
       dental
       <span className="font-semibold text-sky-500">
         Care
@@ -117,28 +78,21 @@ const Logo = ({ navLinks=false }) => {
   )
 }
 
-const CallToAction = () => {
-  return (
-    <a href="#"
-      className="capitalize px-2 py-1 rounded text-sky-500 border-2 border-sky-500 hover:shadow-lg hover:shadow-sky-500 hover:bg-sky-500 hover:text-slate-100 trans">
-      make appointment
-    </a>
-  )
-}
+const ToggleButton = ({toggle, setToggle}) => {
 
-const ToggleButton = ({navLinks, setNavLinks}) => {
-
-  const bars = 'text-2xl text-slate-700 hover:text-sky-500 trans cursor-pointer';
-  const ex = 'text-2xl text-slate-700 hover:text-sky-500 trans cursor-pointer absolute top-[2.65rem] right-[5rem]';
-  
-  const onClick = () => setNavLinks(prev => !prev);
+  const onClick = () => setToggle(prev => !prev);
   
   return (
     <>
     <FaBars onClick={onClick}
-    className={navLinks ? 'hidden' : bars} />
+      className={toggle 
+        ? 'hidden' 
+        : 'text-2xl text-slate-700 hover:text-sky-500 trans cursor-pointer'} />
+
     <FaTimes onClick={onClick}
-    className={navLinks ? ex : 'hidden'} />
+      className={toggle 
+        ? 'text-2xl text-slate-700 hover:text-sky-500 trans cursor-pointer hover:rotate-180' 
+        : 'hidden'} />
     </>
   )
 }
