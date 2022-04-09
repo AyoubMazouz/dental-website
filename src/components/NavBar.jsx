@@ -8,60 +8,37 @@ const Header = () => {
   const [toggle, setToggle] = useState(false)
 
   return (
-    <>
 
-    {/* NavBarFull */}
-    <nav className='hidden md:block bg-slate-100'>
-      <ul className='flex items-center px-10 lg:px-36 xl:px-56 h-12'>
-        <div className='mr-auto'>
-          <Logo />
-        </div>
-        <a className='nav-links-full'
-          href="#">
-          home</a>
-        <a className='nav-links-full'
-          href="#">
-          about</a>
-        <a className='nav-links-full'
-          href="#">
-          services</a>
-        <a className='nav-links-full'
-          href="#">
-          gallery</a>
-        <div className='ml-auto'>
-          <CallToAction />
-        </div>
-      </ul>
-    </nav>
+    <nav className={toggle 
+      ? 'bg-slate-100 flex flex-col justify-around items-center h-56 px-10 trans'
+      : 'bg-slate-100 flex justify-around items-center h-16 px-10 trans'}>
 
-    {/* NavBarSmall */}
-    <nav className={toggle ? 'menu-small h-[14rem] rounded-b-2xl' : 'menu-small h-12'}>
-      <div className=''>
+
+      <div className={toggle ? '-mb-12' : ''}>
         <Logo />
       </div>
-      <ul className={(toggle ? 'menu-small-open' : 'hidden')}>
-        <a className='nav-links-small'
-          href="#">
-          home</a>
-        <a className='nav-links-small'
-          href="#">
-          about</a>
-        <a className='nav-links-small'
-          href="#">
-          services</a>
-        <a className='nav-links-small'
-          href="#">
-          gallery</a>
-        <div className='mt-2'>
-          <CallToAction />
-        </div>
-      </ul>
-      <div className=''>
+
+      <div className={toggle ? 'ml-auto' : 'ml-auto md:hidden'}>
         <ToggleButton toggle={toggle} setToggle={setToggle} />
       </div>
+
+      <ul className={toggle ? 'flex flex-col' : 'hidden md:block'}>
+
+        <a className='nav-links'
+          href="#">
+          Home</a>
+        <a className='nav-links'
+          href="#">
+          About</a>
+        <a className='nav-links'
+          href="#">
+          Services</a>
+        <a className='nav-links'
+          href="#">
+          Gallery</a>
+
+      </ul>
     </nav>
-    
-    </>
   )
 }
 
