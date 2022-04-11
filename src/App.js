@@ -1,6 +1,7 @@
-import './App.css';
-import Header from './components/NavBar';
+import './App.css'
+import Header from './components/NavBar'
 import Home from './components/Home'
+import Services from './components/Services'
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
       <Header />
 
       <Home />
+
+      <Services />
 
     </div>
   );

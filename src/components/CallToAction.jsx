@@ -1,10 +1,10 @@
+import { FaCalendar } from 'react-icons/fa'
 
-
-const CallToAction = ({ styles='' }) => {
+const CallToAction = () => {
     return (
       <a href="#"
-        className={`capitalize px-2 py-1 rounded text-sky-500 border-2 border-sky-500 hover:shadow-lg hover:shadow-sky-500 hover:bg-sky-500 hover:text-slate-100 trans ${styles}`}>
-        make appointment
+        className={`capitalize px-2 py-1 rounded text-sky-500 border-2 border-sky-500 hover:shadow-lg hover:shadow-sky-500 hover:bg-sky-500 hover:text-slate-100 trans flex w-56 m-auto`}>
+        <FaCalendar className='mr-3' />Prenez rendez vous
       </a>
     )
 }

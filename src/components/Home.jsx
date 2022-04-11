@@ -7,18 +7,27 @@ const Home = () => {
 
     return (
 
-        <main className="min-h-[80vh] flex justify-center items-center">
+        <main className="bg-[url('./media/img.png')] bg-cover border-b-oval">
 
-        <div className="space-y-4 -mt-12">
-            <h1 className="text-3xl text-sky-500 font-semibold capitalize">
-                your health care is our purpose
-            </h1>
-            <h3 className="text-slate-500 pl-4">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            </h3>
+        <div className="min-h-[100vw] md:min-h-[90vw] lg:min-h-[90vh] w-full lg:max-w-[[1200px] flex items-center justify-center px-6">
 
-            <div>
-            <CallToAction />
+            <div className="space-y-8 text-center">
+
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl text-white font-semibold capitalize">
+                    votre clinique
+                    <br /> dentaire à 
+                    <br /> casablanca pour un
+                    <br /> beau sourire
+                </h1>
+
+                <h3 className="text-white text-lg sm:text-xl">
+                Prenez le meilleur traitement de Qualité chez votre dentiste à Sidi Maarouf Casablanca 
+                </h3>
+
+                <div>
+                    <CallToAction />
+                </div>
+
             </div>
 
         </div>

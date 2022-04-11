@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import CallToAction from './CallToAction';
+import { useState } from 'react'
+import { FaBars, FaTimes } from 'react-icons/fa'
 
 
 const Header = () => {
@@ -9,10 +8,11 @@ const Header = () => {
 
   return (
 
-    <nav className={toggle 
-      ? 'bg-slate-100 flex flex-col justify-around items-center h-56 px-10 trans'
-      : 'bg-slate-100 flex justify-around items-center h-16 px-10 trans'}>
+    <header className='flex justify-center bg-slate-100 w-full '>
 
+    <nav className={toggle 
+      ? 'bg-slate-100 w-full lg:max-w-[1200px] flex flex-col justify-between items-center h-56 px-6 trans'
+      : 'bg-slate-100 w-full lg:max-w-[1200px] flex justify-between items-center h-16 px-6 trans'}>
 
       <div className={toggle ? '-mb-12' : ''}>
         <Logo />
@@ -38,12 +38,14 @@ const Header = () => {
           Gallery</a>
 
       </ul>
+
     </nav>
+
+    </header>
   )
 }
 
 const Logo = () => {
-
   return (
     <a href="#"
       className='text-lg text-slate-700 capitalize' >
@@ -56,17 +58,14 @@ const Logo = () => {
 }
 
 const ToggleButton = ({toggle, setToggle}) => {
-
-  const onClick = () => setToggle(prev => !prev);
-  
   return (
     <>
-    <FaBars onClick={onClick}
+    <FaBars onClick={() => setToggle(prev => !prev)}
       className={toggle 
         ? 'hidden' 
         : 'text-2xl text-slate-700 hover:text-sky-500 trans cursor-pointer'} />
 
-    <FaTimes onClick={onClick}
+    <FaTimes onClick={() => setToggle(prev => !prev)}
       className={toggle 
         ? 'text-2xl text-slate-700 hover:text-sky-500 trans cursor-pointer hover:rotate-180' 
         : 'hidden'} />
@@ -74,4 +73,4 @@ const ToggleButton = ({toggle, setToggle}) => {
   )
 }
 
-export default Header;
+export default Header

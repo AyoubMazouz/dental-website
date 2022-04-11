@@ -15,4 +15,7 @@
   .trans {
     @apply transition-all duration-300 ease-in;
   }
+  .border-b-oval {
+    border-radius: 0px 0px 50vw 50vw / 0px 0px 8vw 8vw;
+  }
 }
