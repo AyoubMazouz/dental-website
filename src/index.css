@@ -18,4 +18,12 @@
   .border-b-oval {
     border-radius: 0px 0px 50vw 50vw / 0px 0px 8vw 8vw;
   }
+  
+}
+
+.--grid {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(minmax(0, 20), 100px);
 }
