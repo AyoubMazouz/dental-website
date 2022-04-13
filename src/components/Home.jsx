@@ -1,6 +1,4 @@
-import CallToAction from "./CallToAction";
-
-
+import { FaCalendar } from 'react-icons/fa'
 
 const Home = () => {
 
@@ -34,6 +32,15 @@ const Home = () => {
 
 </main>
 
+    )
+}
+
+const CallToAction = () => {
+    return (
+      <a href="#"
+        className={`capitalize px-2 py-1 rounded text-sky-500 border-2 border-sky-500 hover:shadow-lg hover:shadow-sky-500 hover:bg-sky-500 hover:text-slate-100 trans flex w-56 m-auto`}>
+        <FaCalendar className='mr-3' />Prenez rendez vous
+      </a>
     )
 }
 
