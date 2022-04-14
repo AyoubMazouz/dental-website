@@ -18,7 +18,15 @@
   .border-b-oval {
     border-radius: 0px 0px 50vw 50vw / 0px 0px 8vw 8vw;
   }
-  
+  .img1 {
+    background-image: url('./media/img1.png');
+  }.img2 {
+    background-image: url('./media/img2.png');
+  }.img3 {
+    background-image: url('./media/img3.png');
+  }.img4 {
+    background-image: url('./media/img4.png');
+  }
 }
 
 .--grid {

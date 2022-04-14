@@ -1,17 +1,28 @@
+import { useEffect, useState } from 'react'
 import { FaCalendar } from 'react-icons/fa'
 
 const Home = () => {
 
+    const imgs = ['img1','img2','img3','img4',]
+
+    const [imgIndex, setImgIndex] = useState(0)
+
+    useEffect( () => {
+        setInterval(() => {
+            setImgIndex(prev => prev === 3 ? 0 : prev + 1)
+        }, 2000);   
+    }, [])
+
 
     return (
 
-        <main className="bg-[url('./media/img.png')] bg-cover border-b-oval">
+        <main className={`bg-cover border-b-oval ${imgs[imgIndex]} transition-all duration-1000 ease-linear`}>
 
         <div className="min-h-[100vw] md:min-h-[90vw] lg:min-h-[90vh] w-full lg:max-w-[[1200px] flex items-center justify-center px-6">
 
             <div className="space-y-8 text-center">
 
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl text-white font-semibold capitalize">
+                <h1 className="text-3xl sm:text-5xl lg:text-8xl text-white font-semibold capitalize">
                     votre clinique
                     <br /> dentaire à 
                     <br /> casablanca pour un
@@ -24,6 +35,35 @@ const Home = () => {
 
                 <div>
                     <CallToAction />
+                </div>
+
+                <div className='space-x-2'>
+
+                    <button onClick={() => setImgIndex(0)}
+                    className={imgIndex === 0 
+                    ? 'h-2 w-6 rounded bg-sky-500 ring-2 ring-white'
+                    : 'h-2 w-6 rounded bg-white '}>
+                        
+                    </button>
+
+                    <button onClick={() => setImgIndex(1)}
+                    className={imgIndex === 1 
+                        ? 'h-2 w-6 rounded bg-sky-500 ring-2 ring-white'
+                        : 'h-2 w-6 rounded bg-white '}>
+                    </button>
+
+                    <button onClick={() => setImgIndex(2)}
+                    className={imgIndex === 2 
+                        ? 'h-2 w-6 rounded bg-sky-500 ring-2 ring-white'
+                        : 'h-2 w-6 rounded bg-white '}>
+                    </button>
+
+                    <button onClick={() => setImgIndex(3)}
+                    className={imgIndex === 3 
+                        ? 'h-2 w-6 rounded bg-sky-500 ring-2 ring-white'
+                        : 'h-2 w-6 rounded bg-white '}>
+                    </button>
+
                 </div>
 
             </div>
