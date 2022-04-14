@@ -2,11 +2,13 @@ import './App.css'
 import Header from './components/NavBar'
 import Home from './components/Home'
 import Services from './components/Services'
-import Team from './components/Team'
+import About from './components/About'
 import Review from './components/Review'
 import Gallery from './components/Gallery'
 import Contact from './components/Contact'
+import BeforeAndAfter from './components/BeforeAndAfter'
 import Footer from './components/Footer'
+
 
 function App() {
   return (
@@ -18,13 +20,15 @@ function App() {
 
       <Services />
 
-      <Team />
+      <About />
 
       <Review />
 
       <Gallery />
 
       <Contact />
+
+      <BeforeAndAfter />
 
       <Footer />
 

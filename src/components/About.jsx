@@ -4,11 +4,11 @@ import dr2 from '../media/dr2.png'
 
 
 
-const Team = () => {
+const About = () => {
 
 
     return (
-        <div className='grid justify-center '>
+        <div className='grid justify-center'>
 
             <div className='w-full max-w-[1200px] px-12 md:px-24 mt-8'>
                 <h1 className='text-xl font-semibold'>
@@ -80,4 +80,4 @@ const Team = () => {
     )
 }
 
-export default Team
+export default About
