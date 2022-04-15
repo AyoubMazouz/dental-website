@@ -10,7 +10,7 @@ import BeforeAndAfter from './components/BeforeAndAfter'
 import Footer from './components/Footer'
 
 
-function App() {
+const App = () => {
   return (
     <div className="font-['Poppins']">
 
