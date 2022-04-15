@@ -25,17 +25,30 @@ const Form = () => {
         <form ref={form} onSubmit={sendEmail}
         className='py-12 px-6 space-y-4'>
 
-            {/* FullName */}
+            {/* FirstName */}
             <div className="flex flex-col">
-                <label htmlFor="name"
+                <label htmlFor="first-name"
                     className="">
-                    FullName
+                    FirstName
                 </label>
                 <input type="text"
-                    name="name"
-                    placeholder="name"
+                    name="first-name"
+                    placeholder="first-name"
                     className="h-10 bg-slate-100 rounded shadow" />
             </div>
+
+            {/* LastName */}
+            <div className="flex flex-col">
+                <label htmlFor="last-name"
+                    className="">
+                    LastName
+                </label>
+                <input type="text"
+                    name="last-name"
+                    placeholder="last-name"
+                    className="h-10 bg-slate-100 rounded shadow" />
+            </div>
+
             {/* Email */}
             <div className="flex flex-col">
                 <label htmlFor="email">
@@ -46,6 +59,7 @@ const Form = () => {
                     placeholder="email"
                     className="h-10 bg-slate-100 rounded shadow" />
             </div>
+
             {/* Phone */}
             <div className="flex flex-col">
                 <label htmlFor="phone">
@@ -56,6 +70,18 @@ const Form = () => {
                     placeholder="phone"
                     className="h-10 bg-slate-100 rounded shadow" />
             </div>
+
+            {/* Subject */}
+            <div className="flex flex-col">
+                <label htmlFor="subject">
+                    Subject
+                </label>
+                <input type="text"
+                    name="subject"
+                    placeholder="subject"
+                    className="h-10 bg-slate-100 rounded shadow" />
+            </div>
+
             {/* Message */}
             <div className="flex flex-col">
                 <label htmlFor="message">
@@ -66,6 +92,7 @@ const Form = () => {
                     className="h-10 bg-slate-100 rounded shadow">
                 </textarea>
             </div>
+
             {/* Submit btn */}
             <button type="submit"
                     className="h-10 bg-slate-100 rounded shadow"
