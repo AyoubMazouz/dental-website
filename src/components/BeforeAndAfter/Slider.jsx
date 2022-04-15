@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { FaStar } from 'react-icons/fa'
 
 
 const Slider = ({ id, before, after }) => {
@@ -37,13 +38,15 @@ const Slider = ({ id, before, after }) => {
             className='absolute w-full h-full pointer-events-none' />
 
             <input type='range' 
-            min='10' max='90' value={sliderValue}
+            min='5' max='95' value={sliderValue}
             onChange={onChangeSlider}
-            className='relative w-full h-full bg-transparent outline-none --appearance-none' ></input>
+            className='relative w-full h-full bg-transparent opacity-0 outline-none --appearance-none' ></input>
 
             <div id={sliderId}
             className='h-full w-1.5 bg-blue-500 absolute top-0 pointer-events-none'>
-                <div className='h-10 w-10 rounded-full bg-blue-500 absolute top-[42%] left-[50%] translate-x-[-50%] translate-y-[50%] pointer-events-none'></div>
+                <div className='h-10 w-10 rounded-ful absolute top-[42%] left-[50%] translate-x-[-50%] translate-y-[50%] pointer-events-none'>
+                    < FaStar className='w-full h-full text-blue-500' />
+                </div>
             </div>
 
         </div>
