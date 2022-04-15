@@ -8,13 +8,12 @@ const BeforeAndAfter = () => {
     const [sliderValue, setSliderValue] = useState(50);
 
     const onChangeSlider = e => {
+        setSliderValue(e.target.value)
+
         const clipImg = document.getElementById('clip-img')
         const sliderThumb = document.getElementById('slider-thumb')
 
-        setSliderValue(e.target.value)
-
         clipImg.style.clipPath = `polygon(0 0, ${sliderValue}% 0, ${sliderValue}% 100%, 0 100%)`
-
         sliderThumb.style.left = sliderValue + '%'
     }
 
@@ -53,9 +52,7 @@ const BeforeAndAfter = () => {
 
                     <div id='slider-thumb'
                     className='h-full w-1.5 bg-blue-500 absolute top-0 pointer-events-none'>
-                        <div className='h-10 w-10 rounded-full bg-blue-500 absolute top-[42%] left-[50%] translate-x-[-50%] translate-y-[50%] pointer-events-none'>
-
-                        </div>
+                        <div className='h-10 w-10 rounded-full bg-blue-500 absolute top-[42%] left-[50%] translate-x-[-50%] translate-y-[50%] pointer-events-none'></div>
                     </div>
 
                 </div>
