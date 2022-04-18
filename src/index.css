@@ -6,9 +6,6 @@
 
 
 @layer components {
-  .nav-links {
-    @apply mx-2 py-2 w-screen text-center font-semibold capitalize  transition-all duration-300 ease-in md:hover:underline text-slate-600 hover:bg-sky-600 hover:text-white md:hover:bg-transparent md:hover:text-sky-600;
-  }
   .--grid {
     display: grid;
     grid-gap: 1rem;
@@ -17,6 +14,14 @@
   }
   .--clip-polygon {
     clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+  }
+  .--nav-sm-links {
+    @apply font-[Roboto] w-full hover:bg-sky-500 hover:text-white uppercase tracking-widest font-light;
+  }
+  .--nav-sm-links:hover {
+    @apply font-bold;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
   }
   
 }

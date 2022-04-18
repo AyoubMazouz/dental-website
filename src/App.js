@@ -12,7 +12,7 @@ import Footer from './components/Footer'
 
 const App = () => {
   return (
-    <div className="font-['Poppins']">
+    <div className="font-[Montserrat]">
 
       <Header />
 
