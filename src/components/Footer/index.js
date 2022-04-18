@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="w-full lg:max-w-[1200px] px-12 md:px-24 py-12 grid grid-cols-2">
 
             <div>
-                <Logo />
+                This is a Logo
             </div>
 
             <div>
