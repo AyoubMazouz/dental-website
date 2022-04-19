@@ -16,7 +16,7 @@
     clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
   }
   .--nav-sm-links {
-    @apply font-[Roboto] w-full hover:bg-sky-500 hover:text-white uppercase tracking-widest font-light;
+    @apply font-[Roboto] w-full uppercase tracking-widest font-light;
   }
   .--nav-sm-links:hover {
     @apply font-bold;

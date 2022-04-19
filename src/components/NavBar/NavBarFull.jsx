@@ -9,7 +9,7 @@ export default function NavBarFull() {
 
     return (
 
-        <header className='hidden lg:flex justify-center w-full h-[160px]'>
+        <header className='flex justify-center w-full h-[160px]'>
 
             <nav className='w-full h-full lg:max-w-[1900px] flex justify-between px-6 trans'>
 

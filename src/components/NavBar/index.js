@@ -5,8 +5,8 @@ import NavBarSmall from './NavBarSmall'
 export default function NavBar() {
     return (
       <>
-            <NavBarFull  />
-            <NavBarSmall />
+            <div className='hidden lg:block'><NavBarFull  /></div>
+            <div className='block lg:hidden'><NavBarSmall /></div>
       </>
     )
 }

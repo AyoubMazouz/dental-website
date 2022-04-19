@@ -484,10 +484,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .--nav-sm-links:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
   font-weight: 700;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
@@ -604,6 +600,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .-mt-24{
   margin-top: -6rem;
+}
+
+.block{
+  display: block;
 }
 
 .flex{
@@ -1206,8 +1206,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     grid-row: span 2 / span 2;
   }
 
-  .lg\:flex{
-    display: flex;
+  .lg\:block{
+    display: block;
   }
 
   .lg\:hidden{
