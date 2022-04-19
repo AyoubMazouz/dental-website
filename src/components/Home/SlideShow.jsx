@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion";
-import { wrap } from "popmotion"
-
 
 
 const SlideShow = ({ images, index, setIndex, autoScroll, timeInterval }) => {
@@ -16,7 +14,11 @@ const SlideShow = ({ images, index, setIndex, autoScroll, timeInterval }) => {
   }, [index])
 
   
-  return <img src={images[index]} alt="" className="object-cover" />
+  return (
+    images.map((img, id) => (
+      index === id && <img key={id} src={img.img} alt={img.alt} className="object-cover" />
+    ))
+  )
 }
 
 export default SlideShow

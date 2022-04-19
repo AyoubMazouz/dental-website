@@ -2,12 +2,8 @@ import { useState } from "react"
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import SlideShow from "./SlideShow"
 import Header from "./Header"
-import NavBtn from "./NavBtn"
-import img1 from '../../media/img1.png'
-import img2 from '../../media/img2.png'
-import img3 from '../../media/img3.png'
-import img4 from '../../media/img4.png'
-import img5 from '../../media/img5.png'
+import ImgNavBtn from "./ImgNavBtn"
+import { images } from './data'
 
 
 
@@ -16,7 +12,6 @@ const Home = () => {
 
   const [index, setIndex] = useState(0)
   const [timeInterval, autoScroll] = [3000, true] 
-  const images = [img1,img2,img3,img4,img5]
 
   const rightBtnOnClick = () => setIndex(index === images.length - 1 ? 0 : index + 1)
 
@@ -34,12 +29,10 @@ const Home = () => {
           <FaArrowLeft  onClick={leftBtnOnClick}  className='text-white text-6xl'/>
 
             <div className="h-full flex flex-col justify-between items-center">
-              <div></div>
-              <Header />
-
+              <div></div><Header />
               <div className="flex space-x-4 ">
-                  { images && images.map((image, i) => (
-                    <NavBtn currentIndex={index} index={i} setIndex={setIndex} />
+                  { images && images.map((img, i) => (
+                    <ImgNavBtn currentIndex={index} index={i} setIndex={setIndex} />
                   ))}
               </div>
             </div>
