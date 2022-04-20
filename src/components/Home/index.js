@@ -3,7 +3,7 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import SlideShow from "./SlideShow"
 import Header from "./Header"
 import ImgNavBtn from "./ImgNavBtn"
-import { images } from './data'
+import { images, header } from './data'
 
 
 
@@ -29,10 +29,10 @@ const Home = () => {
           <FaArrowLeft  onClick={leftBtnOnClick}  className='text-white text-6xl'/>
 
             <div className="h-full flex flex-col justify-between items-center">
-              <div></div><Header />
+              <div></div><Header header={header} />
               <div className="flex space-x-4 ">
                   { images && images.map((img, i) => (
-                    <ImgNavBtn currentIndex={index} index={i} setIndex={setIndex} />
+                    <ImgNavBtn key={i} currentIndex={index} index={i} setIndex={setIndex} />
                   ))}
               </div>
             </div>

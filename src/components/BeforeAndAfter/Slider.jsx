@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { FaStar } from 'react-icons/fa'
 
 
-const Slider = ({ id, before, after }) => {
+const Slider = ({ id, alt, before, after }) => {
 
     const [sliderValue, setSliderValue] = useState(50);
 
@@ -30,11 +30,10 @@ const Slider = ({ id, before, after }) => {
 
         <div className='w-[360px] h-[420px] relative rounded shadow-lg mb-16 overflow-hidden'>
 
-            <img src={before} alt=""
+            <img src={before} alt={alt}
             className='absolute w-full h-full pointer-events-none' />
 
-            <img src={after} alt=""
-            id={imgId}
+            <img src={after} alt={alt} id={imgId}
             className='absolute w-full h-full pointer-events-none' />
 
             <input type='range' 

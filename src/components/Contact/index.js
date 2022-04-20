@@ -1,6 +1,7 @@
 import Details from "./Details"
 import Form from "./Form"
 import GoogleMaps from "./GoogleMaps"
+import { details, location } from './data'
 
 const Contact = () => {
 
@@ -17,14 +18,12 @@ const Contact = () => {
 
                 {/* Heading */}
                 <div className="col-span-2">
-                    <h1 className="font-semibold text-xl">
-                        Contact
-                    </h1>
+                    <h1 className="font-semibold text-xl">Contact</h1>
                 </div>
 
-                <Details />
+                <Details {...details} />
                 <Form />
-                <GoogleMaps />
+                <GoogleMaps location={location} />
 
             </div>
   

@@ -622,6 +622,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   aspect-ratio: 1 / 1;
 }
 
+.aspect-square{
+  aspect-ratio: 1 / 1;
+}
+
 .h-full{
   height: 100%;
 }
