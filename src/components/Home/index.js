@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from 'react-icons/md'
 import SlideShow from "./SlideShow"
 import Header from "./Header"
 import ImgNavBtn from "./ImgNavBtn"
@@ -26,7 +26,7 @@ const Home = () => {
         </div>
 
         <div className="w-full h-full absolute top-0 flex justify-between items-center px-8 py-8">
-          <FaArrowLeft  onClick={leftBtnOnClick}  className='text-white text-6xl'/>
+          <MdOutlineArrowBackIos  onClick={leftBtnOnClick}  className='text-white  opacity-50 text-6xl'/>
 
             <div className="h-full flex flex-col justify-between items-center">
               <div></div><Header header={header} />
@@ -37,7 +37,7 @@ const Home = () => {
               </div>
             </div>
 
-          <FaArrowRight onClick={rightBtnOnClick} className='text-white text-6xl'/>
+          <MdOutlineArrowForwardIos onClick={rightBtnOnClick} className='text-white opacity-50 text-6xl'/>
         </div>
 
       </div>
