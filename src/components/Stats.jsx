@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export default function Stats({ title, record, speed }) {
+export default function Stats({ title, record, speed, after='' }) {
 
     const [count, setCount] = useState(0)
     useEffect(() => {
@@ -11,6 +11,9 @@ export default function Stats({ title, record, speed }) {
     }, [count])
 
     return (
-        <div>{count}</div>
+        <div className='font-bold flex justify-center items-center flex-col gap-4'>
+            <h1 className='text-[4.4rem] text-sky-500'>{count + after}</h1>
+            <h1 className='text-xl'>{title}</h1>
+        </div>
     )
 }

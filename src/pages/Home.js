@@ -8,10 +8,9 @@ import Details from '../components/Details'
 import Form from '../components/Form'
 import Slider from '../components/Slider'
 import Stats from '../components/Stats'
+import Header from '../components/Header'
 
 import { slideShow, info, profiles, comparisonImgs, services, reviews, stats } from '../data'
-
-
 
 export default function Home() {
   return (
@@ -20,20 +19,21 @@ export default function Home() {
         <SlideShow { ...slideShow } />
         <div className='max-w-[1600px] flex flex-col items-center'>
           {/* Stats */}
-          <h1>Stats</h1>
-          {stats.map((stat, id) => <Stats key={id} { ...stat } speed={5000} />)}
+          <div className='w-full flex justify-around items-center py-8'>
+            {stats.map((stat, id) => <Stats key={id} { ...stat } speed={3000} />)}
+          </div>
           {/* Services */}
-          <h1 className='font-semibold text-xl'>Pourquoi Clinique la Colline</h1>
+          <Header content='Pourquoi Clinique la Colline'/>
           <div className='flex gap-8'>
             {services.map((v, id) => <ServicesCard { ...v } />)} 
           </div>
            {/* About */}
-           <h1 className='text-xl font-semibold'>Notre Equipe</h1>
+           <Header content='Notre Equipe'/>
            <div className='flex gap-8'>
             {profiles.map((v, id) => <AboutCard key={id} { ...v }/>)}
            </div>
            {/* Reviews */}
-           <h1 className='text-xl font-semibold'>What our client say about us</h1>
+           <Header content='What our client say about us'/>
            <div className='flex gap-8'>
             {reviews.map((v, id) => <ReviewCard key={id} { ...v } />)}
            </div>
@@ -41,7 +41,7 @@ export default function Home() {
            <Gallery />
            {/* Contact */}
            <div className='grid grid-col-2'>
-            <h1 className="font-semibold text-xl col-span-full">Contact</h1>
+              <Header content='Contact'/>
               <Details {...info} />
               <Form />
               <GoogleMaps location={info.location} />

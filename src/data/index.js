@@ -32,25 +32,22 @@ export const info = {
 }
 export const stats = [
     {
-        title: 'pations treated',
-        record: 12,
+        title: 'Dentistes et Assistantes dentaires ',
+        record: 1297,
     },
     {
-        title: 'hours of work',
-        record: 90,
+        title: 'Centres',
+        record: 73,
     },
     {
-        title: 'times',
-        record: 1423,
+        title: 'Patients reçus',
+        record: 840891,
     },
     {
-        title: 'money',
-        record: 123,
+        title: 'Note de satisfaction de nos patients',
+        record: 9,
+        after: '/10'
     },
-    {
-        title: 'constudus',
-        record: 356,
-    }
 ]
 export const profiles = [
     {

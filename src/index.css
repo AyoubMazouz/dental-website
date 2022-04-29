@@ -53,5 +53,6 @@
   width: 60px;
 }
 
-
-
+.--link-nav-full {
+  @apply uppercase px-2 relative after:absolute after:-bottom-[.3rem] after:left-0 after:content-[''] after:w-0 after:h-[.4rem] after:bg-sky-500 after:hover:w-full after:transition-all after:duration-300;
+}
