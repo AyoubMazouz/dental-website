@@ -1,6 +1,5 @@
-import React from 'react'
 
-const Details = ({ address, phone, time }) => {
+const Details = ({ address, phone, workHours }) => {
   return (
     
         <div className="col-span-2 grid grid-cols-3 gap-2 bg-sky-400 py-4 px-6">
@@ -19,7 +18,7 @@ const Details = ({ address, phone, time }) => {
             {/* Horaire */}
             <div className="bg-sky-300 py-4 px-2 rounded">
                 <h3 className="font-semibold">Horaire</h3>
-                <p>{time}</p>
+                <p>{workHours}</p>
             </div>
 
         </div>
