@@ -1,7 +1,7 @@
 import SlideShow from '../components/SlideShow'
 import ServicesCard from '../components/ServicesCard'
 import AboutCard from '../components/AboutCard'
-import ReviewCard from '../components/ReviewCard'
+import Reviews from '../components/Reviews'
 import Gallery from '../components/Gallery'
 import GoogleMaps from '../components/GoogleMaps'
 import Details from '../components/Details'
@@ -17,15 +17,17 @@ import { CgArrowLongRight } from 'react-icons/cg'
 export default function Home() {
   return (
     <div className='flex flex-col items-center text-dark bg-light'>
+
         {/* SlideShow */}
         <SlideShow { ...slideShow } />
-        <div className='max-w-[1600px] flex flex-col items-center'>
+
           {/* Stats */}
-          <div className='w-full flex justify-around items-center mt-4'>
+          <div className='max-w-[1600px] flex justify-around items-center mt-4'>
             {stats.map((stat, id) => <Stats key={id} { ...stat } speed={3000} />)}
           </div>
+
           {/* Services */}
-          <div className='w-full my-32 flex justify-around'>
+          <div className='max-w-[1600px] my-32 flex justify-around'>
             <div className='w-[60ch]'><Header content={services.whyUs.title} /></div>
             <p className='w-[60ch] text-lg'>{services.whyUs.content}
               <Link to='#' className='--link text-primary font-bold py-2'>
@@ -35,30 +37,44 @@ export default function Home() {
           <div className='flex gap-8'>
             {services.services.map((v, id) => <ServicesCard { ...v } />)} 
           </div>
+
            {/* About */}
-           <Header content='Notre Equipe'/>
-           <div className='flex gap-8'>
-            {profiles.map((v, id) => <AboutCard key={id} { ...v }/>)}
+           <div className='max-w-[1600px] '>
+            <Header content='Notre Equipe'/>
+            <div className='flex gap-8'>
+              {profiles.map((v, id) => <AboutCard key={id} { ...v }/>)}
+            </div>
            </div>
+
            {/* Reviews */}
-           <Header content='What our client say about us'/>
-           <div className='flex gap-8'>
-            {reviews.map((v, id) => <ReviewCard key={id} { ...v } />)}
+           <div>
+            <div className='max-w-[1600px] relative w-full text-center text-primary'>
+                  <h1 className='font-[roman] text-2xl italic'>What our customers</h1>
+                  <h1 className='font-bold text-4xl'>Are Saying</h1>
+                <div className='before:content-[""] before:h-[2px] before:w-full before:bg-primary before:absolute before:top-[50%] before:right-[60%] before:opacity-50 before:scale-x-[75%] after:content-[""] after:h-[2px] after:w-full after:bg-primary after:absolute after:top-[50%] after:left-[60%] after:opacity-50 after:scale-x-[75%]'></div>
+              </div>
+              <div className='max-w-[1600px] h-[70vh] flex justify-center items-center'>
+                <Reviews reviews={reviews} />
+              </div>
+              <div className='w-full h-[2px] bg-primary opacity-50 scale-x-[200%]'></div>
            </div>
+
            {/* Gallery */}
            <Gallery />
+
            {/* Contact */}
-           <div className='grid grid-col-2'>
+           <div className='max-w-[1600px] grid grid-col-2'>
               <Header content='Contact'/>
               <Details {...info} />
               <Form />
               <GoogleMaps location={info.location} />
            </div>
+
            {/* Before & After */}
-           <div className='flex'>
+           <div className='max-w-[1600px] flex'>
             {comparisonImgs.map((v, id) => <Slider id={id} { ...v } />)}
            </div>
-        </div>
+
     </div>
   )
 }

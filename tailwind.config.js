@@ -7,6 +7,9 @@ module.exports = {
         light: '#FFFFFF',
         primary: '#005FA0',
         secondary: '#FE8573',
+        'light-blue': '#0091FF',
+        'light-gray': '#95ABBA',
+        'bluish-gray': '#F8FCFF'
       }
     },
   },

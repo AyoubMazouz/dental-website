@@ -16,7 +16,7 @@ export default function NavBarFull() {
     return (
         <>
             <nav className={`${scrolling 
-                ? 'w-full sticky top-0 z-10 h-[70px] hidden md:flex flex-col justify-center items-center bg-light shadow-lg transitions duration-200'
+                ? 'w-full sticky top-0 z-20 h-[70px] hidden md:flex flex-col justify-center items-center bg-light shadow-lg transitions duration-200'
                 : 'w-full h-[140px] hidden md:flex flex-col justify-center items-center transitions duration-200'}`}>
                 {!scrolling ? <div className={'w-full h-[25%] px-6 flex justify-around items-center bg-primary text-light'}>
                     <ul className='flex items-center text-2xl space-x-6'>

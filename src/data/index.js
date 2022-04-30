@@ -114,32 +114,36 @@ export const services = {
 }
 export const reviews = [
     {
-        name: 'ahmed halalouia',
-        img: 'https://via.placeholder.com/60x60',
-        alt: 'person',
+        name: 'Mr. ahmed halalouia',
+        title: 'As Good As Advertised',
         rating: 5,
-        comment: 'loren ipsum loren ipsum loren ipsum loren ipsum loren ipsum'
+        date: '11:34PM Sat jun 2021',
+        source: 'Google',
+        comment: 'We never take.'
     },
     {
-        name: 'ahmed halalouia',
-        img: 'https://via.placeholder.com/60x60',
-        alt: 'person',
+        name: 'Mr. ahmed halalouia',
+        date: '11:34PM Sat jun 2021',
+        title: 'As Good As Advertised',
         rating: 4,
-        comment: 'loren ipsum loren ipsum loren ipsum loren ipsum loren ipsum'
+        source: 'Google',
+        comment: 'We never take a one-size-fits-all approach to dental bridges.'
     },
     {
-        name: 'ahmed halalouia',
-        img: 'https://via.placeholder.com/60x60',
-        alt: 'person',
+        name: 'Mr. ahmed halalouia',
+        date: '11:34PM Sat jun 2021',
+        title: 'As Good As Advertised',
         rating: 2,
-        comment: 'loren ipsum loren ipsum loren ipsum loren ipsum loren ipsum'
+        source: 'Google',
+        comment: 'We never take a one-size-fits-all approach to dental bridges. Dr. Chern will evaluate your missing teeth, working closely with our team to create a custom solution. We never take a one-size-fits-all approach to dental bridges.'
     },
     {
-        name: 'ahmed halalouia',
-        img: 'https://via.placeholder.com/60x60',
-        alt: 'person',
+        name: 'Mr. ahmed halalouia',
+        date: '11:34PM Sat jun 2021',
+        title: 'As Good As Advertised',
         rating: 1,
-        comment: 'loren ipsum loren ipsum loren ipsum loren ipsum loren ipsum'
+        source: 'Google',
+        comment: 'We never take a one-size-fits-all approach to dental bridges. Dr. Chern will evaluate your missing teeth, working closely with our team to create a custom solution. We never take a one-size-fits-all approach to dental bridges.'
     },
 ]
 export const comparisonImgs = [

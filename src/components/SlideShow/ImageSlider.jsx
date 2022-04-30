@@ -1,24 +1,21 @@
-import { useEffect, useState } from "react"
-import { motion, AnimatePresence } from "framer-motion";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 
-const SlideShow = ({ images, index, setIndex, autoScroll, timeInterval }) => {
-
-  let timer;
-
-  useEffect( () => {
-    timer = setTimeout(() => {
-      if (autoScroll) setIndex(index === images.length - 1 ? 0 : index + 1)
-    }, timeInterval)
-    return () => clearTimeout(timer)
-  }, [index])
-
-  
+export default function SlideShow({ images }) {
   return (
-    images.map((img, id) => (
-      index === id && <img key={id} src={img.img} alt={img.alt} className="object-cover" />
-    ))
+      <Swiper modules={[Navigation, Pagination, Autoplay]}
+              navigation={true}
+              pagination={{ clickable: true }}
+              loop={true}
+              autoHeight={true}
+              autoplay={{ delay: 5000 }}>
+        {images.map((img, id) => <SwiperSlide className="">
+            <img key={id} src={img.img} alt={img.alt} className="object-cover" />
+          </SwiperSlide>)}
+      </Swiper>    
   )
 }
-
-export default SlideShow
