@@ -19,10 +19,6 @@ export const info = {
     address: '441, 2ème Etage Lot La Colline Californie, Casablanca',
     workHours: "Notre clinique vous informe que l'horaire de travail est de 9h à 19h sauf Samedi de 9h à 15h",
     location: '',
-    whyUs: {
-        title: 'Des traitements dentaires adaptés à vos besoins et au prix le plus juste',
-        content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, suscipit assumenda numquam fuga voluptas alias. Vel est, sapiente, enim nihil maiores beatae esse incidunt quod harum nisi perferendis ipsam? Ad ullam odit, non illo at sunt, praesentium ab ratione, omnis sed nostrum nobis eveniet aperiam! Molestiae repellat eum exercitationem laborum, aliquam dicta ipsam aspernatur expedita sint quam maxime quod perferendis?',
-    },
 }
 export const stats = [
     {
@@ -84,40 +80,38 @@ export const slideShow = {
         },
     ]
 }
-export const services = [
-    {
-        title: 'lorem ipsum',
-        description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
+export const services = {
+    whyUs: {
+        title: 'Des traitements dentaires adaptés à vos besoins et au prix le plus juste',
+        content: 'Chez Dentego, nous vous garantissons des traitements dentaires adaptés à vos besoins, prodigués par le dentiste de votre choix, au prix le plus juste et avec une prise en charge rapide, globale et personnalisée.',
     },
-    {
-        title: 'lorem ipsum',
-        description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
-    },
-    {
-        title: 'lorem ipsum',
-        description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
-    },
-    {
-        title: 'lorem ipsum',
-        description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
-    },
-    {
-        title: 'lorem ipsum',
-        description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
-    },
-    {
-        title: 'lorem ipsum',
-        description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
-    },
-    {
-        title: 'lorem ipsum',
-        description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
-    },
-    {
-        title: 'lorem ipsum',
-        description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
-    },
-]
+    services: [
+        {
+            img: '/images/services/orthodontie.jpg',
+            alt: '',
+            title: 'Orthodontie',
+            description: "Nos praticiens assurent des traitements d'orthodontie qui consistent à déplacer les dents afin de retrouver un alignement harmonieux et corriger les dysfonctionnements incommodants au quotidien."
+        },
+        {
+            img: '/images/services/protheses-et-implants-dentaires.jpg',
+            alt: '',
+            title: "Prothèses et implants dentaires",
+            description: "Les prothèses et implants dentaires sont une solution qui permet de remplacer les dents abîmées ou manquantes, sur le long terme, afin de retrouver le confort et les propriétés esthétiques d'une bonne dentition. Des chirurgiens spécialistes vous accueillent dans tous nos centres dentaires pour vous conseiller et réaliser ces interventions."
+        },
+        {
+            img: '/images/services/soin-dentaire.jpg',
+            alt: '',
+            title: 'Soins dentaires',
+            description: 'Les soins dentaires sont multiples et variés et ont pour objectif de prévenir les maladies des dents et des gencives et/ou de les traiter pour conserver une bouche saine. En fonction de vos besoins, les tarifs des soins dentaires sont différents et un devis sera établi au préalable de manière transparente.'
+        },
+        {
+            img: '/images/services/urgence-dentaire.jpg',
+            alt: '',
+            title: 'Urgence Dentaire',
+            description: "Douleur bucco-dentaire ou accident? Les centres de santé dentaire Dentego vous proposent un service d'urgence, avec ou sans rendez-vous."
+        },
+    ]
+}
 export const reviews = [
     {
         name: 'ahmed halalouia',

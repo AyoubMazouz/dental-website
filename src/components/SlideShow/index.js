@@ -26,7 +26,7 @@ const Home = ({ images, header }) => {
               {/* Header */}
               <Header header={header} />
               {/* Nav buttons */}
-              <div className="flex space-x-4 ">
+              <div className="flex space-x-4">
                   {images && images.map((_, id) => <ImgNavBtn key={id} currentIndex={index} index={id} setIndex={setIndex} />)}
               </div>
             </div>

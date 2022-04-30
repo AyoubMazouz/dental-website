@@ -12,7 +12,6 @@ import Header from '../components/Header'
 
 import { slideShow, info, profiles, comparisonImgs, services, reviews, stats } from '../data'
 import { Link } from 'react-router-dom'
-
 import { CgArrowLongRight } from 'react-icons/cg'
 
 export default function Home() {
@@ -25,18 +24,16 @@ export default function Home() {
           <div className='w-full flex justify-around items-center mt-4'>
             {stats.map((stat, id) => <Stats key={id} { ...stat } speed={3000} />)}
           </div>
-          {/* Why Us */}
+          {/* Services */}
           <div className='w-full my-32 flex justify-around'>
-            <div className='w-[60ch]'><Header content={info.whyUs.title} /></div>
-            <p className='w-[60ch] text-lg'>{info.whyUs.content}
-              <Link to='#' className='flex gap-4 items-center text-primary underline font-bold py-2'>
-                About Us<CgArrowLongRight className='text-3xl' /></Link>
+            <div className='w-[60ch]'><Header content={services.whyUs.title} /></div>
+            <p className='w-[60ch] text-lg'>{services.whyUs.content}
+              <Link to='#' className='--link text-primary font-bold py-2'>
+                Our Services<CgArrowLongRight className='--nav-icons' /></Link>
             </p>
           </div>
-          {/* Services */}
-          <Header content='Pourquoi Clinique la Colline'/>
           <div className='flex gap-8'>
-            {services.map((v, id) => <ServicesCard { ...v } />)} 
+            {services.services.map((v, id) => <ServicesCard { ...v } />)} 
           </div>
            {/* About */}
            <Header content='Notre Equipe'/>

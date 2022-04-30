@@ -24,8 +24,8 @@ export default function NavBarFull() {
                         {links.icons.instagram && <FaInstagram className='--nav-icons' />}
                         {links.icons.linkedin && <FaLinkedin className='--nav-icons' />}
                     </ul>
-                    <Link to='#' className='--nav-detail-link'><FaLocationArrow />{info.address}</Link>
-                    <div className='--nav-detail-link'><FaPhone />{info.phone[0]}</div>
+                    <Link to='#' className='--link'><FaLocationArrow />{info.address}</Link>
+                    <div className='--link'><FaPhone />{info.phone[0]}</div>
                 </div> : null}
                 <div className='w-full lg:max-w-[1600px] h-[75%] px-6 flex justify-between items-center'>
                     <div className='h-full flex items-center'><Logo /></div>
@@ -45,14 +45,14 @@ export default function NavBarFull() {
                         <li><Link to='#' className='--link-nav-full'>blog</Link></li>
                         <li><Link to='#' className='--link-nav-full'>contact</Link></li>
                     </ul>
-                    <div className='flex h-10 rounded overflow-hidden relative text-primary ring-2 ring-primary hover:ring-opacity-75'>
-                        <input type="text" placeholder='Search' className='w-[12rem] h-full px-2 focus:outline-none' />
+                    <div className='flex h-10 overflow-hidden relative text-primary p-1'>
+                        <input type="text" placeholder='Search' className='w-[12rem] h-full px-2 focus:outline-none ring-2 ring-primary hover:ring-opacity-75 focus:ring-secondary rounded-md' />
                         <FaSearch className='h-6 w-6 absolute right-[.5rem] top-[.5rem]' />
                     </div>
                 </div>
             </nav>
             {scrolling 
-                ? <ul className='fixed z-20 top-[50%] right-0 w-[100px] translate-y-[-50%] flex flex-col text-4xl space-y-6'>
+                ? <ul className='fixed z-20 top-[50%] right-0 w-[100px] translate-y-[-50%] flex flex-col space-y-6'>
                     {links.icons.facebook && <FaFacebook />}
                     {links.icons.instagram && <FaInstagram />}
                     {links.icons.linkedin && <FaLinkedin />}
