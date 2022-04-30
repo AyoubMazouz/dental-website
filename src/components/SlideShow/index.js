@@ -14,12 +14,12 @@ const Home = ({ images, header }) => {
     <div className="flex justify-center w-full">
       <div className="w-full max-h-[90vh] relative">
         {/* Image Slider */}
-        <div className="overflow-hidden max-h-[65vh]">
+        <div className="overflow-hidden max-h-[70vh]">
           <ImageSlider images={images} index={index} setIndex={setIndex} autoScroll={autoScroll} timeInterval={timeInterval} />
         </div>
-        <div className="w-full h-full absolute top-0 flex justify-between items-center px-8 py-8">
+        <div className="w-full h-full absolute top-0 flex justify-between items-center px-8 py-8 bg-[rgba(0,0,0,.3)]">
           {/* Left Arrow */}
-          <MdOutlineArrowBackIos  onClick={leftArrowClick}  className='text-white  opacity-50 text-6xl'/>
+          <MdOutlineArrowBackIos onClick={leftArrowClick}  className='text-white opacity-50 text-6xl'/>
             <div className="h-full flex flex-col justify-between items-center">
               {/* Empty div for layout */}
               <div></div>

@@ -1,13 +1,3 @@
-import img1 from '../media/img1.png'
-import img2 from '../media/img2.png'
-import img3 from '../media/img3.png'
-import img4 from '../media/img4.png'
-import dr1 from '../media/dr1.png'
-import dr2 from '../media/dr2.png'
-import before1 from '../media/good-teeth1.png'
-import after1 from '../media/bad-teeth1.png'
-
-
 export const links = {
     nav: [
         ['home', '/'], 
@@ -29,6 +19,10 @@ export const info = {
     address: '441, 2ème Etage Lot La Colline Californie, Casablanca',
     workHours: "Notre clinique vous informe que l'horaire de travail est de 9h à 19h sauf Samedi de 9h à 15h",
     location: '',
+    whyUs: {
+        title: 'Des traitements dentaires adaptés à vos besoins et au prix le plus juste',
+        content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, suscipit assumenda numquam fuga voluptas alias. Vel est, sapiente, enim nihil maiores beatae esse incidunt quod harum nisi perferendis ipsam? Ad ullam odit, non illo at sunt, praesentium ab ratione, omnis sed nostrum nobis eveniet aperiam! Molestiae repellat eum exercitationem laborum, aliquam dicta ipsam aspernatur expedita sint quam maxime quod perferendis?',
+    },
 }
 export const stats = [
     {
@@ -51,7 +45,7 @@ export const stats = [
 ]
 export const profiles = [
     {
-        img: dr1,
+        img: '/images/dr1.png',
         name: 'Dr.Hanan Nehroui',
         alt: '',
         description: 'Tous ont une philosophie d’approche en douceur et de savoir-faire que vous apprécierez.',
@@ -60,7 +54,7 @@ export const profiles = [
         instagram: '#'
     },
     {
-        img: dr2,
+        img: '/images/dr1.png',
         name: 'Dr.Hanan Nehroui',
         alt: '',
         description: 'Tous ont une philosophie d’approche en douceur et de savoir-faire que vous apprécierez.',
@@ -70,22 +64,22 @@ export const profiles = [
     },
 ]
 export const slideShow = {
-    header: "Une clinique multi-spécialiste pour traiter l'ensemble de vos besoins dentaires.",
+    header: "Dentego, le meilleur de la santé dentaire, pour tous",
     images: [
         {
-            img: img1,
+            img: '/images/slideshow/img1.png',
             alt: 'imageAlternative',
         },
         {
-            img: img2,
+            img: '/images/slideshow/img2.png',
             alt: 'imageAlternative',
         },
         {
-            img: img3,
+            img: '/images/slideshow/img3.png',
             alt: 'imageAlternative',
         },
         {
-            img: img4,
+            img: '/images/slideshow/img4.png',
             alt: 'imageAlternative',
         },
     ]
@@ -157,13 +151,13 @@ export const reviews = [
 export const comparisonImgs = [
     {
         alt   : '',
-        before: before1,
-        after : after1,
+        before: '/images/before-after/before1.png',
+        after : '/images/before-after/after1.png',
     },
     {
         alt   : '',
-        before: before1,
-        after : after1,
+        before: '/images/before-after/before1.png',
+        after : '/images/before-after/after1.png',
     },
 ]
 
