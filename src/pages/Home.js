@@ -38,25 +38,17 @@ export default function Home() {
             {services.services.map((v, id) => <ServicesCard { ...v } />)} 
           </div>
 
-           {/* About */}
-           <div className='max-w-[1600px] '>
-            <Header content='Notre Equipe'/>
-            <div className='flex gap-8'>
-              {profiles.map((v, id) => <AboutCard key={id} { ...v }/>)}
-            </div>
-           </div>
-
            {/* Reviews */}
-           <div>
-            <div className='max-w-[1600px] relative w-full text-center text-primary'>
-                  <h1 className='font-[roman] text-2xl italic'>What our customers</h1>
-                  <h1 className='font-bold text-4xl'>Are Saying</h1>
-                <div className='before:content-[""] before:h-[2px] before:w-full before:bg-primary before:absolute before:top-[50%] before:right-[60%] before:opacity-50 before:scale-x-[75%] after:content-[""] after:h-[2px] after:w-full after:bg-primary after:absolute after:top-[50%] after:left-[60%] after:opacity-50 after:scale-x-[75%]'></div>
+           <div className='max-w-[1600px] flex flex-col justify-center items-center'>
+              <div className='relative text-center text-primary overflow-hidden'>
+                <h1 className='font-[roman] text-2xl italic'>What our customers</h1>
+                <h1 className='font-bold text-4xl'>Are Saying</h1>
+                <div className='before:content-[""] before:h-[2px] before:w-[800px] before:bg-primary before:absolute before:top-[50%] before:right-[0%] before:opacity-50 before:scale-x-[75%] after:content-[""] after:h-[2px] after:w-full after:bg-primary after:absolute after:top-[50%] after:left-[60%] after:opacity-50 after:scale-x-[75%]'></div>
               </div>
-              <div className='max-w-[1600px] h-[70vh] flex justify-center items-center'>
+              <div className='h-[70vh] max-w-[99.1vw] flex justify-center items-center'>
                 <Reviews reviews={reviews} />
               </div>
-              <div className='w-full h-[2px] bg-primary opacity-50 scale-x-[200%]'></div>
+              <div className='w-[1600px] h-[2px] bg-primary opacity-50'></div>
            </div>
 
            {/* Gallery */}
