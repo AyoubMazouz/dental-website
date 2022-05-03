@@ -2,24 +2,16 @@ import { FaCalendar } from 'react-icons/fa'
 import { CgArrowLongRight } from 'react-icons/cg'
 import { Link } from 'react-router-dom'
 
-const Card = ({ img, alt, title, description }) => {
+export default function Card({ service }) {
   return (
-    
-    <div className='relative space-y-4 text-center bg-slate-100 rounded-md shadow-md overflow-hidden max-w-[380px] group transition-transform duration-300'>
-
-        <div className="w-full"><img src={img} alt={alt} className='object-cover aspect-square' /></div>
-        <div className="absolute z-10 bottom-[-65%] group-hover:bottom-0 w-full h-[80%] bg-white pt-4 px-4 transition-all duration-300">
-          <h3 className='font-semibold text-center mb-4 text-primary text-lg text-bold'>{title}</h3>
-          <p className='text-left'>{description}</p>
-          <Link to='#' className='--link text-primary font-bold'
-          >Lire la suite<CgArrowLongRight className='--nav-icons' /></Link>
+    <div className='relative group transition-transform duration-300'>
+        <div className="w-full"><img src={service.img} alt={service.alt} className='object-cover aspect-square pointer-events-none' /></div>
+        <div className="absolute z-10 bottom-[-90%] group-hover:bottom-[-25%] w-full h-[100%] bg-primary text-light px-6 transition-all duration-300">
+          <h3 className='font-semibold text-center mt-[1.8rem] group-hover:mt-[1.2rem] text-lg text-bold pointer-events-none'>{service.title}</h3>
+          <p className='text-left mt-[1.2rem] group-hover:mt-[0rem] pointer-events-none'>{service.description}</p>
+          <Link to='#' className='--link text-bluish-gray font-bold'>Lire la suite<CgArrowLongRight className='--nav-icons' /></Link>
         </div>
-        <FaCalendar className='--nav-icons absolute top-0 right-4 text-secondary' />
-
-
+        <FaCalendar className='--nav-icons absolute top-[1rem] right-[1rem] bg-secondary text-[2.5rem] text-light p-2 rounded-full' />
     </div>
-
   )
 }
-
-export default Card

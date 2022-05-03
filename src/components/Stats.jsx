@@ -11,9 +11,9 @@ export default function Stats({ title, record, speed, after='' }) {
     }, [count])
 
     return (
-        <div className='font-bold flex justify-center items-center flex-col'>
+        <div className='font-bold flex items-center flex-col'>
             <h1 className='text-[4.4rem] text-primary'>{count + after}</h1>
-            <h1 className='text-xl'>{title}</h1>
+            <h1 className='text-lg text-center'>{title}</h1>
         </div>
     )
 }

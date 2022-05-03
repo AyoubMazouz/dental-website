@@ -41,6 +41,21 @@
     height: 60px;
     width: 60px;
   }
+  .--input-base {
+    @apply focus:outline-none px-6 py-4 font-semibold border-[1px] focus:border-secondary resize-none transition-all duration-300 rounded-lg;
+  }
+  .--label-base {
+    @apply font-medium text-base text-primary hover:opacity-75 transition-all duration-300;
+  }
+  .--form-icon {
+    @apply absolute top-[50%] right-[1rem] translate-y-[-50%] text-light-gray text-2xl opacity-100;
+  }
+  .select-option {
+    @apply px-12 bg-bluish-gray font-semibold text-primary text-lg;
+  }
+  .--header {
+    @apply text-3xl font-bold text-primary w-full capitalize;
+  }
 }
 
 @layer utilities {
@@ -50,6 +65,6 @@
 }
 
 .swiper-button-next, .swiper-button-prev { color: #fff !important; top: 30% !important; transform: scale(1.6) !important; }
-.swiper-pagination { top: 65% !important; }
+.swiper-pagination { bottom: 2% !important; }
 .swiper-pagination-bullets { transform: scale(1.6) !important; }
-.swiper-pagination-bullet-active { background: #fff !important; }
+.swiper-pagination-bullet-active { background: #FE8573 !important; }

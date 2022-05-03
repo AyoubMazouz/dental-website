@@ -14,11 +14,38 @@ export const links = {
     }
 }
 export const info = {
+    image: '/images/slideshow/img1.png',
+    alt: '',
     phone: ['0555663829', '0555736252'],
     email: ['dentistemail@gmail.com'],
     address: '441, 2ème Etage Lot La Colline Californie, Casablanca',
-    workHours: "Notre clinique vous informe que l'horaire de travail est de 9h à 19h sauf Samedi de 9h à 15h",
     location: '',
+    workHours: [
+        {
+            day: 'lundi',
+            time: '8:30 am - 6:00 pm',
+        },
+        {
+            day: 'mardi',
+            time: '8:30 am - 6:00 pm',
+        },
+        {
+            day: 'mercredi',
+            time: '8:30 am - 6:00 pm',
+        },
+        {
+            day: 'jeudi',
+            time: '8:30 am - 6:00 pm',
+        },
+        {
+            day: 'vendredi',
+            time: '8:30 am - 6:00 pm',
+        },
+        {
+            day: 'samedi',
+            time: '8:30 am - 6:00 pm',
+        },
+    ],
 }
 export const stats = [
     {
@@ -81,11 +108,23 @@ export const slideShow = {
     ]
 }
 export const services = {
-    whyUs: {
+    header: {
         title: 'Des traitements dentaires adaptés à vos besoins et au prix le plus juste',
         content: 'Chez Dentego, nous vous garantissons des traitements dentaires adaptés à vos besoins, prodigués par le dentiste de votre choix, au prix le plus juste et avec une prise en charge rapide, globale et personnalisée.',
     },
     services: [
+        {
+            img: '/images/services/orthodontie.jpg',
+            alt: '',
+            title: 'Orthodontie',
+            description: "Nos praticiens assurent des traitements d'orthodontie qui consistent à déplacer les dents afin de retrouver un alignement harmonieux et corriger les dysfonctionnements incommodants au quotidien."
+        },
+        {
+            img: '/images/services/orthodontie.jpg',
+            alt: '',
+            title: 'Orthodontie',
+            description: "Nos praticiens assurent des traitements d'orthodontie qui consistent à déplacer les dents afin de retrouver un alignement harmonieux et corriger les dysfonctionnements incommodants au quotidien."
+        },
         {
             img: '/images/services/orthodontie.jpg',
             alt: '',
@@ -112,41 +151,57 @@ export const services = {
         },
     ]
 }
-export const reviews = [
-    {
-        name: 'Mr. ahmed halalouia',
-        title: 'As Good As Advertised',
-        rating: 5,
-        date: '11:34PM Sat jun 2021',
-        source: 'Google',
-        comment: 'We never take.'
-    },
-    {
-        name: 'Mr. ahmed halalouia',
-        date: '11:34PM Sat jun 2021',
-        title: 'As Good As Advertised',
-        rating: 4,
-        source: 'Google',
-        comment: 'We never take a one-size-fits-all approach to dental bridges.'
-    },
-    {
-        name: 'Mr. ahmed halalouia',
-        date: '11:34PM Sat jun 2021',
-        title: 'As Good As Advertised',
-        rating: 2,
-        source: 'Google',
-        comment: 'We never take a one-size-fits-all approach to dental bridges. Dr. Chern will evaluate your missing teeth, working closely with our team to create a custom solution. We never take a one-size-fits-all approach to dental bridges.'
-    },
-    {
-        name: 'Mr. ahmed halalouia',
-        date: '11:34PM Sat jun 2021',
-        title: 'As Good As Advertised',
-        rating: 1,
-        source: 'Google',
-        comment: 'We never take a one-size-fits-all approach to dental bridges. Dr. Chern will evaluate your missing teeth, working closely with our team to create a custom solution. We never take a one-size-fits-all approach to dental bridges.'
-    },
-]
+export const reviews = {
+    header: {
+        title: 'Des traitements dentaires adaptés à vos besoins et au prix le plus juste',
+        content: 'Chez Dentego, nous vous garantissons des traitements dentaires adaptés à vos besoins, prodigués par le dentiste de votre choix, au prix le plus juste et avec une prise en charge rapide, globale et personnalisée.',
+    }, 
+    reviews: [
+        {
+            name: 'Mr. ahmed halalouia',
+            title: 'As Good As Advertised',
+            rating: 5,
+            date: '11:34pm Sat jun 2021',
+            source: 'Google',
+            comment: 'We never take.'
+        },
+        {
+            name: 'Mr. ahmed halalouia',
+            date: '11:34pm Sat jun 2021',
+            title: 'As Good As Advertised',
+            rating: 4,
+            source: 'Google',
+            comment: 'We never take a one-size-fits-all approach to dental bridges.'
+        },
+        {
+            name: 'Mr. ahmed halalouia',
+            date: '11:34pm Sat jun 2021',
+            title: 'As Good As Advertised',
+            rating: 2,
+            source: 'Google',
+            comment: 'We never take a one-size-fits-all approach to dental bridges. Dr. Chern will evaluate your missing teeth, working closely with our team to create a custom solution. We never take a one-size-fits-all approach to dental bridges.'
+        },
+        {
+            name: 'Mr. ahmed halalouia',
+            date: '11:34pm Sat jun 2021',
+            title: 'As Good As Advertised',
+            rating: 1,
+            source: 'Google',
+            comment: 'We never take a one-size-fits-all approach to dental bridges. Dr. Chern will evaluate your missing teeth, working closely with our team to create a custom solution. We never take a one-size-fits-all approach to dental bridges.'
+        },
+    ]
+}
 export const comparisonImgs = [
+    {
+        alt   : '',
+        before: '/images/before-after/before1.png',
+        after : '/images/before-after/after1.png',
+    },
+    {
+        alt   : '',
+        before: '/images/before-after/before1.png',
+        after : '/images/before-after/after1.png',
+    },
     {
         alt   : '',
         before: '/images/before-after/before1.png',

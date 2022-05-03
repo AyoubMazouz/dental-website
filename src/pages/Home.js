@@ -1,18 +1,18 @@
 import SlideShow from '../components/SlideShow'
 import ServicesCard from '../components/ServicesCard'
-import AboutCard from '../components/AboutCard'
-import Reviews from '../components/Reviews'
-import Gallery from '../components/Gallery'
+import ReviewCard from '../components/ReviewCard'
 import GoogleMaps from '../components/GoogleMaps'
 import Details from '../components/Details'
 import Form from '../components/Form'
 import Slider from '../components/Slider'
 import Stats from '../components/Stats'
-import Header from '../components/Header'
 
 import { slideShow, info, profiles, comparisonImgs, services, reviews, stats } from '../data'
 import { Link } from 'react-router-dom'
 import { CgArrowLongRight } from 'react-icons/cg'
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode, Scrollbar, Pagination } from 'swiper';
 
 export default function Home() {
   return (
@@ -22,49 +22,62 @@ export default function Home() {
         <SlideShow { ...slideShow } />
 
           {/* Stats */}
-          <div className='max-w-[1600px] flex justify-around items-center mt-4'>
+          <div className='max-w-[1400px] grid grid-flow-col grid-cols-4 justify-between items-center mt-4 mb-[4rem]'>
             {stats.map((stat, id) => <Stats key={id} { ...stat } speed={3000} />)}
           </div>
 
           {/* Services */}
-          <div className='max-w-[1600px] my-32 flex justify-around'>
-            <div className='w-[60ch]'><Header content={services.whyUs.title} /></div>
-            <p className='w-[60ch] text-lg'>{services.whyUs.content}
-              <Link to='#' className='--link text-primary font-bold py-2'>
-                Our Services<CgArrowLongRight className='--nav-icons' /></Link>
-            </p>
+          <div className='max-w-[1400px] mt-[4rem] mb-[4rem]'>
+          <h1 className='font-bold text-5xl text-primary my-[3rem] border-r-2 border-r-primary'>Services</h1>
+            <div className='grid grid-flow-col justify-between items-center'>
+              <h1 className='--header'>{services.header.title}</h1>
+              <p className='text-lg'>{services.header.content}
+                <Link to='#' className='--link text-light-gray font-bold py-2'>
+                  Our Services<CgArrowLongRight className='--nav-icons text-primary' /></Link>
+              </p>
+            </div>
           </div>
-          <div className='flex gap-8'>
-            {services.services.map((v, id) => <ServicesCard { ...v } />)} 
-          </div>
+          <div><Swiper modules={[Scrollbar, FreeMode, Pagination]} grabCursor spaceBetween={30} slidesPerView={4.7}
+            className='h-[420px] max-w-[99.1vw] mb-[5rem]'>
+            {services.services.map((service, id) => (
+              <SwiperSlide key={id} className='max-w-[380px] rounded-[2rem] overflow-hidden'>
+                  <ServicesCard service={service} />
+              </SwiperSlide>))}
+          </Swiper></div>
 
            {/* Reviews */}
-           <div className='max-w-[1600px] flex flex-col justify-center items-center'>
-              <div className='relative text-center text-primary overflow-hidden'>
-                <h1 className='font-[roman] text-2xl italic'>What our customers</h1>
-                <h1 className='font-bold text-4xl'>Are Saying</h1>
-                <div className='before:content-[""] before:h-[2px] before:w-[800px] before:bg-primary before:absolute before:top-[50%] before:right-[0%] before:opacity-50 before:scale-x-[75%] after:content-[""] after:h-[2px] after:w-full after:bg-primary after:absolute after:top-[50%] after:left-[60%] after:opacity-50 after:scale-x-[75%]'></div>
-              </div>
-              <div className='h-[70vh] max-w-[99.1vw] flex justify-center items-center'>
-                <Reviews reviews={reviews} />
-              </div>
-              <div className='w-[1600px] h-[2px] bg-primary opacity-50'></div>
+           <div className='max-w-[1400px] mt-[4rem] mb-[4rem]'>
+           <h1 className='font-bold text-5xl text-primary my-[3rem] border-r-2 border-r-primary'>Reviews</h1>
+            <div className='grid grid-flow-col items-center justify-between'>
+              <div className='--header'>{services.header.title}</div>
+              <p className='w-[60ch] text-lg'>{services.header.content}
+              <Link to='#' className='--link text-light-gray font-bold py-2'>
+                Our Services<CgArrowLongRight className='--nav-icons text-primary' /></Link>
+              </p>
+            </div>
            </div>
-
-           {/* Gallery */}
-           <Gallery />
+           <div><Swiper modules={[Scrollbar, FreeMode, Pagination]} grabCursor spaceBetween={30} slidesPerView={3} pagination={{ clickable: true }}
+                className='h-[480px] max-w-[99.1vw] mb-[5rem]'>
+                {reviews.reviews.map((review, id) => (
+                  <SwiperSlide key={id} className='max-w-[820px] bg-bluish-gray rounded-2xl overflow-hidden'>
+                      <ReviewCard review={review} />
+                  </SwiperSlide>))}
+            </Swiper></div>
 
            {/* Contact */}
-           <div className='max-w-[1600px] grid grid-col-2'>
-              <Header content='Contact'/>
-              <Details {...info} />
-              <Form />
-              <GoogleMaps location={info.location} />
+           <div className='w-full bg-primary flex flex-col justify-center items-center mt-[4rem] py-[4rem]'>
+            <div className='max-w-[1400px] grid gap-[2rem] grid-cols-8'>
+              <h1 className='col-span-full font-bold text-5xl text-light mb-[3rem] border-r-2 border-r-light'>Contact</h1>
+              <div className='col-span-4'><Form /></div>
+              <div className='col-span-4'><Details {...info} /></div>
+            </div>
            </div>
+           {/* GooGle Maps */}
+           <div className='w-full h-[480px]'><GoogleMaps location={info.location} /></div>
 
            {/* Before & After */}
-           <div className='max-w-[1600px] flex'>
-            {comparisonImgs.map((v, id) => <Slider id={id} { ...v } />)}
+           <div className='max-w-[1400px] w-full flex justify-between my-[8rem]'>
+              {comparisonImgs.map((v, id) => <Slider id={id} { ...v } />)}
            </div>
 
     </div>
