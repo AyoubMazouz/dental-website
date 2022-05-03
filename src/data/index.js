@@ -1,11 +1,47 @@
 export const links = {
     nav: [
-        ['home', '/'], 
-        ['about', '/about'], 
-        ['services', '/services'], 
-        ['gallery', '/gallery'], 
-        ['contact', '/contact'], 
-        ['blog', '/blog'],
+        {
+            label: 'home',
+            url: '/',
+        },
+        {
+            label: 'about',
+            url: '/about',
+        },
+        {
+            label: 'services',
+            url: '/services',
+            subLinks: [
+                {
+                    label: 'service 01',
+                    url: '/service1',
+                },
+                {
+                    label: 'service 02',
+                    url: '/service2',
+                },
+                {
+                    label: 'service 03',
+                    url: '/service3',
+                },
+                {
+                    label: 'service 04',
+                    url: '/service4',
+                },
+            ]
+        },
+        {
+            label: 'gallery',
+            url: '/gallery',
+        },
+        {
+            label: 'contact',
+            url: '/contact',
+        },
+        {
+            label: 'blog',
+            url: '/blog',
+        },
     ],
     icons: {
         facebook: '#',

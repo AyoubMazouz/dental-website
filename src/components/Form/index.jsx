@@ -83,18 +83,12 @@ const Form = () => {
     ]
     // submit validation!!!!!
     return (
-        <form onSubmit={sendEmail}
-            className='space-y-3'>
-
-                {formParams.map((v, id) => <Input key={id} params={v} formValues={formValues} setFormValues={setFormValues} />)}
-            
-            {/* Submit btn */}
-            <button type="submit"
-                    className="h-[3.4rem] w-full col-span-2 bg-secondary hover:opacity-75 rounded-full transition-all duration-300 font-bold text-light text-xl"
-                    >Send</button>
-
-        </form>
-
+    <form onSubmit={sendEmail} className='space-y-3'>
+        {formParams.map((v, id) => <Input key={id} params={v} formValues={formValues} setFormValues={setFormValues} />)}
+        {/* Submit btn */}
+        <button type="submit" className="h-[3.4rem] w-full col-span-2 bg-secondary hover:opacity-75 rounded-full transition-all duration-300 font-bold text-light text-xl"
+            >Send</button>
+    </form>
   )
 }
 

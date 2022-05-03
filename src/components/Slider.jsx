@@ -20,8 +20,8 @@ const Slider = ({ id, alt, before, after }) => {
     }, [])
     return (
         <div className='group w-[280px] h-[340px] relative rounded-2xl overflow-hidden'>
-            <div className='z-30 absolute bottom-[10%] left-[80%] translate-x-[-50%] bg-primary font-bold text-sm rounded-full py-1 px-2 opacity-75 text-light'>before</div>
-            <div className='z-30 absolute bottom-[10%] left-[20%] translate-x-[-50%] bg-primary font-bold text-sm rounded-full py-1 px-2 opacity-75 text-light'>after</div>
+            <div className='z-10 absolute bottom-[10%] left-[80%] translate-x-[-50%] bg-primary font-bold text-sm rounded-full py-1 px-2 opacity-75 text-light'>before</div>
+            <div className='z-10 absolute bottom-[10%] left-[20%] translate-x-[-50%] bg-primary font-bold text-sm rounded-full py-1 px-2 opacity-75 text-light'>after</div>
             <img src={before} alt={alt} className='absolute w-full h-full pointer-events-none object-cover' />
             <img src={after} alt={alt} id={imgId} className='absolute w-full h-full pointer-events-none object-cover' />
             <input type='range' min='5' max='95' value={sliderValue} onChange={onChangeSlider}
