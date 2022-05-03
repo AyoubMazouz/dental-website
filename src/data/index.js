@@ -94,7 +94,7 @@ export const stats = [
     },
     {
         title: 'Patients reçus',
-        record: 840891,
+        record: 891,
     },
     {
         title: 'Note de satisfaction de nos patients',

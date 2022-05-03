@@ -25,7 +25,7 @@ export default function Home() {
         <SlideShow { ...slideShow } />
 
           {/* Stats */}
-          <div className='max-w-[1400px] grid grid-flow-col grid-cols-4 justify-between items-center mt-4 mb-[4rem]'>
+          <div className='max-w-[1400px] w-full flex-wrap flex justify-center lg:justify-between items-start mt-4 mb-[4rem] px-4 md:px-12 xl:px-0'>
             {stats.map((stat, id) => <Stats key={id} { ...stat } speed={3000} />)}
           </div>
 
@@ -42,13 +42,14 @@ export default function Home() {
           </div>
           <div><Swiper modules={[Scrollbar, FreeMode, Pagination]} grabCursor spaceBetween={30}
             className='h-[420px] max-w-[99.1vw] mb-[5rem] my-[2.5rem]'
-            breakpoints={{
-              480: { slidesPerView: 1.25 },
-              768: { slidesPerView: 1.75 },
-              1000: { slidesPerView: 2.50 },
-              1268: { slidesPerView: 3.25 },
-              1668: { slidesPerView: 4.50 },
-            }}>
+            // breakpoints={{
+            //   480: { slidesPerView: 1.25 },
+            //   768: { slidesPerView: 1.75 },
+            //   1000: { slidesPerView: 2.50 },
+            //   1268: { slidesPerView: 3.25 },
+            //   1668: { slidesPerView: 4.50 },
+            // }}
+            >
             {services.services.map((service, id) => (
               <SwiperSlide key={id} className='rounded-[2rem] overflow-hidden'>
                   <ServicesCard service={service} />
@@ -68,13 +69,14 @@ export default function Home() {
            </div>
            <div><Swiper modules={[Scrollbar, FreeMode, Pagination]} grabCursor spaceBetween={30} pagination={{ clickable: true }}
                 className='h-[480px] max-w-[99.1vw] my-[2.5rem] mb-[5rem]'
-                breakpoints={{
-                  480: { slidesPerView: 1 },
-                  768: { slidesPerView: 1.25 },
-                  1000: { slidesPerView: 1.75 },
-                  1268: { slidesPerView: 2.25 },
-                  1668: { slidesPerView: 2.75 },
-                }}>
+                // breakpoints={{
+                //   480: { slidesPerView: 1 },
+                //   768: { slidesPerView: 1.25 },
+                //   1000: { slidesPerView: 1.75 },
+                //   1268: { slidesPerView: 2.25 },
+                //   1668: { slidesPerView: 2.75 },
+                // }}
+                >
                 {reviews.reviews.map((review, id) => (
                   <SwiperSlide key={id} className='bg-bluish-gray rounded-2xl overflow-hidden'>
                       <ReviewCard review={review} />
