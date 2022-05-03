@@ -13,8 +13,11 @@ import { CgArrowLongRight } from 'react-icons/cg'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Scrollbar, Pagination } from 'swiper';
+import { useEffect, useState } from 'react'
 
 export default function Home() {
+  const [viewWidth, setViewWidth] = useState()
+  window.addEventListener('resize', () => setViewWidth(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)));
   return (
     <div className='flex flex-col items-center text-dark bg-light'>
 
@@ -37,10 +40,17 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div><Swiper modules={[Scrollbar, FreeMode, Pagination]} grabCursor spaceBetween={30} slidesPerView={4.7}
-            className='h-[420px] max-w-[99.1vw] mb-[5rem] my-[2.5rem]'>
+          <div><Swiper modules={[Scrollbar, FreeMode, Pagination]} grabCursor spaceBetween={30}
+            className='h-[420px] max-w-[99.1vw] mb-[5rem] my-[2.5rem]'
+            breakpoints={{
+              480: { slidesPerView: 1.25 },
+              768: { slidesPerView: 1.75 },
+              1000: { slidesPerView: 2.50 },
+              1268: { slidesPerView: 3.25 },
+              1668: { slidesPerView: 4.50 },
+            }}>
             {services.services.map((service, id) => (
-              <SwiperSlide key={id} className='max-w-[380px] rounded-[2rem] overflow-hidden'>
+              <SwiperSlide key={id} className='rounded-[2rem] overflow-hidden'>
                   <ServicesCard service={service} />
               </SwiperSlide>))}
           </Swiper></div>
@@ -56,10 +66,17 @@ export default function Home() {
               </p>
             </div>
            </div>
-           <div><Swiper modules={[Scrollbar, FreeMode, Pagination]} grabCursor spaceBetween={30} slidesPerView={3} pagination={{ clickable: true }}
-                className='h-[480px] max-w-[99.1vw] my-[2.5rem] mb-[5rem]'>
+           <div><Swiper modules={[Scrollbar, FreeMode, Pagination]} grabCursor spaceBetween={30} pagination={{ clickable: true }}
+                className='h-[480px] max-w-[99.1vw] my-[2.5rem] mb-[5rem]'
+                breakpoints={{
+                  480: { slidesPerView: 1 },
+                  768: { slidesPerView: 1.25 },
+                  1000: { slidesPerView: 1.75 },
+                  1268: { slidesPerView: 2.25 },
+                  1668: { slidesPerView: 2.75 },
+                }}>
                 {reviews.reviews.map((review, id) => (
-                  <SwiperSlide key={id} className='max-w-[820px] bg-bluish-gray rounded-2xl overflow-hidden'>
+                  <SwiperSlide key={id} className='bg-bluish-gray rounded-2xl overflow-hidden'>
                       <ReviewCard review={review} />
                   </SwiperSlide>))}
             </Swiper></div>

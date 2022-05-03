@@ -43,10 +43,10 @@ export default function NavBarFull() {
                 <ul className='h-full flex items-center space-x-8 text-lg uppercase'>
                     {links.nav.map((link, id) => getLinks(link, id))}
                 </ul>
-                <div className='flex h-10 overflow-hidden relative text-primary p-1'>
+                {/* <div className='flex h-10 overflow-hidden relative text-primary p-1'>
                     <input type="text" placeholder='Search' className='w-[12rem] h-full px-2 focus:outline-none ring-2 ring-primary hover:ring-opacity-75 focus:ring-secondary rounded-md' />
                     <FaSearch className='h-6 w-6 absolute right-[.5rem] top-[.5rem]' />
-                </div>
+                </div> */}
             </div>
         </nav>
     )
