@@ -19,7 +19,7 @@ export default function Home() {
   const [viewWidth, setViewWidth] = useState()
   window.addEventListener('resize', () => setViewWidth(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)));
   return (
-    <div className='flex flex-col items-center text-dark bg-light'>
+    <div className='flex flex-col items-center text-dark bg-light max-x-[100vw] overflow-hidden'>
 
         {/* SlideShow */}
         <SlideShow { ...slideShow } />
@@ -93,7 +93,7 @@ export default function Home() {
                 Our Services<CgArrowLongRight className='--nav-icons text-primary' /></Link>
               </p>
             </div>
-            <div className='flex flex-wrap my-[2.5rem]'>{comparisonImgs.map((v, id) => <Slider id={id} { ...v } />)}</div>
+            <div className='flex gap-4 justify-center flex-wrap my-[2.5rem]'>{comparisonImgs.map((v, id) => <Slider id={id} { ...v } />)}</div>
           </div>
 
           {/* Contact */}

@@ -13,8 +13,8 @@ export default function SlideShow({ images }) {
               loop={true}
               autoHeight={true}
               autoplay={{ delay: 5000 }}>
-        {images.map((img, id) => <SwiperSlide className="">
-            <img key={id} src={img.img} alt={img.alt} className="object-cover" />
+        {images.map((img, id) => <SwiperSlide>
+            <img key={id} src={img.img} alt={img.alt} className="object-cover w-full h-[60vh] lg:h-[70vh]" />
           </SwiperSlide>)}
       </Swiper>    
   )

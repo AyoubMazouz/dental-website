@@ -15,39 +15,35 @@ const Footer = () => {
         <div className="w-full pt-[6rem] text-light">
             {/* News Letter */}
             <div className='flex flex-col gap-[1rem] justify-center items-center mb-[4rem]'>
-                <label htmlFor="email" className='text-5xl font-bold'>Subscribe To Our News Letter</label>
+                <label htmlFor="email" className='text-xl md:text-3xl lg:text-5xl font-bold'>Subscribe To Our News Letter</label>
                 <div className='relative w-[70%]'>
                     <input type="email" name='email' value={email} onChange={handleChange} 
                         pattern="^[a-zA-Z0-9.]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" placeholder='Email... (e.g example@email.com).'
-                        className='h-[4.4rem] w-full px-[3rem] focus:outline-none border-light-gray rounded-full text-primary font-semibold text-xl' />
+                        className='h-[4.4rem] w-full px-[1rem] lg:px-[3rem] focus:outline-none border-light-gray rounded-full text-primary font-semibold text-xl' />
                     <FaInstagram className='absolute top-[50%] right-[.5rem] translate-y-[-50%] p-2 text-[3.6rem] bg-secondary rounded-full' />
                 </div>
             </div>
             {/* Grid */}
-            <div className='flex justify-between'>
+            <div className='flex justify-between px-4 lg:px-12'>
                 {/* Col-01 */}
                 <div className='flex gap-[2rem]'>
                     <div className='space-y-4'>
                         {/* logo */}
                         <div className=''><Logo /></div>
-                        {/* Phone */}
-                        <ul className='space-y-4'>{info.phone.map((v, id) => (
-                            <li key={id} className='flex gap-2 items-center text--light'><FaPhone />{v}</li>
-                        ))}</ul>
-                        {/* Email */}
-                        <ul className='space-y-4'>{info.email.map((v, id) => (
-                            <li key={id} className='flex gap-2 items-center text--light'><FaPhone />{v}</li>
-                        ))}</ul>
-                    </div>
-                    {/* Social Media Links */}
-                    <div className='space-y-4'>
-                        <h1 className='text-2xl font-bold'>Stay In Touch</h1>
-                        <ul className='flex gap-4 text-xl'>
+                        <ul className='flex flex-wrap text-sm'>
+                            {/* Email */}
+                            {info.email.map((v, id) => <li key={id} className='flex gap-2 items-center text--light'><FaPhone />{v}</li>)}
+                            {/* Phone */}
+                            {info.phone.map((v, id) => <li key={id} className='flex gap-2 items-center text--light'><FaPhone />{v}</li>)}
+                        </ul>
+                        {/* Social Media Links */}
+                        <ul className='flex gap-3'>
                             {links.icons.facebook && <FaFacebook className='--nav-icons text-light' />}
                             {links.icons.instagram && <FaInstagram className='--nav-icons text-light' />}
                             {links.icons.linkedin && <FaLinkedin className='--nav-icons text-light' />}
                         </ul>
                     </div>
+                    
                 </div>
                 {/* Col-02 */}
                 {/* Nav Links */}
@@ -61,7 +57,7 @@ const Footer = () => {
                 </div>
             </div>
             {/* CopyRight, Policy & Terms of Service */}
-            <div className='w-full mt-[12rem] text-center py-1'>
+            <div className='w-full mt-[12rem] text-center py-1 text-xs'>
                 <p>Copyright 2021 | <Link to='#' className='--footer-link'>Policy</Link>, <Link to='#' className='--footer-link'>Terms of Service</Link></p>
             </div>
         </div>

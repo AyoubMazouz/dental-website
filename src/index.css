@@ -64,7 +64,7 @@
   }
 }
 
-.swiper-button-next, .swiper-button-prev { color: #fff !important; top: 30% !important; transform: scale(1.6) !important; }
-.swiper-pagination { bottom: 2% !important; }
+.swiper-button-next, .swiper-button-prev { transform: scale(1.6) !important; }
+/* .swiper-pagination { bottom: 2% !important; } */
 .swiper-pagination-bullets { transform: scale(1.6) !important; }
 .swiper-pagination-bullet-active { background: #FE8573 !important; }
