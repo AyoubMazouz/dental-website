@@ -25,14 +25,14 @@ export default function Home() {
         <SlideShow { ...slideShow } />
 
           {/* Stats */}
-          <div className='max-w-[1400px] w-full flex-wrap flex justify-center lg:justify-between items-start mt-4 mb-[4rem] px-4 md:px-12 xl:px-0'>
+          <div className='max-w-[1400px] w-full flex-wrap flex justify-center md:justify-between items-start mt-4 mb-[4rem] px-4 lg:px-12 gap-4 md:px-12 xl:px-0'>
             {stats.map((stat, id) => <Stats key={id} { ...stat } speed={3000} />)}
           </div>
 
           {/* Services */}
-          <div className='max-w-[1400px] mt-[5rem]'>
+          <div className='max-w-[1400px] mt-[5rem] px-4 lg:px-12'>
           <h1 className='font-bold text-5xl text-primary my-[2.5rem] border-r-2 border-r-primary'>Services</h1>
-            <div className='grid grid-flow-col justify-between items-center'>
+            <div className='grid lg:grid-flow-col gap-8 justify-between'>
               <h1 className='--header'>{services.header.title}</h1>
               <p className='text-lg'>{services.header.content}
                 <Link to='#' className='--link text-light-gray font-bold py-2'>
@@ -43,11 +43,11 @@ export default function Home() {
           <div><Swiper modules={[Scrollbar, FreeMode, Pagination]} grabCursor spaceBetween={30}
             className='h-[420px] max-w-[99.1vw] mb-[5rem] my-[2.5rem]'
             // breakpoints={{
-            //   480: { slidesPerView: 1.25 },
+            //   640: { slidesPerView: 1.25 },
             //   768: { slidesPerView: 1.75 },
-            //   1000: { slidesPerView: 2.50 },
-            //   1268: { slidesPerView: 3.25 },
-            //   1668: { slidesPerView: 4.50 },
+            //   1024: { slidesPerView: 2.75 },
+            //   1280: { slidesPerView: 3.25 },
+            //   1536: { slidesPerView: 3.75 },
             // }}
             >
             {services.services.map((service, id) => (
@@ -57,11 +57,11 @@ export default function Home() {
           </Swiper></div>
 
            {/* Reviews */}
-           <div className='max-w-[1400px] mt-[5rem]'>
-           <h1 className='font-bold text-5xl text-primary my-[2.5rem] border-r-2 border-r-primary'>Reviews</h1>
-            <div className='grid grid-flow-col items-center justify-between'>
+           <div className='max-w-[1400px] mt-[5rem] px-4 lg:px-12'>
+          <h1 className='font-bold text-5xl text-primary my-[2.5rem] border-r-2 border-r-primary'>Reviews</h1>
+            <div className='grid lg:grid-flow-col gap-8 justify-between'>
               <div className='--header'>{services.header.title}</div>
-              <p className='w-[60ch] text-lg'>{services.header.content}
+              <p className='text-lg'>{services.header.content}
               <Link to='#' className='--link text-light-gray font-bold py-2'>
                 Our Services<CgArrowLongRight className='--nav-icons text-primary' /></Link>
               </p>
@@ -70,11 +70,11 @@ export default function Home() {
            <div><Swiper modules={[Scrollbar, FreeMode, Pagination]} grabCursor spaceBetween={30} pagination={{ clickable: true }}
                 className='h-[480px] max-w-[99.1vw] my-[2.5rem] mb-[5rem]'
                 // breakpoints={{
-                //   480: { slidesPerView: 1 },
+                //   640: { slidesPerView: 1 },
                 //   768: { slidesPerView: 1.25 },
-                //   1000: { slidesPerView: 1.75 },
-                //   1268: { slidesPerView: 2.25 },
-                //   1668: { slidesPerView: 2.75 },
+                //   1024: { slidesPerView: 1.75 },
+                //   1280: { slidesPerView: 2.25 },
+                //   1536: { slidesPerView: 2.75 },
                 // }}
                 >
                 {reviews.reviews.map((review, id) => (
@@ -84,24 +84,24 @@ export default function Home() {
             </Swiper></div>
 
           {/* Before & After */}
-          <div className='max-w-[1400px] w-full flex flex-col my-[5rem]'>
-            <h1 className='font-bold text-5xl text-primary border-r-2 border-r-primary my-[2.5rem]'>Before & After</h1>
-              <div className='grid grid-flow-col items-center justify-between my-[2.5rem]'>
-                <div className='--header'>{services.header.title}</div>
-                <p className='w-[60ch] text-lg'>{services.header.content}
-                <Link to='#' className='--link text-light-gray font-bold py-2'>
-                  Our Services<CgArrowLongRight className='--nav-icons text-primary' /></Link>
-                </p>
-              </div>
-              <div className='flex justify-between my-[2.5rem]'>{comparisonImgs.map((v, id) => <Slider id={id} { ...v } />)}</div>
-           </div>
+          <div className='max-w-[1400px] mt-[5rem] px-4 lg:px-12'>
+            <h1 className='font-bold text-5xl text-primary my-[2.5rem] border-r-2 border-r-primary'>Before & After</h1>
+            <div className='grid lg:grid-flow-col gap-8 justify-between'>
+              <div className='--header'>{services.header.title}</div>
+              <p className='text-lg'>{services.header.content}
+              <Link to='#' className='--link text-light-gray font-bold py-2'>
+                Our Services<CgArrowLongRight className='--nav-icons text-primary' /></Link>
+              </p>
+            </div>
+            <div className='flex flex-wrap my-[2.5rem]'>{comparisonImgs.map((v, id) => <Slider id={id} { ...v } />)}</div>
+          </div>
 
           {/* Contact */}
-          <div className='w-full bg-primary flex flex-col justify-center items-center mt-[5rem] py-[6rem]'>
-            <div className='max-w-[1400px] grid gap-x-[4rem] grid-cols-8'>
+          <div className='w-full bg-primary flex flex-col justify-center items-center mt-[5rem] py-[6rem] px-4 lg:px-12'>
+            <div className='max-w-[1400px] grid lg:gap-20 grid-cols-8'>
               <h1 className='col-span-full font-bold text-5xl text-light mb-[2.5rem] border-r-2 border-r-light'>Contact</h1>
-              <div className='col-span-4'><Form /></div>
-              <div className='col-span-4'><Details {...info} /></div>
+              <div className='col-span-full lg:col-span-4'><Form /></div>
+              <div className='col-span-full lg:col-span-4'><Details {...info} /></div>
             </div>
           </div>
           {/* GooGle Maps */}

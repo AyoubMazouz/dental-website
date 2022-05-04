@@ -48,7 +48,7 @@
     @apply absolute top-[50%] right-[1rem] translate-y-[-50%] text-light-gray text-2xl opacity-100;
   }
   .select-option {
-    @apply px-12 bg-bluish-gray font-semibold text-primary text-lg;
+    @apply px-12 bg-bluish-gray font-semibold text-primary text-base lg:text-lg;
   }
   .--header {
     @apply text-3xl font-bold text-primary w-full capitalize;

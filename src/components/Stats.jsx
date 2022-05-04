@@ -11,8 +11,8 @@ export default function Stats({ title, record, speed, after='' }) {
     }, [count])
 
     return (
-        <div className='font-bold flex items-center flex-col min-w-[12rem]'>
-            <h1 className='text-[2.8rem] lg:text-[4.4rem] text-primary'>{count + after}</h1>
+        <div className='font-bold flex items-center flex-col w-[8rem] lg:w-[18rem]'>
+            <h1 className='text-[2.2rem] md:text-[3.2rem] lg:text-[4.4rem] text-primary'>{count + after}</h1>
             <h1 className='text-base lg:text-xl text-center'>{title}</h1>
         </div>
     )

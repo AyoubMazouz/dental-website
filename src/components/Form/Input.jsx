@@ -17,7 +17,7 @@ export default function Input({ params, formValues, setFormValues }) {
         if (type === 'select') return (
             <select name='subject' value={formValues.subject} onFocus={() => setOnFocus(true)} onBlur={() => setOnFocus(false)}
                 onChange={ev => setFormValues({ ...formValues, 'subject': ev.target.value })}
-                className={`--input-base h-[3.4rem] py-0 ${validity ? 'border-light-gray' : 'border-red-500'}`}>
+                className={`--input-base h-[3.4rem] ${validity ? 'border-light-gray' : 'border-red-500'}`}>
                 <option value='option 1' className='--select-option'>Option 1</option>
                 <option value='option 2' className='--select-option'>Option 2</option>
                 <option value='option 3' className='--select-option'>Option 3</option>
