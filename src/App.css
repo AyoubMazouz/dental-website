@@ -869,16 +869,28 @@ html{
   height: 1.2rem;
 }
 
-.h-\[70vh\]{
-  height: 70vh;
+.h-\[60vh\]{
+  height: 60vh;
 }
 
 .h-4{
   height: 1rem;
 }
 
-.h-\[60vh\]{
-  height: 60vh;
+.h-\[360px\]{
+  height: 360px;
+}
+
+.h-\[310px\]{
+  height: 310px;
+}
+
+.h-\[290px\]{
+  height: 290px;
+}
+
+.h-\[270px\]{
+  height: 270px;
 }
 
 .max-h-\[380px\]{
@@ -925,6 +937,30 @@ html{
   width: 1rem;
 }
 
+.w-\[520\]{
+  width: 520;
+}
+
+.w-\[520px\]{
+  width: 520px;
+}
+
+.w-\[480px\]{
+  width: 480px;
+}
+
+.w-\[460px\]{
+  width: 460px;
+}
+
+.w-\[420px\]{
+  width: 420px;
+}
+
+.w-\[440px\]{
+  width: 440px;
+}
+
 .min-w-\[8rem\]{
   min-width: 8rem;
 }
@@ -943,6 +979,10 @@ html{
 
 .max-w-\[20ch\]{
   max-width: 20ch;
+}
+
+.max-w-\[360px\]{
+  max-width: 360px;
 }
 
 .translate-y-\[-50\%\]{
@@ -1035,6 +1075,10 @@ html{
 
 .gap-4{
   gap: 1rem;
+}
+
+.gap-12{
+  gap: 3rem;
 }
 
 .space-y-4 > :not([hidden]) ~ :not([hidden]){
@@ -1168,6 +1212,11 @@ html{
 
 .bg-\[rgba\(0\2c 0\2c 0\2c \.3\)\]{
   background-color: rgba(0,0,0,.3);
+}
+
+.bg-red-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
 .object-cover{
