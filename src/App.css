@@ -1627,6 +1627,10 @@ html{
   transition-duration: 300ms;
 }
 
+.duration-500{
+  transition-duration: 500ms;
+}
+
 .--appearance-none {
   -webkit-appearance: none;
 }
