@@ -10,7 +10,6 @@ const Footer = () => {
         ev.preventDefault()
         setEmail(ev.target.value)
     }
-    const services = links.nav.filter(link => link.label === 'services')[0].subLinks
     return (
         <div className="w-full pt-[6rem] text-light">
             {/* News Letter */}

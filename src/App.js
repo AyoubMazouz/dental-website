@@ -6,6 +6,7 @@ import Services from './pages/Services'
 import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 import Blog from './pages/Blog'
+import Root from './pages/Root'
 import NavBarFull from './components/NavBarFull'
 import NavBarSmall from './components/NavBarSmall'
 import Footer from './components/Footer'
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/gallery' element={<Gallery />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/blog' element={<Blog />} />
+        <Route path='/root' element={<Root />} />
       </Routes>
       <div className='bg-primary flex justify-center'><div className='max-w-[1400px] w-full'><Footer /></div></div>
     </Router>

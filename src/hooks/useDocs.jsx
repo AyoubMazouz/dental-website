@@ -11,7 +11,6 @@ export default function useDocs(col) {
         getDocs(collectionRef).then(snapshot => {
             const data = snapshot.docs.map(doc => { return { id: doc.id, ...doc.data() } } )
             setDocs(data)
-            console.log(data)
         })
     }, [])
 

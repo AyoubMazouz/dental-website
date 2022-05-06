@@ -13,11 +13,8 @@ import { CgArrowLongRight } from 'react-icons/cg'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Scrollbar, Pagination } from 'swiper';
-import { useEffect, useState } from 'react'
 
 export default function Home() {
-  const [viewWidth, setViewWidth] = useState()
-  window.addEventListener('resize', () => setViewWidth(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)));
   return (
     <div className='flex flex-col items-center text-dark bg-light max-x-[100vw] overflow-hidden'>
 
