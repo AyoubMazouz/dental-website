@@ -15,12 +15,12 @@ export default function NavBarFull() {
     })
     const getLinks = (link, id) => {
         if (typeof link.subLinks === 'undefined') return (
-            <li key={id}><Link to={link.url} className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[" "] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 hover:text-primary'>{link.label}</Link></li>
+            <li key={id}><Link to={link.link} className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[" "] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 hover:text-primary'>{link.label}</Link></li>
         )
         else return (
-            <li key={id} className='group relative cursor-pointer'><Link to={link.url}>{link.label}</Link>
+            <li key={id} className='group relative cursor-pointer'><Link to={link.link}>{link.label}</Link>
                 <ul className='absolute text-base w-[22rem] z-20 flex flex-col space-y-4 py-8 px-6 bg-light rounded shadow-lg invisible group-hover:visible lowercase'>
-                    {link.subLinks.map((v, id) => <li key={id}><Link to={v.url} className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[" "] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 hover:text-primary'>{v.label}</Link></li>)}
+                    {link.subLinks.map((link, id) => <li key={id}><Link to={link.link} className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[" "] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 hover:text-primary'>{link.label}</Link></li>)}
                 </ul>
             </li>
         )

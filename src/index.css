@@ -64,7 +64,9 @@
   }
 }
 
-.swiper-button-next, .swiper-button-prev { transform: scale(1.6) !important; }
-/* .swiper-pagination { bottom: 2% !important; } */
-.swiper-pagination-bullets { transform: scale(1.6) !important; }
-.swiper-pagination-bullet-active { background: #FE8573 !important; }
+.swiper-pagination-bullet, .swiper-button-next, .swiper-button-prev {
+  @apply scale-[1.6];
+}
+.gallery-button-next, .gallery-button-prev {
+  @apply w-12 h-12 bg-yellow-500 absolute top-[50%] z-10;
+}

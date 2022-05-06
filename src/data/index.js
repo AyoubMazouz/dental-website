@@ -2,45 +2,63 @@ export const links = {
     nav: [
         {
             label: 'home',
-            url: '/',
+            link: '/',
         },
         {
             label: 'about',
-            url: '/about',
+            link: '/about',
+            url: '',
+            alt: '',
         },
         {
             label: 'services',
-            url: '/services',
+            link: '/services',
+            url: '',
+            alt: '',
             subLinks: [
                 {
                     label: 'service 01',
-                    url: '/service1',
+                    link: '/service1',
+                    url: '',
+                    alt: '',
                 },
                 {
                     label: 'service 02',
-                    url: '/service2',
+                    link: '/service2',
+                    url: '',
+                    alt: '',
                 },
                 {
                     label: 'service 03',
-                    url: '/service3',
+                    link: '/service3',
+                    url: '',
+                    alt: '',
                 },
                 {
                     label: 'service 04',
-                    url: '/service4',
+                    link: '/service4',
+                    url: '',
+                    alt: '',
                 },
             ]
         },
         {
             label: 'gallery',
-            url: '/gallery',
+            link: '/gallery',
+            url: '/images/slideshow/img1.png',
+            alt: '',
         },
         {
             label: 'contact',
-            url: '/contact',
+            link: '/contact',
+            url: '',
+            alt: '',
         },
         {
             label: 'blog',
-            url: '/blog',
+            link: '/blog',
+            url: '',
+            alt: '',
         },
     ],
     icons: {
@@ -83,25 +101,54 @@ export const info = {
         },
     ],
 }
-export const stats = [
-    {
-        title: 'Dentistes et Assistantes dentaires ',
-        record: 1297,
-    },
-    {
-        title: 'Centres',
-        record: 73,
-    },
-    {
-        title: 'Patients reçus',
-        record: 891,
-    },
-    {
-        title: 'Note de satisfaction de nos patients',
-        record: 9,
-        after: '/10'
-    },
-]
+export const stats = {
+    home: [
+        {
+            title: 'Dentistes et Assistantes dentaires',
+            record: 1297,
+        },
+        {
+            title: 'Centres',
+            record: 73,
+        },
+        {
+            title: 'Patients reçus',
+            record: 891,
+        },
+        {
+            title: 'Note de satisfaction de nos patients',
+            record: 9,
+            after: '/10'
+        },
+    ],
+    about: [
+        {
+            title: 'Dentistes et Assistantes dentaires',
+            record: 1297,
+        },
+        {
+            title: 'Collaborateurs',
+            record: 99,
+        },
+        {
+            title: 'Centres',
+            record: 56,
+        },
+        {
+            title: 'Heures de formation avec l’Académie Dentego',
+            record: 1980,
+        },
+        {
+            title: 'Rendez-vous en 2021',
+            record: 840,
+        },
+        {
+            title: 'Note de satisfaction de nos patients',
+            record: 9,
+            after: '/10'
+        },
+    ]
+}
 export const profiles = [
     {
         img: '/images/dr1.png',
@@ -249,4 +296,8 @@ export const comparisonImgs = [
         after : '/images/before-after/after1.png',
     },
 ]
+export const videos = [
+    'https://www.youtube.com/embed/9YffrCViTVk?autoplay=0&fs=1&iv_load_policy=1&showinfo=1&rel=0&cc_load_policy=1&start=0&end=0&origin=http://youtubeembedcode.com',
+]
+// Faq
 

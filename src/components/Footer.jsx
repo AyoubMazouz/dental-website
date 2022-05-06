@@ -50,7 +50,7 @@ const Footer = () => {
                     <ul className='text-light'>
                         <h3 className='font-bold text-2xl mb-[.4rem]'>Navigation</h3>
                         {links.nav.map((link, id) => (
-                            <li key={id}><Link to={link.url} className='--footer-link'>{link.label}</Link></li>
+                            <li key={id}><Link to={link.link} className='--footer-link'>{link.label}</Link></li>
                         ))}
                     </ul>
                 </div>

@@ -1,8 +1,33 @@
+// React Router Dom Imports.
+import { Link } from 'react-router-dom'
+// Icons Import.
 import { FaCalendar } from 'react-icons/fa'
 import { CgArrowLongRight } from 'react-icons/cg'
-import { Link } from 'react-router-dom'
+// SwiperJs Imports.
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode, Scrollbar, Pagination } from 'swiper';
 
-export default function Card({ service }) {
+export default function Services({ services }) {
+  return (
+    <div><Swiper modules={[Scrollbar, FreeMode, Pagination]} grabCursor spaceBetween={30}
+        className='h-[420px] max-w-[99.1vw] mb-[5rem] my-[2.5rem]'
+        // breakpoints={{
+        //   640: { slidesPerView: 1.25 },
+        //   768: { slidesPerView: 1.75 },
+        //   1024: { slidesPerView: 2.75 },
+        //   1280: { slidesPerView: 3.25 },
+        //   1536: { slidesPerView: 3.75 },
+        // }}
+        >
+        {services.services.map((service, id) => (
+          <SwiperSlide key={id} className='rounded-[2rem] overflow-hidden'>
+              <ServicesCard service={service} />
+          </SwiperSlide>))}
+      </Swiper></div>
+  )
+}
+
+const ServicesCard = ({ service }) => {
   return (
     <div className='h-full relative group transition-transform duration-300'>
         <img src={service.img} alt={service.alt} className='object-cover w-full h-full pointer-events-none' />

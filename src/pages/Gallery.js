@@ -3,6 +3,8 @@ import useDocs from '../hooks/useDocs'
 import ImageModel from '../components/ImageModel'
 import Hero from '../components/Hero'
 
+import { links } from '../data'
+
 
 export default function Gallery() {
   // Selected Image to Display on the Model.
@@ -11,11 +13,15 @@ export default function Gallery() {
   const [imgsAtOnce, setImgsAtOnce] = useState(6)
   // Images From db.
   const { docs } = useDocs('gallery')
+  // Get Hero Image.
+  const { url, alt } = links.nav.filter(obj => obj.label === 'gallery')[0]
+
+  // Still not compatible with SubLinks.
 
   return (
     <div>
-      <Hero url={'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/gallery%2Fcontact.png?alt=media&token=155adb3a-4026-479c-8a93-6312563285f9'} alt={''} currPage={'gallery'} />
-
+      {/* Hero Section */}
+      <Hero url={url} alt={alt} currPage={'gallery'} />
       {/* Image Model __default hidden__ */}
       {typeof selected === 'number' && <ImageModel currIndex={selected} docs={docs} setSelected={setSelected} />}
       {/* Image Gallery */}
