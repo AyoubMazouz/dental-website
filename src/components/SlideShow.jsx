@@ -5,7 +5,7 @@ export default function SlideShow({ images, header }) {
   return (
     <div className="flex justify-center w-full relative">
       {/* Image Slider */}
-      <div className="overflow-hidden h-[60vh] md:h-[70vh]">
+      <div className="overflow-hidden h-[60vh] lg:h-[70vh]">
         <Swiper modules={[Navigation, Pagination, Autoplay]}
                 navigation={true}
                 pagination={{ clickable: true }}

@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  html {
-    @apply font-[Poppins]
-  }
+  html { @apply font-[Poppins] }
 }
 
 @layer components {
@@ -16,57 +15,31 @@
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(minmax(0, 20), 100px);
   }
-  .--clip-polygon {
-    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
-  }
-  .--nav-sm-links {
-    @apply font-[Roboto] w-full uppercase tracking-widest font-light;
-  }
+  .--clip-polygon { clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); }
+  .--nav-sm-links { @apply font-[Roboto] w-full uppercase tracking-widest font-light; }
   .--nav-sm-links:hover {
     @apply font-bold;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
   }
-  .--nav-icons {
-    @apply hover:scale-[110%] hover:opacity-75 transition-all  duration-300 cursor-pointer text-[1.8rem];
-  }
-  .--link {
-    @apply flex items-center gap-2 hover:underline hover:opacity-75 cursor-pointer transition-opacity duration-300;
-  }
-  #slider-thumb::-webkit-slider-thumb {
-    --webkit-appearance: none;
-    height: 60px;
-    width: 60px;
-  }
-  .--input-base {
-    @apply focus:outline-none px-6 py-4 font-semibold border-[1px] focus:border-secondary resize-none transition-all duration-300 rounded-lg;
-  }
-  .--label-base {
-    @apply font-medium text-base text-primary hover:opacity-75 transition-all duration-300;
-  }
-  .--form-icon {
-    @apply absolute top-[50%] right-[1rem] translate-y-[-50%] text-light-gray text-2xl opacity-100;
-  }
-  .select-option {
-    @apply px-12 bg-bluish-gray font-semibold text-primary text-base lg:text-lg;
-  }
-  .--header {
-    @apply text-3xl font-bold text-primary w-full capitalize;
-  }
-  .--footer-link {
-    @apply capitalize hover:opacity-75 hover:underline;
-  }
+  .--nav-icons { @apply hover:scale-[110%] hover:opacity-75 transition-all  duration-300 cursor-pointer text-[1.8rem]; }
+  .--link { @apply flex items-center gap-2 hover:underline hover:opacity-75 cursor-pointer transition-opacity duration-300; }
+  .--input-base { @apply focus:outline-none px-6 py-4 font-semibold border-[1px] focus:border-secondary resize-none transition-all duration-300 rounded-lg; }
+  .--label-base { @apply font-medium text-base text-primary hover:opacity-75 transition-all duration-300; }
+  .--form-icon { @apply absolute top-[50%] right-[1rem] translate-y-[-50%] text-light-gray text-2xl opacity-100; }
+  .select-option { @apply px-12 bg-bluish-gray font-semibold text-primary text-base lg:text-lg; }
+  .--sub-header { @apply text-3xl font-bold text-primary w-full capitalize; }
+  .--header { @apply font-bold text-5xl text-primary mb-[4rem] border-r-2 border-r-primary; }
+  .--footer-link { @apply capitalize hover:opacity-75 hover:underline; }
 }
 
 @layer utilities {
-  .--appearance-none {
-    -webkit-appearance: none;
-  }
+  .--appearance-none { -webkit-appearance: none; }
+  .--direction-ltr { direction: ltr }
 }
 
-.swiper-pagination-bullet, .swiper-button-next, .swiper-button-prev {
-  @apply scale-[1.6];
-}
-.gallery-button-next, .gallery-button-prev {
-  @apply w-12 h-12 bg-yellow-500 absolute top-[50%] z-10;
+#slider-thumb::-webkit-slider-thumb {
+  --webkit-appearance: none;
+  height: 60px;
+  width: 60px;
 }

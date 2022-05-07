@@ -135,7 +135,7 @@ export const stats = {
             record: 56,
         },
         {
-            title: 'Heures de formation avec l’Académie Dentego',
+            title: "Heures de formation avec l'Académie Dentego",
             record: 1980,
         },
         {
@@ -151,19 +151,50 @@ export const stats = {
 }
 export const profiles = [
     {
-        img: '/images/dr1.png',
+        url: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/profiles%2Fprofile01.jpg?alt=media&token=854feb9c-47a2-4f6f-b333-f8264c922327',
         name: 'Dr.Hanan Nehroui',
+        profession: 'assistant dentaire', 
         alt: '',
-        description: 'Tous ont une philosophie d’approche en douceur et de savoir-faire que vous apprécierez.',
+        details: 'Binôme du chirurgien-dentiste, l’assistant dentaire exerce une profession polyvalente et enrichissante, dédiée à l’assistanat aux soins dentaires. Sur cette page, nous vous expliquons tout ce qu’il faut savoir sur le métier d’assistant dentaire !',
         facebook: '#',
         youtube: '#',
         instagram: '#'
     },
     {
-        img: '/images/dr1.png',
-        name: 'Dr.Hanan Nehroui',
+        url: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/profiles%2Fprofile03.jpg?alt=media&token=7feb10be-62b4-456e-b84a-9614e838627e',
+        profession: 'Chirurgien dentiste', 
         alt: '',
-        description: 'Tous ont une philosophie d’approche en douceur et de savoir-faire que vous apprécierez.',
+        details: 'Spécialiste des interventions chirurgicales dentaires et buccales, le chirurgien-dentiste exerce une profession passionnante et particulièrement exigeante au quotidien. Sur cette page, nous vous expliquons tout ce qu’il faut savoir sur le métier de chirurgien-dentiste !',
+        facebook: '#',
+        youtube: '#',
+        instagram: '#',
+    },
+    {
+        url: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/profiles%2Fprofile04.jpg?alt=media&token=ae14bc58-1163-4d4d-b20a-316fdf77960c',
+        name: 'Dr.Hanan Nehroui',
+        profession: 'Chirurgien dentiste', 
+        alt: '',
+        details: 'Spécialiste des interventions chirurgicales dentaires et buccales, le chirurgien-dentiste exerce une profession passionnante et particulièrement exigeante au quotidien. Sur cette page, nous vous expliquons tout ce qu’il faut savoir sur le métier de chirurgien-dentiste !',
+        facebook: '#',
+        youtube: '#',
+        instagram: '#',
+    },
+    {
+        url: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/profiles%2Fprofile05.jpg?alt=media&token=78d42186-4dde-4129-9e45-f577d7cb68c7',
+        name: 'Dr.Hanan Nehroui',
+        profession: 'Chirurgien dentiste', 
+        alt: '',
+        details: 'Spécialiste des interventions chirurgicales dentaires et buccales, le chirurgien-dentiste exerce une profession passionnante et particulièrement exigeante au quotidien. Sur cette page, nous vous expliquons tout ce qu’il faut savoir sur le métier de chirurgien-dentiste !',
+        facebook: '#',
+        youtube: '#',
+        instagram: '#',
+    },
+    {
+        url: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/profiles%2Fprofile02.jpg?alt=media&token=4ee02648-334e-4b3e-89cb-6ae113ef981d',
+        name: 'Dr.Hanan Nehroui',
+        profession: 'Chirurgien dentiste', 
+        alt: '',
+        details: 'Spécialiste des interventions chirurgicales dentaires et buccales, le chirurgien-dentiste exerce une profession passionnante et particulièrement exigeante au quotidien. Sur cette page, nous vous expliquons tout ce qu’il faut savoir sur le métier de chirurgien-dentiste !',
         facebook: '#',
         youtube: '#',
         instagram: '#',
@@ -189,6 +220,10 @@ export const slideShow = {
             alt: 'imageAlternative',
         },
     ]
+}
+export const about = {
+    header: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Non cumque esse sequi quibusdam nihil illo nulla neque delectus dicta facere temporibus autem quas unde ut repudiandae velit veritatis et officia commodi pariatur, nostrum eius totam dolorum ab. Delenium aperiam similique temporibus tempora, voluptate explicabo debitis officia! Nam explicabo molestias consequatur.',
+    video: 'https://www.youtube.com/embed/9YffrCViTVk?autoplay=0&fs=1&iv_load_policy=1&showinfo=1&rel=0&cc_load_policy=1&start=0&end=0&origin=http://youtubeembedcode.com'
 }
 export const services = {
     header: {
@@ -295,9 +330,6 @@ export const comparisonImgs = [
         before: '/images/before-after/before1.png',
         after : '/images/before-after/after1.png',
     },
-]
-export const videos = [
-    'https://www.youtube.com/embed/9YffrCViTVk?autoplay=0&fs=1&iv_load_policy=1&showinfo=1&rel=0&cc_load_policy=1&start=0&end=0&origin=http://youtubeembedcode.com',
 ]
 // Faq
 

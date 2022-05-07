@@ -27,7 +27,7 @@ const App = () => {
         <Route path='/blog' element={<Blog />} />
         <Route path='/root' element={<Root />} />
       </Routes>
-      <div className='bg-primary flex justify-center'><div className='max-w-[1400px] w-full'><Footer /></div></div>
+      <Footer />
     </Router>
   );
 }

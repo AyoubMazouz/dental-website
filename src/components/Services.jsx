@@ -10,7 +10,7 @@ import { FreeMode, Scrollbar, Pagination } from 'swiper';
 export default function Services({ services }) {
   return (
     <div><Swiper modules={[Scrollbar, FreeMode, Pagination]} grabCursor spaceBetween={30}
-        className='h-[420px] max-w-[99.1vw] mb-[5rem] my-[2.5rem]'
+        className='h-[420px] max-w-[99.1vw]'
         // breakpoints={{
         //   640: { slidesPerView: 1.25 },
         //   768: { slidesPerView: 1.75 },
