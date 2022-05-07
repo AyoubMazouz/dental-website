@@ -12,7 +12,8 @@ export default function Input({ params, formValues, setFormValues }) {
     const getInputField = () => {
         if (type === 'textarea') return (
             <textarea maxLength='500' {...params} onFocus={() => setOnFocus(true)} onBlur={() => setOnFocus(false)}
-                    className={`--input-base h-[10rem] ${validity ? 'border-light-gray' : 'border-red-500'}`}></textarea>
+                onChange={ev => setFormValues({ ...formValues, 'message': ev.target.value })}
+                className={`--input-base h-[10rem] ${validity ? 'border-light-gray' : 'border-red-500'}`}></textarea>
         )
         if (type === 'select') return (
             <select name='subject' value={formValues.subject} onFocus={() => setOnFocus(true)} onBlur={() => setOnFocus(false)}
@@ -44,7 +45,7 @@ export default function Input({ params, formValues, setFormValues }) {
     }
     return (
         <div className='relative flex flex-col'>
-            <label htmlFor={name} className='font-bold text-light transition-all duration-300'>{label}<span className="text-light-gray font-medium text-sm mx-2">{required ? '' : 'optional'}</span></label>
+            <label htmlFor={name} className='text-lg text-light transition-all duration-300'>{label}<span className="text-light-gray text-sm mx-2">{required ? '' : 'optional'}</span></label>
             {getInputField()}
             {getIcon()}
             {getValidationMessage()}

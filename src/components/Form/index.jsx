@@ -41,7 +41,6 @@ const Form = () => {
             label: 'Votre Nom',
             required: true,
             errormessage: 'Name must be at least 3 characters long.',
-            pattern: "",
             span: 1,
         },
         {
@@ -65,19 +64,17 @@ const Form = () => {
         {
             type: 'select',
             name: 'subject',
-            label: 'Sujet',
+            label: 'Subject',
             required: true,
             errormessage: 'Please select an option.',
-            pattern: '',
             span: 2,
         },
         {
             type: 'textarea',
             name: 'message',
-            label: 'Votre message',
+            label: 'message',
             required: true,
             errormessage: '',
-            pattern: '^',
             span: 2,
         },
     ]
@@ -86,7 +83,7 @@ const Form = () => {
     <form onSubmit={sendEmail} className='space-y-3'>
         {formParams.map((v, id) => <Input key={id} params={v} formValues={formValues} setFormValues={setFormValues} />)}
         {/* Submit btn */}
-        <button type="submit" className="h-[3.4rem] w-full col-span-2 bg-secondary hover:opacity-75 rounded-full transition-all duration-300 font-bold text-light text-xl"
+        <button type="submit" className="h-[3.4rem] w-full col-span-2 bg-secondary hover:opacity-75 rounded-full transition-all duration-300 font-semibold text-light text-3xl"
             >Send</button>
     </form>
   )

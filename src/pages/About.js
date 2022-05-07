@@ -22,9 +22,9 @@ export default function About() {
       <div className='flex flex-col items-center text-dark text-lg gap-y-[8rem] overflow-hidden'>
 
         {/* Content */}
-        <div className='flex flex-col items-center gap-y-[6rem] py-[5rem] w-full bg-primary'>
+        <div className='flex flex-col items-center gap-y-[6rem] py-[4rem] w-full bg-primary'>
           {/* Stats */}
-          <div className='max-w-[1600px] w-full flex-wrap flex gap-[4rem] justify-center items-start text-light'>
+          <div className='max-w-[1600px] w-full flex-wrap flex gap-x-[2rem] gap-y-[1rem] justify-center items-start text-light'>
             {stats.about.map((stat, id) => <Stats key={id} { ...stat } speed={3000} />)}
           </div>
           <div className='max-w-[1600px] grid lg:grid-cols-2 text-light gap-[3rem] lg:gap-[6rem] max-h-[20rem] lg:max-h-[12rem] px-2 sm:px-4 md:px-8'>
@@ -53,7 +53,7 @@ export default function About() {
         </div>
         {/* Team */}
         <div className='max-w-[1600px] w-full'>
-          <h1 className='--header'>Notre Equipe</h1>
+          <h1 className='--header mb-[4rem]'>Notre Equipe</h1>
           <div className='w-full flex flex-wrap justify-center gap-[4rem]'>
             {profiles.map(profile => <AboutCard { ...profile } />)}
           </div>
@@ -62,15 +62,16 @@ export default function About() {
         <div className='max-w-[1600px] w-full rounded-xl overflow-hidden mx-2 sm:mx-4 md:mx-8'><Video url={about.video} /></div>
         
         {/* Reviews */}
+        <h1 className='--header max-w-[1600px] w-full mb-[-4rem]'>Reviews</h1>
         <Reviews reviews={reviews} />
 
         {/* Gallery */}
         <div className='max-w-[1600px] w-full rounded-xl overflow-hidden mx-2 sm:mx-4 md:mx-8'><Gallery /></div>
 
         {/* Contact */}
-        <div id='contact' className='w-full bg-primary flex flex-col justify-center items-center mt-[5rem] py-[6rem] px-4 lg:px-12'>
+        <div id='contact' className='w-full bg-primary flex flex-col justify-center items-center py-[4rem] px-4 lg:px-12'>
           <div className='max-w-[1600px] grid lg:gap-20 grid-cols-8'>
-            <h1 className='col-span-full font-bold text-5xl text-light mb-[4rem] border-r-2 border-r-light'>Contact</h1>
+            <h1 className='col-span-full font-bold text-5xl text-light border-r-2 border-r-light'>Contact</h1>
             <div className='col-span-full lg:col-span-4'><Form /></div>
             <div className='col-span-full lg:col-span-4'><Details {...info} /></div>
           </div>

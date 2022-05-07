@@ -6,6 +6,13 @@
 
 @layer base {
   html { @apply font-[Poppins] }
+  h1   { @apply lg:text-5xl text-4xl font-bold }
+  h2   { @apply lg:text-4xl text-3xl font-semibold }
+  h3   { @apply lg:text-3xl text-2xl font-semibold }
+  h4   { @apply lg:text-2xl text-xl font-medium }
+  p    { @apply lg:text-lg text-base }
+  h5   { @apply lg:text-sm }
+  h6   { @apply lg:text-xs font-light }
 }
 
 @layer components {
@@ -25,11 +32,11 @@
   .--nav-icons { @apply hover:scale-[110%] hover:opacity-75 transition-all  duration-300 cursor-pointer text-[1.8rem]; }
   .--link { @apply flex items-center gap-2 hover:underline hover:opacity-75 cursor-pointer transition-opacity duration-300; }
   .--input-base { @apply focus:outline-none px-6 py-4 font-semibold border-[1px] focus:border-secondary resize-none transition-all duration-300 rounded-lg; }
-  .--label-base { @apply font-medium text-base text-primary hover:opacity-75 transition-all duration-300; }
-  .--form-icon { @apply absolute top-[50%] right-[1rem] translate-y-[-50%] text-light-gray text-2xl opacity-100; }
-  .select-option { @apply px-12 bg-bluish-gray font-semibold text-primary text-base lg:text-lg; }
-  .--sub-header { @apply text-3xl font-bold text-primary w-full capitalize; }
-  .--header { @apply font-bold text-5xl text-primary mb-[4rem] border-r-2 border-r-primary; }
+  .--label-base { @apply font-medium text-primary hover:opacity-75 transition-all duration-300; }
+  .--form-icon { @apply absolute top-[50%] right-[1rem] translate-y-[-50%] text-light-gray opacity-100; }
+  .select-option { @apply px-12 bg-bluish-gray font-semibold text-primary lg:text-lg; }
+  .--sub-header { @apply font-bold text-primary w-full capitalize; }
+  .--header { @apply font-bold text-primary mb-[4rem] border-r-2 border-r-primary; }
   .--footer-link { @apply capitalize hover:opacity-75 hover:underline; }
 }
 

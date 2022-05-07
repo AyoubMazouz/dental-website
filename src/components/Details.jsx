@@ -1,30 +1,22 @@
 import { MdPhone } from 'react-icons/md'
-const Details = ({ image, alt, address, phone, workHours }) => {
+export default function Details ({ image, alt, address, phone, workHours }) {
   return (
-    
-        <div className="h-full py-[1.5rem]">
-
+        <div className="h-full">
             {/* Image */}
             <img src={image} alt={alt} className="object-cover max-h-[380px] w-full rounded-2xl hidden lg:block" />
 
             {/* Address */}
-            <p className='text-light font-bold mx-6 mt-2 text-3xl'>{address}</p>
-
-            {/* Phone */}
-            <div className='flex flex-wrap gap-2 mx-8 mt-6'>
-                {phone.map((v, id) => <p key={id} className="py-2 px-4 flex gap-2 items-center text-light text-base border-2 border-secondary rounded-full"><MdPhone />{v}</p>)}
-            </div>
+            <h3 className='text-light mx-6 mt-2'>{address}</h3>
 
             {/* Work Hours */}
-            <h1 className='text-xl font-bold text-light mx-8 mt-6'>Work Hours</h1>
-            <div className="w-full gap-8 flex mx-8 font-semibold text-bluish-gray text-sm">
-                <ul>{workHours.map((v, id) => <li className='border-b-2 border-secondary my-2' key={id}>{v.day}</li>)}</ul>
-                <ul>{workHours.map((v, id) => <li className='border-b-2 border-secondary my-2' key={id}>{v.time}</li>)}</ul>
+            <div className="w-full gap-8 flex flex-wrap mx-4 text-bluish-gray mt-[2rem]">
+                <ul>{workHours.map((v, id) => <h5 className='border-b-2 border-secondary my-2' key={id}>{v.day}</h5>)}</ul>
+                <ul>{workHours.map((v, id) => <h5 className='border-b-2 border-secondary my-2' key={id}>{v.time}</h5>)}</ul>
+                {/* Phone */}
+                <div className='space-y-2'>{phone.map((v, id) => 
+                    <h5 key={id} className="py-2 px-4 flex gap-2 items-center text-light border-2 border-secondary rounded-full"><MdPhone />{v}</h5>)}
+                </div>
             </div>
-
         </div>
-
   )
 }
-
-export default Details
