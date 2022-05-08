@@ -18,12 +18,12 @@ import { slideShow, info, profiles, comparisonImgs, services, reviews, stats, ab
 
 export default function Home() {
   return (
-    <div className='flex gap-y-[8rem] flex-col items-center text-dark bg-light overflow-hidden'>
+    <div className='flex gap-y-[6rem] lg:gap-y-[8rem] flex-col items-center text-dark bg-light overflow-hidden'>
       {/* SlideShow */}
       <SlideShow { ...slideShow } />
 
       {/* Stats */}
-      <div className='max-w-[1600px] w-full mt-[-5rem] flex-wrap flex gap-x-[2rem] justify-center items-start text-primary'>
+      <div className='max-w-[1600px] w-full mt-[-5rem] flex-wrap flex gap-x-[2rem] gap-y-[1rem] justify-center items-start text-primary'>
         {stats.home.map((stat, id) => <Stats key={id} { ...stat } speed={3000} />)}
       </div>
 
@@ -41,7 +41,7 @@ export default function Home() {
       <div className='mt-[-4rem]'><Services services={services} /></div>
 
       {/* About */}
-      <div><About { ...about } /></div>
+      <div className='px-2 sm:px-4 md:px-8'><About { ...about } /></div>
 
       {/* Before & After */}
       <div className='max-w-[1600px] px-2 sm:px-4 md:px-8'>
@@ -53,22 +53,22 @@ export default function Home() {
           </Link>
           </p>
         </div>
-        <div className='flex gap-4 justify-center flex-wrap mt-[4rem]'>
+        <div className='flex gap-4 justify-around flex-wrap mt-[4rem]'>
           {comparisonImgs.map((v, id) => <Slider id={id} { ...v } />)}
         </div>
       </div>
 
       {/* Gallery */}
-      <div className='max-w-[1600px] w-full rounded-xl overflow-hidden'><Gallery /></div>
+      <div className='max-w-[1600px] w-full rounded-xl overflow-hidden px-2 sm:px-4 md:px-8'><Gallery /></div>
       
       {/* Blog */}
 
       {/* Contact */}
-      <div className='w-full bg-primary flex flex-col justify-center items-center py-[4rem] px-2 sm:px-4 md:px-8'>
-        <div className='max-w-[1600px] grid lg:gap-[6rem] grid-cols-8'>
+      <div id='contact' className='w-full bg-primary flex flex-col justify-center items-center py-[4rem] px-2 sm:px-4 md:px-8'>
+        <div className='max-w-[1600px] grid gap-[2rem] lg:gap-[6rem] grid-cols-2 lg:grid-cols-4'>
           <h1 className='col-span-full text-light border-r-2 border-r-light'>Contact</h1>
-          <div className='col-span-full lg:col-span-4'><Form /></div>
-          <div className='col-span-full lg:col-span-4'><Details {...info} /></div>
+          <div className='col-span-2'><Form /></div>
+          <div className='col-span-2'><Details {...info} /></div>
         </div>
       </div>
 

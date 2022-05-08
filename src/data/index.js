@@ -61,14 +61,17 @@ export const links = {
             alt: '',
         },
     ],
-    icons: {
+    social: {
         facebook: '#',
         instagram: '#',
+        twitter: '#',
+        youtube: '#',
         linkedin: '#',
+        whatsapp: '#',
     }
 }
 export const info = {
-    image: '/images/slideshow/img1.png',
+    image: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/other-images%2Fus.jpg?alt=media&token=a70dcfaf-e08a-4da3-a9a2-0723f0cd797b',
     alt: '',
     phone: ['0555663829', '0555736252'],
     email: ['dentistemail@gmail.com'],
@@ -210,7 +213,7 @@ export const about = {
     },
     header: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Non cumque esse sequi quibusdam nihil illo nulla neque delectus dicta facere temporibus autem quas unde ut repudiandae velit veritatis et officia commodi pariatur, nostrum eius totam dolorum ab. Delenium aperiam similique temporibus tempora, voluptate explicabo debitis officia! Nam explicabo molestias consequatur.',
     video: 'https://www.youtube.com/embed/9YffrCViTVk?autoplay=0&fs=1&iv_load_policy=1&showinfo=1&rel=0&cc_load_policy=1&start=0&end=0&origin=http://youtubeembedcode.com',
-    url: '/images/slideshow/img1.png',
+    url: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/other-images%2Fus.jpg?alt=media&token=a70dcfaf-e08a-4da3-a9a2-0723f0cd797b',
     atl: '',
 }
 export const services = {

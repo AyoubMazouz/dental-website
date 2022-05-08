@@ -1,9 +1,9 @@
 // React Imports.
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-// Icons Import.
-import { FaPhone, FaFacebook, FaInstagram, FaLinkedin, } from 'react-icons/fa'
-// Components Imports
+// Icons Imports.
+import { FaYoutube, FaFacebookF, FaInstagram, FaLinkedinIn, FaPhone, FaLocationArrow, FaTwitter, FaWhatsapp } from 'react-icons/fa'
+// Components Imports.
 import Logo from './Logo'
 // Data Imports. 
 import { info, links } from '../data'
@@ -35,10 +35,25 @@ const Footer = () => {
                             </div>
                         </div>
                         {/* Social Media Links */}
-                        <ul className='flex gap-2 justify-center lg:justify-end'>
-                            {links.icons.facebook && <FaFacebook className='--nav-icons' />}
-                            {links.icons.instagram && <FaInstagram className='--nav-icons' />}
-                            {links.icons.linkedin && <FaLinkedin className='--nav-icons' />}
+                        <ul className='flex items-center justify-center h-12 bg-primary'>
+                            {links.social.facebook && <div className='--nav-icons-container group bg-primary'>
+                                <FaFacebookF className='--nav-icons group-hover:bg-[#1877f2]' />
+                                <h5 className='--nav-icons-span text-light'>Facebook</h5></div>}
+                            {links.social.youtube && <div className='--nav-icons-container group bg-primary'>
+                                <FaYoutube className='--nav-icons group-hover:bg-[#ff0000]' />
+                                <h5 className='--nav-icons-span text-light'>Youtube</h5></div>}
+                            {links.social.twitter && <div className='--nav-icons-container group bg-primary'>
+                                <FaTwitter className='--nav-icons group-hover:bg-[#1da1f2]' />
+                                <h5 className='--nav-icons-span text-light'>Twitter</h5></div>}
+                            {links.social.instagram && <div className='--nav-icons-container group bg-primary'>
+                                <FaInstagram className='--nav-icons group-hover:bg-[#c32aa3]' />
+                                <h5 className='--nav-icons-span text-light'>Instagram</h5></div>}
+                            {links.social.linkedin && <div className='--nav-icons-container group bg-primary'>
+                                <FaLinkedinIn className='--nav-icons group-hover:bg-[#0a66c2]' />
+                                <h5 className='--nav-icons-span text-light'>Linkedin</h5></div>}
+                            {links.social.whatsapp && <div className='--nav-icons-container group bg-primary'>
+                                <FaWhatsapp className='--nav-icons group-hover:bg-[#25d366]' />
+                                <h5 className='--nav-icons-span text-light'>Whatsapp</h5></div>}
                         </ul>
                     </div>
                 </div>
@@ -53,7 +68,7 @@ const Footer = () => {
                         <Logo />
                     </div>
                     {/* CopyRight, Policy & Terms of Service */}
-                    <div className='w-full mt-[5rem] lg:mt-[12rem] text-center lg:text-left py-1 text-xs'>
+                    <div className='w-full mt-[5rem] lg:mt-[12rem] text-center lg:text-left py-1'>
                         <h6>Copyright 2021 | <Link to='#' className='--footer-link'>Policy</Link>, <Link to='#' className='--footer-link'>Terms of Service</Link></h6>
                     </div>
                 </div>

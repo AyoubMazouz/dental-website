@@ -6,13 +6,13 @@
 
 @layer base {
   html { @apply font-[Poppins] }
-  h1   { @apply lg:text-5xl text-4xl font-bold }
-  h2   { @apply lg:text-4xl text-3xl font-semibold }
-  h3   { @apply lg:text-3xl text-2xl font-semibold }
-  h4   { @apply lg:text-2xl text-xl font-medium }
-  p    { @apply lg:text-lg text-base }
-  h5   { @apply lg:text-sm }
-  h6   { @apply lg:text-xs font-light }
+  h1   { @apply lg:text-5xl md:text-4xl text-3xl font-bold }
+  h2   { @apply lg:text-4xl md:text-3xl text-2xl font-semibold }
+  h3   { @apply lg:text-3xl md:text-2xl text-xl font-semibold }
+  h4   { @apply lg:text-2xl md:text-xl  text-lg font-medium }
+  p    { @apply lg:text-lg  md:text-base }
+  h5   { @apply text-sm }
+  h6   { @apply text-xs font-light }
 }
 
 @layer components {
@@ -29,7 +29,9 @@
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
   }
-  .--nav-icons { @apply hover:scale-[110%] hover:opacity-75 transition-all  duration-300 cursor-pointer text-[1.8rem]; }
+  .--nav-icons { @apply p-2 h-full w-12 transition-colors duration-300 text-light bg-primary group-hover:text-light; }
+  .--nav-icons-span { @apply hidden group-hover:block text-dark font-semibold; }
+  .--nav-icons-container { @apply h-full gap-2 flex items-center w-12 hover:w-36 transition-all duration-500 cursor-pointer bg-light; }
   .--link { @apply flex items-center gap-2 hover:underline hover:opacity-75 cursor-pointer transition-opacity duration-300; }
   .--input-base { @apply focus:outline-none px-6 py-4 font-semibold border-[1px] focus:border-secondary resize-none transition-all duration-300 rounded-lg; }
   .--label-base { @apply font-medium text-primary hover:opacity-75 transition-all duration-300; }

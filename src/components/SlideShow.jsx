@@ -21,10 +21,10 @@ export default function SlideShow({ images, header }) {
       </div>
         {/* Header */}
       <div className="w-full h-full pointer-events-none absolute z-10 top-0 flex flex-col justify-center items-center bg-[rgba(0,0,0,.3)]">
-        <h1 className='font-bold max-w-[20ch] text-center text-light my-[3rem]'>{header}</h1>
-        <div className='flex gap-4 font-semibold text-lg text-light'>
-          <button className='bg-secondary px-6 py-2 rounded-full'>Prenez Rendez vous</button>
-          <Link to='#' className='border-secondary border-2 px-6 py-2 rounded-full'>Contact</Link>
+        <h1 className='font-bold max-w-[17ch] text-center text-light my-[3rem]'>{header}</h1>
+        <div className='flex gap-4 text-light'>
+          <button className='bg-secondary px-6 py-2 rounded-full'><h4>Appelez</h4></button>
+          <Link to='#' className='border-secondary border-2 px-6 py-2 rounded-full'><h4>Prenez Rendez vous</h4></Link>
         </div>
       </div>
     </div>

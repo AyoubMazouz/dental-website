@@ -1,7 +1,7 @@
 import { MdPhone } from 'react-icons/md'
 export default function Details ({ image, alt, address, phone, workHours }) {
   return (
-        <div className="h-full">
+        <div className="h-full py-4">
             {/* Image */}
             <img src={image} alt={alt} className="object-cover max-h-[380px] w-full rounded-2xl hidden lg:block" />
 
