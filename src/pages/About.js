@@ -3,8 +3,7 @@ import Hero from '../components/Hero'
 import Stats from '../components/Stats'
 import Reviews from '../components/Reviews'
 import Gallery from '../components/Gallery'
-import Form from '../components/Form'
-import Details from '../components/Details'
+import ContactForm from '../components/ContactForm'
 import GoogleMaps from '../components/GoogleMaps'
 import AboutCard from '../components/AboutCard'
 import Video from '../components/Video'
@@ -69,13 +68,7 @@ export default function About() {
         <div className='max-w-[1600px] w-full rounded-xl overflow-hidden mx-2 px-2 sm:px-4 md:px-8'><Gallery /></div>
 
         {/* Contact */}
-        <div id='contact' className='w-full bg-primary flex flex-col justify-center items-center py-[4rem] px-2 sm:px-4 md:px-8'>
-          <div className='max-w-[1600px] grid gap-[2rem] lg:gap-[6rem] grid-cols-2 lg:grid-cols-4'>
-            <h1 className='col-span-full text-light border-r-2 border-r-light'>Contact</h1>
-            <div className='col-span-2'><Form /></div>
-            <div className='col-span-2'><Details {...info} /></div>
-          </div>
-        </div>
+        <ContactForm />
         {/* GooGle Maps */}
         <div className='w-full h-[480px] mt-[-8rem]'><GoogleMaps location={info.location} /></div>
 

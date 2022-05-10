@@ -7,6 +7,7 @@ import { FaYoutube, FaFacebookF, FaInstagram, FaLinkedinIn, FaPhone, FaLocationA
 import Logo from './Logo'
 // Data Imports. 
 import { info, links } from '../data'
+const { whatsapp, linkedin, youtube, twitter, instagram, facebook } = info.social
 
 const Footer = () => {
     const [email, setEmail] = useState()
@@ -36,22 +37,22 @@ const Footer = () => {
                         </div>
                         {/* Social Media Links */}
                         <ul className='flex items-center justify-center h-12 bg-primary'>
-                            {links.social.facebook && <div className='--nav-icons-container group bg-primary'>
+                            {facebook && <div className='--nav-icons-container group bg-primary'>
                                 <FaFacebookF className='--nav-icons group-hover:bg-[#1877f2]' />
                                 <h5 className='--nav-icons-span text-light'>Facebook</h5></div>}
-                            {links.social.youtube && <div className='--nav-icons-container group bg-primary'>
+                            {youtube && <div className='--nav-icons-container group bg-primary'>
                                 <FaYoutube className='--nav-icons group-hover:bg-[#ff0000]' />
                                 <h5 className='--nav-icons-span text-light'>Youtube</h5></div>}
-                            {links.social.twitter && <div className='--nav-icons-container group bg-primary'>
+                            {twitter && <div className='--nav-icons-container group bg-primary'>
                                 <FaTwitter className='--nav-icons group-hover:bg-[#1da1f2]' />
                                 <h5 className='--nav-icons-span text-light'>Twitter</h5></div>}
-                            {links.social.instagram && <div className='--nav-icons-container group bg-primary'>
+                            {instagram && <div className='--nav-icons-container group bg-primary'>
                                 <FaInstagram className='--nav-icons group-hover:bg-[#c32aa3]' />
                                 <h5 className='--nav-icons-span text-light'>Instagram</h5></div>}
-                            {links.social.linkedin && <div className='--nav-icons-container group bg-primary'>
+                            {linkedin && <div className='--nav-icons-container group bg-primary'>
                                 <FaLinkedinIn className='--nav-icons group-hover:bg-[#0a66c2]' />
                                 <h5 className='--nav-icons-span text-light'>Linkedin</h5></div>}
-                            {links.social.whatsapp && <div className='--nav-icons-container group bg-primary'>
+                            {whatsapp && <div className='--nav-icons-container group bg-primary'>
                                 <FaWhatsapp className='--nav-icons group-hover:bg-[#25d366]' />
                                 <h5 className='--nav-icons-span text-light'>Whatsapp</h5></div>}
                         </ul>

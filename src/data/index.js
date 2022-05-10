@@ -60,15 +60,19 @@ export const links = {
             url: '',
             alt: '',
         },
+        {
+            label: 'signUp',
+            link: '/signup',
+            url: '',
+            alt: '',
+        },
+        {
+            label: 'logIn',
+            link: '/login',
+            url: '',
+            alt: '',
+        },
     ],
-    social: {
-        facebook: '#',
-        instagram: '#',
-        twitter: '#',
-        youtube: '#',
-        linkedin: '#',
-        whatsapp: '#',
-    }
 }
 export const info = {
     image: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/other-images%2Fus.jpg?alt=media&token=a70dcfaf-e08a-4da3-a9a2-0723f0cd797b',
@@ -77,6 +81,14 @@ export const info = {
     email: ['dentistemail@gmail.com'],
     address: '441, 2ème Etage Lot La Colline Californie, Casablanca',
     location: '',
+    social: {
+        facebook: '#',
+        instagram: '#',
+        twitter: '#',
+        youtube: '#',
+        linkedin: '#',
+        whatsapp: '#',
+    },
     workHours: [
         {
             day: 'lundi',

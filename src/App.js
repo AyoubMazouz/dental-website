@@ -6,18 +6,18 @@ import About from './pages/About'
 import Services from './pages/Services'
 import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
+import SignUp from './pages/SignUp'
+import LogIn from './pages/LogIn'
 import Blog from './pages/Blog'
 import Root from './pages/Root'
-import NavBarFull from './components/NavBarFull'
-import NavBarSmall from './components/NavBarSmall'
+import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 
 const App = () => {
   return (
     <Router>
       {/* NavBar */}
-      <NavBarFull />
-      <NavBarSmall />
+      <NavBar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
@@ -25,6 +25,9 @@ const App = () => {
         <Route path='/gallery' element={<Gallery />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/blog' element={<Blog />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/login' element={<LogIn />} />
+        {/* root */}
         <Route path='/root' element={<Root />} />
       </Routes>
       <Footer />
