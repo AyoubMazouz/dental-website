@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app"
-import { getFirestore, Timestamp } from "firebase/firestore"
+import { getFirestore } from "firebase/firestore"
 import { getStorage } from "firebase/storage"
+import { getAuth } from 'firebase/auth'
 
 // Firebase configuration
 const firebaseConfig = {
@@ -13,7 +14,9 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
-// Initialize Cloud Firestore and get a reference to the service
+// Storage.
 export const storage = getStorage(app)
+// DataBase.
 export const db = getFirestore(app)
-// export default timestamp = Timestamp.FieldValue.serverTimestamp
+// Authentication.
+export const auth = getAuth(app)

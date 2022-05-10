@@ -10,6 +10,53 @@ import { MdPhone } from 'react-icons/md'
 import { info } from '../data'
 const { image, alt, address, phone, workHours } = info
 
+// Form Parameters.
+const formParams = [
+    {
+        type: 'text',
+        name: 'name',
+        label: 'Votre Nom',
+        required: true,
+        errormessage: 'Name must be at least 3 characters long.',
+        span: 1,
+    },
+    {
+        type: 'email',
+        name: 'email',
+        label: 'Votre Email Address',
+        required: true,
+        errormessage: 'Please enter a valid email address.',
+        pattern: "^[a-zA-Z0-9.]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$",
+        span: 21,
+    },
+    {
+        type: 'phone',
+        name: 'phone',
+        label: 'Votre numero de Telephone',
+        required: false,
+        errormessage: 'Please enter a valid phone number.',
+        pattern: "^[0-9]{10}$",
+        span: 1,
+    },
+    {
+        type: 'select',
+        name: 'subject',
+        label: 'Subject',
+        required: true,
+        errormessage: 'Please select an option.',
+        span: 2,
+    },
+    {
+        type: 'textarea',
+        name: 'message',
+        label: 'message',
+        required: true,
+        errormessage: '',
+        span: 2,
+    },
+]
+
+
 const Form = () => {
     // Form stats.
     const [formValues, setFormValues] = useState({
@@ -41,54 +88,10 @@ const Form = () => {
               console.log(error.text);
           });
     }
-    const formParams = [
-        {
-            type: 'text',
-            name: 'name',
-            label: 'Votre Nom',
-            required: true,
-            errormessage: 'Name must be at least 3 characters long.',
-            span: 1,
-        },
-        {
-            type: 'email',
-            name: 'email',
-            label: 'Votre Email Address',
-            required: true,
-            errormessage: 'Please enter a valid email address.',
-            pattern: "^[a-zA-Z0-9.]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$",
-            span: 21,
-        },
-        {
-            type: 'phone',
-            name: 'phone',
-            label: 'Votre numero de Telephone',
-            required: false,
-            errormessage: 'Please enter a valid phone number.',
-            pattern: "^[0-9]{10}$",
-            span: 1,
-        },
-        {
-            type: 'select',
-            name: 'subject',
-            label: 'Subject',
-            required: true,
-            errormessage: 'Please select an option.',
-            span: 2,
-        },
-        {
-            type: 'textarea',
-            name: 'message',
-            label: 'message',
-            required: true,
-            errormessage: '',
-            span: 2,
-        },
-    ]
     // submit validation!!!!!
     return (
     <form onSubmit={sendEmail} className='space-y-3'>
-        {formParams.map((v, id) => <Input key={id} params={v} formValues={formValues} setFormValues={setFormValues} />)}
+        {formParams.map(param => <Input key={param.label} params={param} formValues={formValues} setFormValues={setFormValues} />)}
         {/* Submit btn */}
         <button type="submit" className="h-[3.4rem] w-full col-span-2 bg-secondary hover:opacity-75 rounded-full transition-all duration-300 font-semibold text-light text-3xl"
             >Send</button>

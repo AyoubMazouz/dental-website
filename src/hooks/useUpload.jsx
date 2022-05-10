@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { db, storage } from "../firebase/config";
+import { db, storage } from "../firebase";
 import { setDoc, doc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 

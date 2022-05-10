@@ -33,7 +33,7 @@
   .--nav-icons-span { @apply hidden group-hover:block text-dark font-semibold; }
   .--nav-icons-container { @apply h-full gap-2 flex items-center w-12 hover:w-36 transition-all duration-500 cursor-pointer bg-light; }
   .--link { @apply flex items-center gap-2 hover:underline hover:opacity-75 cursor-pointer transition-opacity duration-300; }
-  .--input-base { @apply focus:outline-none px-6 py-4 font-semibold border-[1px] focus:border-secondary resize-none transition-all duration-300 rounded-lg; }
+  .--input-base { @apply focus:outline-none px-6 py-4 font-semibold border-[1px] focus:border-secondary resize-none transition-all duration-300 rounded-lg text-primary; }
   .--label-base { @apply font-medium text-primary hover:opacity-75 transition-all duration-300; }
   .--form-icon { @apply absolute top-[50%] right-[1rem] translate-y-[-50%] text-light-gray opacity-100; }
   .select-option { @apply px-12 bg-bluish-gray font-semibold text-primary lg:text-lg; }

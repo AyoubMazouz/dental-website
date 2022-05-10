@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { MdEdit, MdEmail, MdPerson, MdPhoneEnabled, MdCheck, MdDangerous } from 'react-icons/md'
-export default function Input({ params, formValues, setFormValues }) {
+export default function Input({ params, formValues, setFormValues, labelStyles='', inputStyles='' }) {
     const { type, name, label, required, errormessage, pattern } = params
     const [validity, setValidity] = useState(true)
     const [onFocus, setOnFocus] = useState(false)
@@ -13,12 +13,12 @@ export default function Input({ params, formValues, setFormValues }) {
         if (type === 'textarea') return (
             <textarea maxLength='500' {...params} onFocus={() => setOnFocus(true)} onBlur={() => setOnFocus(false)}
                 onChange={ev => setFormValues({ ...formValues, 'message': ev.target.value })}
-                className={`--input-base h-[10rem] ${validity ? 'border-light-gray' : 'border-red-500'}`}></textarea>
+                className={`--input-base h-[10rem] ${inputStyles} ${validity ? 'border-light-gray' : 'border-red-500'}`}></textarea>
         )
         if (type === 'select') return (
             <select name='subject' value={formValues.subject} onFocus={() => setOnFocus(true)} onBlur={() => setOnFocus(false)}
                 onChange={ev => setFormValues({ ...formValues, 'subject': ev.target.value })}
-                className={`--input-base h-[3.4rem] ${validity ? 'border-light-gray' : 'border-red-500'}`}>
+                className={`--input-base h-[3.4rem] ${inputStyles} ${validity ? 'border-light-gray' : 'border-red-500'}`}>
                 <option value='option 1' className='--select-option'>Option 1</option>
                 <option value='option 2' className='--select-option'>Option 2</option>
                 <option value='option 3' className='--select-option'>Option 3</option>
@@ -28,11 +28,11 @@ export default function Input({ params, formValues, setFormValues }) {
         )
         else return (
             <input {...params} onChange={handleChange} onFocus={() => setOnFocus(true)} onBlur={() => setOnFocus(false)}
-                className={`--input-base h-[3.5rem] ${validity ? 'border-light-gray' : 'border-red-500'}`} />
+                className={`--input-base h-[3.5rem] ${inputStyles} ${validity ? 'border-light-gray' : 'border-red-500'}`} />
         )
     }
     const getValidationMessage = () => {
-        if (formValues[name].length === 0 || !pattern || onFocus) return <div className='h-[1.2rem]'></div>
+        if (formValues[name]?.length === 0 || !pattern || onFocus) return <div className='h-[1.2rem]'></div>
         if (validity) return <p className='flex items-center gap-2 px-2 text-sm text-emerald-600'><MdCheck />All Good!</p>
         else return <p className='text-sm font-medium px-2 text-red-500'>{errormessage}</p>
     }
@@ -44,8 +44,8 @@ export default function Input({ params, formValues, setFormValues }) {
         if (name === 'message') return <MdEdit className='--form-icon top-[3rem]' />
     }
     return (
-        <div className='relative flex flex-col'>
-            <label htmlFor={name} className='text-lg text-light transition-all duration-300'>{label}<span className="text-light-gray text-sm mx-2">{required ? '' : 'optional'}</span></label>
+        <div className='relative flex flex-col text-lg w-full'>
+            <label htmlFor={name} className={`text-light transition-all duration-300 ${labelStyles}`}>{label}<span className="text-light-gray text-sm mx-2">{required ? '' : 'optional'}</span></label>
             {getInputField()}
             {getIcon()}
             {getValidationMessage()}
