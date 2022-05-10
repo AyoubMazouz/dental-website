@@ -43,7 +43,7 @@ export default function SingUp() {
     password: '',
     confirmPassword: '',
   })
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault()
     // Check if Passwords are the same.
     if (formValues.password !== formValues.confirmPassword) return setError('Password does not match!')
@@ -53,9 +53,9 @@ export default function SingUp() {
     try {
       setError('')
       setLoading(true)
-      signUp(formValues.email, formValues.password)
+      await signUp(formValues.email, formValues.password)
       // Redirect to Home page if Successfully Signed Up.
-      if (currentUser) navigate('/about')
+      if (currentUser) navigate('/')
     }
     catch (e) {
       setError('Failed to Sign Up')

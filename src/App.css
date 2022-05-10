@@ -782,6 +782,30 @@ h6{
   left: 50%;
 }
 
+.bottom-0{
+  bottom: 0px;
+}
+
+.top-\[-110\]{
+  top: -110;
+}
+
+.top-\[-110\%\]{
+  top: -110%;
+}
+
+.top-\[110\%\]{
+  top: 110%;
+}
+
+.top-\[120\%\]{
+  top: 120%;
+}
+
+.right-\[50\%\]{
+  right: 50%;
+}
+
 .z-10{
   z-index: 10;
 }
@@ -1035,6 +1059,14 @@ h6{
   height: 80vh;
 }
 
+.h-\[2rem\]{
+  height: 2rem;
+}
+
+.h-\[4rem\]{
+  height: 4rem;
+}
+
 .max-h-\[480px\]{
   max-height: 480px;
 }
@@ -1081,6 +1113,22 @@ h6{
 
 .w-\[332px\]{
   width: 332px;
+}
+
+.w-\[2rem\]{
+  width: 2rem;
+}
+
+.w-\[4rem\]{
+  width: 4rem;
+}
+
+.w-\[3rem\]{
+  width: 3rem;
+}
+
+.w-\[24rem\]{
+  width: 24rem;
 }
 
 .min-w-\[8rem\]{
@@ -1289,6 +1337,10 @@ h6{
   border-width: 2px;
 }
 
+.border-\[1px\]{
+  border-width: 1px;
+}
+
 .border-b-2{
   border-bottom-width: 2px;
 }
@@ -1299,6 +1351,10 @@ h6{
 
 .border-t-\[4px\]{
   border-top-width: 4px;
+}
+
+.border-b-\[1px\]{
+  border-bottom-width: 1px;
 }
 
 .border-secondary{
@@ -1380,6 +1436,10 @@ h6{
   padding: 0.5rem;
 }
 
+.p-4{
+  padding: 1rem;
+}
+
 .px-6{
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -1458,6 +1518,11 @@ h6{
 .py-3{
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+
+.py-12{
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .pt-\[5rem\]{

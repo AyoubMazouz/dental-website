@@ -35,15 +35,15 @@ export default function SingUp() {
     email: '',
     password: '',
   })
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault()
     // Try Log In
     try {
       setError('')
       setLoading(true)
-      logIn(formValues.email, formValues.password)
+      await logIn(formValues.email, formValues.password)
       // Redirect to Home page if Successfully Signed Up.
-      if (currentUser) navigate('/about')
+      if (currentUser) navigate('/')
     }
     catch (e) {
       setError('Failed to Log In')

@@ -10,18 +10,20 @@ import SignUp from './pages/SignUp'
 import LogIn from './pages/LogIn'
 import Blog from './pages/Blog'
 import Root from './pages/Root'
+import Profile from './pages/Profile'
 import PasswordReset from './pages/PasswordReset'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
+import PrivateRoute from './components/PrivateRoute'
 
 import { AuthProvider } from './contexts/AuthContext'
 
 const App = () => {
   return (
     <Router>
-      {/* NavBar */}
-      <NavBar />
       <AuthProvider>
+        {/* NavBar */}
+        <NavBar />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
@@ -32,6 +34,9 @@ const App = () => {
           <Route path='/signup' element={<SignUp />} />
           <Route path='/login' element={<LogIn />} />
           <Route path='/reset_password' element={<PasswordReset />} />
+          <Route element={<PrivateRoute />}>
+            <Route path='/Profile' element={Profile} />
+          </Route>
           {/* root */}
           <Route path='/root' element={<Root />} />
         </Routes>

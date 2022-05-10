@@ -1,6 +1,8 @@
 // React Imports.
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+// Context Imports.
+import { useAuth } from '../contexts/AuthContext'
 // Icons Imports.
 import { FaYoutube, FaFacebookF, FaInstagram, FaLinkedinIn, FaLocationArrow, FaTwitter, FaWhatsapp, FaTimes, FaBars } from 'react-icons/fa'
 // Components Imports.
@@ -11,12 +13,25 @@ const { whatsapp, linkedin, youtube, twitter, instagram, facebook } = info.socia
 
 const NavBarFull = () => {
     const navigate = useNavigate()
-    const [scrolling, setScrolling] = useState()
+    const { currentUser, logOut } = useAuth()
+    const [scrolling, setScrolling] = useState(false)
+    const [profileMenu, setProfileMenu] = useState(false)
     // Trigger Nav Bar to be sticky.
     window.addEventListener('scroll', ev => {
         if (window.scrollY > 0) setScrolling(true)
         else setScrolling(false)  
     })
+    const handleLogOut = async () => {
+        if (!currentUser) return 
+        try {
+            await logOut()
+            navigate('/login')
+            console.log('LOG OUT')
+        }
+        catch {
+            console.log('LOG OUT FAIL')
+        }
+    }
     const getLinks = (link, id) => {
         if (typeof link.subLinks === 'undefined') return (
             <li key={id}><Link to={link.link} className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[" "] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 hover:text-primary'>{link.label}</Link></li>
@@ -34,6 +49,7 @@ const NavBarFull = () => {
             ? 'w-full sticky top-0 z-20 h-[70px] hidden lg:flex flex-col justify-center items-center bg-light shadow-lg transitions duration-200'
             : 'w-full h-[140px] hidden lg:flex flex-col justify-center items-center transitions duration-200'}`}>
             {!scrolling ? <div className={'w-full h-[25%] px-6 flex justify-around items-center bg-primary text-light'}>
+                {/* Social Media Icons */}
                 <ul className='flex items-center justify-center h-full bg-primary'>
                     {facebook && <div className='--nav-icons-container group'>
                         <FaFacebookF className='--nav-icons group-hover:bg-[#1877f2]' />
@@ -54,13 +70,31 @@ const NavBarFull = () => {
                         <FaWhatsapp className='--nav-icons group-hover:bg-[#25d366]' />
                         <h5 className='--nav-icons-span'>Whatsapp</h5></div>}
                 </ul>
+                {/* Address */}
                 <Link to='#' className='--link'><FaLocationArrow />{info.address}</Link>
             </div> : null}
             <div className='w-full lg:max-w-[1600px] h-[75%] px-6 flex justify-between items-center'>
-                <div className='h-full flex items-center'><Logo /></div>
                 <ul className='h-full flex items-center space-x-8 text-lg uppercase'>
+                    {/* Logo */}
+                    <div className='h-full flex items-center'><Logo /></div>
+                    {/* NavLinks */}
                     {links.nav.map((link, id) => getLinks(link, id))}
                 </ul>
+                {/* Profile */}
+                <div onClick={() => setProfileMenu(!profileMenu)} className='h-[3rem] w-[3rem] relative'>
+                    <img src="https://via.placeholder.com/100x100" alt="" className='w-full h-full object-cover rounded-full cursor-pointer' />
+                    {profileMenu && (
+                        <ul className='absolute top-[120%] left-[50%] translate-x-[-50%] w-[8rem] p-4 bg-light rounded border-[1px] border-light-gray flex flex-col'>
+                            {currentUser ? (
+                                <><Link to='/profile' className='border-b-[1px] border-light-gray'>Profile</Link>
+                                <li onClick={handleLogOut} className='border-b-[1px] border-light-gray'>Log Out</li></>
+                            ) : (
+                                <><Link to='/signup' className='border-b-[1px] border-light-gray'>Sign Up</Link>
+                                <Link to='/login' className='border-b-[1px] border-light-gray'>Log In</Link></>
+                            )}
+                        </ul>
+                    )}
+                </div>
             </div>
         </nav>
     )

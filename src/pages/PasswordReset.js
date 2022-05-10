@@ -29,13 +29,13 @@ export default function SingUp() {
     email: '',
     password: '',
   })
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault()
     // Try to Reset Password.
     try {
       setError('')
       setLoading(true)
-      resetPassword(formValues.email, formValues.password)
+      await resetPassword(formValues.email, formValues.password)
       setMessage('Check your Email box to reset your password.')
     }
     catch (e) {
