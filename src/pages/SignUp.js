@@ -6,6 +6,7 @@ import Input from '../components/Input'
 import Logo from '../components/Logo'
 // Context Imports.
 import { useAuth } from '../contexts/AuthContext'
+import { useAlert } from '../contexts/AlertContext'
 // Hooks Imports.
 import useForm from '../hooks/useFom'
 import useUserInfo from '../hooks/useUserInfo'
@@ -38,8 +39,9 @@ const formParams = [
 ]
 
 export default function SingUp() {
-  // Auth Context.
+  // Contexts.
   const { signUp, updateProfile, currentUser } = useAuth()
+  const { setAlert } = useAlert()
   const { createNewUser } = useUserInfo(currentUser)
   const navigate = useNavigate()
   const { formValues, setFormValues, handleChange, onSubmit, error, setError, loading } = useForm({
@@ -68,6 +70,7 @@ export default function SingUp() {
               photoUrl: 'https://via.placeholder.com/1000x1000'
             }))
             .catch(error => setError({ ...error, ['formError']: 'Email already used' }))
+            setAlert(['success', 'Account created successfully'])
           }
           catch (e) {
             setError(prev => ({ ...prev, ['formError']: 'Could Not Sign Up, try again.' }))

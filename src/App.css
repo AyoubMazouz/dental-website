@@ -746,6 +746,14 @@ h6{
   top: 3rem;
 }
 
+.top-\[50\%\]{
+  top: 50%;
+}
+
+.right-\[1rem\]{
+  right: 1rem;
+}
+
 .top-\[110\%\]{
   top: 110%;
 }
@@ -756,10 +764,6 @@ h6{
 
 .bottom-\[-340px\]{
   bottom: -340px;
-}
-
-.right-\[1rem\]{
-  right: 1rem;
 }
 
 .bottom-\[10\%\]{
@@ -782,12 +786,52 @@ h6{
   left: 50%;
 }
 
-.top-\[50\%\]{
-  top: 50%;
+.top-\[100px\]{
+  top: 100px;
 }
 
-.left-\[1rem\]{
-  left: 1rem;
+.top-\[0px\]{
+  top: 0px;
+}
+
+.top-\[-200px\]{
+  top: -200px;
+}
+
+.top-\[140px\]{
+  top: 140px;
+}
+
+.top-\[200px\]{
+  top: 200px;
+}
+
+.top-\[30px\]{
+  top: 30px;
+}
+
+.top-\[\.75rem\]{
+  top: .75rem;
+}
+
+.top-\[\.8rem\]{
+  top: .8rem;
+}
+
+.top-\[-12rem\]{
+  top: -12rem;
+}
+
+.top-\[1\.4rem\]{
+  top: 1.4rem;
+}
+
+.top-\[2rem\]{
+  top: 2rem;
+}
+
+.top-\[2\.2rem\]{
+  top: 2.2rem;
 }
 
 .z-10{
@@ -812,6 +856,11 @@ h6{
 
 .col-span-full{
   grid-column: 1 / -1;
+}
+
+.my-4{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .mx-6{
@@ -839,6 +888,11 @@ h6{
   margin-bottom: 2rem;
 }
 
+.mx-8{
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
 .my-\[3rem\]{
   margin-top: 3rem;
   margin-bottom: 3rem;
@@ -852,11 +906,6 @@ h6{
 .my-\[6rem\]{
   margin-top: 6rem;
   margin-bottom: 6rem;
-}
-
-.my-4{
-  margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 
 .mt-\[1\.8rem\]{
@@ -1051,6 +1100,22 @@ h6{
   height: 12rem;
 }
 
+.h-\[4rem\]{
+  height: 4rem;
+}
+
+.h-\[5rem\]{
+  height: 5rem;
+}
+
+.h-2{
+  height: 0.5rem;
+}
+
+.h-\[2\.7rem\]{
+  height: 2.7rem;
+}
+
 .max-h-\[480px\]{
   max-height: 480px;
 }
@@ -1115,6 +1180,18 @@ h6{
   width: 12rem;
 }
 
+.w-\[90vw\]{
+  width: 90vw;
+}
+
+.w-\[95vw\]{
+  width: 95vw;
+}
+
+.w-\[2\.7rem\]{
+  width: 2.7rem;
+}
+
 .min-w-\[8rem\]{
   min-width: 8rem;
 }
@@ -1147,6 +1224,20 @@ h6{
   max-width: 520px;
 }
 
+.max-w-\[1880px\]{
+  max-width: 1880px;
+}
+
+.max-w-\[1840px\]{
+  max-width: 1840px;
+}
+
+.translate-y-\[-25\%\]{
+  --tw-translate-y: -25%;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .translate-y-\[-3\.6rem\]{
   --tw-translate-y: -3.6rem;
   -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1161,12 +1252,6 @@ h6{
 
 .translate-y-\[50\%\]{
   --tw-translate-y: 50%;
-  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.translate-y-\[-25\%\]{
-  --tw-translate-y: -25%;
   -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -1272,6 +1357,11 @@ h6{
 .gap-x-12{
   -webkit-column-gap: 3rem;
           column-gap: 3rem;
+}
+
+.gap-x-6{
+  -webkit-column-gap: 1.5rem;
+          column-gap: 1.5rem;
 }
 
 .space-y-3 > :not([hidden]) ~ :not([hidden]){
@@ -1391,6 +1481,11 @@ h6{
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-red-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+
 .bg-secondary{
   --tw-bg-opacity: 1;
   background-color: rgb(254 133 115 / var(--tw-bg-opacity));
@@ -1414,6 +1509,21 @@ h6{
   background-color: rgba(0,0,0,.9);
 }
 
+.bg-yellow-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
+}
+
+.bg-sky-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+}
+
+.bg-emerald-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(16 185 129 / var(--tw-bg-opacity));
+}
+
 .bg-green-500{
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity));
@@ -1430,11 +1540,6 @@ h6{
 
 .bg-\[rgba\(0\2c 0\2c 0\2c \.3\)\]{
   background-color: rgba(0,0,0,.3);
-}
-
-.bg-red-500{
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
 .object-cover{
@@ -1455,14 +1560,14 @@ h6{
   padding-bottom: 1rem;
 }
 
-.py-2{
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
 .px-4{
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.py-2{
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .py-\[4rem\]{
@@ -1546,6 +1651,10 @@ h6{
   padding-right: 3rem;
 }
 
+.pt-2{
+  padding-top: 0.5rem;
+}
+
 .text-left{
   text-align: left;
 }
@@ -1591,6 +1700,11 @@ h6{
 
 .text-\[8rem\]{
   font-size: 8rem;
+}
+
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-bold{
@@ -1747,6 +1861,10 @@ h6{
   transition-duration: 200ms;
 }
 
+.duration-1000{
+  transition-duration: 1000ms;
+}
+
 .--appearance-none {
   -webkit-appearance: none;
 }
@@ -1759,6 +1877,29 @@ h6{
   --webkit-appearance: none;
   height: 60px;
   width: 60px;
+}
+
+.alert-init-animation {
+  @-webkit-keyframes animate {
+    0% {
+      top: 0;
+    }
+
+    100% {
+      top: 300px
+    }
+  }
+  @keyframes animate {
+    0% {
+      top: 0;
+    }
+
+    100% {
+      top: 300px
+    }
+  }
+  -webkit-animation: animate 5s ease-in-out;
+          animation: animate 5s ease-in-out;
 }
 
 .after\:absolute::after{
@@ -1802,6 +1943,11 @@ h6{
 .after\:duration-300::after{
   content: var(--tw-content);
   transition-duration: 300ms;
+}
+
+.after\:content-\[\"\"\]::after{
+  --tw-content: "";
+  content: var(--tw-content);
 }
 
 .hover\:rotate-180:hover{
@@ -1933,6 +2079,10 @@ h6{
 }
 
 @media (min-width: 1024px){
+  .lg\:top-\[\.8rem\]{
+    top: .8rem;
+  }
+
   .lg\:mt-\[12rem\]{
     margin-top: 12rem;
   }

@@ -17,31 +17,35 @@ import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import PrivateRoute from './components/PrivateRoute'
 
+// Context Imports.
 import { AuthProvider } from './contexts/AuthContext'
+import { AlertProvider } from './contexts/AlertContext'
 
 const App = () => {
   return (
     <Router>
       <AuthProvider>
-        {/* NavBar */}
-        <NavBar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/services' element={<Services />} />
-          <Route path='/gallery' element={<Gallery />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/blog' element={<Blog />} />
-          <Route path='/signup' element={<SignUp />} />
-          <Route path='/login' element={<LogIn />} />
-          <Route path='/reset_password' element={<PasswordReset />} />
-          <Route element={<PrivateRoute />}>
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/personalinfo' element={<PersonalInfo />} />
-          </Route>
-          {/* root */}
-          <Route path='/root' element={<Root />} />
-        </Routes>
+        <AlertProvider>
+          {/* NavBar */}
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/services' element={<Services />} />
+            <Route path='/gallery' element={<Gallery />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/blog' element={<Blog />} />
+            <Route path='/signup' element={<SignUp />} />
+            <Route path='/login' element={<LogIn />} />
+            <Route path='/reset_password' element={<PasswordReset />} />
+            <Route element={<PrivateRoute />}>
+              <Route path='/profile' element={<Profile />} />
+              <Route path='/personalinfo' element={<PersonalInfo />} />
+            </Route>
+            {/* root */}
+            <Route path='/root' element={<Root />} />
+          </Routes>
+        </AlertProvider>
       </AuthProvider>
       <Footer />
     </Router>
