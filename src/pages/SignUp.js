@@ -9,7 +9,7 @@ import { useAuth } from '../contexts/AuthContext'
 import { useAlert } from '../contexts/AlertContext'
 // Hooks Imports.
 import useForm from '../hooks/useFom'
-import useUserInfo from '../hooks/useUserInfo'
+import useUserData from '../hooks/useUserData'
 
 const formParams = [
   { 
@@ -42,7 +42,7 @@ export default function SingUp() {
   // Contexts.
   const { signUp, updateProfile, currentUser } = useAuth()
   const { setAlert } = useAlert()
-  const { createNewUser } = useUserInfo(currentUser)
+  const { createNewUserDefault } = useUserData(currentUser)
   const navigate = useNavigate()
   const { formValues, setFormValues, handleChange, onSubmit, error, setError, loading } = useForm({
     displayName: '',
@@ -54,7 +54,7 @@ export default function SingUp() {
   // Redirect to Home page if Successfully Signed Up.
   useEffect(() => {
     if (currentUser) {
-      createNewUser()
+      createNewUserDefault()
       navigate('/personalinfo')
     }
   } , [currentUser])

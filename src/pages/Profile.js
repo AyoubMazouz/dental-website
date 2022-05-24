@@ -7,7 +7,7 @@ import Input from '../components/Input'
 // Hooks Imports.
 import useDoc from '../hooks/useDoc'
 import useForm from '../hooks/useFom'
-import useUserInfo from '../hooks/useUserInfo'
+import useUserData from '../hooks/useUserData'
 // Data Imports.
 import { regions, getRegions, getCities } from '../data'
 import { useNavigate } from 'react-router-dom'
@@ -63,34 +63,36 @@ export default function Profile() {
     // Auth Context.
     const { currentUser } = useAuth()
     const navigate = useNavigate()
-    const { getUserInfo, UpdateUserInfo } = useUserInfo(currentUser)
+    const { getUserInfo, UpdateUserInfo } = useUserData(currentUser)
     const { formValues, setFormValues, handleChange, onSubmit, error, setError, loading } = useForm({
-        fullName: '',
-        phone: '',
-        region: '',
-        city: '',
-        zip: '',
-        address1: '',
-        address2: '',
+        info: {
+            fullName: '',
+            phone: '',
+            region: '',
+            city: '',
+            zip: '',
+            address1: '',
+            address2: '',
+        },
+        notifications: []
     })
 
     // Get User Data.
     useEffect(() => {
-        const info = async () => {
-            const data = await getUserInfo()
-            if (data) setFormValues(data.data())
-        }; info()
+        getUserInfo(setFormValues)
+        console.log(formValues)
     }, [])
 
     // Update Second Select List.
     useEffect(() => { 
+        console.log(formValues)
         if (!formValues.region) return
         formParams.forEach(params => {
             if (params?.name === 'city') {
                 params.options = getCities(formValues.region)
             }
         })
-    }, [formValues.region])
+    }, [formValues?.region])
 
     return (
         <div className='flex justify-center'>

@@ -8,7 +8,7 @@ import Logo from '../components/Logo'
 import { useAuth } from '../contexts/AuthContext'
 // Hooks Imports.
 import useForm from '../hooks/useFom'
-import useUserInfo from '../hooks/useUserInfo'
+import useUserData from '../hooks/useUserData'
 // Data Imports.
 import { regions, getRegions, getCities } from '../data'
 
@@ -56,7 +56,7 @@ export default function PersonalInfo() {
   // Auth Context.
   const { currentUser } = useAuth()
   const navigate = useNavigate()
-  const { createNewUser } = useUserInfo(currentUser)
+  const { UpdateUserInfo } = useUserData(currentUser)
   const { formValues, handleChange, onSubmit, error, loading } = useForm({
     fullName: '',
     phone: '',
@@ -70,18 +70,19 @@ export default function PersonalInfo() {
   // Update Second Select List.
   useEffect(() => {
     if (!formValues.region) return
-        formParams.forEach(params => {
-            if (params?.name === 'city') {
-                params.options = getCities(formValues.region)
-            }
-        })
+    formParams.forEach(params => {
+        if (params?.name === 'city') {
+            params.options = getCities(formValues.region)
+        }
+    })
   }, [formValues.region])
 
   return (
     <div className='w-full grid place-items-center text-light'>
       <form className='max-w-[520px] w-full flex flex-col items-center bg-primary rounded-xl py-[4rem] px-2 sm:px-4 md:px-8'
-        onSubmit={e => onSubmit(e, formValues => {
-          createNewUser(formValues)
+        onSubmit={e => onSubmit(e,() => {
+          console.log(formValues)
+          UpdateUserInfo(formValues)
           navigate('/')
         })}>
 

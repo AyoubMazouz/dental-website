@@ -834,6 +834,58 @@ h6{
   top: 2.2rem;
 }
 
+.bottom-0{
+  bottom: 0px;
+}
+
+.bottom-\[-2rem\]{
+  bottom: -2rem;
+}
+
+.bottom-\[2rem\]{
+  bottom: 2rem;
+}
+
+.bottom-\[4rem\]{
+  bottom: 4rem;
+}
+
+.bottom-\[3rem\]{
+  bottom: 3rem;
+}
+
+.left-0{
+  left: 0px;
+}
+
+.bottom-\[0rem\]{
+  bottom: 0rem;
+}
+
+.top-\[110\]{
+  top: 110;
+}
+
+.top-\[140\%\]{
+  top: 140%;
+}
+
+.top-\[160\%\]{
+  top: 160%;
+}
+
+.right-\[2rem\]{
+  right: 2rem;
+}
+
+.left-\[2rem\]{
+  left: 2rem;
+}
+
+.right-\[-2rem\]{
+  right: -2rem;
+}
+
 .z-10{
   z-index: 10;
 }
@@ -848,6 +900,10 @@ h6{
 
 .z-50{
   z-index: 50;
+}
+
+.z-30{
+  z-index: 30;
 }
 
 .col-span-2{
@@ -1190,6 +1246,14 @@ h6{
 
 .w-\[2\.7rem\]{
   width: 2.7rem;
+}
+
+.w-\[32rem\]{
+  width: 32rem;
+}
+
+.w-\[26rem\]{
+  width: 26rem;
 }
 
 .min-w-\[8rem\]{

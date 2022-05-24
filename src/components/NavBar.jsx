@@ -1,8 +1,10 @@
 // React Imports.
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 // Context Imports.
 import { useAuth } from '../contexts/AuthContext'
+// Hooks Imports.
+import useUserData from '../hooks/useUserData'
 // Icons Imports.
 import { FaYoutube, FaFacebookF, FaInstagram, FaLinkedinIn, FaLocationArrow, FaTwitter, FaWhatsapp, FaTimes, FaBars, FaPhone, FaCartPlus, FaBell } from 'react-icons/fa'
 // Data Imports.
@@ -77,11 +79,13 @@ const NavBarSmall = ({ menuState, setMenuState, scrolling, getLogo, getIcons }) 
                     className={menuState ? 'text-2xl text-slate-700 hover:text-sky-500 trans cursor-pointer hover:rotate-180' : 'hidden'} />
                 {/* Logo */}
                 <div className=''>{getLogo()}</div>
-                <div className='flex items-center gap-x-6 text-xl'>
-                    <Cart />
-                    <Notification />
-                    <Profile />
-                </div>
+                {!menuState && (
+                    <div className='flex items-center gap-x-6 text-xl'>
+                        <Cart />
+                        <Notification />
+                        <Profile />
+                    </div>
+                )}
             </div>
             {menuState && (
                 <ul className='text-center py-8 mt-12'>
@@ -100,14 +104,15 @@ const NavBarSmall = ({ menuState, setMenuState, scrolling, getLogo, getIcons }) 
 
 const Profile = () => {
     // Toggle Profile Menu.
-    const [ MenuState, setMenuState ] = useState(false)
+    const [ menuState, setMenuState ] = useState(false)
     // Contexts.
     const { currentUser, logOut } = useAuth()
+    const { setNotifications } = useUserData(currentUser)
     const { setAlert } = useAlert()
     const navigate = useNavigate()
     // Close Profile Menu if you Click Anywhere on the Screen.
     window.addEventListener('click', e => {
-        if (['profile', 'profileImg'].includes(e.target.id)) setMenuState(!MenuState)
+        if (['profile', 'profileImg'].includes(e.target.id)) setMenuState(!menuState)
         else setMenuState(false)
     })
     // Log Out.
@@ -117,6 +122,8 @@ const Profile = () => {
             await logOut()
             navigate('/login')
             setAlert(['inform', 'Logged Out'])
+            setNotifications({ text: 'hello from the other side: YOU LOGGED OUT!!!', time: '', link: '' })
+
         }
         catch {
             console.log('LOG OUT FAIL')
@@ -127,7 +134,7 @@ const Profile = () => {
         <div id='profile' className='h-[2.7rem] w-[2.7rem] relative'>
             {/* Profile Image */}
             <img id='profileImg' src="https://via.placeholder.com/100x100" alt="" className='w-full h-full object-cover rounded-full cursor-pointer' />
-            {MenuState && (
+            {menuState && (
                 <ul className='absolute z-50 top-[110%] right-0 w-[18rem] px-2 py-6 bg-light rounded-lg border-[1px] border-gray-200 flex flex-col gap-y-3'>
                     <Link to='/profile' className='flex gap-4 border-b-[1px] border-gray-200 pb-3'>
                         {/* Profile Image */}
@@ -160,8 +167,26 @@ const Cart = () => {
     )
 }
 const Notification = () => {
+    // Contexts.
+    const { currentUser } = useAuth()
+    const { getNotifications } = useUserData(currentUser)
+    // Toggle Profile Menu.
+    const [ menuState, setMenuState ] = useState(false)
+    const [ notifications, setNotifications ] = useState([])
+    
+    useEffect(() => {
+        getNotifications(setNotifications)
+    }, [])
+
     return (
-        <FaBell />
+        <div className='relative'>
+            <FaBell onClick={() => setMenuState(!menuState)} className='cursor-pointer' />
+            {menuState && (
+                <div className='absolute z-30 top-[160%] right-[-2rem] w-[26rem] px-4 py-6 border-[1px] border-primary'>
+                    {notifications.map(notify => <li>{notify.text}</li>)}
+                </div>  
+            )}
+        </div>
     )
 }
 
