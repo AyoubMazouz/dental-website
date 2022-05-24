@@ -9,8 +9,8 @@
   h1   { @apply lg:text-5xl md:text-4xl text-3xl font-bold }
   h2   { @apply lg:text-4xl md:text-3xl text-2xl font-semibold }
   h3   { @apply lg:text-3xl md:text-2xl text-xl font-semibold }
-  h4   { @apply lg:text-2xl md:text-xl  text-lg font-medium }
-  p    { @apply lg:text-lg  md:text-base }
+  h4   { @apply lg:text-xl text-lg font-medium }
+  p    { @apply lg:text-lg md:text-base }
   h5   { @apply text-sm }
   h6   { @apply text-xs font-light }
 }
@@ -33,9 +33,9 @@
   .--nav-icons-span { @apply hidden group-hover:block text-dark font-semibold; }
   .--nav-icons-container { @apply h-full gap-2 flex items-center w-12 hover:w-36 transition-all duration-500 cursor-pointer bg-light; }
   .--link { @apply flex items-center gap-2 hover:underline hover:opacity-75 cursor-pointer transition-opacity duration-300; }
-  .--input-base { @apply focus:outline-none px-6 py-4 font-semibold border-[1px] focus:border-secondary resize-none transition-all duration-300 rounded-lg text-primary; }
+  .--input-base { @apply focus:outline-none pl-[2.7rem] py-2 font-semibold border-[1px] focus:border-emerald-500 resize-none transition-all duration-300 rounded-lg text-primary; }
   .--label-base { @apply font-medium text-primary hover:opacity-75 transition-all duration-300; }
-  .--form-icon { @apply absolute top-[50%] right-[1rem] translate-y-[-50%] text-light-gray opacity-100; }
+  .--form-icon { @apply absolute top-[50%] left-[1rem] translate-y-[-25%] text-light-gray opacity-100; }
   .select-option { @apply px-12 bg-bluish-gray font-semibold text-primary lg:text-lg; }
   .--sub-header { @apply font-bold text-primary w-full capitalize; }
   .--header { @apply font-bold text-primary mb-[4rem] border-r-2 border-r-primary; }

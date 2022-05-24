@@ -72,7 +72,7 @@ export default function Home() {
       <ContactForm />
 
       {/* GooGle Maps */}
-      <div className='w-full h-[480px] mt-[-8rem]'><GoogleMaps location={info.location} /></div>
+      {/* <div className='w-full h-[480px] mt-[-8rem]'><GoogleMaps location={info.location} /></div> */}
     </div>
   )
 }

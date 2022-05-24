@@ -1,53 +1,71 @@
+// React Imports.
 import { useState } from 'react'
-import { MdEdit, MdEmail, MdPerson, MdPhoneEnabled, MdCheck, MdDangerous } from 'react-icons/md'
-export default function Input({ params, formValues, setFormValues, labelStyles='', inputStyles='' }) {
-    const { type, name, label, required, errormessage, pattern } = params
-    const [validity, setValidity] = useState(true)
+import { Link } from 'react-router-dom'
+// Icons Imports.
+import { 
+    MdEdit, 
+    MdEmail, 
+    MdPerson, 
+    MdPhoneEnabled, 
+    MdLocationCity, 
+    MdDangerous, 
+    MdLocationOn, 
+    MdMail, 
+    MdSubject,
+    MdPassword, } from 'react-icons/md'
+
+
+export default function Input({ params, formValues, setFormValues, handleChange, error, setError, labelStyles='', inputStyles='' }) {
+    const { type, name, label, required } = params
     const [onFocus, setOnFocus] = useState(false)
-    const handleChange = ev => {
-        const { name, value } = ev.target
-        setFormValues({ ...formValues, [name]: value })
-        setValidity(pattern ? ev.target.checkValidity() : true)
-    }
     const getInputField = () => {
         if (type === 'textarea') return (
             <textarea maxLength='500' {...params} onFocus={() => setOnFocus(true)} onBlur={() => setOnFocus(false)}
-                onChange={ev => setFormValues({ ...formValues, 'message': ev.target.value })}
-                className={`--input-base h-[10rem] ${inputStyles} ${validity ? 'border-light-gray' : 'border-red-500'}`}></textarea>
+                onChange={handleChange}
+                className={`--input-base h-[10rem] ${inputStyles} ${error[name] && formValues[name].trim()
+                    ? 'border-red-500' : 'border-light-gray'}`}></textarea>
         )
         if (type === 'select') return (
-            <select name='subject' value={formValues.subject} onFocus={() => setOnFocus(true)} onBlur={() => setOnFocus(false)}
-                onChange={ev => setFormValues({ ...formValues, 'subject': ev.target.value })}
-                className={`--input-base h-[3.4rem] ${inputStyles} ${validity ? 'border-light-gray' : 'border-red-500'}`}>
-                <option value='option 1' className='--select-option'>Option 1</option>
-                <option value='option 2' className='--select-option'>Option 2</option>
-                <option value='option 3' className='--select-option'>Option 3</option>
-                <option value='option 4' className='--select-option'>Option 4</option>
-                <option value='option 5' className='--select-option'>Option 5</option>
+            <select name={name} value={formValues[name]} onFocus={() => setOnFocus(true)} onBlur={() => setOnFocus(false)}
+                onChange={handleChange}
+                className={`--input-base h-[3rem] ${inputStyles} ${error[name] && formValues[name].trim()
+                    ? 'border-red-500' : 'border-light-gray'}`}>
+                {params.options.map(option => (
+                    <option value={option[0]} className='--select-option'>{option[1]}</option>
+                ))}
             </select>
         )
         else return (
-            <input {...params} onChange={handleChange} onFocus={() => setOnFocus(true)} onBlur={() => setOnFocus(false)}
-                className={`--input-base h-[3.5rem] ${inputStyles} ${validity ? 'border-light-gray' : 'border-red-500'}`} />
+            <input {...params} value={formValues[name]} onChange={handleChange} onFocus={() => setOnFocus(true)} onBlur={() => setOnFocus(false)}
+                className={`--input-base h-[3rem] ${inputStyles} ${error[name] && formValues[name].trim()
+                    ? 'border-red-500' : 'border-light-gray'}`} />
         )
     }
     const getValidationMessage = () => {
-        if (formValues[name]?.length === 0 || !pattern || onFocus) return <div className='h-[1.2rem]'></div>
-        if (validity) return <p className='flex items-center gap-2 px-2 text-sm text-emerald-600'><MdCheck />All Good!</p>
-        else return <p className='text-sm font-medium px-2 text-red-500'>{errormessage}</p>
+        if (!error[name] || onFocus || !formValues[name].trim()) return <div className='h-[1.2rem]'></div>
+        else return <p className='flex items-center gap-2 px-2 text-sm text-red-500'>{error[name]}</p>
     }
     const getIcon = () => {
-        if (!validity && !onFocus) return <MdDangerous className='--form-icon' />
+        if (error[name] && !onFocus && formValues[name].trim()) return <MdDangerous className='--form-icon text-red-500' />
         if (name === 'phone') return <MdPhoneEnabled className='--form-icon' />
         if (name === 'email') return <MdEmail className='--form-icon' />
-        if (['name', 'lastName'].includes(name)) return <MdPerson className='--form-icon' />
         if (name === 'message') return <MdEdit className='--form-icon top-[3rem]' />
+        if (name === 'city') return <MdLocationCity className='--form-icon top-[3rem]' />
+        if (name === 'zip') return <MdMail className='--form-icon top-[3rem]' />
+        if (['fullName', 'userName'].includes(name)) return <MdPerson className='--form-icon' />
+        if (['password', 'confirmPassword'].includes(name)) return <MdPassword className='--form-icon' />
+        if (['subject', 'region'].includes(name)) return <MdSubject className='--form-icon' />
+        if (['address1', 'address2'].includes(name)) return <MdLocationOn className='--form-icon' />
     }
     return (
         <div className='relative flex flex-col text-lg w-full'>
-            <label htmlFor={name} className={`text-light transition-all duration-300 ${labelStyles}`}>{label}<span className="text-light-gray text-sm mx-2">{required ? '' : 'optional'}</span></label>
+            <label htmlFor={name} className={`transition-all duration-300 ${labelStyles}`}>{label}<span className="text-light-gray text-sm mx-2">{required ? '' : 'optional'}</span></label>
             {getInputField()}
             {getIcon()}
+            <MdDangerous onClick={() => {
+                setFormValues({ ...formValues, [name]: '' })
+                setError({ ...error, [name]: '' })
+            }} className='absolute top-[50%] right-[1rem] translate-y-[-25%] cursor-pointer text-primary' />
             {getValidationMessage()}
         </div>
     )

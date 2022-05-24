@@ -10,14 +10,13 @@ import Video from '../components/Video'
 // Icons Imports.
 import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin } from 'react-icons/fa'
 // Data Imports.
-import { links, stats, reviews, info, profiles, about } from '../data'
+import { stats, reviews, info, profiles, about } from '../data'
 
 export default function About() {
-  const { url, alt } = links.nav.filter(link => link.label === 'about')[0]
   return (
     <>
       {/* Hero Section */}
-      <Hero url={url} alt={alt} currPage={'about'} />
+      <Hero url='https://via.placeholder.com/1000x1000' alt='' currPage={'about'} />
       <div className='flex flex-col items-center text-dark gap-y-[4rem] lg:gap-y-[8rem] overflow-hidden'>
 
         {/* Content */}
@@ -29,7 +28,7 @@ export default function About() {
           <div className='max-w-[1600px] grid lg:grid-cols-2 text-light gap-[2rem] lg:gap-[6rem] max-h-[20rem] lg:max-h-[12rem] px-2 sm:px-4 md:px-8'>
             <p>{about.header}</p>
             {/* Image */}
-            <img src='https://via.placeholder.com/1000x1000' alt={alt} className="object-cover aspect-video w-full rounded-2xl" />
+            <img src='https://via.placeholder.com/1000x1000' alt='' className="object-cover aspect-video w-full rounded-2xl" />
           </div>
         </div>
 

@@ -493,17 +493,10 @@ h4{
   font-weight: 500;
 }
 
-@media (min-width: 768px){
+@media (min-width: 1024px){
   h4{
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-}
-
-@media (min-width: 1024px){
-  h4{
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 }
 
@@ -646,10 +639,9 @@ h6{
   resize: none;
   border-radius: 0.5rem;
   border-width: 1px;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2.7rem;
   font-weight: 600;
   --tw-text-opacity: 1;
   color: rgb(0 95 160 / var(--tw-text-opacity));
@@ -660,7 +652,7 @@ h6{
 
 .--input-base:focus{
   --tw-border-opacity: 1;
-  border-color: rgb(254 133 115 / var(--tw-border-opacity));
+  border-color: rgb(16 185 129 / var(--tw-border-opacity));
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
@@ -668,8 +660,8 @@ h6{
 .--form-icon{
   position: absolute;
   top: 50%;
-  right: 1rem;
-  --tw-translate-y: -50%;
+  left: 1rem;
+  --tw-translate-y: -25%;
   -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   --tw-text-opacity: 1;
@@ -754,6 +746,14 @@ h6{
   top: 3rem;
 }
 
+.top-\[110\%\]{
+  top: 110%;
+}
+
+.right-0{
+  right: 0px;
+}
+
 .bottom-\[-340px\]{
   bottom: -340px;
 }
@@ -782,28 +782,12 @@ h6{
   left: 50%;
 }
 
-.bottom-0{
-  bottom: 0px;
+.top-\[50\%\]{
+  top: 50%;
 }
 
-.top-\[-110\]{
-  top: -110;
-}
-
-.top-\[-110\%\]{
-  top: -110%;
-}
-
-.top-\[110\%\]{
-  top: 110%;
-}
-
-.top-\[120\%\]{
-  top: 120%;
-}
-
-.right-\[50\%\]{
-  right: 50%;
+.left-\[1rem\]{
+  left: 1rem;
 }
 
 .z-10{
@@ -816,6 +800,10 @@ h6{
 
 .z-20{
   z-index: 20;
+}
+
+.z-50{
+  z-index: 50;
 }
 
 .col-span-2{
@@ -943,6 +931,10 @@ h6{
   margin-top: 4rem;
 }
 
+.mb-12{
+  margin-bottom: 3rem;
+}
+
 .flex{
   display: flex;
 }
@@ -993,10 +985,6 @@ h6{
 
 .h-\[10rem\]{
   height: 10rem;
-}
-
-.h-\[3\.5rem\]{
-  height: 3.5rem;
 }
 
 .h-\[1\.2rem\]{
@@ -1059,12 +1047,8 @@ h6{
   height: 80vh;
 }
 
-.h-\[2rem\]{
-  height: 2rem;
-}
-
-.h-\[4rem\]{
-  height: 4rem;
+.h-\[12rem\]{
+  height: 12rem;
 }
 
 .max-h-\[480px\]{
@@ -1095,6 +1079,18 @@ h6{
   width: 22rem;
 }
 
+.w-\[3rem\]{
+  width: 3rem;
+}
+
+.w-\[18rem\]{
+  width: 18rem;
+}
+
+.w-12{
+  width: 3rem;
+}
+
 .w-\[280px\]{
   width: 280px;
 }
@@ -1115,20 +1111,8 @@ h6{
   width: 332px;
 }
 
-.w-\[2rem\]{
-  width: 2rem;
-}
-
-.w-\[4rem\]{
-  width: 4rem;
-}
-
-.w-\[3rem\]{
-  width: 3rem;
-}
-
-.w-\[24rem\]{
-  width: 24rem;
+.w-\[12rem\]{
+  width: 12rem;
 }
 
 .min-w-\[8rem\]{
@@ -1141,6 +1125,10 @@ h6{
 
 .max-w-\[40rem\]{
   max-width: 40rem;
+}
+
+.max-w-\[1920px\]{
+  max-width: 1920px;
 }
 
 .max-w-\[99\.1vw\]{
@@ -1173,6 +1161,12 @@ h6{
 
 .translate-y-\[50\%\]{
   --tw-translate-y: 50%;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-y-\[-25\%\]{
+  --tw-translate-y: -25%;
   -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -1275,6 +1269,11 @@ h6{
   row-gap: 6rem;
 }
 
+.gap-x-12{
+  -webkit-column-gap: 3rem;
+          column-gap: 3rem;
+}
+
 .space-y-3 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1349,12 +1348,12 @@ h6{
   border-right-width: 2px;
 }
 
-.border-t-\[4px\]{
-  border-top-width: 4px;
-}
-
 .border-b-\[1px\]{
   border-bottom-width: 1px;
+}
+
+.border-t-\[4px\]{
+  border-top-width: 4px;
 }
 
 .border-secondary{
@@ -1370,6 +1369,16 @@ h6{
 .border-red-500{
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
+}
+
+.border-gray-200{
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+}
+
+.border-primary{
+  --tw-border-opacity: 1;
+  border-color: rgb(0 95 160 / var(--tw-border-opacity));
 }
 
 .border-r-light{
@@ -1434,10 +1443,6 @@ h6{
 
 .p-2{
   padding: 0.5rem;
-}
-
-.p-4{
-  padding: 1rem;
 }
 
 .px-6{
@@ -1505,14 +1510,14 @@ h6{
   padding-bottom: 2rem;
 }
 
-.py-20{
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-
 .px-8{
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.py-20{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .py-3{
@@ -1520,13 +1525,17 @@ h6{
   padding-bottom: 0.75rem;
 }
 
-.py-12{
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+.py-16{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .pt-\[5rem\]{
   padding-top: 5rem;
+}
+
+.pb-3{
+  padding-bottom: 0.75rem;
 }
 
 .pl-4{
@@ -1575,6 +1584,11 @@ h6{
   line-height: 1.5rem;
 }
 
+.text-xs{
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
 .text-\[8rem\]{
   font-size: 8rem;
 }
@@ -1585,10 +1599,6 @@ h6{
 
 .font-semibold{
   font-weight: 600;
-}
-
-.font-medium{
-  font-weight: 500;
 }
 
 .uppercase{
@@ -1620,11 +1630,6 @@ h6{
 .text-bluish-gray{
   --tw-text-opacity: 1;
   color: rgb(248 252 255 / var(--tw-text-opacity));
-}
-
-.text-emerald-600{
-  --tw-text-opacity: 1;
-  color: rgb(5 150 105 / var(--tw-text-opacity));
 }
 
 .text-red-500{
@@ -1958,10 +1963,6 @@ h6{
 
   .lg\:w-\[18rem\]{
     width: 18rem;
-  }
-
-  .lg\:max-w-\[1600px\]{
-    max-width: 1600px;
   }
 
   .lg\:grid-flow-col{

@@ -4,6 +4,8 @@ import { useState } from 'react'
 import emailjs from 'emailjs-com'
 // Components Imports.
 import Input from './Input'
+// Hooks Imports.
+import useForm from '../hooks/useFom'
 // Icons Imports.
 import { MdPhone } from 'react-icons/md'
 // Data Imports.
@@ -14,58 +16,52 @@ const { image, alt, address, phone, workHours } = info
 const formParams = [
     {
         type: 'text',
-        name: 'name',
+        name: 'fullName',
         label: 'Votre Nom',
         required: true,
-        errormessage: 'Name must be at least 3 characters long.',
-        span: 1,
     },
     {
         type: 'email',
         name: 'email',
         label: 'Votre Email Address',
         required: true,
-        errormessage: 'Please enter a valid email address.',
-        pattern: "^[a-zA-Z0-9.]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$",
-        span: 21,
     },
     {
         type: 'phone',
         name: 'phone',
         label: 'Votre numero de Telephone',
         required: false,
-        errormessage: 'Please enter a valid phone number.',
-        pattern: "^[0-9]{10}$",
-        span: 1,
     },
     {
         type: 'select',
         name: 'subject',
         label: 'Subject',
         required: true,
-        errormessage: 'Please select an option.',
-        span: 2,
+        options: [
+            ['option1', 'option1'],
+            ['option2', 'option2'],
+            ['option3', 'option3'],
+            ['option4', 'option4'],
+            ['option5', 'option5'],
+        ]
     },
     {
         type: 'textarea',
         name: 'message',
         label: 'message',
         required: true,
-        errormessage: '',
-        span: 2,
     },
 ]
 
 
 const Form = () => {
-    // Form stats.
-    const [formValues, setFormValues] = useState({
+    const { formValues, setFormValues, handleChange, onSubmit, error, loading } = useForm({
         name: '',
         email: '',
         phone: '',
         subject: '',
         message: '',
-    })
+      })
     // Email template parameters.
     const templateParams = {
         name: formValues.name,
@@ -74,24 +70,26 @@ const Form = () => {
         subject: formValues.subject,
         message: formValues.message,
     }
-    // Send Email.
-    const sendEmail = (e) => {
-        e.preventDefault();
-        emailjs.send(
-            'service_cofo6md', 
-            'template_qoq5yk2', 
-            templateParams, 
-            'GBDJ0fB2Nhe7KZSmS')
-          .then((result) => {
-              console.log(result.text);
-          }, (error) => {
-              console.log(error.text);
-          });
-    }
     // submit validation!!!!!
     return (
-    <form onSubmit={sendEmail} className='space-y-3'>
-        {formParams.map(param => <Input key={param.label} params={param} formValues={formValues} setFormValues={setFormValues} />)}
+    <form className='space-y-3' 
+        onSubmit={e => onSubmit(e, async () => {
+            emailjs.send(
+                'service_cofo6md', 
+                'template_qoq5yk2', 
+                templateParams, 
+                'GBDJ0fB2Nhe7KZSmS')
+              .then((result) => {
+                  console.log(result.text);
+              }, (error) => {
+                  console.log(error.text);
+              });
+        })}>
+        {/* Error */}
+        {error.formError && <h5 className='bg-red-500 rounded-xl py-4 px-4 w-full my-4'>{error.formError}</h5>}
+        {formParams.map(params => (
+            <Input key={params.label} params={params} formValues={formValues} setFormValues={setFormValues} handleChange={handleChange} error={error} />
+        ))}
         {/* Submit btn */}
         <button type="submit" className="h-[3.4rem] w-full col-span-2 bg-secondary hover:opacity-75 rounded-full transition-all duration-300 font-semibold text-light text-3xl"
             >Send</button>

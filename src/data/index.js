@@ -1,79 +1,56 @@
-export const links = {
-    nav: [
-        {
-            label: 'home',
-            link: '/',
-        },
-        {
-            label: 'about',
-            link: '/about',
-            url: '',
-            alt: '',
-        },
-        {
-            label: 'services',
-            link: '/services',
-            url: '',
-            alt: '',
-            subLinks: [
-                {
-                    label: 'service 01',
-                    link: '/service1',
-                    url: '',
-                    alt: '',
-                },
-                {
-                    label: 'service 02',
-                    link: '/service2',
-                    url: '',
-                    alt: '',
-                },
-                {
-                    label: 'service 03',
-                    link: '/service3',
-                    url: '',
-                    alt: '',
-                },
-                {
-                    label: 'service 04',
-                    link: '/service4',
-                    url: '',
-                    alt: '',
-                },
-            ]
-        },
-        {
-            label: 'gallery',
-            link: '/gallery',
-            url: '/images/slideshow/img1.png',
-            alt: '',
-        },
-        {
-            label: 'contact',
-            link: '/contact',
-            url: '',
-            alt: '',
-        },
-        {
-            label: 'blog',
-            link: '/blog',
-            url: '',
-            alt: '',
-        },
-        {
-            label: 'signUp',
-            link: '/signup',
-            url: '',
-            alt: '',
-        },
-        {
-            label: 'logIn',
-            link: '/login',
-            url: '',
-            alt: '',
-        },
-    ],
+
+export const regions = require('./regions.json')
+export const getRegions = regions.map(region => [region.name, region.name])
+export const getCities = (r) => {
+    const region = regions.filter(region => (region.name === r))
+    return region[0].cities_list.map(city => [city, city])
 }
+
+export const links = [
+    {
+        label: 'Home',
+        link: '/',
+    },
+    {
+        label: 'About',
+        link: '/about',
+    },
+    {
+        label: 'Services',
+        link: '/services',
+        subLinks: [
+            {
+                label: 'service 01',
+                link: '/service1',
+            },
+            {
+                label: 'service 02',
+                link: '/service2',
+            },
+            {
+                label: 'service 03',
+                link: '/service3',
+            },
+            {
+                label: 'service 04',
+                link: '/service4',
+            },
+        ]
+    },
+    {
+        label: 'Gallery',
+        link: '/gallery',
+    },
+    {
+        label: 'Contact',
+        link: '/contact',
+    },
+    {
+        label: 'Blog',
+        link: '/blog',
+    },  
+]
+
 export const info = {
     image: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/other-images%2Fus.jpg?alt=media&token=a70dcfaf-e08a-4da3-a9a2-0723f0cd797b',
     alt: '',

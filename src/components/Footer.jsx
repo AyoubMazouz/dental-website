@@ -63,7 +63,7 @@ const Footer = () => {
                 <div className='bg-light-blue w-full pt-[5rem] px-[2rem]'>
                     {/* logo */}
                     <div className='flex justify-between lg:justify-between gap-4'>
-                        <ul>{links.nav.map((link, id) => (
+                        <ul>{links.map((link, id) => (
                                 <h3 key={id}><Link to={link.link} className='--footer-link'>{link.label}</Link></h3>
                                 ))}</ul>
                         <Logo />

@@ -10,6 +10,7 @@
     "emailjs-com": "^3.2.0",
     "firebase": "^9.7.0",
     "framer-motion": "^6.3.0",
+    "morocco-cities": "^1.0.2",
     "navigation": "^6.1.0",
     "pagination": "^0.4.6",
     "react": "^18.0.0",

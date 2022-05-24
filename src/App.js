@@ -11,6 +11,7 @@ import LogIn from './pages/LogIn'
 import Blog from './pages/Blog'
 import Root from './pages/Root'
 import Profile from './pages/Profile'
+import PersonalInfo from './pages/PersonalInfo'
 import PasswordReset from './pages/PasswordReset'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
@@ -35,7 +36,8 @@ const App = () => {
           <Route path='/login' element={<LogIn />} />
           <Route path='/reset_password' element={<PasswordReset />} />
           <Route element={<PrivateRoute />}>
-            <Route path='/Profile' element={Profile} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/personalinfo' element={<PersonalInfo />} />
           </Route>
           {/* root */}
           <Route path='/root' element={<Root />} />

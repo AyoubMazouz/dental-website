@@ -1,9 +1,11 @@
+// React Imports.
 import { useState } from 'react'
+// Hooks Imports.
 import useDocs from '../hooks/useDocs'
+// Components Imports.
 import ImageModel from '../components/ImageModel'
 import Hero from '../components/Hero'
 
-import { links } from '../data'
 
 
 export default function Gallery() {
@@ -13,15 +15,11 @@ export default function Gallery() {
   const [imgsAtOnce, setImgsAtOnce] = useState(6)
   // Images From db.
   const { docs } = useDocs('gallery')
-  // Get Hero Image.
-  const { url, alt } = links.nav.filter(obj => obj.label === 'gallery')[0]
-
-  // Still not compatible with SubLinks.
 
   return (
     <div>
       {/* Hero Section */}
-      <Hero url={url} alt={alt} currPage={'gallery'} />
+      <Hero url='https://via.placeholder.com/1000x1000' alt='' currPage={'gallery'} />
       {/* Image Model __default hidden__ */}
       {typeof selected === 'number' && <ImageModel currIndex={selected} docs={docs} setSelected={setSelected} />}
       {/* Image Gallery */}
