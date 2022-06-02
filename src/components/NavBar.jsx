@@ -50,17 +50,17 @@ const NavBarFull = ({ scrolling, getLogo, getIcons, getCart }) => {
                 </div> : null}
             {/* bottom */}
             <div className='w-full max-w-[1920px] h-[75%] px-8 flex justify-between items-center'>
-                <ul className='h-full flex items-center space-x-8 text-xl'>
+                <ul className='h-full w-full flex justify-between items-center text-xl'>
                     {/* Logo */}
                     <div className='h-full flex items-center'>{getLogo()}</div>
                     {/* NavLinks */}
-                    {links.map((link, id) => getLinks(link, id))}
+                    <div className='gap-x-[2rem] flex'>{links.map((link, id) => getLinks(link, id))}</div>
+                    <div className='flex items-center gap-x-6 text-xl'>
+                        {getCart()}
+                        <Notification />
+                        <Profile />
+                    </div>
                 </ul>
-                <div className='flex items-center gap-x-6 text-xl'>
-                    {getCart()}
-                    <Notification />
-                    <Profile />
-                </div>
             </div>
             <Alert />
         </nav>
