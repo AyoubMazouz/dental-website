@@ -4,9 +4,13 @@ Parmi les soins dentaires, on distingue différentes spécialisations comme les 
 
 Vous pouvez également prendre rendez-vous en ligne ou par téléphone au centre dentaire Dentego près de chez vous pour bénéficier de tous les traitements dont vous avez besoin.
 
+<div id="Les soins dentaires complets."></div>
+
 # Les soins dentaires complets:
 
 Conserver une bonne [hygiène dentaire]() à tout âge offre la garantie de dents saines et fonctionnelles. Pour vous aider dans cette tâche, nos **centres dentaires Dentego** regroupent des spécialistes de toutes les disciplines et disposent d'un matériel à la **pointe de la technologie.** Ainsi, nous vous accompagnerons dans la prévention des maladies dentaires, mais aussi dans leur prise en charge. Notre approche pluridisciplinaire nous permet de vous proposer une grande variété de soins, adaptés à tous. Du traitement des caries à celui de la parodontite en passant par le détartrage, **nos chirurgiens-dentistes** seront à même d'effectuer toutes sortes de prestations.
+
+<div id="Pourquoi recevoir des soins dentaires réguliers?"></div>
 
 # Pourquoi recevoir des soins dentaires réguliers?
 
@@ -22,12 +26,16 @@ Les bonnes habitudes doivent être prises dès le plus jeune âge. Ainsi, emmene
 
 Les spécialistes Dentego sont formés à la **diversité des soins dentaires** qui existent, et à l’accueil des enfants et des adolescents. De cette façon, ils vous aident à prendre soin de vos dents et à éviter les maladies bucco-dentaires et ce, qu’importe votre âge ou votre situation.
 
+<div id="Quels sont les différents soins dentaires et leur déroulemen?"></div>
+
 # Quels sont les différents soins dentaires et leur déroulement?
 
 Les soins dentaires sont multiples et ont pour objectif de prévenir ou de traiter les maladies bucco-dentaires afin de conserver une bouche saine.
 
 Parmi les soins dentaires, on distingue différentes spécialisations comme les soins fondamentaux des dents, la [parodontologie]() (la médecine des gencives), la [pédodontie]() (qui traite des problèmes dentaires des enfants) ainsi que la [dévitalisation]() et [l’extraction dentaire](), aussi appelées endodontie.
 Renseignez-vous auprès de votre dentiste pour savoir quel traitement est adapté à vos besoins, et pour recevoir un devis clair sur les tarifs que nous pratiquons pour les soins dentaires. Vous pouvez également prendre rendez-vous en ligne ou par téléphone auprès du [centre Dentego le plus proche de chez vous]().
+
+<div id="Les soins de pédodontie."></div>
 
 # Les soins de pédodontie:
 
@@ -40,6 +48,8 @@ Par la suite, toujours dans une démarche pédagogique et éducative, le [pédod
 Chez les plus jeunes, la dentisterie cherche avant tout à prévenir et à traiter les dents cariées. En effet, les dents de lait sont fragiles et peuvent transmettre l’infection aux dents définitives si elles ne sont pas traitées à temps. Le spécialiste pourra proposer le scellement des sillons interdentaires dans le but d’anticiper l’apparition des affections carieuses.
 
 Toujours dans la démarche de garantir à l’enfant une dentition en bon état, le pédodontiste va également traiter les dents cassées et surveiller l’apparition des dents permanentes. Il cherchera alors à favoriser une implantation correcte des futures dents.
+
+<div id="Les soins fondamentaux des dents et les soins préventifs."></div>
 
 # Les soins fondamentaux des dents et les soins préventifs:
 
@@ -56,6 +66,8 @@ Pour une carie plus profonde, il faudra passer par une étape de reconstruction 
 
 Avec l’âge, ou à la suite d’un choc, il se peut que les dents subissent des fissures ou se cassent. Dans ce cas, il faudra reboucher ces brèches afin d’éviter que les bactéries ne puissent s’introduire au cœur de la dent.
 
+<div id="La parodontologie et endodontie."></div>
+
 # La parodontologie et l’endodontie:
 
 La plaque dentaire est souvent à l’origine de **l’inflammation de la gencive**, appelée gingivite. Les bactéries qui s’y trouvent vont petit à petit attaquer le tissu gingival en relâchant des substances corrosives.
@@ -69,9 +81,13 @@ Quand une carie se manifeste par des douleurs fortes, c’est que la pulpe (la p
 Cette discipline vise à traiter l’intérieur des dents et à les extraire en cas de besoin. Le dentiste va souvent pratiquer ce que l’on appelle une **dévitalisation** en retirant les vaisseaux sanguins et le nerf.
 Par la suite, il va procéder à **l’obturation des canaux** des racines, qui assurent le passage des vaisseaux sanguins, afin d’éviter toute propagation des bactéries.
 
+<div id="Quel est le prix des soins dentaires?"></div>
+
 # Quel est le prix des soins dentaires?
 
 Devant la diversité des soins pratiqués, il est difficile de donner des prix exacts. Votre dentiste mettra en place un devis clair et précis en fonction des traitements effectués. Ces derniers (**détartrage**, traitement d’une **carie**, d’un abcès, ou simple **consultation**) sont, dans la majorité des cas, remboursés par [la Sécurité Sociale à hauteur de 70%](). Vous pouvez également bénéficier du complément de votre mutuelle.
+
+<div id="Quelques astuces."></div>
 
 # Quelques astuces:
 

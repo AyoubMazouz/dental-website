@@ -72,7 +72,7 @@ const NavBarSmall = ({ menuState, setMenuState, scrolling, getLogo, getIcons, ge
         return links.map((link, id) => <li key={id} onClick={() => { setMenuState(false); navigate(link.link) }}className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 hover:text-primary text-2xl font-semibold cursor-pointer'>{link.label}</li>)
     }
     return (
-        <nav className={`text-dark relative lg:hidden flex items-center justify-center transition-all duration-500 bg-light px-2    sm:px-4 md:px-8 max-w-[1920px] ${menuState ? 'h-[100vh]' : 'h-[70px]'} ${scrolling ? 'sticky top-0 z-20' : ''}`}>
+        <nav className={`text-dark relative lg:hidden flex items-center justify-center transition-all duration-500 bg-light px-2 sm:px-4 md:px-8 max-w-[1920px] ${menuState ? 'h-[100vh]' : 'h-[70px]'} ${scrolling ? 'sticky top-0 z-20' : ''}`}>
             <div className='absolute top-0 w-full flex items-center justify-between px-4 py-4'>
                 {/* Toggle button */}
                 {/* Open */}

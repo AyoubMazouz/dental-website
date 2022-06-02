@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 @layer base {
-  html { @apply font-[Poppins,sans-serif] }
+  html { @apply font-[Poppins,sans-serif] scroll-smooth }
   h1   { @apply lg:text-5xl md:text-4xl text-3xl font-bold }
   h2   { @apply lg:text-4xl md:text-3xl text-2xl font-semibold }
   h3   { @apply lg:text-3xl md:text-2xl text-xl font-semibold }
@@ -61,13 +61,13 @@
       top: 0;
     } 
     100% {
-      top: 300px
+      top: 300px;
     }
   }
   animation: animate 5s ease-in-out;
 }
 
-.ReactMarkdown { @apply col-span-2 w-full max-w-[1200px] text-dark }
+.ReactMarkdown { @apply text-light-gray }
 .ReactMarkdown h1 { @apply text-primary mt-8 mb-4 }
 .ReactMarkdown p { @apply leading-[2rem] }
 .ReactMarkdown a { @apply text-primary underline font-bold }
