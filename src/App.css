@@ -809,8 +809,8 @@ url{
   left: 50%;
 }
 
-.top-\[4rem\]{
-  top: 4rem;
+.top-\[8rem\]{
+  top: 8rem;
 }
 
 .z-10{
@@ -839,14 +839,6 @@ url{
 
 .col-span-full{
   grid-column: 1 / -1;
-}
-
-.col-span-1{
-  grid-column: span 1 / span 1;
-}
-
-.col-span-3{
-  grid-column: span 3 / span 3;
 }
 
 .my-4{
@@ -1039,12 +1031,12 @@ url{
   height: 1.2rem;
 }
 
-.h-\[70px\]{
-  height: 70px;
+.h-\[80px\]{
+  height: 80px;
 }
 
-.h-\[140px\]{
-  height: 140px;
+.h-\[160px\]{
+  height: 160px;
 }
 
 .h-\[40px\]{
@@ -1053,6 +1045,10 @@ url{
 
 .h-\[75\%\]{
   height: 75%;
+}
+
+.h-\[70px\]{
+  height: 70px;
 }
 
 .h-\[2\.7rem\]{
@@ -1344,8 +1340,8 @@ url{
           column-gap: 3rem;
 }
 
-.gap-y-2{
-  row-gap: 0.5rem;
+.gap-y-4{
+  row-gap: 1rem;
 }
 
 .space-y-3 > :not([hidden]) ~ :not([hidden]){
@@ -1428,12 +1424,20 @@ url{
   border-right-width: 2px;
 }
 
+.border-b-\[5px\]{
+  border-bottom-width: 5px;
+}
+
 .border-b-\[1px\]{
   border-bottom-width: 1px;
 }
 
 .border-t-\[4px\]{
   border-top-width: 4px;
+}
+
+.border-b-\[3px\]{
+  border-bottom-width: 3px;
 }
 
 .border-secondary{
@@ -1464,6 +1468,14 @@ url{
 .border-r-light{
   --tw-border-opacity: 1;
   border-right-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.border-opacity-50{
+  --tw-border-opacity: 0.5;
+}
+
+.border-opacity-20{
+  --tw-border-opacity: 0.2;
 }
 
 .bg-light{
@@ -1640,6 +1652,10 @@ url{
 
 .pt-\[5rem\]{
   padding-top: 5rem;
+}
+
+.pb-2{
+  padding-bottom: 0.5rem;
 }
 
 .pb-3{
@@ -1871,51 +1887,74 @@ url{
           animation: animate 5s ease-in-out;
 }
 
+/* Markdown */
+
 .ReactMarkdown{
   --tw-text-opacity: 1;
   color: rgb(77 96 110 / var(--tw-text-opacity));
 }
 
+.ReactMarkdown .scroll{
+  scroll-margin-top: 4rem;
+}
+
 .ReactMarkdown h1{
-  margin-top: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(0 95 160 / var(--tw-text-opacity));
+}
+
+.ReactMarkdown h3{
+  margin-top: 1.5rem;
   margin-bottom: 1rem;
   --tw-text-opacity: 1;
   color: rgb(0 95 160 / var(--tw-text-opacity));
 }
 
 .ReactMarkdown p{
+  font-size: 1.125rem;
   line-height: 2rem;
+}
+
+@media (min-width: 1024px){
+  .ReactMarkdown p{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .ReactMarkdown p{
+    line-height: 2.5rem;
+  }
 }
 
 .ReactMarkdown a{
   font-weight: 700;
   --tw-text-opacity: 1;
-  color: rgb(0 95 160 / var(--tw-text-opacity));
+  color: rgb(0 145 255 / var(--tw-text-opacity));
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
 }
 
 .ReactMarkdown ul{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   list-style-type: disc;
-}
-
-.ReactMarkdown li{
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-@media (min-width: 768px){
-  .ReactMarkdown li{
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 @media (min-width: 1024px){
-  .ReactMarkdown li{
-    font-size: 1.125rem;
+  .ReactMarkdown ul{
+    font-size: 1.25rem;
     line-height: 1.75rem;
   }
+}
+
+.ReactMarkdown li{
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  margin-left: 1.5rem;
 }
 
 .after\:absolute::after{
@@ -1986,6 +2025,11 @@ url{
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.hover\:text-light-blue:hover{
+  --tw-text-opacity: 1;
+  color: rgb(0 145 255 / var(--tw-text-opacity));
+}
+
 .hover\:text-primary:hover{
   --tw-text-opacity: 1;
   color: rgb(0 95 160 / var(--tw-text-opacity));
@@ -1994,11 +2038,6 @@ url{
 .hover\:text-sky-500:hover{
   --tw-text-opacity: 1;
   color: rgb(14 165 233 / var(--tw-text-opacity));
-}
-
-.hover\:text-light-blue:hover{
-  --tw-text-opacity: 1;
-  color: rgb(0 145 255 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover{
@@ -2104,6 +2143,14 @@ url{
     top: .8rem;
   }
 
+  .lg\:col-span-2{
+    grid-column: span 2 / span 2;
+  }
+
+  .lg\:col-span-1{
+    grid-column: span 1 / span 1;
+  }
+
   .lg\:mt-\[12rem\]{
     margin-top: 12rem;
   }
@@ -2158,6 +2205,10 @@ url{
 
   .lg\:gap-y-\[8rem\]{
     row-gap: 8rem;
+  }
+
+  .lg\:gap-y-6{
+    row-gap: 1.5rem;
   }
 
   .lg\:text-left{

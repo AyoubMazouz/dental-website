@@ -20,21 +20,23 @@ const NavBarFull = ({ scrolling, getLogo, getIcons, getCart }) => {
     const getLinks = (link, id) => {
         // Only one Link.
         if (typeof link.subLinks === 'undefined') return (
-            <li key={id}><Link to={link.link} className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[" "] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 hover:text-primary'>{link.label}</Link></li>
+            <li key={id}><Link to={link.link} className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[" "] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-primary hover:text-light-blue font-bold'>{link.label}</Link></li>
         )
         // Link Contain more Links.
         else return (
-            <li key={id} className='group relative cursor-pointer'><Link to={link.link}>{link.label}</Link>
+            <li key={id} className='group relative cursor-pointer text-primary hover:text-light-blue font-bold'><Link to={link.link}>{link.label}</Link>
                 <ul className='absolute text-base w-[22rem] z-20 flex flex-col space-y-4 py-8 px-6 bg-light rounded shadow-lg invisible group-hover:visible'>
-                    {link.subLinks.map((link, id) => <li key={id}><Link to={link.link} className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[" "] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 hover:text-primary'>{link.label}</Link></li>)}
+                    {link.subLinks.map((link, id) => (
+                        <Link key={id} to={link.link} className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-light-gray hover:text-primary font-bold pb-2 text-lg border-b-[3px] border-light-gray border-opacity-20'>{link.label}</Link>
+                    ))}
                 </ul>
             </li>
         )
     }
     return (
         <nav className={`${scrolling 
-            ? 'w-full sticky top-0 z-20 h-[70px] hidden lg:flex flex-col justify-center items-center bg-light shadow-lg transitions duration-200'
-            : 'w-full h-[140px] hidden lg:flex flex-col justify-center items-center transitions duration-200'}`}>
+            ? 'w-full sticky top-0 z-20 h-[80px] hidden lg:flex flex-col justify-center items-center bg-light shadow-lg transitions duration-200'
+            : 'w-full h-[160px] hidden lg:flex flex-col justify-center items-center transitions duration-200'}`}>
             {!scrolling ? 
                 <div className='w-full bg-primary flex items-center'>
                     <div className='w-full h-[40px] max-w-[1920px] px-6 flex justify-around items-center text-light'>
@@ -48,7 +50,7 @@ const NavBarFull = ({ scrolling, getLogo, getIcons, getCart }) => {
                 </div> : null}
             {/* bottom */}
             <div className='w-full max-w-[1920px] h-[75%] px-8 flex justify-between items-center'>
-                <ul className='h-full flex items-center space-x-8 text-lg'>
+                <ul className='h-full flex items-center space-x-8 text-xl'>
                     {/* Logo */}
                     <div className='h-full flex items-center'>{getLogo()}</div>
                     {/* NavLinks */}
@@ -265,7 +267,7 @@ export default function NavBar() {
         getIcons,
         getCart,
     }
-    return <div className=''>
+    return <div className={scrolling ? 'sticky top-0 z-20' : ''}>
         <NavBarSmall {...values} />
         <NavBarFull {...values} />
     </div>

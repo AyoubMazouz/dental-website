@@ -20,20 +20,20 @@ export const links = [
         link: '/services',
         subLinks: [
             {
-                label: 'service 01',
-                link: '/service01',
+                label: 'Soins Dentaires',
+                link: '/services/soins_dentaires',
             },
             {
-                label: 'service 02',
-                link: '/service02',
+                label: 'Pédodontie',
+                link: '/services/pedodontie',
             },
             {
-                label: 'service 03',
-                link: '/service03',
+                label: 'Orthodontie',
+                link: '/services/orthodontie',
             },
             {
-                label: 'service 04',
-                link: '/service04',
+                label: 'Prothèses et implants dentaires',
+                link: '/services/protheses_et_implants_dentaires',
             },
         ]
     },
@@ -212,40 +212,60 @@ export const services = {
     },
     services: [
         {
-            img: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Forthodontie.jpg?alt=media&token=167787b4-57d6-4828-b862-c40ea9583d09',
+            url: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Fsoin-dentaire.jpg?alt=media&token=2d1bf996-2aad-4533-8bdf-2089f4939ff0',
             alt: '',
-            title: 'Orthodontie',
-            description: "Nos praticiens assurent des traitements d'orthodontie qui consistent à déplacer les dents afin de retrouver un alignement harmonieux et corriger les dysfonctionnements incommodants au quotidien."
-        },
-        {
-            img: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Forthodontie.jpg?alt=media&token=167787b4-57d6-4828-b862-c40ea9583d09',
-            alt: '',
-            title: 'Orthodontie',
-            description: "Nos praticiens assurent des traitements d'orthodontie qui consistent à déplacer les dents afin de retrouver un alignement harmonieux et corriger les dysfonctionnements incommodants au quotidien."
-        },
-        {
-            img: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Fradiologie%20dentaire.jpg?alt=media&token=8fd722f5-bf6a-4e12-82c9-3fa77b3dc6e3',
-            alt: '',
-            title: 'Radio Dentaire',
-            description: "Nos praticiens assurent des traitements d'orthodontie qui consistent à déplacer les dents afin de retrouver un alignement harmonieux et corriger les dysfonctionnements incommodants au quotidien."
-        },
-        {
-            img: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Fprotheses-et-implants-dentaires.jpg?alt=media&token=46fc5b1d-8b31-4168-9ecf-11ca54898636',
-            alt: '',
-            title: "Prothèses et implants dentaires",
-            description: "Les prothèses et implants dentaires sont une solution qui permet de remplacer les dents abîmées ou manquantes, sur le long terme, afin de retrouver le confort et les propriétés esthétiques d'une bonne dentition. Des chirurgiens spécialistes vous accueillent dans tous nos centres dentaires pour vous conseiller et réaliser ces interventions."
-        },
-        {
-            img: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Fsoin-dentaire.jpg?alt=media&token=2d1bf996-2aad-4533-8bdf-2089f4939ff0',
-            alt: '',
+            currentPage: {
+                parent: {
+                    label: 'Services',
+                    link: '/services',
+                }, 
+                label: 'Soins Dentaire',
+                link: '/soins_dentaires'
+            },
             title: 'Soins dentaires',
-            description: 'Les soins dentaires sont multiples et variés et ont pour objectif de prévenir les maladies des dents et des gencives et/ou de les traiter pour conserver une bouche saine. En fonction de vos besoins, les tarifs des soins dentaires sont différents et un devis sera établi au préalable de manière transparente.'
+            description: "Les soins dentaires sont multiples et variés et ont pour objectif de prévenir les maladies des dents et des gencives et/ou de les traiter pour conserver une bouche saine. En fonction de vos besoins, les tarifs des soins dentaires sont différents et un devis sera établi au préalable de manière transparente."
         },
         {
-            img: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Furgence-dentaire.jpg?alt=media&token=e7f2b1ad-41c5-422f-983d-c63a2f001e46',
+            url: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Fpedodontie.png?alt=media&token=d20d10fe-467f-43d9-826e-f1945309c712',
             alt: '',
-            title: 'Urgence Dentaire',
-            description: "Douleur bucco-dentaire ou accident? Les centres de santé dentaire Dentego vous proposent un service d'urgence, avec ou sans rendez-vous."
+            currentPage: {
+                parent: {
+                    label: 'Services',
+                    link: '/services',
+                }, 
+                label: 'Pédodontie',
+                link: '/pedodontie'
+            },
+            title: 'Pédodontie',
+            description: "La pédodontie est la dentisterie pédiatrique, c'est-à-dire la prise en charge des enfants qui nécessitent des soins dentaires."
+        },
+        {
+            url: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Forthodontie.jpg?alt=media&token=167787b4-57d6-4828-b862-c40ea9583d09',
+            alt: '',
+            currentPage: {
+                parent: {
+                    label: 'Services',
+                    link: '/services',
+                }, 
+                label: 'Orthodontie',
+                link: '/orthodontie'
+            },
+            title: 'Orthodonties',
+            description: "Nos praticiens assurent des traitements d'orthodontie qui consistent à déplacer les dents afin de retrouver un alignement harmonieux et corriger les dysfonctionnements incommodants au quotidien."
+        },
+        {
+            url: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Fprotheses-et-implants-dentaires.jpg?alt=media&token=46fc5b1d-8b31-4168-9ecf-11ca54898636',
+            alt: '',
+            currentPage: {
+                parent: {
+                    label: 'Services',
+                    link: '/services',
+                }, 
+                label: 'Prothèses et implants_dentaires',
+                link: '/protheses_et_implants_dentaires'
+            },
+            title: 'Prothèses et implants dentaires',
+            description: "Les prothèses et implants dentaires sont une solution qui permet de remplacer les dents abîmées ou manquantes, sur le long terme, afin de retrouver le confort et les propriétés esthétiques d'une bonne dentition. Des chirurgiens spécialistes vous accueillent dans tous nos centres dentaires pour vous conseiller et réaliser ces interventions."
         },
     ]
 }

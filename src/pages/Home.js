@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom'
 // Components Imports.
 import SlideShow from '../components/SlideShow'
-import Services from '../components/Services'
+import ServicesSlider from '../components/ServicesSlider'
 import GoogleMaps from '../components/GoogleMaps'
 import ContactForm from '../components/ContactForm'
 import Slider from '../components/Slider'
@@ -35,7 +35,7 @@ export default function Home() {
         </div>
       </div>
       {/* Services Slider */}
-      <div className='mt-[-4rem]'><Services services={services} /></div>
+      <div className='mt-[-4rem]'><ServicesSlider services={services.services} /></div>
 
       {/* About */}
       <div className='max-w-[1600px] w-full grid lg:grid-cols-2 gap-4 px-2 sm:px-4 md:px-8'>

@@ -1,7 +1,10 @@
-import React from 'react'
+// Components Imports.
+import ServicesSlider from '../../components/ServicesSlider'
+// Data Imports.
+import { services } from '../../data'
 
 export default function Services() {
   return (
-    <div>Services</div>
+    <div className='mt-[4rem]'>hello</div>
   )
 }

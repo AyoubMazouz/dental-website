@@ -67,9 +67,12 @@
   animation: animate 5s ease-in-out;
 }
 
-.ReactMarkdown { @apply text-light-gray }
-.ReactMarkdown h1 { @apply text-primary mt-8 mb-4 }
-.ReactMarkdown p { @apply leading-[2rem] }
-.ReactMarkdown a { @apply text-primary underline font-bold }
-.ReactMarkdown ul { @apply list-disc }
-.ReactMarkdown li { @apply my-2 lg:text-lg md:text-base }
+/* Markdown */
+.ReactMarkdown { @apply text-light-gray };
+.ReactMarkdown .scroll { @apply scroll-mt-[4rem] };
+.ReactMarkdown h1 { @apply text-primary mt-12 mb-6 };
+.ReactMarkdown h3 { @apply text-primary mt-6 mb-4 };
+.ReactMarkdown p { @apply text-lg lg:text-xl leading-8 lg:leading-10; };
+.ReactMarkdown a { @apply text-light-blue underline font-bold };
+.ReactMarkdown ul { @apply list-disc my-8 text-lg lg:text-xl };
+.ReactMarkdown li { @apply my-3 ml-[1.5rem] };

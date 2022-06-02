@@ -19,7 +19,7 @@ export default function About() {
   return (
     <>
       {/* Hero Section */}
-      <Hero url='https://via.placeholder.com/1000x1000' alt='' currPage={'about'} />
+      {/* <Hero  /> */}
       <div className='flex flex-col items-center text-dark gap-y-[4rem] lg:gap-y-[8rem] overflow-hidden'>
 
         {/* Content */}
