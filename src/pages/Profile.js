@@ -73,19 +73,16 @@ export default function Profile() {
             zip: '',
             address1: '',
             address2: '',
-        },
-        notifications: []
+        }
     })
 
     // Get User Data.
     useEffect(() => {
         getUserInfo(setFormValues)
-        console.log(formValues)
     }, [])
 
     // Update Second Select List.
     useEffect(() => { 
-        console.log(formValues)
         if (!formValues.region) return
         formParams.forEach(params => {
             if (params?.name === 'city') {
@@ -94,13 +91,20 @@ export default function Profile() {
         })
     }, [formValues?.region])
 
+    const props = {
+        formValues,
+        setFormValues,
+        handleChange,
+        error,
+        setError,
+      }
+
     return (
         <div className='flex justify-center'>
             <form className='max-w-[1600px] w-full py-16'
                 onSubmit={e => onSubmit(e, () => {
                     try {
                         UpdateUserInfo(formValues)
-                        console.log(error.formError)
                     }
                     catch {
                         setError({ ...error, ['formError']: 'Failed to save changes.' })
@@ -124,7 +128,7 @@ export default function Profile() {
                 {error.formError && <h5 className='bg-red-500 rounded-xl py-4 px-4 w-full my-4'>{error.formError}</h5>}
                 <div className='space-y-3'>
                     {formParams.map(params => (
-                        <Input key={params.label} params={params} formValues={formValues} handleChange={handleChange} error={error} setError={setError} />
+                        <Input key={params.label} { ...params } { ...props } />
                     ))}
                 </div>
             </form>

@@ -1,3 +1,6 @@
+// React Markdown Imports.
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 // Components Imports.
 import Hero from '../components/Hero'
 import Stats from '../components/Stats'
@@ -25,11 +28,6 @@ export default function About() {
           <div className='max-w-[1600px] w-full flex-wrap flex gap-x-[2rem] gap-y-[1rem] justify-center items-start text-light'>
             {stats.about.map((stat, id) => <Stats key={id} { ...stat } speed={3000} />)}
           </div>
-          <div className='max-w-[1600px] grid lg:grid-cols-2 text-light gap-[2rem] lg:gap-[6rem] max-h-[20rem] lg:max-h-[12rem] px-2 sm:px-4 md:px-8'>
-            <p>{about.header}</p>
-            {/* Image */}
-            <img src='https://via.placeholder.com/1000x1000' alt='' className="object-cover aspect-video w-full rounded-2xl" />
-          </div>
         </div>
 
         {/* About Us */}
@@ -39,7 +37,9 @@ export default function About() {
             <img src={profiles[0].url} alt="" className='object-cover aspect-video w-full rounded-2xl' />
             <div className='flex flex-col justify-end'>
               <h1>{profiles[0].name}</h1>
-              <p>{profiles[0].details}</p>
+              <p className=''>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non cumque esse sequi quibusdam nihil illo nulla neque delectus dicta facere temporibus autem quas unde ut repudiandae velit veritatis et officia commodi pariatur, nostrum eius totam dolorum ab. Delenium aperiam similique temporibus tempora.
+              </p>
               <div className='flex text-2xl gap-4 my-[.8rem]'>
                   {profiles[0].facebook && <a href={profiles[0].facebook}><FaFacebook /></a>}
                   {profiles[0].instagram && <a href={profiles[0].instagram}><FaInstagram /></a>}

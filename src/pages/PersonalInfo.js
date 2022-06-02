@@ -1,6 +1,6 @@
 // React Imports.
-import { useNavigate, Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 // Components Imports.
 import Input from '../components/Input'
 import Logo from '../components/Logo'
@@ -10,7 +10,7 @@ import { useAuth } from '../contexts/AuthContext'
 import useForm from '../hooks/useFom'
 import useUserData from '../hooks/useUserData'
 // Data Imports.
-import { regions, getRegions, getCities } from '../data'
+import { getRegions, getCities } from '../data'
 
 const formParams = [
   { 
@@ -57,7 +57,7 @@ export default function PersonalInfo() {
   const { currentUser } = useAuth()
   const navigate = useNavigate()
   const { UpdateUserInfo } = useUserData(currentUser)
-  const { formValues, handleChange, onSubmit, error, loading } = useForm({
+  const { formValues, setFormValues, handleChange, onSubmit, error, setError, loading } = useForm({
     fullName: '',
     phone: '',
     region: '',
@@ -77,11 +77,18 @@ export default function PersonalInfo() {
     })
   }, [formValues.region])
 
+  const props = {
+    formValues,
+    setFormValues,
+    handleChange,
+    error,
+    setError,
+  }
+
   return (
     <div className='w-full grid place-items-center text-light'>
       <form className='max-w-[520px] w-full flex flex-col items-center bg-primary rounded-xl py-[4rem] px-2 sm:px-4 md:px-8'
         onSubmit={e => onSubmit(e,() => {
-          console.log(formValues)
           UpdateUserInfo(formValues)
           navigate('/')
         })}>
@@ -92,7 +99,7 @@ export default function PersonalInfo() {
         {error.formError && <h5 className='bg-red-500 rounded-xl py-4 px-4 w-full my-4'>{error.formError}</h5>}
         {/* Input Field */}
         {formParams.map(params => (
-          <Input key={params.label} params={params} formValues={formValues} handleChange={handleChange} error={error} />
+          <Input key={params.label} { ...params } { ...props } />
         ))}
         {/* Submit Button */}
         <button disabled={loading} type='submit' className='rounded-full w-full px-6 py-2 text-center bg-secondary text-lg'>Complete</button>

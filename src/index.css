@@ -13,6 +13,8 @@
   p    { @apply lg:text-lg md:text-base }
   h5   { @apply text-sm }
   h6   { @apply text-xs font-light }
+
+  url { @apply font-bold text-primary }
 }
 
 @layer components {
@@ -64,3 +66,10 @@
   }
   animation: animate 5s ease-in-out;
 }
+
+.ReactMarkdown { @apply col-span-2 w-full max-w-[1200px] text-dark }
+.ReactMarkdown h1 { @apply text-primary mt-8 mb-4 }
+.ReactMarkdown p { @apply leading-[2rem] }
+.ReactMarkdown a { @apply text-primary underline font-bold }
+.ReactMarkdown ul { @apply list-disc }
+.ReactMarkdown li { @apply my-2 lg:text-lg md:text-base }

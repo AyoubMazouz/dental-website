@@ -53,6 +53,14 @@ export default function SingUp() {
   useEffect(() => {
     if (currentUser) navigate('/')
   } , [currentUser])
+
+  const props = {
+    formValues,
+    setFormValues,
+    handleChange,
+    error,
+  }
+
   return (
     <div className='w-full grid place-items-center h-[80vh] text-light'>
       <form onSubmit={onSubmit} className='max-w-[520px] w-full flex flex-col items-center bg-primary rounded-xl py-[4rem] px-2 sm:px-4 md:px-8'>
@@ -62,7 +70,7 @@ export default function SingUp() {
         {error && <h5 className='bg-red-500 rounded-xl py-4 px-4 w-full my-4'>{error}</h5>}
         {/* Input Field */}
         {formParams.map(params => (
-          <Input key={params.label} params={params} formValues={formValues} handleChange={handleChange} error={error} />
+          <Input key={params.label} { ...params } { ...props } />
         ))}
         {/* Submit Button */}
         <button disabled={loading} type='submit' className='rounded-full w-full px-6 py-2 text-center bg-secondary text-lg'>Sign Up</button>

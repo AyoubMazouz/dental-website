@@ -525,6 +525,12 @@ h6{
   font-weight: 300;
 }
 
+url{
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(0 95 160 / var(--tw-text-opacity));
+}
+
 *, ::before, ::after{
   --tw-translate-x: 0;
   --tw-translate-y: 0;
@@ -762,6 +768,22 @@ h6{
   right: 0px;
 }
 
+.top-\[160\%\]{
+  top: 160%;
+}
+
+.right-\[-2rem\]{
+  right: -2rem;
+}
+
+.top-\[2\.2rem\]{
+  top: 2.2rem;
+}
+
+.top-\[-12rem\]{
+  top: -12rem;
+}
+
 .bottom-\[-340px\]{
   bottom: -340px;
 }
@@ -784,106 +806,6 @@ h6{
 
 .left-\[50\%\]{
   left: 50%;
-}
-
-.top-\[100px\]{
-  top: 100px;
-}
-
-.top-\[0px\]{
-  top: 0px;
-}
-
-.top-\[-200px\]{
-  top: -200px;
-}
-
-.top-\[140px\]{
-  top: 140px;
-}
-
-.top-\[200px\]{
-  top: 200px;
-}
-
-.top-\[30px\]{
-  top: 30px;
-}
-
-.top-\[\.75rem\]{
-  top: .75rem;
-}
-
-.top-\[\.8rem\]{
-  top: .8rem;
-}
-
-.top-\[-12rem\]{
-  top: -12rem;
-}
-
-.top-\[1\.4rem\]{
-  top: 1.4rem;
-}
-
-.top-\[2rem\]{
-  top: 2rem;
-}
-
-.top-\[2\.2rem\]{
-  top: 2.2rem;
-}
-
-.bottom-0{
-  bottom: 0px;
-}
-
-.bottom-\[-2rem\]{
-  bottom: -2rem;
-}
-
-.bottom-\[2rem\]{
-  bottom: 2rem;
-}
-
-.bottom-\[4rem\]{
-  bottom: 4rem;
-}
-
-.bottom-\[3rem\]{
-  bottom: 3rem;
-}
-
-.left-0{
-  left: 0px;
-}
-
-.bottom-\[0rem\]{
-  bottom: 0rem;
-}
-
-.top-\[110\]{
-  top: 110;
-}
-
-.top-\[140\%\]{
-  top: 140%;
-}
-
-.top-\[160\%\]{
-  top: 160%;
-}
-
-.right-\[2rem\]{
-  right: 2rem;
-}
-
-.left-\[2rem\]{
-  left: 2rem;
-}
-
-.right-\[-2rem\]{
-  right: -2rem;
 }
 
 .z-10{
@@ -914,6 +836,10 @@ h6{
   grid-column: 1 / -1;
 }
 
+.col-span-1{
+  grid-column: span 1 / span 1;
+}
+
 .my-4{
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -942,11 +868,6 @@ h6{
 .my-8{
   margin-top: 2rem;
   margin-bottom: 2rem;
-}
-
-.mx-8{
-  margin-left: 2rem;
-  margin-right: 2rem;
 }
 
 .my-\[3rem\]{
@@ -1080,8 +1001,8 @@ h6{
   height: 3rem;
 }
 
-.h-\[50vh\]{
-  height: 50vh;
+.h-\[65vh\]{
+  height: 65vh;
 }
 
 .h-\[100vh\]{
@@ -1104,16 +1025,16 @@ h6{
   height: 140px;
 }
 
-.h-\[25\%\]{
-  height: 25%;
+.h-\[40px\]{
+  height: 40px;
 }
 
 .h-\[75\%\]{
   height: 75%;
 }
 
-.h-\[60px\]{
-  height: 60px;
+.h-\[2\.7rem\]{
+  height: 2.7rem;
 }
 
 .h-\[1rem\]{
@@ -1156,32 +1077,12 @@ h6{
   height: 12rem;
 }
 
-.h-\[4rem\]{
-  height: 4rem;
-}
-
-.h-\[5rem\]{
-  height: 5rem;
-}
-
-.h-2{
-  height: 0.5rem;
-}
-
-.h-\[2\.7rem\]{
-  height: 2.7rem;
-}
-
 .max-h-\[480px\]{
   max-height: 480px;
 }
 
 .max-h-\[380px\]{
   max-height: 380px;
-}
-
-.max-h-\[20rem\]{
-  max-height: 20rem;
 }
 
 .w-full{
@@ -1200,8 +1101,8 @@ h6{
   width: 22rem;
 }
 
-.w-\[3rem\]{
-  width: 3rem;
+.w-\[2\.7rem\]{
+  width: 2.7rem;
 }
 
 .w-\[18rem\]{
@@ -1210,6 +1111,10 @@ h6{
 
 .w-12{
   width: 3rem;
+}
+
+.w-\[26rem\]{
+  width: 26rem;
 }
 
 .w-\[280px\]{
@@ -1236,26 +1141,6 @@ h6{
   width: 12rem;
 }
 
-.w-\[90vw\]{
-  width: 90vw;
-}
-
-.w-\[95vw\]{
-  width: 95vw;
-}
-
-.w-\[2\.7rem\]{
-  width: 2.7rem;
-}
-
-.w-\[32rem\]{
-  width: 32rem;
-}
-
-.w-\[26rem\]{
-  width: 26rem;
-}
-
 .min-w-\[8rem\]{
   min-width: 8rem;
 }
@@ -1268,8 +1153,16 @@ h6{
   max-width: 40rem;
 }
 
+.max-w-\[1800px\]{
+  max-width: 1800px;
+}
+
 .max-w-\[1920px\]{
   max-width: 1920px;
+}
+
+.max-w-\[1840px\]{
+  max-width: 1840px;
 }
 
 .max-w-\[99\.1vw\]{
@@ -1280,20 +1173,8 @@ h6{
   max-width: 17ch;
 }
 
-.max-w-\[1800px\]{
-  max-width: 1800px;
-}
-
 .max-w-\[520px\]{
   max-width: 520px;
-}
-
-.max-w-\[1880px\]{
-  max-width: 1880px;
-}
-
-.max-w-\[1840px\]{
-  max-width: 1840px;
 }
 
 .translate-y-\[-25\%\]{
@@ -1341,6 +1222,10 @@ h6{
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.grid-cols-3{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .flex-col{
   flex-direction: column;
 }
@@ -1355,10 +1240,6 @@ h6{
 
 .items-start{
   align-items: flex-start;
-}
-
-.items-end{
-  align-items: flex-end;
 }
 
 .items-center{
@@ -1397,6 +1278,20 @@ h6{
   gap: 2rem;
 }
 
+.gap-\[4rem\]{
+  gap: 4rem;
+}
+
+.gap-x-2{
+  -webkit-column-gap: 0.5rem;
+          column-gap: 0.5rem;
+}
+
+.gap-x-6{
+  -webkit-column-gap: 1.5rem;
+          column-gap: 1.5rem;
+}
+
 .gap-y-3{
   row-gap: 0.75rem;
 }
@@ -1423,11 +1318,6 @@ h6{
           column-gap: 3rem;
 }
 
-.gap-x-6{
-  -webkit-column-gap: 1.5rem;
-          column-gap: 1.5rem;
-}
-
 .space-y-3 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1444,6 +1334,12 @@ h6{
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+
+.space-y-6 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
 .space-x-8 > :not([hidden]) ~ :not([hidden]){
@@ -1565,10 +1461,6 @@ h6{
   background-color: rgb(0 145 255 / var(--tw-bg-opacity));
 }
 
-.bg-\[rgba\(0\2c 0\2c 0\2c \.6\)\]{
-  background-color: rgba(0,0,0,.6);
-}
-
 .bg-\[rgba\(0\2c 0\2c 0\2c \.9\)\]{
   background-color: rgba(0,0,0,.9);
 }
@@ -1604,6 +1496,28 @@ h6{
 
 .bg-\[rgba\(0\2c 0\2c 0\2c \.3\)\]{
   background-color: rgba(0,0,0,.3);
+}
+
+.bg-gray-400{
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
+
+.bg-gradient-to-t{
+  background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+
+.from-\[rgba\(0\2c 0\2c 0\2c 0\.6\)\]{
+  --tw-gradient-from: rgba(0,0,0,0.6);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(0 0 0 / 0));
+}
+
+.via-transparent{
+  --tw-gradient-stops: var(--tw-gradient-from), transparent, var(--tw-gradient-to, rgb(0 0 0 / 0));
+}
+
+.to-transparent{
+  --tw-gradient-to: transparent;
 }
 
 .object-cover{
@@ -1664,14 +1578,9 @@ h6{
   padding-bottom: 0.25rem;
 }
 
-.px-12{
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
-
-.py-6{
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+.py-12{
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .py-8{
@@ -1682,6 +1591,11 @@ h6{
 .px-8{
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.py-6{
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .py-20{
@@ -1713,10 +1627,6 @@ h6{
 
 .pr-12{
   padding-right: 3rem;
-}
-
-.pt-2{
-  padding-top: 0.5rem;
 }
 
 .text-left{
@@ -1757,6 +1667,11 @@ h6{
   line-height: 1.5rem;
 }
 
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
 .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
@@ -1764,11 +1679,6 @@ h6{
 
 .text-\[8rem\]{
   font-size: 8rem;
-}
-
-.text-xl{
-  font-size: 1.25rem;
-  line-height: 1.75rem;
 }
 
 .font-bold{
@@ -1833,36 +1743,6 @@ h6{
 .text-dark{
   --tw-text-opacity: 1;
   color: rgb(52 53 54 / var(--tw-text-opacity));
-}
-
-.text-\[\#1877f2\]{
-  --tw-text-opacity: 1;
-  color: rgb(24 119 242 / var(--tw-text-opacity));
-}
-
-.text-\[\#ff0000\]{
-  --tw-text-opacity: 1;
-  color: rgb(255 0 0 / var(--tw-text-opacity));
-}
-
-.text-\[\#1da1f2\]{
-  --tw-text-opacity: 1;
-  color: rgb(29 161 242 / var(--tw-text-opacity));
-}
-
-.text-\[\#c32aa3\]{
-  --tw-text-opacity: 1;
-  color: rgb(195 42 163 / var(--tw-text-opacity));
-}
-
-.text-\[\#0a66c2\]{
-  --tw-text-opacity: 1;
-  color: rgb(10 102 194 / var(--tw-text-opacity));
-}
-
-.text-\[\#25d366\]{
-  --tw-text-opacity: 1;
-  color: rgb(37 211 102 / var(--tw-text-opacity));
 }
 
 .text-light-blue{
@@ -1964,6 +1844,56 @@ h6{
   }
   -webkit-animation: animate 5s ease-in-out;
           animation: animate 5s ease-in-out;
+}
+
+.ReactMarkdown{
+  grid-column: span 2 / span 2;
+  width: 100%;
+  max-width: 1200px;
+  --tw-text-opacity: 1;
+  color: rgb(52 53 54 / var(--tw-text-opacity));
+}
+
+.ReactMarkdown h1{
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(0 95 160 / var(--tw-text-opacity));
+}
+
+.ReactMarkdown p{
+  line-height: 2rem;
+}
+
+.ReactMarkdown a{
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(0 95 160 / var(--tw-text-opacity));
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
+.ReactMarkdown ul{
+  list-style-type: disc;
+}
+
+.ReactMarkdown li{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px){
+  .ReactMarkdown li{
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px){
+  .ReactMarkdown li{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 
 .after\:absolute::after{
@@ -2169,10 +2099,6 @@ h6{
 
   .lg\:h-\[70vh\]{
     height: 70vh;
-  }
-
-  .lg\:max-h-\[12rem\]{
-    max-height: 12rem;
   }
 
   .lg\:w-\[18rem\]{

@@ -15,13 +15,25 @@ import {
     MdPassword, } from 'react-icons/md'
 
 
-export default function Input({ params, formValues, setFormValues, handleChange, error, setError, labelStyles='', inputStyles='' }) {
-    const { type, name, label, required } = params
+export default function Input({ 
+    type, 
+    name, 
+    label, 
+    required,
+    options,
+    formValues, 
+    setFormValues, 
+    handleChange, 
+    error, 
+    setError, 
+    labelStyles='', 
+    inputStyles='' 
+}) {
     const [onFocus, setOnFocus] = useState(false)
     const getInputField = () => {
         if (type === 'textarea') return (
-            <textarea maxLength='500' {...params} onFocus={() => setOnFocus(true)} onBlur={() => setOnFocus(false)}
-                onChange={handleChange}
+            <textarea maxLength='500' {...{ type, name, label, required }} onFocus={() => setOnFocus(true)} 
+                onBlur={() => setOnFocus(false)} onChange={handleChange}
                 className={`--input-base h-[10rem] ${inputStyles} ${error[name] && formValues[name].trim()
                     ? 'border-red-500' : 'border-light-gray'}`}></textarea>
         )
@@ -30,13 +42,13 @@ export default function Input({ params, formValues, setFormValues, handleChange,
                 onChange={handleChange}
                 className={`--input-base h-[3rem] ${inputStyles} ${error[name] && formValues[name].trim()
                     ? 'border-red-500' : 'border-light-gray'}`}>
-                {params.options.map(option => (
+                {options.map(option => (
                     <option value={option[0]} className='--select-option'>{option[1]}</option>
                 ))}
             </select>
         )
         else return (
-            <input {...params} value={formValues[name]} onChange={handleChange} onFocus={() => setOnFocus(true)} onBlur={() => setOnFocus(false)}
+            <input {...{ type, name, label, required }} value={formValues[name]} onChange={handleChange} onFocus={() => setOnFocus(true)} onBlur={() => setOnFocus(false)}
                 className={`--input-base h-[3rem] ${inputStyles} ${error[name] && formValues[name].trim()
                     ? 'border-red-500' : 'border-light-gray'}`} />
         )

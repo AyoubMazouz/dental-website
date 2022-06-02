@@ -21,19 +21,19 @@ export const links = [
         subLinks: [
             {
                 label: 'service 01',
-                link: '/service1',
+                link: '/service01',
             },
             {
                 label: 'service 02',
-                link: '/service2',
+                link: '/service02',
             },
             {
                 label: 'service 03',
-                link: '/service3',
+                link: '/service03',
             },
             {
                 label: 'service 04',
-                link: '/service4',
+                link: '/service04',
             },
         ]
     },

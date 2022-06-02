@@ -6,7 +6,7 @@ export default function useUserData(user) {
 
     const getData = () => getDoc(doc(db, 'users', user.uid))
 
-    const createNewUserDefault = (payload={
+    const createNewUser = (payload={
         info: {
             fullName: '',
             phone: '',
@@ -17,9 +17,11 @@ export default function useUserData(user) {
             address2: '',
         },
         notifications: []
-    }) => setDoc(doc(db, 'users', user.uid), payload)
+    }) => setDoc(doc(db, 'users', user.uid), { info: payload, notification: [] })
 
-    const UpdateUserInfo = info => updateDoc(doc(db, 'users', user.uid), { info } )
+    const UpdateUserInfo = info => {
+        updateDoc(doc(db, 'users', user.uid), {  info  } )
+    }
 
     const getUserInfo = async setFormValues => {
         const response = await getData()
@@ -33,17 +35,23 @@ export default function useUserData(user) {
         setNotifications(data.notifications)
     }
 
-    const setNotifications = notification => {
+    const setNewNotification = notification => {
         return updateDoc(doc(db, 'users', user.uid), { notifications: arrayUnion(notification) })
+    }
+
+    const getCartItems = setItems => {
+        if (!localStorage.getItem('cartItems')) return
+        setItems(JSON.parse(localStorage.getItem('cartItems')))
     }
     
 
     return { 
         getData,
-        createNewUserDefault,
+        createNewUser,
         getUserInfo, 
         UpdateUserInfo,
         getNotifications,
-        setNotifications,
+        setNewNotification,
+        getCartItems,
     }
 }

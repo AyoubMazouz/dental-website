@@ -16,6 +16,7 @@ import PasswordReset from './pages/PasswordReset'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import PrivateRoute from './components/PrivateRoute'
+import Service01 from './pages/Services/Service01'
 
 // Context Imports.
 import { AuthProvider } from './contexts/AuthContext'
@@ -23,11 +24,11 @@ import { AlertProvider } from './contexts/AlertContext'
 
 const App = () => {
   return (
-    <Router>
-      <AuthProvider>
-        <AlertProvider>
-          {/* NavBar */}
-          <NavBar />
+  <Router>
+    <AuthProvider>
+      <AlertProvider>
+        {/* NavBar */}
+        <NavBar />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
@@ -38,16 +39,19 @@ const App = () => {
             <Route path='/signup' element={<SignUp />} />
             <Route path='/login' element={<LogIn />} />
             <Route path='/reset_password' element={<PasswordReset />} />
+            {/* Services */}
+            <Route path='/service01' element={<Service01 />} />
+            {/* Private Routes */}
             <Route element={<PrivateRoute />}>
+              <Route path='/personal-info' element={<PersonalInfo />} />
               <Route path='/profile' element={<Profile />} />
-              <Route path='/personalinfo' element={<PersonalInfo />} />
             </Route>
             {/* root */}
             <Route path='/root' element={<Root />} />
           </Routes>
-        </AlertProvider>
-      </AuthProvider>
-      <Footer />
+        <Footer />
+      </AlertProvider>
+    </AuthProvider>
     </Router>
   );
 }

@@ -15,7 +15,7 @@ import { useAlert } from '../contexts/AlertContext'
 
 
 
-const NavBarFull = ({ scrolling, getLogo, getIcons }) => {
+const NavBarFull = ({ scrolling, getLogo, getIcons, getCart }) => {
     // Nav Links.
     const getLinks = (link, id) => {
         // Only one Link.
@@ -32,36 +32,40 @@ const NavBarFull = ({ scrolling, getLogo, getIcons }) => {
         )
     }
     return (
-        <>
-            <nav className={`${scrolling 
-                ? 'w-full sticky top-0 z-20 h-[70px] hidden lg:flex flex-col justify-center items-center bg-light shadow-lg transitions duration-200 max-w-[1920px]'
-                : 'w-full h-[140px] hidden lg:flex flex-col justify-center items-center transitions duration-200 max-w-[1920px]'}`}>
-                {!scrolling ? <div className={'w-full h-[25%] px-6 flex justify-around items-center bg-primary text-light'}>
-                    {/* Top */}
-                    {/* Social Media Icons */}
-                    <ul className='flex items-center justify-center h-full bg-primary'>{getIcons()}</ul>
-                    {/* Address */}
-                    <Link to='#' className='--link'><FaLocationArrow />{info.address}</Link>
-                    <Link to='#' className='--link'><FaPhone />{info.phone[0]}</Link>
+        <nav className={`${scrolling 
+            ? 'w-full sticky top-0 z-20 h-[70px] hidden lg:flex flex-col justify-center items-center bg-light shadow-lg transitions duration-200'
+            : 'w-full h-[140px] hidden lg:flex flex-col justify-center items-center transitions duration-200'}`}>
+            {!scrolling ? 
+                <div className='w-full bg-primary flex items-center'>
+                    <div className='w-full h-[40px] max-w-[1920px] px-6 flex justify-around items-center text-light'>
+                        {/* Top */}
+                        {/* Social Media Icons */}
+                        <ul className='flex items-center justify-center h-full bg-primary'>{getIcons()}</ul>
+                        {/* Address */}
+                        <Link to='#' className='--link'><FaLocationArrow />{info.address}</Link>
+                        <Link to='#' className='--link'><FaPhone />{info.phone[0]}</Link>
+                    </div>
                 </div> : null}
-                {/* bottom */}
-                <div className='w-full h-[75%] px-8 flex justify-between items-center'>
-                    <ul className='h-full flex items-center space-x-8 text-lg'>
-                        {/* Logo */}
-                        <div className='h-full flex items-center'>{getLogo()}</div>
-                        {/* NavLinks */}
-                        {links.map((link, id) => getLinks(link, id))}
-                    </ul>
+            {/* bottom */}
+            <div className='w-full max-w-[1920px] h-[75%] px-8 flex justify-between items-center'>
+                <ul className='h-full flex items-center space-x-8 text-lg'>
+                    {/* Logo */}
+                    <div className='h-full flex items-center'>{getLogo()}</div>
+                    {/* NavLinks */}
+                    {links.map((link, id) => getLinks(link, id))}
+                </ul>
+                <div className='flex items-center gap-x-6 text-xl'>
+                    {getCart()}
+                    <Notification />
                     <Profile />
                 </div>
-                <Alert />
-            </nav>
-            
-        </>
+            </div>
+            <Alert />
+        </nav>
     )
 }
 
-const NavBarSmall = ({ menuState, setMenuState, scrolling, getLogo, getIcons }) => {
+const NavBarSmall = ({ menuState, setMenuState, scrolling, getLogo, getIcons, getCart }) => {
     const navigate = useNavigate()
     // Nav Links.
     const getLinks = () => {
@@ -81,7 +85,7 @@ const NavBarSmall = ({ menuState, setMenuState, scrolling, getLogo, getIcons }) 
                 <div className=''>{getLogo()}</div>
                 {!menuState && (
                     <div className='flex items-center gap-x-6 text-xl'>
-                        <Cart />
+                        {getCart()}
                         <Notification />
                         <Profile />
                     </div>
@@ -133,7 +137,8 @@ const Profile = () => {
         // Profile 
         <div id='profile' className='h-[2.7rem] w-[2.7rem] relative'>
             {/* Profile Image */}
-            <img id='profileImg' src="https://via.placeholder.com/100x100" alt="" className='w-full h-full object-cover rounded-full cursor-pointer' />
+            <img id='profileImg' src="https://via.placeholder.com/100x100" alt="" 
+                className='w-full h-full object-cover rounded-full cursor-pointer' />
             {menuState && (
                 <ul className='absolute z-50 top-[110%] right-0 w-[18rem] px-2 py-6 bg-light rounded-lg border-[1px] border-gray-200 flex flex-col gap-y-3'>
                     <Link to='/profile' className='flex gap-4 border-b-[1px] border-gray-200 pb-3'>
@@ -154,18 +159,14 @@ const Profile = () => {
     ) 
     return (
         // SignUp LogIn.
-        <div className='space-x-8'>
-            <Link to='/login' className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[" "] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 hover:text-primary'>Se Connecter</Link>
-            <Link to='/signup' className='py-2 px-6 border-2 border-primary text-primary'>S'inscrire</Link>
-        </div>
+        <Link to='/login' className='h-[2.7rem] w-[2.7rem] relative'>
+            {/* Profile Image */}
+            <img id='profileImg' src="https://via.placeholder.com/100x100" alt="" 
+                className='w-full h-full object-cover rounded-full cursor-pointer' />
+        </Link>
     )
 }
 
-const Cart = () => {
-    return (
-        <FaCartPlus />
-    )
-}
 const Notification = () => {
     // Contexts.
     const { currentUser } = useAuth()
@@ -182,9 +183,14 @@ const Notification = () => {
         <div className='relative'>
             <FaBell onClick={() => setMenuState(!menuState)} className='cursor-pointer' />
             {menuState && (
-                <div className='absolute z-30 top-[160%] right-[-2rem] w-[26rem] px-4 py-6 border-[1px] border-primary'>
-                    {notifications.map(notify => <li>{notify.text}</li>)}
-                </div>  
+                <ul className='absolute z-30 top-[160%] right-[-2rem] w-[26rem] px-4 py-6 border-[1px] border-primary bg-light cursor-pointer'>
+                    {notifications.map(notify => (
+                        <Link to={notify.link || ''}>
+                            <p>{notify.text}</p>
+                            <h5>{notify.date}</h5>
+                        </Link>
+                    ))}
+                </ul>  
             )}
         </div>
     )
@@ -228,7 +234,7 @@ export default function NavBar() {
           </Link>
         )
       }
-    {/* Social Media Icons */}
+    // Social Media Icons 
     const getIcons = () => {
         const icons = {
             facebook: <FaFacebookF className='--nav-icons group-hover:bg-[#1877f2]' />,
@@ -244,15 +250,23 @@ export default function NavBar() {
                 <h5 className='--nav-icons-span'>{value[0]}</h5></Link>
         }) 
     }
+    // Cart.
+    const getCart = () => {
+        return <Link to='/cart' className=''>
+            <FaCartPlus onClick={() => setMenuState(!menuState)} className='cursor-pointer' />
+        </Link>
+    }
+
     const values = {
         menuState,
         setMenuState,
         scrolling,
         getLogo,
         getIcons,
+        getCart,
     }
-    return <>
+    return <div className=''>
         <NavBarSmall {...values} />
         <NavBarFull {...values} />
-    </>
+    </div>
 }

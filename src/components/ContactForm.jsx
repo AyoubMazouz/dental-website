@@ -55,7 +55,7 @@ const formParams = [
 
 
 const Form = () => {
-    const { formValues, setFormValues, handleChange, onSubmit, error, loading } = useForm({
+    const { formValues, setFormValues, handleChange, onSubmit, error, setError, loading } = useForm({
         name: '',
         email: '',
         phone: '',
@@ -70,6 +70,15 @@ const Form = () => {
         subject: formValues.subject,
         message: formValues.message,
     }
+
+    const props = {
+        formValues,
+        setFormValues,
+        handleChange,
+        error,
+        setError,
+    }
+
     // submit validation!!!!!
     return (
     <form className='space-y-3' 
@@ -88,10 +97,10 @@ const Form = () => {
         {/* Error */}
         {error.formError && <h5 className='bg-red-500 rounded-xl py-4 px-4 w-full my-4'>{error.formError}</h5>}
         {formParams.map(params => (
-            <Input key={params.label} params={params} formValues={formValues} setFormValues={setFormValues} handleChange={handleChange} error={error} />
+            <Input key={params.label} { ...params } { ...props } />
         ))}
         {/* Submit btn */}
-        <button type="submit" className="h-[3.4rem] w-full col-span-2 bg-secondary hover:opacity-75 rounded-full transition-all duration-300 font-semibold text-light text-3xl"
+        <button disabled={loading} type="submit" className="h-[3.4rem] w-full col-span-2 bg-secondary hover:opacity-75 rounded-full transition-all duration-300 font-semibold text-light text-3xl"
             >Send</button>
     </form>
   )
