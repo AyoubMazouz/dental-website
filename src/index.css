@@ -10,7 +10,7 @@
   h2   { @apply lg:text-4xl md:text-3xl text-2xl font-semibold }
   h3   { @apply lg:text-3xl md:text-2xl text-xl font-semibold }
   h4   { @apply lg:text-xl text-lg font-medium }
-  p    { @apply lg:text-lg md:text-base }
+  p    { @apply lg:text-xl md:text-lg leading-6 lg:leading-8 }
   h5   { @apply text-sm }
   h6   { @apply text-xs font-light }
 
@@ -39,7 +39,7 @@
   .--label-base { @apply font-medium text-primary hover:opacity-75 transition-all duration-300; }
   .--form-icon { @apply absolute top-[50%] left-[1rem] translate-y-[-25%] text-light-gray opacity-100; }
   .select-option { @apply px-12 bg-bluish-gray font-semibold text-primary lg:text-lg; }
-  .--sub-header { @apply font-bold text-primary w-full capitalize; }
+  .--sub-header { @apply font-bold text-primary w-full capitalize leading-10; }
   .--header { @apply font-bold text-primary mb-[4rem] border-r-2 border-r-primary; }
   .--footer-link { @apply capitalize hover:opacity-75 hover:underline; }
 }
@@ -47,6 +47,8 @@
 @layer utilities {
   .--appearance-none { -webkit-appearance: none; }
   .--direction-ltr { direction: ltr }
+
+  .page-padding { @apply px-2 sm:px-4 md:px-8; }
 }
 
 #slider-thumb::-webkit-slider-thumb {
@@ -72,7 +74,7 @@
 .ReactMarkdown .scroll { @apply scroll-mt-[4rem] };
 .ReactMarkdown h1 { @apply text-primary mt-12 mb-6 };
 .ReactMarkdown h3 { @apply text-primary mt-6 mb-4 };
-.ReactMarkdown p { @apply text-lg lg:text-xl leading-8 lg:leading-10; };
+.ReactMarkdown p { @apply leading-8 lg:leading-10 };
 .ReactMarkdown a { @apply text-light-blue underline font-bold };
 .ReactMarkdown ul { @apply list-disc my-8 text-lg lg:text-xl };
 .ReactMarkdown li { @apply my-3 ml-[1.5rem] };

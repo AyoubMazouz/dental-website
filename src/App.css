@@ -501,17 +501,25 @@ h4{
   }
 }
 
+p{
+  line-height: 1.5rem;
+}
+
 @media (min-width: 768px){
   p{
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }
 
 @media (min-width: 1024px){
   p{
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  p{
+    line-height: 2rem;
   }
 }
 
@@ -680,6 +688,7 @@ url{
   width: 100%;
   font-weight: 700;
   text-transform: capitalize;
+  line-height: 2.5rem;
   --tw-text-opacity: 1;
   color: rgb(0 95 160 / var(--tw-text-opacity));
 }
@@ -973,10 +982,6 @@ url{
 
 .ml-\[1rem\]{
   margin-left: 1rem;
-}
-
-.mr-\[4rem\]{
-  margin-right: 4rem;
 }
 
 .flex{
@@ -1308,9 +1313,18 @@ url{
   gap: 4rem;
 }
 
+.gap-y-\[4rem\]{
+  row-gap: 4rem;
+}
+
 .gap-x-2{
   -webkit-column-gap: 0.5rem;
           column-gap: 0.5rem;
+}
+
+.gap-x-\[2rem\]{
+  -webkit-column-gap: 2rem;
+          column-gap: 2rem;
 }
 
 .gap-x-6{
@@ -1326,17 +1340,13 @@ url{
   row-gap: 1rem;
 }
 
-.gap-y-\[4rem\]{
-  row-gap: 4rem;
-}
-
-.gap-x-\[2rem\]{
-  -webkit-column-gap: 2rem;
-          column-gap: 2rem;
-}
-
 .gap-y-\[6rem\]{
   row-gap: 6rem;
+}
+
+.gap-x-\[6rem\]{
+  -webkit-column-gap: 6rem;
+          column-gap: 6rem;
 }
 
 .gap-x-12{
@@ -1372,22 +1382,10 @@ url{
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
-.space-x-8 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-x-reverse: 0;
-  margin-right: calc(2rem * var(--tw-space-x-reverse));
-  margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
 .space-x-1 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(0.25rem * var(--tw-space-x-reverse));
   margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.space-x-\[2rem\] > :not([hidden]) ~ :not([hidden]){
-  --tw-space-x-reverse: 0;
-  margin-right: calc(2rem * var(--tw-space-x-reverse));
-  margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .overflow-hidden{
@@ -1434,8 +1432,8 @@ url{
   border-right-width: 2px;
 }
 
-.border-b-\[5px\]{
-  border-bottom-width: 5px;
+.border-b-\[3px\]{
+  border-bottom-width: 3px;
 }
 
 .border-b-\[1px\]{
@@ -1444,10 +1442,6 @@ url{
 
 .border-t-\[4px\]{
   border-top-width: 4px;
-}
-
-.border-b-\[3px\]{
-  border-bottom-width: 3px;
 }
 
 .border-secondary{
@@ -1478,10 +1472,6 @@ url{
 .border-r-light{
   --tw-border-opacity: 1;
   border-right-color: rgb(255 255 255 / var(--tw-border-opacity));
-}
-
-.border-opacity-50{
-  --tw-border-opacity: 0.5;
 }
 
 .border-opacity-20{
@@ -1806,6 +1796,11 @@ url{
   color: rgb(254 133 115 / var(--tw-text-opacity));
 }
 
+.underline{
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
 .opacity-75{
   opacity: 0.75;
 }
@@ -1868,6 +1863,25 @@ url{
   direction: ltr
 }
 
+.page-padding{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+@media (min-width: 640px){
+  .page-padding{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 768px){
+  .page-padding{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
 #slider-thumb::-webkit-slider-thumb {
   --webkit-appearance: none;
   height: 60px;
@@ -1923,16 +1937,10 @@ url{
 }
 
 .ReactMarkdown p{
-  font-size: 1.125rem;
   line-height: 2rem;
 }
 
 @media (min-width: 1024px){
-  .ReactMarkdown p{
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
   .ReactMarkdown p{
     line-height: 2.5rem;
   }
@@ -2211,6 +2219,11 @@ url{
 
   .lg\:gap-\[6rem\]{
     gap: 6rem;
+  }
+
+  .lg\:gap-x-\[6rem\]{
+    -webkit-column-gap: 6rem;
+            column-gap: 6rem;
   }
 
   .lg\:gap-y-\[8rem\]{

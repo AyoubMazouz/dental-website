@@ -130,7 +130,7 @@ const Details = () => {
 export default function ContactForm() {
     return (
         <div id='contact' className='w-full bg-primary flex flex-col justify-center items-center py-[4rem] px-2 sm:px-4 md:px-8'>
-            <div className='max-w-[1600px] grid gap-[2rem] lg:gap-[6rem] grid-cols-2 lg:grid-cols-4'>
+            <div className='max-w-[1600px] grid gap-[2rem] lg:gap-x-[6rem] gap-y-[4rem] grid-cols-2 lg:grid-cols-4'>
                 {/* Header */}
                 <h1 className='col-span-full text-light border-r-2 border-r-light'>Contact</h1>
                 {/* Form & Details */}

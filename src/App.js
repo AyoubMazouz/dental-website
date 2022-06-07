@@ -12,15 +12,12 @@ import Contact from './pages/Contact'
 import SignUp from './pages/SignUp'
 import LogIn from './pages/LogIn'
 import Blog from './pages/Blog'
-import Root from './pages/Root'
+import Page404 from './pages/Page404'
 import Profile from './pages/Profile'
 import PersonalInfo from './pages/PersonalInfo'
 import PasswordReset from './pages/PasswordReset'
 // Services.
-import Soins_dentaires from './pages/Services/Soins_dentaires'
-import Pedodontie from './pages/Services/Pedodontie'
-import Orthodontie from './pages/Services/Orthodontie'
-import Protheses_et_implants_dentaires from './pages/Services/Protheses_et_implants_dentaires'
+import Service from './pages/Service'
 // Components Imports.
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
@@ -44,22 +41,19 @@ const App = () => {
             <Route path='/gallery' element={<Gallery />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/blog' element={<Blog />} />
+            {/* Authentication */}
             <Route path='/signup' element={<SignUp />} />
             <Route path='/login' element={<LogIn />} />
             <Route path='/reset_password' element={<PasswordReset />} />
             {/* Services */}
-            <Route path='/services/soins_dentaires' element={<Soins_dentaires />} />
-            <Route path='/services/pedodontie' element={<Pedodontie />} />
-            <Route path='/services/orthodontie' element={<Orthodontie />} />
-            <Route path='/services/orthodontie' element={<Orthodontie />} />
-            <Route path='/services/protheses_et_implants_dentaires' element={<Protheses_et_implants_dentaires />} />
+            <Route path='/services/:serviceName' element={<Service />} />
             {/* Private Routes */}
             <Route element={<PrivateRoute />}>
               <Route path='/personal-info' element={<PersonalInfo />} />
               <Route path='/profile' element={<Profile />} />
             </Route>
-            {/* root */}
-            <Route path='/root' element={<Root />} />
+            {/* 404 Page */}
+            <Route path='*' element={<Page404 />} />
           </Routes>
         <Footer />
       </AlertProvider>

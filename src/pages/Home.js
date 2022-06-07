@@ -11,34 +11,38 @@ import Gallery from '../components/Gallery'
 // Icons Imports.
 import { CgArrowLongRight } from 'react-icons/cg'
 // Data Imports.
-import { slideShow, info, profiles, comparisonImgs, services, reviews, stats, about } from '../data' 
+import { slideShow, info, profiles, comparisonImgs, reviews, stats, about } from '../data' 
+import { servicesData } from '../data/services' 
 
 export default function Home() {
   return (
-    <div className='flex gap-y-[6rem] lg:gap-y-[8rem] flex-col items-center text-dark bg-light overflow-hidden'>
+    <div className='flex gap-y-[6rem] lg:gap-y-[8rem] flex-col items-center text-light-gray bg-light overflow-hidden'>
       {/* SlideShow */}
       <SlideShow { ...slideShow } />
 
       {/* Stats */}
-      <div className='max-w-[1600px] w-full mt-[-5rem] flex-wrap flex gap-x-[2rem] gap-y-[1rem] justify-center items-start text-primary'>
+      <div className='max-w-[1800px] w-full mt-[-5rem] flex-wrap flex gap-x-[2rem] gap-y-[1rem] justify-center items-start text-primary'>
         {stats.home.map((stat, id) => <Stats key={id} { ...stat } speed={3000} />)}
       </div>
 
       {/* Services */}
-      <div className='max-w-[1600px] px-2 sm:px-4 md:px-8'>
-        <div className='grid lg:grid-flow-col gap-8 justify-between'>
-          <h2 className='--sub-header'>{services.header.title}</h2>
-          <p>{services.header.content}
-            <Link to='#' className='--link text-light-gray font-bold py-2'>
-              Our Services<CgArrowLongRight className='--nav-icons text-primary' /></Link>
+      <div className='max-w-[1800px] page-padding'>
+        <div className='grid lg:grid-flow-col gap-x-[6rem] justify-between'>
+          <h2 className='--sub-header'>
+            Des traitements dentaires adaptés à vos besoins et au prix le plus juste
+          </h2>
+          <p>
+            Chez Dentego, <b>nous vous garantissons des traitements dentaires adaptés à vos besoins,</b> prodigués par le dentiste   de votre choix, au prix le plus juste et avec <b>une prise en charge rapide, globale et personnalisée.</b>
+            <Link to='#' className='--link text-light-blue font-bold py-3'>
+              Our Services<CgArrowLongRight className='text-light-blue' /></Link>
           </p>
         </div>
       </div>
       {/* Services Slider */}
-      <div className='mt-[-4rem]'><ServicesSlider services={services.services} /></div>
+      <div className='mt-[-4rem]'><ServicesSlider servicesData={servicesData} /></div>
 
       {/* About */}
-      <div className='max-w-[1600px] w-full grid lg:grid-cols-2 gap-4 px-2 sm:px-4 md:px-8'>
+      <div className='max-w-[1800px] w-full grid lg:grid-cols-2 gap-x-[6rem] page-padding'>
         <img src={about.url} alt={about.alt} className='object-cover aspect-video rounded-xl' />
         <div>
             <h2 className='text-primary my-4'>{about.home.header}</h2>
@@ -49,11 +53,14 @@ export default function Home() {
       </div>
 
       {/* Before & After */}
-      <div className='max-w-[1600px] px-2 sm:px-4 md:px-8'>
-        <div className='grid lg:grid-flow-col gap-8 justify-between'>
-          <h2 className='--sub-header'>{services.header.title}</h2>
-          <p>{services.header.content}
-          <Link to='#' className='--link text-light-gray py-2'>
+      <div className='max-w-[1800px] page-padding'>
+        <div className='grid lg:grid-flow-col gap-x-[6rem] justify-between'>
+          <h2 className='--sub-header'>
+
+          </h2>
+          <p>
+
+            <Link to='#' className='--link text-light-gray py-2'>
             Our Services<CgArrowLongRight className='--nav-icons text-primary' />
           </Link>
           </p>
@@ -64,12 +71,12 @@ export default function Home() {
       </div>
 
       {/* Gallery */}
-      <div className='max-w-[1600px] w-full rounded-xl overflow-hidden px-2 sm:px-4 md:px-8'><Gallery /></div>
+      <div className='max-w-[1800px] w-full rounded-xl overflow-hidden page-padding'><Gallery /></div>
       
       {/* Blog */}
 
       {/* Contact */}
-      <ContactForm />
+      <div className='text-light w-full'><ContactForm /></div>
 
       {/* GooGle Maps */}
       {/* <div className='w-full h-[480px] mt-[-8rem]'><GoogleMaps location={info.location} /></div> */}
