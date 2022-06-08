@@ -13,7 +13,7 @@ import useDocs from '../hooks/useDocs'
 // Icons Imports.
 import { CgArrowLongRight } from 'react-icons/cg'
 // Data Imports.
-import { servicesData, stats, ABOUT_UP_IMG, SLIDESHOW_IMGS } from '../data' 
+import { servicesData, stats, ABOUT_US_IMG, SLIDESHOW_IMGS } from '../data' 
 
 export default function Home() {
 
@@ -50,16 +50,18 @@ export default function Home() {
 
       {/* About */}
       <div className='max-w-[1800px] w-full grid lg:grid-cols-2 gap-x-[6rem] page-padding'>
-        <img src={ABOUT_UP_IMG} alt="" className='object-cover aspect-video rounded-xl' />
-        <div>
-            <h2 className='text-primary my-4'>
-
+        <img src={ABOUT_US_IMG} alt="" className='object-cover aspect-[8/5] w-full h-full rounded-xl' />
+        <div className='flex flex-col justify-around'>
+            <h2 className='text-primary'>
+              Dentego, groupe engagé pour la santé dentaire de tous !
             </h2>
             <p>
-              
+              <b>Présentation du Groupe Dentego est une enseigne créée en 2013.</b> Fruit de compétences et de valeurs partagées par ses fondateurs, 
+              <b>Dentego a à cœur</b> de promouvoir la santé bucco-dentaire accessible pour tous. <b>Dentego garantit</b> des traitements les plus adaptés aux besoins des patients, prodigués par le <b>dentiste de leur choix qui les accompagne tout au […]</b>
+              <Link to='#' className='--link text-light-blue font-bold py-3'>
+              Our Services<CgArrowLongRight className='text-light-blue' />
+            </Link>
             </p>
-            <h4><Link to='/about'>Learn more</Link></h4>
-            <h4><Link to='/contact'>Contact</Link></h4>
         </div>
       </div>
 

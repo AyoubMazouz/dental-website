@@ -2,18 +2,25 @@
 import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin, FaTwitter } from 'react-icons/fa'
 
 export default function Card ({ 
-    imgUrl, name, profession, alt, details, 
+    imgUrl, id, profession, alt, primary, 
     facebook, instagram, youtube, linkedin, twitter }) {
+
+    // if current Profile is Primary one ( the one Rendered in About page ) Skip
+    if (primary) return null
+
     return (
-        <div className='h-full relative group transition-transform duration-300 overflow-hidden rounded-xl shadow-lg text-primary'>
-            <img src={imgUrl} alt={alt} className="max-h-[480px] w-full object-cover"/>
-            <div className="absolute z-10 bottom-[-380px] group-hover:bottom-[-80px] w-full h-full bg-light px-6 transition-all duration-300">
+        <div className='max-h-[440px] relative group transition-transform duration-300 overflow-hidden rounded-xl shadow-lg text-primary'>
+            {/* Image */}
+            <img src={imgUrl} alt={alt} className="h-full w-full aspect-[3/4] object-cover"/>
+            <div className="absolute bottom-[-5rem] group-hover:bottom-0 w-full bg-light px-6 py-6 transition-all duration-300">
                 {/* Name */}
-                <h3 className='font-bold text-center mt-[1.8rem] group-hover:mt-[.5rem] group-hover:mb-[-.5rem] text-lg'>{name}</h3>
+                <h3 className='font-bold text-center text-lg'>
+                    {id}
+                </h3>
                 {/* Profession */}
-                <h3 className='text-center text-lg mb-[1rem]'>{profession}</h3>
-                {/* Details */}
-                <p className='text-left mt-[1.2rem] group-hover:mt-[0rem]'>{details}</p>
+                <h3 className='text-center text-lg mb-[1rem]'>
+                    {profession}
+                </h3>
                 {/* Social Media */}
                 <div className='flex justify-center text-2xl gap-4'>
                   {facebook && <a href={facebook}><FaFacebook className='--nav-icons' /></a>}

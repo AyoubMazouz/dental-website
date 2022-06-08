@@ -18,7 +18,9 @@ export default function Hero({ imgUrl, alt, currentPage, title, description }) {
                     )
                   }
                   <span>{'>'}</span>
-                  <span className='underline'>{currentPage}</span>
+                  <span className='underline'>
+                    {currentPage.label || currentPage}
+                  </span>
               </div>
               <h1>{title}</h1>
               <p>{description}</p>
