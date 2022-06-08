@@ -71,7 +71,7 @@
 
 /* Markdown */
 .ReactMarkdown { @apply text-light-gray };
-.ReactMarkdown .scroll { @apply scroll-mt-[4rem] };
+.ReactMarkdown .scroll { @apply scroll-mt-[6rem] };
 .ReactMarkdown h1 { @apply text-primary mt-12 mb-6 };
 .ReactMarkdown h3 { @apply text-primary mt-6 mb-4 };
 .ReactMarkdown p { @apply leading-8 lg:leading-10 };

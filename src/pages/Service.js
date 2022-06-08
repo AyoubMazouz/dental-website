@@ -16,25 +16,27 @@ import { servicesData } from '../data/services'
 
 export default function Pedodontie() {
   
-  const [markdown, setMarkdown] = useState('')
+  const [markdown, setMarkdown] = useState()
+  const [summary, setSummary] = useState([])
   const { serviceName } = useParams()
 
   useEffect(() => {
     fetch(servicesData[serviceName].textUrl)
     .then(response => response.text())
     .then(result   => setMarkdown(result))
-    
   }, [serviceName])
 
-  const summary = [
-    'Pédodontie',
-    "La pédodontie, c'est quoi?",
-    'Quel est le but de la pédodontie?',
-    "Que vérifie le pédodontiste lors d'une consultation?",
-    'La prévention orthodontique:',
-    'Quel est le prix des traitements de pédontie?',
-    'Quelques astuces:'
-  ]
+  useEffect(() => {
+    const headers = document.querySelectorAll("h1")
+    const headersList = []
+    headers.forEach(header => {
+      headersList.push(header.innerText)
+      header.id = header.innerText
+      header.classList.add("scroll")
+    })
+    setSummary(headersList)
+  }, [markdown])
+
   return (
     <>
     <Hero { ...servicesData[serviceName] } />
