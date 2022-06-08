@@ -8,13 +8,17 @@ export default function Hero({ imgUrl, alt, currentPage, title, description }) {
             <div className='py-12 w-full max-w-[1800px] space-y-6'>
               <div className='flex gap-x-2'>
                 <Link to='/' className='hover:underline hover:opacity-75 transition-all duration-300'>home</Link>
-                  { currentPage?.parent && (<>
-                    <span>{'>'}</span>
-                    <Link to={currentPage?.parent.link} className='hover:underline hover:opacity-75 transition-all duration-300'
-                      >{currentPage.parent.label}</Link>
-                  </>)}
+                  { 
+                    currentPage?.parent && (
+                      <>
+                        <span>{'>'}</span>
+                        <Link to={currentPage?.parent.link} className='hover:underline hover:opacity-75 transition-all duration-300'
+                          >{currentPage?.parent.label}</Link>
+                      </>
+                    )
+                  }
                   <span>{'>'}</span>
-                  <li className='underline'>{currentPage.label}</li>
+                  <span className='underline'>{currentPage}</span>
               </div>
               <h1>{title}</h1>
               <p>{description}</p>

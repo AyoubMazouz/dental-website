@@ -15,11 +15,17 @@ export default function Gallery() {
   const [imgsAtOnce, setImgsAtOnce] = useState(6)
   // Images From db.
   const { docs } = useDocs('gallery')
-
+  const heroValues = {
+    imgUrl: "https://via.placeholder.com/1000x1000",
+    alt: '',
+    currentPage: 'Gallery',
+    title: '',
+    description: '',
+  }
   return (
     <div>
       {/* Hero Section */}
-      <Hero url='https://via.placeholder.com/1000x1000' alt='' currPage={'gallery'} />
+      <Hero  { ...heroValues } />
       {/* Image Model __default hidden__ */}
       {typeof selected === 'number' && <ImageModel currIndex={selected} docs={docs} setSelected={setSelected} />}
       {/* Image Gallery */}

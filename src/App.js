@@ -17,7 +17,7 @@ import Profile from './pages/Profile'
 import PersonalInfo from './pages/PersonalInfo'
 import PasswordReset from './pages/PasswordReset'
 // Services.
-import Service from './pages/Service'
+import Service from './pages/Services/Service'
 // Components Imports.
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'

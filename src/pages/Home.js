@@ -8,17 +8,21 @@ import ContactForm from '../components/ContactForm'
 import Slider from '../components/Slider'
 import Stats from '../components/Stats'
 import Gallery from '../components/Gallery'
+// Hooks Imports.
+import useDocs from '../hooks/useDocs'
 // Icons Imports.
 import { CgArrowLongRight } from 'react-icons/cg'
 // Data Imports.
-import { slideShow, info, profiles, comparisonImgs, reviews, stats, about } from '../data' 
-import { servicesData } from '../data/services' 
+import { servicesData, stats, ABOUT_UP_IMG, SLIDESHOW_IMGS } from '../data' 
 
 export default function Home() {
+
+  const { docs } = useDocs("before_and_after")
+
   return (
     <div className='flex gap-y-[6rem] lg:gap-y-[8rem] flex-col items-center text-light-gray bg-light overflow-hidden'>
       {/* SlideShow */}
-      <SlideShow { ...slideShow } />
+      <SlideShow images={SLIDESHOW_IMGS} />
 
       {/* Stats */}
       <div className='max-w-[1800px] w-full mt-[-5rem] flex-wrap flex gap-x-[2rem] gap-y-[1rem] justify-center items-start text-primary'>
@@ -34,19 +38,26 @@ export default function Home() {
           <p>
             Chez Dentego, <b>nous vous garantissons des traitements dentaires adaptés à vos besoins,</b> prodigués par le dentiste   de votre choix, au prix le plus juste et avec <b>une prise en charge rapide, globale et personnalisée.</b>
             <Link to='#' className='--link text-light-blue font-bold py-3'>
-              Our Services<CgArrowLongRight className='text-light-blue' /></Link>
+              Our Services<CgArrowLongRight className='text-light-blue' />
+            </Link>
           </p>
         </div>
       </div>
       {/* Services Slider */}
-      <div className='mt-[-4rem]'><ServicesSlider servicesData={servicesData} /></div>
+      <div className='mt-[-4rem]'>
+        <ServicesSlider servicesData={servicesData} />
+      </div>
 
       {/* About */}
       <div className='max-w-[1800px] w-full grid lg:grid-cols-2 gap-x-[6rem] page-padding'>
-        <img src={about.url} alt={about.alt} className='object-cover aspect-video rounded-xl' />
+        <img src={ABOUT_UP_IMG} alt="" className='object-cover aspect-video rounded-xl' />
         <div>
-            <h2 className='text-primary my-4'>{about.home.header}</h2>
-            <p>{about.home.content}</p>
+            <h2 className='text-primary my-4'>
+
+            </h2>
+            <p>
+              
+            </p>
             <h4><Link to='/about'>Learn more</Link></h4>
             <h4><Link to='/contact'>Contact</Link></h4>
         </div>
@@ -66,7 +77,7 @@ export default function Home() {
           </p>
         </div>
         <div className='flex gap-4 justify-around flex-wrap mt-[4rem]'>
-          {comparisonImgs.map((v, id) => <Slider id={id} { ...v } />)}
+          {docs.map(doc => <Slider id={doc.id} { ...doc } />)}
         </div>
       </div>
 

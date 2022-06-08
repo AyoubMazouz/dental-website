@@ -6,8 +6,8 @@ import { FaYoutube, FaFacebookF, FaInstagram, FaLinkedinIn, FaPhone, FaLocationA
 // Components Imports.
 import Logo from './Logo'
 // Data Imports. 
-import { info, links } from '../data'
-const { whatsapp, linkedin, youtube, twitter, instagram, facebook } = info.social
+import { info, links, socialLinks } from '../data'
+const { whatsapp, linkedin, youtube, twitter, instagram, facebook } = socialLinks
 
 const Footer = () => {
     const [email, setEmail] = useState()
@@ -63,9 +63,16 @@ const Footer = () => {
                 <div className='bg-light-blue w-full pt-[5rem] px-[2rem]'>
                     {/* logo */}
                     <div className='flex justify-between lg:justify-between gap-4'>
-                        <ul>{links.map((link, id) => (
-                                <h3 key={id}><Link to={link.link} className='--footer-link'>{link.label}</Link></h3>
-                                ))}</ul>
+                        <ul>
+                            {
+                                Object.entries(links)
+                                    .map(([ label, link ], id) => {
+                                        return <h3 key={id}>
+                                            <Link to={link} className='--footer-link'>{label}</Link>
+                                        </h3>
+                                    })
+                            }
+                        </ul>
                         <Logo />
                     </div>
                     {/* CopyRight, Policy & Terms of Service */}

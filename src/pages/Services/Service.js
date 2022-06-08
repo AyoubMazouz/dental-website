@@ -7,11 +7,11 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 // Components Imports.
-import Hero from '../components/Hero'
-import ServicesSlider from '../components/ServicesSlider'
-import Summary from './Services/Summary'
+import Hero from '../../components/Hero'
+import ServicesSlider from '../../components/ServicesSlider'
+import Summary from './Summary'
 // Data Imports.
-import { servicesData } from '../data/services'
+import { servicesData } from '../../data'
 
 
 export default function Pedodontie() {

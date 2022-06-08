@@ -5,6 +5,7 @@ import { RiArrowLeftRightFill } from 'react-icons/ri'
 const Slider = ({ id, alt, before, after }) => {
     const [sliderValue, setSliderValue] = useState(50);
     const [sliderId, imgId] = ['slider-thumb' + id, 'clip-img' + id]
+
     const onChangeSlider = e => {
         setSliderValue(e.target.value)
         const clipImg = document.getElementById(imgId)
@@ -12,12 +13,14 @@ const Slider = ({ id, alt, before, after }) => {
         clipImg.style.clipPath = `polygon(0 0, ${sliderValue}% 0, ${sliderValue}% 100%, 0 100%)`
         sliderThumb.style.left = sliderValue + '%'
     }
+
     useEffect( () => {
         const clipImg = document.getElementById(imgId)
         const sliderThumb = document.getElementById(sliderId)
         clipImg.style.clipPath = `polygon(0 0, ${sliderValue}% 0, ${sliderValue}% 100%, 0 100%)`
         sliderThumb.style.left = sliderValue + '%'
     }, [])
+    
     return (
         <div className='group w-[280px] h-[340px] relative rounded-xl shadow-lg border-light-gray border-2 overflow-hidden'>
             <h5 className='z-10 absolute bottom-[10%] left-[80%] translate-x-[-50%] bg-light rounded-full py-1 px-2 opacity-75 text-primary'>before</h5>

@@ -8,7 +8,7 @@ import useUserData from '../hooks/useUserData'
 // Icons Imports.
 import { FaYoutube, FaFacebookF, FaInstagram, FaLinkedinIn, FaLocationArrow, FaTwitter, FaWhatsapp, FaTimes, FaBars, FaPhone, FaCartPlus, FaBell } from 'react-icons/fa'
 // Data Imports.
-import { links, info } from '../data'
+import { links, socialLinks, info } from '../data'
 import { useAlert } from '../contexts/AlertContext'
 
 
@@ -17,18 +17,23 @@ import { useAlert } from '../contexts/AlertContext'
 
 const NavBarFull = ({ scrolling, getLogo, getIcons, getCart }) => {
     // Nav Links.
-    const getLinks = (link, id) => {
+    const getLinks = (label, link, id) => {
         // Only one Link.
         if (typeof link.subLinks === 'undefined') return (
-            <li key={id}><Link to={link.link} className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[" "] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-primary hover:text-light-blue font-bold'>{link.label}</Link></li>
+            <li key={id}>
+                <Link to={link} className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[" "] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-primary hover:text-light-blue font-bold'>{label}</Link>
+            </li>
         )
         // Link Contain more Links.
         else return (
-            <li key={id} className='group relative cursor-pointer text-primary hover:text-light-blue font-bold'><Link to={link.link}>{link.label}</Link>
+            <li key={id} className='group relative cursor-pointer text-primary hover:text-light-blue font-bold'><Link to={link.link}>{label}</Link>
                 <ul className='absolute text-base w-[22rem] z-20 flex flex-col space-y-4 py-8 px-6 bg-light rounded shadow-lg invisible group-hover:visible'>
-                    {link.subLinks.map((link, id) => (
-                        <Link key={id} to={link.link} className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-light-gray hover:text-primary font-bold pb-2 text-lg border-b-[3px] border-light-gray border-opacity-20'>{link.label}</Link>
-                    ))}
+                    {
+                        Object.entries(link.subLinks)
+                            .map(([ label, link ], id) => (
+                                <Link key={id} to={link} className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-light-gray hover:text-primary font-bold pb-2 text-lg border-b-[3px] border-light-gray border-opacity-20'>{label}</Link>
+                            ))
+                    }
                 </ul>
             </li>
         )
@@ -42,7 +47,9 @@ const NavBarFull = ({ scrolling, getLogo, getIcons, getCart }) => {
                     <div className='w-full h-[40px] max-w-[1920px] px-6 flex justify-around items-center text-light'>
                         {/* Top */}
                         {/* Social Media Icons */}
-                        <ul className='flex items-center justify-center h-full bg-primary'>{getIcons()}</ul>
+                        <ul className='flex items-center justify-center h-full bg-primary'>
+                            {getIcons()}
+                        </ul>
                         {/* Address */}
                         <Link to='#' className='--link'><FaLocationArrow />{info.address}</Link>
                         <Link to='#' className='--link'><FaPhone />{info.phone[0]}</Link>
@@ -54,7 +61,14 @@ const NavBarFull = ({ scrolling, getLogo, getIcons, getCart }) => {
                     {/* Logo */}
                     <div className='h-full flex items-center'>{getLogo()}</div>
                     {/* NavLinks */}
-                    <div className='gap-x-[2rem] flex'>{links.map((link, id) => getLinks(link, id))}</div>
+                    <div className='gap-x-[2rem] flex'>
+                        {
+                            Object.entries(links)
+                                .map(([ label, link ], id) => {
+                                    return getLinks(label, link, id)
+                                })
+                        }
+                        </div>
                     <div className='flex items-center gap-x-6 text-xl'>
                         {getCart()}
                         <Notification />
@@ -71,7 +85,10 @@ const NavBarSmall = ({ menuState, setMenuState, scrolling, getLogo, getIcons, ge
     const navigate = useNavigate()
     // Nav Links.
     const getLinks = () => {
-        return links.map((link, id) => <li key={id} onClick={() => { setMenuState(false); navigate(link.link) }}className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 hover:text-primary text-2xl font-semibold cursor-pointer'>{link.label}</li>)
+        return Object.entries(links)
+            .map(([ label, link ], id) => { 
+                return <li key={id} onClick={() => { setMenuState(false); navigate(link) }}className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 hover:text-primary text-2xl font-semibold cursor-pointer'>{label}</li>
+        })
     }
     return (
         <nav className={`text-dark relative lg:hidden flex items-center justify-center transition-all duration-500 bg-light px-2 sm:px-4 md:px-8 max-w-[1920px] ${menuState ? 'h-[100vh]' : 'h-[70px]'} ${scrolling ? 'sticky top-0 z-20' : ''}`}>
@@ -246,10 +263,13 @@ export default function NavBar() {
             linkedin: <FaLinkedinIn className='--nav-icons group-hover:bg-[#0a66c2]' />,
             whatsapp: <FaWhatsapp className='--nav-icons group-hover:bg-[#25d366]' />,
         }
-        return Object.entries(info.social).map(value => {
-            return value[1] && <Link to={value[1]} className='--nav-icons-container group'>
-                {icons[value[0]]}
-                <h5 className='--nav-icons-span'>{value[0]}</h5></Link>
+        return Object.entries(socialLinks)
+            .map(([ label, link ], id) => {
+                return link && 
+                    <Link key={id} to={link} className='--nav-icons-container group'>
+                        {icons[label]}
+                        <h5 className='--nav-icons-span'>{label}</h5>
+                    </Link>
         }) 
     }
     // Cart.
