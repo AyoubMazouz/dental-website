@@ -57,7 +57,7 @@ export default function Pedodontie() {
     </div>
     {/* Services Slider */}
     <div className='my-[4rem] col-span-full'>
-      {/* <ServicesSlider servicesData={servicesData} /> */}
+      <ServicesSlider servicesData={servicesData} />
     </div>
 
     </>

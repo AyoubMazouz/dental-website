@@ -39,10 +39,19 @@
   }
   .--clip-polygon { clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); }
   
-  .nav-bar-icons { @apply p-2 h-full w-12 transition-colors duration-300 group-hover:text-light; }
-  .--input-base { @apply focus:outline-none pl-[2.7rem] py-2 font-semibold border-[1px] focus:border-emerald-500 resize-none transition-all duration-300 rounded-lg text-primary; }
-  .--label-base { @apply font-medium text-primary hover:opacity-75 transition-all duration-300; }
-  .--form-icon { @apply absolute top-[50%] left-[1rem] translate-y-[-25%] text-light-gray opacity-100; }
+  .nav-bar-icon { 
+    @apply p-2 h-full w-12 transition-colors duration-300 
+      group-hover:text-light; 
+  }
+  .input { 
+    @apply focus:outline-none pl-[2.7rem] py-2 font-semibold border-[1px]
+      focus:border-emerald-500 resize-none transition-all duration-300 
+      rounded-lg text-primary; 
+  }
+  .form-icon { 
+    @apply absolute top-[50%] left-[1rem] translate-y-[-25%] 
+      text-light-gray opacity-100; 
+  }
   .select-option { @apply px-12 bg-bluish-gray font-semibold text-primary lg:text-lg; }
   .--footer-link { @apply capitalize hover:opacity-75 hover:underline; }
 }

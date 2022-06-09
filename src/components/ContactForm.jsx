@@ -95,13 +95,21 @@ const Form = () => {
               });
         })}>
         {/* Error */}
-        {error.formError && <h5 className='bg-red-500 rounded-xl py-4 px-4 w-full my-4'>{error.formError}</h5>}
-        {formParams.map(params => (
-            <Input key={params.label} { ...params } { ...props } />
-        ))}
+        {
+            error.formError && 
+            <h5 className='bg-red-500 rounded-xl py-4 px-4 w-full my-4'>
+                {error.formError}
+            </h5>
+        }
+        {
+            formParams.map(params => (
+                <Input key={params.label} { ...params } { ...props } />
+            ))
+        }
         {/* Submit btn */}
-        <button disabled={loading} type="submit" className="h-[3.4rem] w-full col-span-2 bg-secondary hover:opacity-75 rounded-full transition-all duration-300 font-semibold text-light text-3xl"
-            >Send</button>
+        <button disabled={loading} type="submit" className="h-[3.4rem] w-full col-span-2 bg-secondary hover:opacity-75 rounded-full transition-all duration-300 font-semibold text-light text-3xl">
+            Send
+        </button>
     </form>
   )
 }
@@ -120,10 +128,12 @@ const Details = () => {
                     {
                         Object.entries(workHours)
                             .map(([ day, time ], id) => {
-                                return <div>
-                                    <h5 key={id} className='border-b-2 border-secondary my-2'>{day}</h5>
-                                    <h5 key={id} className='border-b-2 border-secondary my-2'>{time}</h5>
-                                </div>
+                                return (
+                                    <div className='grid grid-cols-2'>
+                                        <h5 key={id} className='border-b-2 border-secondary my-2'>{day}</h5>
+                                        <h5 key={id} className='border-b-2 border-secondary my-2'>{time}</h5>
+                                    </div>
+                                )
                             })
                     }
                 </ul>

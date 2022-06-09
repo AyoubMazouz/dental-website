@@ -695,7 +695,7 @@ url{
   --tw-backdrop-sepia:  ;
 }
 
-.nav-bar-icons{
+.nav-bar-icon{
   height: 100%;
   width: 3rem;
   padding: 0.5rem;
@@ -706,9 +706,43 @@ url{
   transition-duration: 300ms;
 }
 
-.group:hover .nav-bar-icons{
+.group:hover .nav-bar-icon{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.input{
+  resize: none;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2.7rem;
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(0 95 160 / var(--tw-text-opacity));
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.input:focus{
+  --tw-border-opacity: 1;
+  border-color: rgb(16 185 129 / var(--tw-border-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.form-icon{
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  --tw-translate-y: -25%;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-text-opacity: 1;
+  color: rgb(77 96 110 / var(--tw-text-opacity));
+  opacity: 1;
 }
 
 .select-option{
@@ -839,10 +873,6 @@ url{
 
 .bottom-\[100px\]{
   bottom: 100px;
-}
-
-.bottom-0{
-  bottom: 0px;
 }
 
 .z-40{
