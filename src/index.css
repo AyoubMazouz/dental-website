@@ -5,6 +5,7 @@
 @tailwind utilities;
 
 @layer base {
+  /* HTML Page */
   html { @apply font-[Poppins,sans-serif] scroll-smooth }
   h1   { @apply lg:text-5xl md:text-4xl text-3xl font-bold }
   h2   { @apply lg:text-4xl md:text-3xl text-2xl font-semibold }
@@ -15,6 +16,18 @@
   h6   { @apply text-xs font-light }
 
   url { @apply font-bold text-primary }
+
+  /* Markdown */
+.ReactMarkdown { 
+  @apply text-light-gray 
+    [&_h1]:text-primary [&_h1]:mt-12 [&_h1]:mb-6 [&_h1]:scroll-mt-[6rem]
+    [&_h2]:text-primary [&_h2]:mt-8 [&_h2]:mb-5 [&_h2]:scroll-mt-[6rem]
+    [&_h3]:text-primary [&_h3]:mt-6 [&_h3]:mb-4
+    [&_p]:leading-8 [&_p]:lg:leading-10
+    [&_a]:text-light-blue [&_a]:underline [&_a]:font-bold
+    [&_ul]:list-disc [&_ul]:my-8 [&_ul]:text-lg [&_ul]:lg:text-xl
+    [&_li]:my-3 [&_li]:ml-[1.5rem]
+};
 }
 
 @layer components {
@@ -25,56 +38,16 @@
     grid-template-rows: repeat(minmax(0, 20), 100px);
   }
   .--clip-polygon { clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); }
-  .--nav-sm-links { @apply font-[Roboto] w-full uppercase tracking-widest font-light; }
-  .--nav-sm-links:hover {
-    @apply font-bold;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 1px;
-  }
-  .--nav-icons { @apply p-2 h-full w-12 transition-colors duration-300 text-light bg-primary group-hover:text-light; }
-  .--nav-icons-span { @apply hidden group-hover:block text-dark font-semibold; }
-  .--nav-icons-container { @apply h-full gap-2 flex items-center w-12 hover:w-36 transition-all duration-500 cursor-pointer bg-light; }
-  .--link { @apply flex items-center gap-2 hover:underline hover:opacity-75 cursor-pointer transition-opacity duration-300; }
+  
+  .nav-bar-icons { @apply p-2 h-full w-12 transition-colors duration-300 group-hover:text-light; }
   .--input-base { @apply focus:outline-none pl-[2.7rem] py-2 font-semibold border-[1px] focus:border-emerald-500 resize-none transition-all duration-300 rounded-lg text-primary; }
   .--label-base { @apply font-medium text-primary hover:opacity-75 transition-all duration-300; }
   .--form-icon { @apply absolute top-[50%] left-[1rem] translate-y-[-25%] text-light-gray opacity-100; }
   .select-option { @apply px-12 bg-bluish-gray font-semibold text-primary lg:text-lg; }
-  .--sub-header { @apply font-bold text-primary w-full capitalize leading-10; }
-  .--header { @apply font-bold text-primary mb-[4rem] border-r-2 border-r-primary; }
   .--footer-link { @apply capitalize hover:opacity-75 hover:underline; }
 }
 
 @layer utilities {
   .--appearance-none { -webkit-appearance: none; }
-  .--direction-ltr { direction: ltr }
-
   .page-padding { @apply px-2 sm:px-4 md:px-8; }
 }
-
-#slider-thumb::-webkit-slider-thumb {
-  --webkit-appearance: none;
-  height: 60px;
-  width: 60px;
-}
-
-.alert-init-animation {
-  @keyframes animate {
-    0% {
-      top: 0;
-    } 
-    100% {
-      top: 300px;
-    }
-  }
-  animation: animate 5s ease-in-out;
-}
-
-/* Markdown */
-.ReactMarkdown { @apply text-light-gray };
-.ReactMarkdown .scroll { @apply scroll-mt-[6rem] };
-.ReactMarkdown h1 { @apply text-primary mt-12 mb-6 };
-.ReactMarkdown h3 { @apply text-primary mt-6 mb-4 };
-.ReactMarkdown p { @apply leading-8 lg:leading-10 };
-.ReactMarkdown a { @apply text-light-blue underline font-bold };
-.ReactMarkdown ul { @apply list-disc my-8 text-lg lg:text-xl };
-.ReactMarkdown li { @apply my-3 ml-[1.5rem] };

@@ -55,8 +55,14 @@ const NavBarFull = ({ scrolling, getLogo, getIcons, getCart }) => {
                             {getIcons()}
                         </ul>
                         {/* Address */}
-                        <Link to='#' className='--link'><FaLocationArrow />{info.address}</Link>
-                        <Link to='#' className='--link'><FaPhone />{info.phone[0]}</Link>
+                        <Link to='#' className='flex items-center gap-2 hover:underline hover:opacity-75 cursor-pointer transition-opacity duration-300'>
+                            <FaLocationArrow />
+                            {info.address}
+                        </Link>
+                        <Link to='#' className='flex items-center gap-2 hover:underline hover:opacity-75 cursor-pointer transition-opacity duration-300'>
+                            <FaPhone />
+                            {info.phone[0]}
+                        </Link>
                     </div>
                 </div> : null}
             {/* bottom */}
@@ -260,19 +266,19 @@ export default function NavBar() {
     // Social Media Icons 
     const getIcons = () => {
         const icons = {
-            facebook: <FaFacebookF className='--nav-icons group-hover:bg-[#1877f2]' />,
-            youtube: <FaYoutube className='--nav-icons group-hover:bg-[#ff0000]' />,
-            twitter: <FaTwitter className='--nav-icons group-hover:bg-[#1da1f2]' />,
-            instagram: <FaInstagram className='--nav-icons group-hover:bg-[#c32aa3]' />,
-            linkedin: <FaLinkedinIn className='--nav-icons group-hover:bg-[#0a66c2]' />,
-            whatsapp: <FaWhatsapp className='--nav-icons group-hover:bg-[#25d366]' />,
+            facebook: <FaFacebookF className='nav-bar-icons group-hover:bg-[#1877f2]' />,
+            youtube: <FaYoutube className='nav-bar-icons group-hover:bg-[#ff0000]' />,
+            twitter: <FaTwitter className='nav-bar-icons group-hover:bg-[#1da1f2]' />,
+            instagram: <FaInstagram className='nav-bar-icons group-hover:bg-[#c32aa3]' />,
+            linkedin: <FaLinkedinIn className='nav-bar-icons group-hover:bg-[#0a66c2]' />,
+            whatsapp: <FaWhatsapp className='nav-bar-icons group-hover:bg-[#25d366]' />,
         }
         return Object.entries(socialLinks)
             .map(([ label, link ], id) => {
                 return link && 
-                    <Link key={id} to={link} className='--nav-icons-container group'>
+                    <Link key={id} to={link} className='h-full gap-2 flex items-center w-12 hover:w-36 transition-all duration-500 cursor-pointer bg-light group [&>svg]:bg-primary [&>svg]:text-light'>
                         {icons[label]}
-                        <h5 className='--nav-icons-span'>{label}</h5>
+                        <h5 className='hidden group-hover:block text-dark font-semibold'>{label}</h5>
                     </Link>
         }) 
     }
