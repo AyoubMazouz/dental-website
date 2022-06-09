@@ -822,32 +822,8 @@ url{
   top: 8rem;
 }
 
-.bottom-0{
-  bottom: 0px;
-}
-
-.bottom-\[-38\%\]{
-  bottom: -38%;
-}
-
 .bottom-\[100px\]{
   bottom: 100px;
-}
-
-.bottom-\[-40\%\]{
-  bottom: -40%;
-}
-
-.bottom-\[-42\%\]{
-  bottom: -42%;
-}
-
-.bottom-\[5\%\]{
-  bottom: 5%;
-}
-
-.bottom-\[2rem\]{
-  bottom: 2rem;
 }
 
 .z-40{
@@ -1000,12 +976,12 @@ url{
   margin-bottom: 1rem;
 }
 
-.ml-\[1rem\]{
-  margin-left: 1rem;
+.ml-\[3rem\]{
+  margin-left: 3rem;
 }
 
-.mb-8{
-  margin-bottom: 2rem;
+.ml-\[1rem\]{
+  margin-left: 1rem;
 }
 
 .mb-10{
@@ -1712,6 +1688,14 @@ url{
 
 .pr-12{
   padding-right: 3rem;
+}
+
+.pl-\[1rem\]{
+  padding-left: 1rem;
+}
+
+.pl-\[2\.5rem\]{
+  padding-left: 2.5rem;
 }
 
 .text-left{

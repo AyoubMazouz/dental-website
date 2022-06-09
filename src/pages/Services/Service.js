@@ -17,7 +17,7 @@ import { servicesData } from '../../data'
 export default function Pedodontie() {
   
   const [markdown, setMarkdown] = useState()
-  const [summary, setSummary] = useState([])
+  const [headersList, setHeadersList] = useState([])
   const { serviceName } = useParams()
 
   useEffect(() => {
@@ -27,14 +27,15 @@ export default function Pedodontie() {
   }, [serviceName])
 
   useEffect(() => {
-    const headers = document.querySelectorAll("h1")
-    const headersList = []
+    const textDoc = document.querySelector(".ReactMarkdown")
+    const headers = textDoc.querySelectorAll("h1, h2")
+    const headersList = [] 
     headers.forEach(header => {
-      headersList.push(header.innerText)
+      headersList.push(header)
       header.id = header.innerText
       header.classList.add("scroll")
     })
-    setSummary(headersList)
+    setHeadersList(headersList)
   }, [markdown])
 
   return (
@@ -44,12 +45,13 @@ export default function Pedodontie() {
     <div className={`w-full flex justify-center my-[4rem]`}>
       <div className='w-full max-w-[1600px] relative grid grid-cols-3 gap-[4rem] px-2 sm:px-4 md:px-8'>
 
-        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}  className='ReactMarkdown col-span-full lg:col-span-2 w-full max-w-[1200px]'>
+        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} 
+          className='ReactMarkdown col-span-full lg:col-span-2 w-full max-w-[1200px]'>
           {markdown}
         </ReactMarkdown>
 
         {/* Summary */}
-        <Summary summary={summary} />
+        <Summary headerList={headersList} />
 
       </div>
     </div>

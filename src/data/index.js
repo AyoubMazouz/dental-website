@@ -24,6 +24,7 @@ export const links = {
             "Pédodontie": '/services/pedodontie',
             "Orthodontie": '/services/orthodontie',
             "Prothèses et implants dentaires": '/services/protheses_et_implants_dentaires',
+            "Esthétique dentaire": '/services/esthetique_dentaire',
         }
     },
     "Gallery": '/gallery',
@@ -113,6 +114,20 @@ export const servicesData = {
         title: 'Prothèses et implants dentaires',
         description: "Les prothèses et implants dentaires sont une solution qui permet de remplacer les dents abîmées ou manquantes, sur le long terme, afin de retrouver le confort et les propriétés esthétiques d'une bonne dentition. Des chirurgiens spécialistes vous accueillent dans tous nos centres dentaires pour vous conseiller et réaliser ces interventions.",
         textUrl: "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Ftext%2Fprotheses_et_implants_dentaires.md?alt=media&token=8f325cf4-6c3b-447a-90e1-d3600cde16fa"
+    },
+    "esthetique_dentaire": {
+        imgUrl: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Fimages%2Festhetique_dentaire.jpg?alt=media&token=6fe8d90c-d00f-4849-aa51-8878bad513b9',
+        alt: '',
+        currentPage: {
+            parent: {
+                label: 'Services',
+                link: '/services',
+            }, 
+            label: 'Esthétique dentaire',
+        },
+        title: 'Esthétique dentaire',
+        description: "La teinte et la forme des dents sont des éléments essentiels de l'esthétique dentaire. Deux techniques possibles : le blanchiment dentaire qui vise à éclaircir les dents dont la coloration est trop foncée ou les facettes dentaires qui permettent de les rendre plus blanches, mais aussi de modifier l'aspect général des dents (forme, alignement).",
+        textUrl: "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Ftext%2Festhetique_dentaire.md?alt=media&token=96e7e761-8d79-48f4-9eff-6dc6dc995719"
     },
 }
 
