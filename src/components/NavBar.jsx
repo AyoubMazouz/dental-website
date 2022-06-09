@@ -6,12 +6,12 @@ import { useAuth } from '../contexts/AuthContext'
 // Hooks Imports.
 import useUserData from '../hooks/useUserData'
 // Icons Imports.
-import { FaYoutube, FaFacebookF, FaInstagram, FaLinkedinIn, FaLocationArrow, FaTwitter, FaWhatsapp, FaTimes, FaBars, FaPhone, FaCartPlus, FaBell } from 'react-icons/fa'
+import { FaYoutube, FaFacebookF, FaInstagram, FaLinkedinIn, 
+    FaLocationArrow, FaTwitter, FaWhatsapp, FaTimes, FaBars, 
+    FaPhone, FaCartPlus, FaBell, FaAngleDown } from 'react-icons/fa'
 // Data Imports.
 import { links, socialLinks, info } from '../data'
 import { useAlert } from '../contexts/AlertContext'
-
-
 
 
 
@@ -26,7 +26,11 @@ const NavBarFull = ({ scrolling, getLogo, getIcons, getCart }) => {
         )
         // Link Contain more Links.
         else return (
-            <li key={id} className='group relative cursor-pointer text-primary hover:text-light-blue font-bold'><Link to={link.link}>{label}</Link>
+            <li key={id} className='group relative cursor-pointer text-primary hover:text-light-blue font-bold'>
+                <Link to={link.link} className="flex items-center gap-1">
+                    {label}
+                    <FaAngleDown className='opacity-75' />
+                </Link>
                 <ul className='absolute text-base w-[22rem] z-20 flex flex-col space-y-4 py-8 px-6 bg-light rounded shadow-lg invisible group-hover:visible'>
                     {
                         Object.entries(link.subLinks)

@@ -42,21 +42,21 @@ export default function Pedodontie() {
     <Hero { ...servicesData[serviceName] } />
 
     <div className={`w-full flex justify-center my-[4rem]`}>
-      <div className='w-full max-w-[1600px] grid grid-cols-3 gap-[4rem] px-2 sm:px-4 md:px-8'>
+      <div className='w-full max-w-[1600px] relative grid grid-cols-3 gap-[4rem] px-2 sm:px-4 md:px-8'>
 
+        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}  className='ReactMarkdown col-span-full lg:col-span-2 w-full max-w-[1200px]'>
+          {markdown}
+        </ReactMarkdown>
+
+        {/* Summary */}
         <Summary summary={summary} />
 
-        <div className='col-span-full lg:col-span-2 w-full max-w-[1200px] '>
-
-          <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} className='ReactMarkdown'>
-            {markdown}
-          </ReactMarkdown>
-
-          {/* Services Slider */}
-          <div className='mt-[4rem]'><ServicesSlider servicesData={servicesData} /></div>
-        </div>
+      </div>
     </div>
-  </div>
+    {/* Services Slider */}
+    <div className='my-[4rem] col-span-full'>
+      {/* <ServicesSlider servicesData={servicesData} /> */}
+    </div>
 
     </>
   )

@@ -742,8 +742,8 @@ url{
   position: sticky;
 }
 
-.bottom-\[-380px\]{
-  bottom: -380px;
+.bottom-\[-5rem\]{
+  bottom: -5rem;
 }
 
 .top-0{
@@ -826,24 +826,36 @@ url{
   bottom: 0px;
 }
 
-.bottom-\[-50px\]{
-  bottom: -50px;
+.bottom-\[-38\%\]{
+  bottom: -38%;
 }
 
-.bottom-\[-100px\]{
-  bottom: -100px;
+.bottom-\[100px\]{
+  bottom: 100px;
 }
 
-.bottom-\[-5rem\]{
-  bottom: -5rem;
+.bottom-\[-40\%\]{
+  bottom: -40%;
 }
 
-.z-10{
-  z-index: 10;
+.bottom-\[-42\%\]{
+  bottom: -42%;
+}
+
+.bottom-\[5\%\]{
+  bottom: 5%;
+}
+
+.bottom-\[2rem\]{
+  bottom: 2rem;
 }
 
 .z-40{
   z-index: 40;
+}
+
+.z-10{
+  z-index: 10;
 }
 
 .z-20{
@@ -916,16 +928,8 @@ url{
   margin-bottom: 4rem;
 }
 
-.mt-\[1\.8rem\]{
-  margin-top: 1.8rem;
-}
-
 .mb-\[1rem\]{
   margin-bottom: 1rem;
-}
-
-.mt-\[1\.2rem\]{
-  margin-top: 1.2rem;
 }
 
 .mt-2{
@@ -1000,6 +1004,14 @@ url{
   margin-left: 1rem;
 }
 
+.mb-8{
+  margin-bottom: 2rem;
+}
+
+.mb-10{
+  margin-bottom: 2.5rem;
+}
+
 .flex{
   display: flex;
 }
@@ -1012,6 +1024,10 @@ url{
   display: none;
 }
 
+.aspect-\[3\/4\]{
+  aspect-ratio: 3 / 4;
+}
+
 .aspect-square{
   aspect-ratio: 1 / 1;
 }
@@ -1020,36 +1036,8 @@ url{
   aspect-ratio: 16 / 9;
 }
 
-.aspect-\[16\/6\]{
-  aspect-ratio: 16 / 6;
-}
-
-.aspect-\[1\/1\]{
-  aspect-ratio: 1 / 1;
-}
-
-.aspect-\[6\/5\]{
-  aspect-ratio: 6 / 5;
-}
-
-.aspect-\[6\/4\]{
-  aspect-ratio: 6 / 4;
-}
-
-.aspect-\[6\/3\]{
-  aspect-ratio: 6 / 3;
-}
-
 .aspect-\[8\/5\]{
   aspect-ratio: 8 / 5;
-}
-
-.aspect-\[4\/3\]{
-  aspect-ratio: 4 / 3;
-}
-
-.aspect-\[3\/4\]{
-  aspect-ratio: 3 / 4;
 }
 
 .h-full{
@@ -1152,16 +1140,12 @@ url{
   height: 12rem;
 }
 
-.max-h-\[480px\]{
-  max-height: 480px;
+.max-h-\[440px\]{
+  max-height: 440px;
 }
 
 .max-h-\[380px\]{
   max-height: 380px;
-}
-
-.max-h-\[440px\]{
-  max-height: 440px;
 }
 
 .w-full{
@@ -1220,8 +1204,8 @@ url{
   width: 12rem;
 }
 
-.w-24{
-  width: 6rem;
+.w-\[90vw\]{
+  width: 90vw;
 }
 
 .min-w-\[8rem\]{
@@ -1363,6 +1347,10 @@ url{
 
 .gap-\[2rem\]{
   gap: 2rem;
+}
+
+.gap-1{
+  gap: 0.25rem;
 }
 
 .gap-\[4rem\]{
@@ -1626,6 +1614,11 @@ url{
   padding-right: 1.5rem;
 }
 
+.py-6{
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
 .py-4{
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -1684,11 +1677,6 @@ url{
 .px-8{
   padding-left: 2rem;
   padding-right: 2rem;
-}
-
-.py-6{
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
 }
 
 .py-20{
@@ -2137,24 +2125,12 @@ url{
   visibility: visible;
 }
 
-.group:hover .group-hover\:bottom-\[-80px\]{
-  bottom: -80px;
-}
-
 .group:hover .group-hover\:bottom-0{
   bottom: 0px;
 }
 
-.group:hover .group-hover\:mt-\[\.5rem\]{
-  margin-top: .5rem;
-}
-
-.group:hover .group-hover\:mb-\[-\.5rem\]{
-  margin-bottom: -.5rem;
-}
-
-.group:hover .group-hover\:mt-\[0rem\]{
-  margin-top: 0rem;
+.group:hover .group-hover\:bottom-\[-80px\]{
+  bottom: -80px;
 }
 
 .group:hover .group-hover\:hidden{
