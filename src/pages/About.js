@@ -49,7 +49,11 @@ export default function About() {
         <div className='flex flex-col items-center gap-y-[4rem] lg:gap-y-[8rem] py-[4rem] w-full bg-primary'>
           {/* Stats */}
           <div className='max-w-[1600px] w-full flex-wrap flex gap-x-[2rem] gap-y-[1rem] justify-center items-start text-light'>
-            {stats.about.map((stat, id) => <Stats key={id} { ...stat } speed={3000} />)}
+            {
+              stats.about.map((stat, id) => (
+                <Stats key={id} { ...stat } speed={3000} />
+              ))
+            }
           </div>
         </div>
 

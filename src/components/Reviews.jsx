@@ -23,8 +23,14 @@ export default function Reviews({ reviews }) {
   )
 }
 
-const ReviewCard = ({ name, date, comment, rating }) => {
-    const stars = rating => new Array(rating).fill(<FaStar />).concat(new Array(5 - rating).fill(<FaRegStar />))
+const ReviewCard = ({ name, date, comment, rating: r }) => {
+    if (!comment || !name) return null
+    const rating = Number(r)
+    const stars = rating => (
+        new Array(rating).fill(<FaStar />).concat(
+            new Array(5 - rating).fill(<FaRegStar />)
+        )
+    )
     return (
         <div className='h-full pl-4 pr-12 py-20 space-y-4 relative'>
             <div className='flex gap-4 h-full'>
@@ -35,7 +41,9 @@ const ReviewCard = ({ name, date, comment, rating }) => {
                         <h3 className='font-semibold text-light-blue'>{name}</h3>
                         <h6 className='font-semibold  text-light-gray'>{date}</h6>
                         <div className='flex space-x-1 text-2xl text-secondary mt-2'>
-                            {stars(rating).map(star => star)}
+                            {
+                                stars(rating).map(star => star)
+                            }
                         </div> 
                     </div> 
                 </div>
