@@ -47,7 +47,7 @@ export default function Services() {
 
       <div className={`w-full flex flex-col items-center my-[4rem]`}>
         {/* Services Slider */}
-        <div className='my-[4rem] col-span-full'>
+        <div className='mb-[4rem] col-span-full'>
           <ServicesSlider servicesData={servicesData} />
         </div>
         <div className='w-full max-w-[1600px] relative grid grid-cols-3 gap-[4rem] px-2 sm:px-4 md:px-8'>
