@@ -6,9 +6,9 @@ export const getCities = (r) => {
     return region[0].cities_list.map(city => [city, city])
 }
 
+export const SERVICES_MD_URL = "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Ftext%2Findex.md?alt=media&token=0156b3fe-14ac-49cf-bb6a-e5875e53a9de"
 export const VIDEO_URL = ''
-export const ABOUT_HERO_IMG = 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/other-images%2Fabout_hero.png?alt=media&token=ca1ac0e0-92ae-405a-aacc-6005e2828742'
-export const ABOUT_US_IMG = 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/other-images%2Fus.jpg?alt=media&token=a70dcfaf-e08a-4da3-a9a2-0723f0cd797b'
+export const US_IMG = "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/gallery%2Fus.jpg?alt=media&token=9a48de40-9c79-4dc4-8922-9562c8a1bb87"
 export const SLIDESHOW_IMGS = [
     'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/slideshow%2Fimg1.png?alt=media&token=b148c61a-e82d-4cc3-a9c9-59d95524092b',
     'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/slideshow%2Fimg2.png?alt=media&token=1409d12d-82a6-48dd-b9ac-22f92d7d992c',
@@ -25,6 +25,7 @@ export const links = {
             "Orthodontie": '/services/orthodontie',
             "Prothèses et implants dentaires": '/services/protheses_et_implants_dentaires',
             "Esthétique dentaire": '/services/esthetique_dentaire',
+            "Radiologie dentaire": '/services/radiologie_dentaire',
         }
     },
     "Gallery": '/gallery',
@@ -126,8 +127,22 @@ export const servicesData = {
             label: 'Esthétique dentaire',
         },
         title: 'Esthétique dentaire',
-        description: "La teinte et la forme des dents sont des éléments essentiels de l'esthétique dentaire. Deux techniques possibles : le blanchiment dentaire qui vise à éclaircir les dents dont la coloration est trop foncée ou les facettes dentaires qui permettent de les rendre plus blanches, mais aussi de modifier l'aspect général des dents (forme, alignement).",
+        description: "La radiologie est un complément d'examen indispensable à la disposition de votre chirurgien-dentiste.",
         textUrl: "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Ftext%2Festhetique_dentaire.md?alt=media&token=96e7e761-8d79-48f4-9eff-6dc6dc995719"
+    },
+    "radiologie_dentaire": {
+        imgUrl: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Fimages%2Fradiologie%20dentaire.jpg?alt=media&token=904804ca-716c-40ec-bb75-4594d5c06326',
+        alt: '',
+        currentPage: {
+            parent: {
+                label: 'Services',
+                link: '/services',
+            }, 
+            label: 'Radiologie dentaire',
+        },
+        title: 'Radiologie dentaire',
+        description: "La teinte et la forme des dents sont des éléments essentiels de l'esthétique dentaire. Deux techniques possibles : le blanchiment dentaire qui vise à éclaircir les dents dont la coloration est trop foncée ou les facettes dentaires qui permettent de les rendre plus blanches, mais aussi de modifier l'aspect général des dents (forme, alignement).",
+        textUrl: "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Ftext%2Fradiologie_dentaire.md?alt=media&token=68b08df2-98d7-4a2d-b941-3636a496a81a"
     },
 }
 

@@ -37,24 +37,34 @@ const Footer = () => {
                         </div>
                         {/* Social Media Links */}
                         <ul className='flex items-center justify-center h-12 bg-primary'>
-                            {facebook && <div className='--nav-icons-container group bg-primary'>
-                                <FaFacebookF className='--nav-icons group-hover:bg-[#1877f2]' />
-                                <h5 className='--nav-icons-span text-light'>Facebook</h5></div>}
-                            {youtube && <div className='--nav-icons-container group bg-primary'>
-                                <FaYoutube className='--nav-icons group-hover:bg-[#ff0000]' />
-                                <h5 className='--nav-icons-span text-light'>Youtube</h5></div>}
-                            {twitter && <div className='--nav-icons-container group bg-primary'>
-                                <FaTwitter className='--nav-icons group-hover:bg-[#1da1f2]' />
-                                <h5 className='--nav-icons-span text-light'>Twitter</h5></div>}
-                            {instagram && <div className='--nav-icons-container group bg-primary'>
-                                <FaInstagram className='--nav-icons group-hover:bg-[#c32aa3]' />
-                                <h5 className='--nav-icons-span text-light'>Instagram</h5></div>}
-                            {linkedin && <div className='--nav-icons-container group bg-primary'>
-                                <FaLinkedinIn className='--nav-icons group-hover:bg-[#0a66c2]' />
-                                <h5 className='--nav-icons-span text-light'>Linkedin</h5></div>}
-                            {whatsapp && <div className='--nav-icons-container group bg-primary'>
-                                <FaWhatsapp className='--nav-icons group-hover:bg-[#25d366]' />
-                                <h5 className='--nav-icons-span text-light'>Whatsapp</h5></div>}
+                            {facebook && 
+                                <Link to="" className="group footer-icon">
+                                    <FaFacebookF className='text-[#1877f2] hover:bg-[#1877f2]' />   
+                                </Link>
+                            }
+                            {youtube && 
+                                <Link to="" className="group footer-icon">
+                                    <FaYoutube className='text-[#ff0000] group-hover:bg-[#ff0000]' />
+                                </Link>
+                            }
+                            {twitter && 
+                               <Link to="" className="group footer-icon">
+                                    <FaTwitter className=' text-[#1da1f2]group-hover:bg-[#1da1f2]' />
+                                </Link>
+                            }
+                            {instagram && 
+                                <Link to="" className="group footer-icon">
+                                    <FaInstagram className='text-[#c32aa3] group-hover:bg-[#c32aa3]' />
+                                </Link>
+                            }
+                            {linkedin && 
+                                <Link to="" className="group footer-icon">
+                                    <FaLinkedinIn className='text-[#0a66c2] group-hover:bg-[#0a66c2]' />
+                                </Link>}
+                            {whatsapp && 
+                                <Link to="" className="group footer-icon">
+                                    <FaWhatsapp className='text-[#25d366] group-hover:bg-[#25d366]' />
+                                </Link>}
                         </ul>
                     </div>
                 </div>

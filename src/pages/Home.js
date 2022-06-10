@@ -13,7 +13,7 @@ import useDocs from '../hooks/useDocs'
 // Icons Imports.
 import { CgArrowLongRight } from 'react-icons/cg'
 // Data Imports.
-import { servicesData, stats, ABOUT_US_IMG, SLIDESHOW_IMGS } from '../data' 
+import { servicesData, stats, US_IMG, SLIDESHOW_IMGS } from '../data' 
 
 export default function Home() {
 
@@ -52,7 +52,7 @@ export default function Home() {
 
       {/* About */}
       <div className='max-w-[1800px] w-full grid lg:grid-cols-2 lg:gap-x-[6rem] gap-y-[2rem] page-padding'>
-        <img src={ABOUT_US_IMG} alt="" className='object-cover aspect-[8/5] w-full h-full rounded-xl' />
+        <img src={US_IMG} alt="" className='object-cover aspect-[8/5] w-full h-full rounded-xl' />
         <div className='flex flex-col justify-around'>
             <h2 className='text-primary my-4'>
               Dentego, groupe engagé pour la santé dentaire de tous!

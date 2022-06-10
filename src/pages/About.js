@@ -1,8 +1,9 @@
 // React Imports.
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import remarkGfm from 'remark-gfm'
 // Components Imports.
-import Hero from '../components/Hero'
+import Hero from '../components/Hero' 
 import Stats from '../components/Stats'
 import Reviews from '../components/Reviews'
 import Gallery from '../components/Gallery'
@@ -13,7 +14,7 @@ import Video from '../components/Video'
 // Hooks Imports.
 import useDocs from '../hooks/useDocs'
 // Icons Imports.
-import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin, FaTwitter, FaWhatsapp } from 'react-icons/fa'
 // Data Imports.
 import { stats, info, ABOUT_HERO_IMG, VIDEO_URL } from '../data'
 
@@ -67,11 +68,40 @@ export default function About() {
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Non cumque esse sequi quibusdam nihil illo nulla neque delectus dicta facere temporibus autem quas unde ut repudiandae velit veritatis et officia commodi pariatur, nostrum eius totam dolorum ab. Delenium aperiam similique temporibus tempora.
                 </p>
                 <div className='flex text-2xl gap-4 my-[.8rem]'>
-                    {primaryProfile?.facebook && <a href={primaryProfile.facebook}><FaFacebook className='--nav-icons' /></a>}
-                    {primaryProfile?.instagram && <a href={primaryProfile.instagram}><FaInstagram className='--nav-icons' /></a>}
-                    {primaryProfile?.youtube && <a href={primaryProfile.youtube}><FaYoutube className='--nav-icons' /></a>}
-                    {primaryProfile?.linkedin && <a href={primaryProfile.linkedin}><FaLinkedin className='--nav-icons' /></a>}
-                    {primaryProfile?.linkedin && <a href={primaryProfile.twitter}><FaTwitter className='--nav-icons' /></a>}
+                    {/* Social Media Links */}
+                    <ul className='flex items-center justify-center h-12'>
+                        {
+                          primaryProfile?.facebook && 
+                            <Link to="" className="">
+                                <FaFacebook className='w-[4rem] h-[4rem] text-5xl p-1 rounded-full pt-1 px-3 transition-all duration-500 cursor-pointer bg-light text-facebook hover:scale-[.8] hover:bg-facebook hover:text-light' />
+                            </Link>
+                        }
+                        {
+                          primaryProfile?.twitter && 
+                            <Link to="" className="">
+                                <FaTwitter className="w-[4rem] h-[4rem] text-5xl p-1 rounded-full pt-1 px-3 transition-all duration-500 
+                                cursor-pointer bg-light text-twitter hover:scale-[.8] hover:bg-twitter hover:text-light" />
+                            </Link>
+                        }   
+                        {
+                          primaryProfile?.instagram && 
+                            <Link to="" className="">
+                                <FaInstagram className='w-[4rem] h-[4rem] text-5xl p-1 rounded-full pt-1 px-3 transition-all duration-500 cursor-pointer bg-light text-instagram hover:scale-[.8] hover:bg-instagram hover:text-light' />
+                            </Link>
+                        }
+                        {
+                        primaryProfile?.youtube && 
+                          <Link to="#" className="">
+                              <FaYoutube className='w-[4rem] h-[4rem] text-5xl p-1 rounded-full pt-1 px-3 transition-all duration-500 cursor-pointer bg-light text-youtube hover:scale-[.8] hover:bg-youtube hover:text-light' />
+                          </Link> 
+                        }
+                        {
+                          primaryProfile?.whatsapp && 
+                            <Link to="#" className="">
+                                <FaWhatsapp className='w-[4rem] h-[4rem] text-5xl p-1 rounded-full pt-1 px-3 transition-all duration-500 cursor-pointer bg-light text-whatsapp hover:scale-[.8] hover:bg-whatsapp hover:text-light' />
+                            </Link>
+                        }
+                    </ul>
                 </div>
               </div>
             </div>

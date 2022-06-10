@@ -9,7 +9,15 @@ module.exports = {
         secondary: '#FE8573',
         'light-blue': '#0091FF',
         'light-gray': '#4d606e',
-        'bluish-gray': '#F8FCFF'
+        'bluish-gray': '#F8FCFF',
+
+        // Social MEdia Colors.
+        facebook: "#1877F2",
+        twitter: "#1DA1F2",
+        linkedin: "#0A66C2",
+        youtube: "#CD201F",  
+        instagram: "#E1306C",
+        whatsapp: "#25D366",
       }
     },
   },

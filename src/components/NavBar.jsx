@@ -266,12 +266,12 @@ export default function NavBar() {
     // Social Media Icons 
     const getIcons = () => {
         const icons = {
-            facebook: <FaFacebookF className='nav-bar-icon group-hover:bg-[#1877f2]' />,
-            youtube: <FaYoutube className='nav-bar-icon group-hover:bg-[#ff0000]' />,
-            twitter: <FaTwitter className='nav-bar-icon group-hover:bg-[#1da1f2]' />,
-            instagram: <FaInstagram className='nav-bar-icon group-hover:bg-[#c32aa3]' />,
-            linkedin: <FaLinkedinIn className='nav-bar-icon group-hover:bg-[#0a66c2]' />,
-            whatsapp: <FaWhatsapp className='nav-bar-icon group-hover:bg-[#25d366]' />,
+            facebook: <FaFacebookF className='nav-bar-icon group-hover:bg-facebook' />,
+            youtube: <FaYoutube className='nav-bar-icon group-hover:bg-youtube' />,
+            twitter: <FaTwitter className='nav-bar-icon group-hover:bg-twitter' />,
+            instagram: <FaInstagram className='nav-bar-icon group-hover:bg-instagram' />,
+            linkedin: <FaLinkedinIn className='nav-bar-icon group-hover:bg-linkedin' />,
+            whatsapp: <FaWhatsapp className='nav-bar-icon group-hover:bg-whatsapp' />,
         }
         return Object.entries(socialLinks)
             .map(([ label, link ], id) => {
