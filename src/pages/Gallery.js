@@ -16,10 +16,8 @@ export default function Gallery() {
   // Images From db.
   const { docs } = useDocs('gallery')
   const heroValues = {
-    imgUrl: "https://via.placeholder.com/1000x1000",
-    alt: '',
     currentPage: 'Gallery',
-    title: '',
+    title: 'Gallery',
     description: '',
   }
   return (
