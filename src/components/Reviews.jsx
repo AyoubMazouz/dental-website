@@ -7,13 +7,13 @@ export default function Reviews({ reviews }) {
   return (
     <div><Swiper modules={[Scrollbar, FreeMode, Pagination]} grabCursor spaceBetween={30} pagination={{ clickable: true }}
         className='h-[480px] max-w-[99.1vw]'
-        // breakpoints={{
-        //   640: { slidesPerView: 1 },
-        //   768: { slidesPerView: 1.25 },
-        //   1024: { slidesPerView: 1.75 },
-        //   1280: { slidesPerView: 2.25 },
-        //   1536: { slidesPerView: 2.75 },
-        // }}
+        breakpoints={{
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 1.25 },
+          1024: { slidesPerView: 1.75 },
+          1280: { slidesPerView: 2.25 },
+          1536: { slidesPerView: 2.75 },
+        }}
         >
         {reviews.map((review, id) => (
             <SwiperSlide key={id} className='bg-bluish-gray rounded-2xl overflow-hidden'>

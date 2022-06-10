@@ -64,6 +64,16 @@
 }
 
 @layer utilities {
-  .--appearance-none { -webkit-appearance: none; }
   .page-padding { @apply px-2 sm:px-4 md:px-8; }
+
+  .--appearance-none { -webkit-appearance: none; }
+
+  .text-ellipsis-service-card{
+    text-overflow:ellipsis;
+    overflow:hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
 }

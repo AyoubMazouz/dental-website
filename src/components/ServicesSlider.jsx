@@ -5,38 +5,57 @@ import { FaCalendar } from 'react-icons/fa'
 import { CgArrowLongRight } from 'react-icons/cg'
 // SwiperJs Imports.
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode, Scrollbar, Pagination } from 'swiper';
+import { FreeMode, Scrollbar, Pagination, Navigation } from 'swiper';
+import "swiper/css";
+import "swiper/css/pagination";
 
 export default function ServicesSlider({ servicesData }) {
   return (
-    <div><Swiper modules={[Scrollbar, FreeMode, Pagination]} grabCursor spaceBetween={16}
-        className='h-[420px] max-w-[99.1vw]'
-          breakpoints={{
-            640:  { slidesPerView: 1.25 },
-            768:  { slidesPerView: 1.75 },
-            1024: { slidesPerView: 2.75 },
-            1280: { slidesPerView: 3.25 },
-            1536: { slidesPerView: 3.75 },
-          }}
+    <div><Swiper 
+      slidesPerView={"auto"}
+      spaceBetween={30}
+      centeredSlides={true}
+      pagination={{
+        clickable: true,
+      }}
+      modules={[Pagination, Navigation]}
+      className="mySwiper"
         >
-        {Object.entries(servicesData).map((service, id) => (
-          <SwiperSlide key={id} className='rounded-[2rem] overflow-hidden'>
-              <ServicesCard service={service} />
-          </SwiperSlide>))}
+        {
+          Object.entries(servicesData).map((serviceData, id) => {
+            const service = { link: serviceData[0] ,...serviceData[1] }
+            console.log(service)
+            return (
+              <SwiperSlide key={id} className="max-w-[28rem] max-h-[32rem] rounded-3xl overflow-hidden">
+                <ServicesCard { ...service } />
+              </SwiperSlide>
+            )
+          })
+        }
       </Swiper></div>
   )
 }
 
-const ServicesCard = ({ service, link='#' }) => {
+const ServicesCard = ({ imgUrl, alt, description, title, link }) => {
   const navigate = useNavigate()
-  const [ serviceName, data ] = service
   return (
-    <div className='h-full relative group transition-transform duration-300' onClick={() => navigate(link)}>
-        <img src={data.imgUrl} alt={data.alt} className='object-cover w-full h-full pointer-events-none' />
-        <div className="absolute z-10 bottom-[-340px] group-hover:bottom-[-80px] w-full h-full bg-primary text-light px-6 transition-all duration-300">
-          <h4 className='text-center mt-[1.6rem] group-hover:hidden pointer-events-none'>{data.title}</h4>
-          <p className='text-left mt-4 pointer-events-none'>{data.description}</p>
-          <Link to='#' className='--link text-bluish-gray font-bold'>Lire la suite<CgArrowLongRight className='--nav-icons' /></Link>
+    <div className='h-[32rem] w-[28rem] relative group transition-transform duration-300'
+      onClick={() => navigate(link)}>
+        <img src={imgUrl} alt={alt} className='object-cover w-full h-full pointer-events-none' />
+        <div className="absolute z-10 bottom-[-25rem] group-hover:bottom-0 w-full h-[30rem] bg-primary text-light px-4 transition-all duration-300">
+          <h4 className='text-center mt-[1.6rem] pointer-events-none'>
+            {title}
+          </h4>
+          
+          <div className='flex flex-col justify-around h-full pb-[3rem]'>
+            <p className='text-left mt-8 pointer-events-none text-ellipsis-service-card h-[7char]'>
+              {description}
+            </p>
+            <p><Link to={link} className="text-light hover:text-secondary font-bold flex gap-x-2">
+              Lire la suite
+              <CgArrowLongRight className='text-3xl' />
+            </Link></p>
+          </div>
         </div>
         <FaCalendar className='--nav-icons absolute top-[1rem] right-[1rem] bg-secondary text-light p-2 rounded-full' />
     </div>
