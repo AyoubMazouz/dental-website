@@ -53,13 +53,12 @@
       text-light-gray opacity-100; 
   }
   .select-option { @apply px-12 bg-bluish-gray font-semibold text-primary lg:text-lg; }
-  .--footer-link { @apply capitalize hover:opacity-75 hover:underline; }
 
 
   .footer-icon {
     @apply [&>svg]:p-2 [&>svg]:h-full [&>svg]:w-12 [&>svg]:transition-all 
-      [&>svg]:duration-300 [&>svg]:group-hover:text-light [&>svg]:rounded-lg
-       [&>svg]:hover:translate-y-[-1rem] [&>svg]:bg-light 
+      [&>svg]:duration-200 [&>svg]:rounded-lg [&>svg]:hover:translate-y-[-1rem] 
+      text-white hover:scale-110
   }
 }
 

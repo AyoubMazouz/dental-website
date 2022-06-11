@@ -51,7 +51,7 @@ const ServicesCard = ({ imgUrl, alt, description, title, link }) => {
             <p className='text-left mt-8 pointer-events-none text-ellipsis-service-card h-[7char]'>
               {description}
             </p>
-            <p><Link to={link} className="text-light hover:text-secondary font-bold flex gap-x-2">
+            <p><Link to={link} className="text-light hover:text-secondary font-bold flex gap-x-2 items-center">
               Lire la suite
               <CgArrowLongRight className='text-3xl' />
             </Link></p>
