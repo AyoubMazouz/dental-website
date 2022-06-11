@@ -13,16 +13,16 @@ export default function Card ({
     if (primary) return null
 
     return (
-        <div className='max-h-[440px] relative group transition-transform duration-300 overflow-hidden rounded-xl shadow-lg text-primary'>
+        <div className='h-[26rem] w-[22rem] relative group transition-transform duration-300 overflow-hidden rounded-xl shadow-lg text-primary'>
             {/* Image */}
             <img src={imgUrl} alt={alt} className="h-full w-full aspect-[3/4] object-cover"/>
-            <div className="absolute bottom-[-5rem] group-hover:bottom-0 w-full bg-light px-6 py-6 transition-all duration-300">
+            <div className="absolute bottom-[-4.5rem] group-hover:bottom-0 w-full bg-light px-6 py-6 transition-all duration-300">
                 {/* Name */}
                 <h3 className='font-bold text-center text-lg'>
                     {id}
                 </h3>
                 {/* Profession */}
-                <h3 className='text-center text-lg mb-[1rem]'>
+                <h3 className='text-center text-lg mb-[2rem]'>
                     {profession}
                 </h3>
                 {/* Social Media Links */}

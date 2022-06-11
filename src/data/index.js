@@ -26,6 +26,7 @@ export const links = {
             "Prothèses et implants dentaires": '/services/protheses_et_implants_dentaires',
             "Esthétique dentaire": '/services/esthetique_dentaire',
             "Radiologie dentaire": '/services/radiologie_dentaire',
+            "Urgence dentaire": '/services/urgence_dentaire',
         }
     },
     "Gallery": '/gallery',
@@ -143,6 +144,20 @@ export const servicesData = {
         title: 'Radiologie dentaire',
         description: "La teinte et la forme des dents sont des éléments essentiels de l'esthétique dentaire. Deux techniques possibles : le blanchiment dentaire qui vise à éclaircir les dents dont la coloration est trop foncée ou les facettes dentaires qui permettent de les rendre plus blanches, mais aussi de modifier l'aspect général des dents (forme, alignement).",
         textUrl: "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Ftext%2Fradiologie_dentaire.md?alt=media&token=68b08df2-98d7-4a2d-b941-3636a496a81a"
+    },
+    "urgence_dentaire": {
+        imgUrl: 'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Fimages%2Furgence-dentaire.jpg?alt=media&token=4e4e3626-4d66-41fc-abbe-056ab8471d54',
+        alt: '',
+        currentPage: {
+            parent: {
+                label: 'Services',
+                link: '/services',
+            }, 
+            label: 'Urgence dentaire',
+        },
+        title: 'Urgence dentaire',
+        description: "Une urgence dentaire ne prévient pas quand elle arrive. Les centres de santé dentaires Clinadent présentent un service d'urgence dentaire et orthodontique sur rendez-vous du lundi au vendredi de 9h00 à 19h00, afin de traiter vos douleurs dentaires. Nos équipes de dentistes disponibles vous apporteront les soins afin de traiter votre infection et soulager votre douleur. Afin de limiter votre attente en fonction de la disponibilité et en accord avec les dentistes présents, nous vous conseillons de prendre rendez-vous par téléphone, sur notre site Clinadent ou via doctolib.",
+        textUrl: "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Ftext%2Furgence_dentaire.md?alt=media&token=53aa0ae6-407d-4746-8c9f-3282cf595450"
     },
 }
 

@@ -903,6 +903,14 @@ url{
   bottom: 100px;
 }
 
+.bottom-\[-4rem\]{
+  bottom: -4rem;
+}
+
+.bottom-\[-4\.5rem\]{
+  bottom: -4.5rem;
+}
+
 .z-40{
   z-index: 40;
 }
@@ -1045,6 +1053,10 @@ url{
   margin-bottom: 1rem;
 }
 
+.mb-\[2rem\]{
+  margin-bottom: 2rem;
+}
+
 .flex{
   display: flex;
 }
@@ -1071,6 +1083,10 @@ url{
 
 .aspect-\[8\/5\]{
   aspect-ratio: 8 / 5;
+}
+
+.h-\[18rem\]{
+  height: 18rem;
 }
 
 .h-full{
@@ -1185,8 +1201,12 @@ url{
   height: 12rem;
 }
 
-.max-h-\[440px\]{
-  max-height: 440px;
+.h-\[28rem\]{
+  height: 28rem;
+}
+
+.h-\[26rem\]{
+  height: 26rem;
 }
 
 .max-h-\[380px\]{
@@ -1199,6 +1219,10 @@ url{
 
 .min-h-\[300px\]{
   min-height: 300px;
+}
+
+.w-\[20rem\]{
+  width: 20rem;
 }
 
 .w-full{
