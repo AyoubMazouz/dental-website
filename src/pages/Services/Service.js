@@ -1,7 +1,7 @@
 // React Imports.
 import React, { useEffect, useState } from 'react'
 // React Router Dom Imports.
-import { useParams } from 'react-router-dom'
+import { useParams, Navigate } from 'react-router-dom'
 // React Markdown Imports.
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -9,34 +9,56 @@ import rehypeRaw from 'rehype-raw'
 // Components Imports.
 import Hero from '../../components/Hero'
 import ServicesSlider from '../../components/ServicesSlider'
-import Summary from './Summary'
+import Summary from '../../components/Summary'
+import Page404 from "../Page404"
 // Data Imports.
-import { servicesData } from '../../data'
+import { servicesData, links } from '../../data'
 
 
 export default function Pedodontie() {
   
-  const [markdown, setMarkdown] = useState()
-  const [headersList, setHeadersList] = useState([])
+  const [ error, setError ] = useState(null)
   const { serviceName } = useParams()
+  const [ markdown, setMarkdown ] = useState(null)
+  const [ headersList, setHeadersList ] = useState([])
 
+  // Fetch md File.
   useEffect(() => {
-    fetch(servicesData[serviceName].textUrl)
-    .then(response => response.text())
-    .then(result   => setMarkdown(result))
+    // Get a list of Valid url end points.
+    const servicesList = Object.keys(servicesData)
+    // Check if page Exist.
+    if (servicesList.includes(serviceName)) {
+      fetch(servicesData[serviceName].textUrl)
+        .then(response => response.text())
+        .then(result   => {
+          setMarkdown(result)
+          setError(null)
+        })
+        // Show Page404 if failed to fetch md file.
+        .catch(error => {
+          console.log(error)
+          setError("404")
+        })
+    }
+    // If url is Invalid show Page404.
+    else setError("404")
   }, [serviceName])
 
+  // Generate Summary.
   useEffect(() => {
-    const textDoc = document.querySelector(".ReactMarkdown")
-    const headers = textDoc.querySelectorAll("h1, h2")
-    const headersList = [] 
-    headers.forEach(header => {
-      headersList.push(header)
-      header.id = header.innerText
-      header.classList.add("scroll")
-    })
-    setHeadersList(headersList)
+    if (!error) {
+      const textDoc = document.querySelector(".ReactMarkdown")
+      const headers = textDoc.querySelectorAll("h1, h2")
+      const headersList = [] 
+      headers.forEach(header => {
+        headersList.push(header)
+        header.id = header.innerText
+      })
+      setHeadersList(headersList)
+    }
   }, [markdown])
+
+  if (error === "404") return <Page404 />
 
   return (
     <>

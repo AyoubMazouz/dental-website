@@ -24,7 +24,6 @@ export default function ServicesSlider({ servicesData }) {
         {
           Object.entries(servicesData).map((serviceData, id) => {
             const service = { link: serviceData[0] ,...serviceData[1] }
-            console.log(service)
             return (
               <SwiperSlide key={id} className="max-w-[28rem] max-h-[32rem] rounded-3xl overflow-hidden">
                 <ServicesCard { ...service } />

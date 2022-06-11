@@ -9,7 +9,7 @@ import rehypeRaw from 'rehype-raw'
 // Components Imports.
 import Hero from '../../components/Hero'
 import ServicesSlider from '../../components/ServicesSlider'
-import Summary from './Summary'
+import Summary from '../../components/Summary'
 // Data Imports.
 import { SERVICES_MD_URL, servicesData } from '../../data'
 

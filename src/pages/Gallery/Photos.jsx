@@ -1,14 +1,14 @@
 // React Imports.
 import { useState } from 'react'
 // Hooks Imports.
-import useDocs from '../hooks/useDocs'
+import useDocs from '../../hooks/useDocs'
 // Components Imports.
-import ImageModel from '../components/ImageModel'
-import Hero from '../components/Hero'
+import ImageModel from '../../components/ImageModel'
+import Hero from '../../components/Hero'
 
 
 
-export default function Gallery() {
+export default function Photos() {
   // Selected Image to Display on the Model.
   const [selected, setSelected] = useState(null)
   // How Many Images to Show At Once.

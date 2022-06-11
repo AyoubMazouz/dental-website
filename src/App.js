@@ -38,7 +38,6 @@ const App = () => {
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
             <Route path='/services' element={<Services />} />
-            <Route path='/gallery' element={<Gallery />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/blog' element={<Blog />} />
             {/* Authentication */}
@@ -48,6 +47,9 @@ const App = () => {
             {/* Services */}
             <Route path='/services' element={<Services />} />
             <Route path='/services/:serviceName' element={<Service />} />
+            {/* Gallery */}
+            <Route path='/gallery' element={<Gallery />} />
+            <Route path='/gallery/:mediaPage' element={<Gallery />} />
             {/* Private Routes */}
             <Route element={<PrivateRoute />}>
               <Route path='/personal-info' element={<PersonalInfo />} />

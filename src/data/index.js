@@ -33,7 +33,14 @@ export const links = {
             "Urgence dentaire": '/services/urgence_dentaire',
         }
     },
-    "Gallery": '/gallery',
+    "Gallery": {
+        link: '/gallery',
+        subLinks: {
+            "Photos": '/gallery/photos',
+            "Videos": '/gallery/videos',
+            "Before and after comparison": '/gallery/before_and_after',
+        }
+    },
     "Contact": '/contact',
     "Blog": '/blog',
 }
