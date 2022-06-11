@@ -3,13 +3,12 @@ import { db } from "../firebase";
 import { collection, getDoc, doc } from "firebase/firestore";
 
 
-export default function useDocs(col, id) {
-    const [doc, setDoc] = useState([])
+export default function useDoc(col, id) {
+    const [document, setDocument] = useState({})
 
     useEffect(() => {
-        const collectionRef = collection(db, col)
-        getDoc(collectionRef, id).then(snapshot => setDoc(snapshot))
+        getDoc(doc(db, col, id)).then(snapshot => setDocument(snapshot.data()))
     }, [])
 
-    return { doc }
+    return { document }
 }
