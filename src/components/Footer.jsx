@@ -106,7 +106,7 @@ const Footer = () => {
                                 .map(([ label, link ], id) => {
                                     return (
                                             <li className='hover:underline hover:opacity-75 hover:text-bluish-gray'><p>
-                                                <Link key={id} to={"services/" + link} className=''>{label}</Link>
+                                                <Link key={id} to={link} className=''>{label}</Link>
                                             </p></li>
                                     )
                                 })
