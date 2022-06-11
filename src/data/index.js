@@ -10,8 +10,12 @@ export const SERVICES_MD_URL = "https://firebasestorage.googleapis.com/v0/b/dent
 export const VIDEO_URL = ''
 export const US_IMG = "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/gallery%2Fus.jpg?alt=media&token=9a48de40-9c79-4dc4-8922-9562c8a1bb87"
 export const SLIDESHOW_IMGS = [
-    'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/slideshow%2Fimg1.png?alt=media&token=b148c61a-e82d-4cc3-a9c9-59d95524092b',
-    'https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/slideshow%2Fimg2.png?alt=media&token=1409d12d-82a6-48dd-b9ac-22f92d7d992c',
+    "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/slideshow%2F01.jpg?alt=media&token=cc95b09d-55ca-4681-9ef7-c540d4779771",
+    "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/slideshow%2F02.jpg?alt=media&token=0cb45d22-84a7-429b-94dd-a94591e93801",
+    "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/slideshow%2F03.png?alt=media&token=6300dbd7-3c69-49c1-8970-eb898c2db87f",
+    "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/slideshow%2F04.jpg?alt=media&token=fb32ccdd-eb99-4663-9550-a3e2f456a964",
+    "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/slideshow%2F05.jpg?alt=media&token=28dc4c5f-1dba-44ae-8343-0621255584da",
+    "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/slideshow%2F06.jpg?alt=media&token=42d8364d-e67d-4ebf-8d14-c5c7fe4e5009",
 ]
 
 export const links = {
