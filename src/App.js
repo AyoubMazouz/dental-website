@@ -54,6 +54,7 @@ const App = () => {
               <Route path='/personal-info' element={<PersonalInfo />} />
               <Route path='/profile' element={<Profile />} />
               <Route path='/admin' element={<Admin />} />
+              <Route path='/admin/:setting' element={<Admin />} />
             </Route>
             {/* 404 Page */}
             <Route path='*' element={<Page404 />} />

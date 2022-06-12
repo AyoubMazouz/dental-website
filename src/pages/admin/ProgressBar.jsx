@@ -3,7 +3,7 @@ import useUpload from '../../hooks/useUpload'
 
 export default function ProcessBar ({ file, setFile }) {
 
-  const { progress, url, error } = useUpload(file)
+  const { progress, url, error } = useUpload(file, "gallery", "photos")
 
   useEffect(() => { 
     if (url) setFile(null) 
