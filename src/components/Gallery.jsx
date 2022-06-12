@@ -18,7 +18,7 @@ export default function Gallery() {
       navigation={true}
       thumbs={{ swiper: thumbsSwiper }}
       modules={[FreeMode, Navigation, Thumbs]}
-      className='mySwiper2 rounded-xl w-[1280px] h-[768px] mb-[10px]'>
+      className='mySwiper2 rounded-xl w-[1365px] h-[768px] mb-[10px]'>
         {
         Object.entries(document)
           .map(doc => (
