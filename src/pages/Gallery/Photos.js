@@ -12,19 +12,23 @@ export default function Photos() {
   // Selected Image to Display on the Model.
   const [selected, setSelected] = useState(null)
   // How Many Images to Show At Once.
-  const [imgsAtOnce, setImgsAtOnce] = useState(20)
+  const [elementsAtOnce, setElementsAtOnce] = useState(20)
   // Images From db.
   const { document } = useDoc('gallery', "photos")
   const heroValues = {
-    currentPage: 'Gallery',
-    title: 'Gallery',
-    description: '',
+    currentPage: {
+      label: 'Photos',
+      parent: {
+        label: "Gallery",
+        link: "/gallery"
+      }
+    },
+    title: 'Photos',
   }
   return (
     <div>
       {/* Hero Section */}
       <Hero  { ...heroValues } />
-      {/* Image Model __default hidden__ */}
       {
         typeof selected === 'number' && 
           <ImageModel currIndex={selected} docs={document} setSelected={setSelected} />
@@ -35,7 +39,7 @@ export default function Photos() {
           {/* Map trough the Array of Images and Only Display the Allowed Numnber of Images */}
           {
             Object.entries(document)
-              .map((doc, index) => index < imgsAtOnce ? ( 
+              .map((doc, index) => index < elementsAtOnce ? ( 
               <div key={doc[0]} className='overflow-hidden rounded-lg'>
                 <img src={doc[1]} alt={doc[0]} onClick={() => setSelected(index)}
                   className='w-[332px] h-[220px] object-cover hover:scale-110 transition-transform duration-500 select-none'></img>
@@ -45,9 +49,9 @@ export default function Photos() {
         </div>
       {/* Load More Button */}
       {
-        Object.keys(document).length > imgsAtOnce ? 
+        Object.keys(document).length > elementsAtOnce ? 
           <div className='grid justify-center mt-[3rem]'>
-            <button onClick={() => setImgsAtOnce(prev => prev + 10)} 
+            <button onClick={() => setElementsAtOnce(prev => prev + 10)} 
               className='px-8 py-3 bg-secondary rounded-full text-light font-semibold'>Load More</button>
           </div> 
           : 

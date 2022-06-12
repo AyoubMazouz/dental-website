@@ -5,7 +5,7 @@ export default function PhotosSettings() {
 	const [file, setFile] = useState(null)
 	
 	return (
-		<div>
+		<div className='page-padding'>
 			<div>
 				{
 					file ? 

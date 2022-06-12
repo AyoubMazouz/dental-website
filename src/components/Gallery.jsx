@@ -1,11 +1,24 @@
+import { useState } from "react"
 import useDoc from '../hooks/useDoc'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from 'swiper';
+import { Pagination, Navigation, FreeMode, Thumbs } from 'swiper';
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 
 export default function Gallery() {
   const { document } = useDoc('gallery', "photos")
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
-    <Swiper modules={[ Pagination, Navigation ]} grabCursor navigation pagination={{ clickable: true, }} className='rounded-xl'>
+    <Swiper style={{
+      "--swiper-navigation-color": "#fff",
+      "--swiper-pagination-color": "#fff",
+      }}
+      spaceBetween={10}
+      navigation={true}
+      thumbs={{ swiper: thumbsSwiper }}
+      modules={[FreeMode, Navigation, Thumbs]}
+      className='mySwiper2 rounded-xl'>
         {
         Object.entries(document)
           .map(doc => (

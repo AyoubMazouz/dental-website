@@ -10,7 +10,7 @@ import Gallery from '../components/Gallery'
 import ContactForm from '../components/ContactForm'
 import GoogleMaps from '../components/GoogleMaps'
 import AboutCard from '../components/AboutCard'
-import Video from '../components/Video'
+import { Video } from '../components/VideoModel'
 // Hooks Imports.
 import useDocs from '../hooks/useDocs'
 // Icons Imports.

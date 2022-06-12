@@ -10,8 +10,11 @@ export default function ProcessBar ({ file, setFile }) {
   }, [url])
   
   return (
-    <div className='w-full'>
-      <div style={{ width: `${progress}%` }} className='h-[1rem] bg-green-500'></div>
+    <div className=''>
+      <div style={{ width: `${progress}%` }} 
+        className='h-[1rem] bg-green-500 text-white text-center'>
+        {progress}
+      </div>
         {
           error && 
             <div>
