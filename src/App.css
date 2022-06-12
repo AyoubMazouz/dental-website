@@ -819,8 +819,8 @@ url{
   position: sticky;
 }
 
-.bottom-\[-5rem\]{
-  bottom: -5rem;
+.bottom-\[-4\.5rem\]{
+  bottom: -4.5rem;
 }
 
 .top-0{
@@ -831,8 +831,8 @@ url{
   top: 1rem;
 }
 
-.right-\[3rem\]{
-  right: 3rem;
+.left-\[3rem\]{
+  left: 3rem;
 }
 
 .top-\[3rem\]{
@@ -901,14 +901,6 @@ url{
 
 .bottom-\[100px\]{
   bottom: 100px;
-}
-
-.bottom-\[-4rem\]{
-  bottom: -4rem;
-}
-
-.bottom-\[-4\.5rem\]{
-  bottom: -4.5rem;
 }
 
 .z-40{
@@ -989,8 +981,8 @@ url{
   margin-bottom: 4rem;
 }
 
-.mb-\[1rem\]{
-  margin-bottom: 1rem;
+.mb-\[2rem\]{
+  margin-bottom: 2rem;
 }
 
 .mt-2{
@@ -1005,6 +997,10 @@ url{
   margin-left: -2rem;
 }
 
+.mb-\[10px\]{
+  margin-bottom: 10px;
+}
+
 .mt-12{
   margin-top: 3rem;
 }
@@ -1015,6 +1011,10 @@ url{
 
 .mt-8{
   margin-top: 2rem;
+}
+
+.mb-4{
+  margin-bottom: 1rem;
 }
 
 .mt-\[20vw\]{
@@ -1033,10 +1033,6 @@ url{
   margin-top: -8rem;
 }
 
-.mt-\[3rem\]{
-  margin-top: 3rem;
-}
-
 .mt-\[-5rem\]{
   margin-top: -5rem;
 }
@@ -1049,12 +1045,8 @@ url{
   margin-bottom: 3rem;
 }
 
-.mb-4{
-  margin-bottom: 1rem;
-}
-
-.mb-\[2rem\]{
-  margin-bottom: 2rem;
+.mt-\[3rem\]{
+  margin-top: 3rem;
 }
 
 .flex{
@@ -1073,10 +1065,6 @@ url{
   aspect-ratio: 3 / 4;
 }
 
-.aspect-square{
-  aspect-ratio: 1 / 1;
-}
-
 .aspect-video{
   aspect-ratio: 16 / 9;
 }
@@ -1085,8 +1073,8 @@ url{
   aspect-ratio: 8 / 5;
 }
 
-.h-\[18rem\]{
-  height: 18rem;
+.h-\[26rem\]{
+  height: 26rem;
 }
 
 .h-full{
@@ -1109,12 +1097,28 @@ url{
   height: 5rem;
 }
 
+.h-\[768px\]{
+  height: 768px;
+}
+
+.h-\[148px\]{
+  height: 148px;
+}
+
 .h-\[65vh\]{
   height: 65vh;
 }
 
 .h-\[100vh\]{
   height: 100vh;
+}
+
+.h-\[200px\]{
+  height: 200px;
+}
+
+.h-\[96px\]{
+  height: 96px;
 }
 
 .h-\[10rem\]{
@@ -1153,10 +1157,6 @@ url{
   height: 2.7rem;
 }
 
-.h-\[1rem\]{
-  height: 1rem;
-}
-
 .h-\[480px\]{
   height: 480px;
 }
@@ -1185,14 +1185,6 @@ url{
   height: 60vh;
 }
 
-.h-\[220px\]{
-  height: 220px;
-}
-
-.h-\[6rem\]{
-  height: 6rem;
-}
-
 .h-\[80vh\]{
   height: 80vh;
 }
@@ -1201,12 +1193,16 @@ url{
   height: 12rem;
 }
 
-.h-\[28rem\]{
-  height: 28rem;
+.h-\[1rem\]{
+  height: 1rem;
 }
 
-.h-\[26rem\]{
-  height: 26rem;
+.h-\[220px\]{
+  height: 220px;
+}
+
+.h-\[6rem\]{
+  height: 6rem;
 }
 
 .max-h-\[380px\]{
@@ -1221,8 +1217,8 @@ url{
   min-height: 300px;
 }
 
-.w-\[20rem\]{
-  width: 20rem;
+.w-\[22rem\]{
+  width: 22rem;
 }
 
 .w-full{
@@ -1233,16 +1229,20 @@ url{
   width: 4rem;
 }
 
+.w-\[1280px\]{
+  width: 1280px;
+}
+
+.w-\[1400px\]{
+  width: 1400px;
+}
+
 .w-\[99\.14vw\]{
   width: 99.14vw;
 }
 
 .w-\[100vw\]{
   width: 100vw;
-}
-
-.w-\[22rem\]{
-  width: 22rem;
 }
 
 .w-\[2\.7rem\]{
@@ -1281,12 +1281,12 @@ url{
   width: 8rem;
 }
 
-.w-\[332px\]{
-  width: 332px;
-}
-
 .w-\[12rem\]{
   width: 12rem;
+}
+
+.w-\[332px\]{
+  width: 332px;
 }
 
 .min-w-\[22rem\]{
@@ -1687,11 +1687,6 @@ url{
   background-color: rgb(16 185 129 / var(--tw-bg-opacity));
 }
 
-.bg-green-500{
-  --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
-}
-
 .bg-bluish-gray{
   --tw-bg-opacity: 1;
   background-color: rgb(248 252 255 / var(--tw-bg-opacity));
@@ -1703,6 +1698,11 @@ url{
 
 .bg-\[rgba\(0\2c 0\2c 0\2c \.3\)\]{
   background-color: rgba(0,0,0,.3);
+}
+
+.bg-green-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-t{
@@ -2023,6 +2023,11 @@ url{
   color: rgb(24 119 242 / var(--tw-text-opacity));
 }
 
+.text-white{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .underline{
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -2114,6 +2119,10 @@ url{
   -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
   white-space: normal;
+}
+
+.w-gallery-swiper-important {
+  width: 196px !important;
 }
 
 .after\:absolute::after{
@@ -2370,10 +2379,6 @@ url{
 }
 
 @media (min-width: 768px){
-  .md\:aspect-video{
-    aspect-ratio: 16 / 9;
-  }
-
   .md\:px-8{
     padding-left: 2rem;
     padding-right: 2rem;
@@ -2385,12 +2390,12 @@ url{
     top: .8rem;
   }
 
-  .lg\:col-span-2{
-    grid-column: span 2 / span 2;
-  }
-
   .lg\:col-span-1{
     grid-column: span 1 / span 1;
+  }
+
+  .lg\:col-span-2{
+    grid-column: span 2 / span 2;
   }
 
   .lg\:mt-0{
@@ -2438,12 +2443,12 @@ url{
             column-gap: 6rem;
   }
 
-  .lg\:gap-y-\[8rem\]{
-    row-gap: 8rem;
-  }
-
   .lg\:gap-y-6{
     row-gap: 1.5rem;
+  }
+
+  .lg\:gap-y-\[8rem\]{
+    row-gap: 8rem;
   }
 
   .lg\:text-xl{

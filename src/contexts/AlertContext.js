@@ -8,7 +8,7 @@ export function useAlert() {
 }
 
 export function AlertProvider({ children }) {
-    const [alert, setAlert] = useState(['danger', 'This is an Alert worry about it please'])
+    const [alert, setAlert] = useState([])
 
     const value = {
         alert,

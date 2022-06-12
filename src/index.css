@@ -75,4 +75,7 @@
     -webkit-box-orient: vertical;
     white-space: normal;
   }
+  .w-gallery-swiper-important {
+    width: 196px !important;
+  }
 }
