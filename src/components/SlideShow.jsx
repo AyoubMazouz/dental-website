@@ -16,7 +16,11 @@ export default function SlideShow({ images }) {
                 pagination={{ clickable: true }}
                 loop={true}
                 autoHeight={true}
-                autoplay={{ delay: 5000 }}>
+                autoplay={{ delay: 5000 }}
+                style={{
+                  "--swiper-navigation-color": "#fff",
+                  "--swiper-pagination-color": "#fff",
+                }}>
           {images.map((url, id) => <SwiperSlide>
               <img key={id} src={url} className="object-cover w-full h-[60vh] lg:h-[70vh]" />
             </SwiperSlide>)}

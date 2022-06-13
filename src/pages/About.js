@@ -32,7 +32,7 @@ export default function About() {
   }, [profilesDocs])
 
   const heroValues = {
-    imgUrl: "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/gallery%2Fabout.jpg?alt=media&token=e10843d1-9104-4264-8614-c7bfcd6fc8f2",
+    imgUrl: "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/other-images%2Fabout_hero.png?alt=media&token=ca1ac0e0-92ae-405a-aacc-6005e2828742",
     alt: '',
     currentPage: 'About',
     title: 'Dentego, groupe engagé pour la santé dentaire de tous !',

@@ -1101,8 +1101,8 @@ url{
   height: 768px;
 }
 
-.h-\[148px\]{
-  height: 148px;
+.h-\[96px\]{
+  height: 96px;
 }
 
 .h-\[65vh\]{
@@ -1111,14 +1111,6 @@ url{
 
 .h-\[100vh\]{
   height: 100vh;
-}
-
-.h-\[200px\]{
-  height: 200px;
-}
-
-.h-\[96px\]{
-  height: 96px;
 }
 
 .h-\[10rem\]{
@@ -1173,10 +1165,6 @@ url{
   height: 7char;
 }
 
-.h-\[340px\]{
-  height: 340px;
-}
-
 .h-10{
   height: 2.5rem;
 }
@@ -1197,20 +1185,48 @@ url{
   height: 1rem;
 }
 
-.h-\[220px\]{
-  height: 220px;
+.h-\[228px\]{
+  height: 228px;
 }
 
 .h-\[6rem\]{
   height: 6rem;
 }
 
-.h-\[800px\]{
-  height: 800px;
+.h-\[220px\]{
+  height: 220px;
 }
 
-.h-\[887px\]{
-  height: 887px;
+.h-\[232px\]{
+  height: 232px;
+}
+
+.h-\[234px\]{
+  height: 234px;
+}
+
+.h-\[236px\]{
+  height: 236px;
+}
+
+.h-\[242px\]{
+  height: 242px;
+}
+
+.h-\[238px\]{
+  height: 238px;
+}
+
+.h-\[99vh\]{
+  height: 99vh;
+}
+
+.h-\[95vh\]{
+  height: 95vh;
+}
+
+.h-\[95\%\]{
+  height: 95%;
 }
 
 .max-h-\[380px\]{
@@ -1237,8 +1253,8 @@ url{
   width: 4rem;
 }
 
-.w-\[1280px\]{
-  width: 1280px;
+.w-\[1365px\]{
+  width: 1365px;
 }
 
 .w-\[1400px\]{
@@ -1273,10 +1289,6 @@ url{
   width: 28rem;
 }
 
-.w-\[280px\]{
-  width: 280px;
-}
-
 .w-1{
   width: 0.25rem;
 }
@@ -1295,10 +1307,6 @@ url{
 
 .w-\[332px\]{
   width: 332px;
-}
-
-.w-\[1365px\]{
-  width: 1365px;
 }
 
 .min-w-\[22rem\]{
@@ -1572,16 +1580,12 @@ url{
   border-radius: 1rem;
 }
 
-.rounded-\[2rem\]{
-  border-radius: 2rem;
+.rounded-lg{
+  border-radius: 0.5rem;
 }
 
 .rounded{
   border-radius: 0.25rem;
-}
-
-.rounded-lg{
-  border-radius: 0.5rem;
 }
 
 .rounded-3xl{

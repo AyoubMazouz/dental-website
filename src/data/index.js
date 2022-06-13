@@ -8,7 +8,7 @@ export const getCities = (r) => {
 
 export const SERVICES_MD_URL = "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Ftext%2Findex.md?alt=media&token=0156b3fe-14ac-49cf-bb6a-e5875e53a9de"
 export const VIDEO_URL = ''
-export const US_IMG = "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/gallery%2Fus.jpg?alt=media&token=9a48de40-9c79-4dc4-8922-9562c8a1bb87"
+export const US_IMG = "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/other-images%2Fus.jpg?alt=media&token=a70dcfaf-e08a-4da3-a9a2-0723f0cd797b"
 export const SLIDESHOW_IMGS = [
     "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/slideshow%2F01.jpg?alt=media&token=cc95b09d-55ca-4681-9ef7-c540d4779771",
     "https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/slideshow%2F02.jpg?alt=media&token=0cb45d22-84a7-429b-94dd-a94591e93801",
