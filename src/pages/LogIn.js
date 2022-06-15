@@ -62,20 +62,36 @@ export default function SingUp() {
   }
 
   return (
-    <div className='w-full grid place-items-center h-[80vh] text-light'>
-      <form onSubmit={onSubmit} className='max-w-[520px] w-full flex flex-col items-center bg-primary rounded-xl py-[4rem] px-2 sm:px-4 md:px-8'>
-        <div className='py-8'><Logo /></div>
-        <h3 className='py-4'>Log In</h3>
+    <div className='w-full grid place-items-center h-[90vh]'>
+      <form onSubmit={onSubmit} className='max-w-[488px] w-full flex flex-col items-center bg-light rounded-xl py-[5rem] page-padding border-[3px] border-light-gray/30 shadow-lg'>
+        <Logo />
+        <h3 className='my-4'>Se Connecter</h3>
         {/* Error */}
-        {error && <h5 className='bg-red-500 rounded-xl py-4 px-4 w-full my-4'>{error}</h5>}
+        {
+          error && 
+          <h5 className='bg-red-500 rounded-xl py-4 px-4 w-full my-4'>
+            {error}
+          </h5>
+        }
         {/* Input Field */}
-        {formParams.map(params => (
-          <Input key={params.label} { ...params } { ...props } />
-        ))}
-        {/* Submit Button */}
-        <button disabled={loading} type='submit' className='rounded-full w-full px-6 py-2 text-center bg-secondary text-lg'>Sign Up</button>
-        <Link to='/reset_password'>Forgot your password?</Link>
-        <Link to='/signup'>Don't have an account?</Link>
+        {
+          formParams.map(params => (
+            <Input key={params.label} { ...params } { ...props } />
+          ))
+        }
+        <div className='w-full flex items-center justify-between font-semibold'>
+          <Link to="/signup" className='link'>
+            Cree Un Nouveau Compte
+          </Link>
+          {/* Submit Button */}
+          <button disabled={loading} type='submit' 
+            className='submit-btn'>
+            Suivant
+          </button>
+        </div>
+        <Link to='/reset_password' className='w-full text-left link'>
+          Forgot your password?
+        </Link>
       </form>
     </div>
   )

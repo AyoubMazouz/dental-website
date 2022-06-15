@@ -7,7 +7,6 @@ export default function useUserData(user) {
     const getData = () => getDoc(doc(db, 'users', user.uid))
 
     const createNewUser = (payload={
-        info: {
             fullName: '',
             phone: '',
             region: '',
@@ -15,9 +14,7 @@ export default function useUserData(user) {
             zip: '',
             address1: '',
             address2: '',
-        },
-        notifications: []
-    }) => setDoc(doc(db, 'users', user.uid), { info: payload, notification: [] })
+        }) => setDoc(doc(db, 'users', user.uid), { info: payload, notification: [] })
 
     const UpdateUserInfo = info => {
         updateDoc(doc(db, 'users', user.uid), {  info  } )

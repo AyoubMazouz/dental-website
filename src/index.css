@@ -52,13 +52,19 @@
     @apply absolute top-[50%] left-[1rem] translate-y-[-25%] 
       text-light-gray opacity-100; 
   }
-  .select-option { @apply px-12 bg-bluish-gray font-semibold text-primary lg:text-lg; }
-
-
+  .select-option { 
+    @apply px-12 bg-bluish-gray font-semibold text-primary lg:text-lg; 
+  }
   .footer-icon {
     @apply [&>svg]:p-2 [&>svg]:h-full [&>svg]:w-12 [&>svg]:transition-all 
       [&>svg]:duration-200 [&>svg]:rounded-lg [&>svg]:hover:translate-y-[-1rem] 
       text-white hover:scale-110
+  }
+  .link {
+    @apply text-light-blue hover:underline transition-all duration-300 font-semibold hover:opacity-75;
+  }
+  .submit-btn {
+    @apply rounded px-6 py-3 text-center bg-light-blue text-white hover:opacity-75;
   }
 }
 

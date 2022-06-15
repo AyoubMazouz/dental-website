@@ -2,20 +2,24 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 // Context Imports.
-import { useAuth } from '../contexts/AuthContext'
-// Hooks Imports.
-import useUserData from '../hooks/useUserData'
+import { useAuth } from '../../contexts/AuthContext'
+// Components Imports.
+import Profile from './Profile'
+import Notification from './Notification'
+import Alert from './Alert'
 // Icons Imports.
 import { FaYoutube, FaFacebookF, FaInstagram, FaLinkedinIn, 
     FaLocationArrow, FaTwitter, FaWhatsapp, FaTimes, FaBars, 
-    FaPhone, FaCartPlus, FaBell, FaAngleDown } from 'react-icons/fa'
-// Data Imports.
-import { links, socialLinks, info } from '../data'
-import { useAlert } from '../contexts/AlertContext'
+    FaPhone, FaCartPlus, FaAngleDown, FaShoppingCart } from 'react-icons/fa'
+import { CgProfile } from "react-icons/cg"
+    // Data Imports.
+import { links, socialLinks, info } from '../../data'
 
 
 
-const NavBarFull = ({ scrolling, getLogo, getIcons, getCart }) => {
+
+
+const NavBarFull = ({ currentUser, scrolling, getLogo, getIcons, getCart }) => {
     // Nav Links.
     const getLinks = (label, link, id) => {
         // Only one Link.
@@ -78,11 +82,22 @@ const NavBarFull = ({ scrolling, getLogo, getIcons, getCart }) => {
                                     return getLinks(label, link, id)
                                 })
                         }
-                        </div>
+                    </div>
                     <div className='flex items-center gap-x-6 text-xl'>
-                        {getCart()}
-                        <Notification />
-                        <Profile />
+                        {
+                            currentUser ? (<>
+                                <Link to="/cart">
+                                    <FaShoppingCart className="cursor-pointer text-2xl text-primary hover:text-light-blue transition-colors duration-300" />
+                                </Link>
+                                <Notification />
+                                <Profile /> 
+                            </>) : (
+                                <Link to="login" className='text-light-blue font-semibold border-[3px] border-light-blue rounded py-2 px-4 shadow-md hover:bg-light-blue hover:text-white hover:shadow-light-blue transition-all duration-300 flex gap-x-3'>
+                                    <CgProfile className='text-3xl' />
+                                    Se Connecter
+                                </Link>
+                            )
+                        }
                     </div>
                 </ul>
             </div>
@@ -91,7 +106,7 @@ const NavBarFull = ({ scrolling, getLogo, getIcons, getCart }) => {
     )
 }
 
-const NavBarSmall = ({ menuState, setMenuState, scrolling, getLogo, getIcons, getCart }) => {
+const NavBarSmall = ({ currentUser, menuState, setMenuState, scrolling, getLogo, getIcons, getCart }) => {
     const navigate = useNavigate()
     // Nav Links.
     const getLinks = () => {
@@ -114,9 +129,20 @@ const NavBarSmall = ({ menuState, setMenuState, scrolling, getLogo, getIcons, ge
                 <div className=''>{getLogo()}</div>
                 {!menuState && (
                     <div className='flex items-center gap-x-6 text-xl'>
-                        {getCart()}
-                        <Notification />
-                        <Profile />
+                        {
+                            currentUser ? (<>
+                                <Link to="/cart">
+                                    <FaShoppingCart className="cursor-pointer text-2xl text-primary hover:text-light-blue transition-colors duration-300" />
+                                </Link>
+                                <Notification />
+                                <Profile /> 
+                            </>) : (
+                                <Link to="login" className='text-light-blue font-semibold border-[3px] border-light-blue rounded py-2 px-4 shadow-md hover:bg-light-blue hover:text-white hover:shadow-light-blue transition-all duration-300 flex gap-x-3 text-base'>
+                                    <CgProfile className='text-2xl' />
+                                    Se Connecter
+                                </Link>
+                            )
+                        }
                     </div>
                 )}
             </div>
@@ -134,118 +160,9 @@ const NavBarSmall = ({ menuState, setMenuState, scrolling, getLogo, getIcons, ge
         </nav>
   )
 }
-
-const Profile = () => {
-    // Toggle Profile Menu.
-    const [ menuState, setMenuState ] = useState(false)
-    // Contexts.
-    const { currentUser, logOut } = useAuth()
-    const { setNotifications } = useUserData(currentUser)
-    const { setAlert } = useAlert()
-    const navigate = useNavigate()
-    // Close Profile Menu if you Click Anywhere on the Screen.
-    window.addEventListener('click', e => {
-        if (['profile', 'profileImg'].includes(e.target.id)) setMenuState(!menuState)
-        else setMenuState(false)
-    })
-    // Log Out.
-    const handleLogOut = async () => {
-        if (!currentUser) return 
-        try {
-            await logOut()
-            navigate('/login')
-            setAlert(['inform', 'Logged Out'])
-            setNotifications({ text: 'hello from the other side: YOU LOGGED OUT!!!', time: '', link: '' })
-
-        }
-        catch {
-            console.log('LOG OUT FAIL')
-        }
-    }
-    if (currentUser) return (
-        // Profile 
-        <div id='profile' className='h-[2.7rem] w-[2.7rem] relative'>
-            {/* Profile Image */}
-            <img id='profileImg' src="https://via.placeholder.com/100x100" alt="" 
-                className='w-full h-full object-cover rounded-full cursor-pointer' />
-            {menuState && (
-                <ul className='absolute z-50 top-[110%] right-0 w-[18rem] px-2 py-6 bg-light rounded-lg border-[1px] border-gray-200 flex flex-col gap-y-3'>
-                    <Link to='/profile' className='flex gap-4 border-b-[1px] border-gray-200 pb-3'>
-                        {/* Profile Image */}
-                        <img src="https://via.placeholder.com/100X100" alt="" className='object-cover h-12 w-12 rounded-full' />
-                        <div>
-                            {/* UserName */}
-                            <h5>{currentUser.displayName}</h5>
-                            {/* Email */}
-                            <h5 className='text-xs'>{currentUser.email}</h5>
-                        </div>
-                    </Link>
-                    {/* Log Out */}
-                    <li onClick={handleLogOut} className='cursor-pointer'>Log Out</li>
-                </ul>
-            )}
-        </div>
-    ) 
-    return (
-        // SignUp LogIn.
-        <Link to='/login' className='h-[2.7rem] w-[2.7rem] relative'>
-            {/* Profile Image */}
-            <img id='profileImg' src="https://via.placeholder.com/100x100" alt="" 
-                className='w-full h-full object-cover rounded-full cursor-pointer' />
-        </Link>
-    )
-}
-
-const Notification = () => {
-    // Contexts.
-    const { currentUser } = useAuth()
-    const { getNotifications } = useUserData(currentUser)
-    // Toggle Profile Menu.
-    const [ menuState, setMenuState ] = useState(false)
-    const [ notifications, setNotifications ] = useState([])
-    
-    useEffect(() => {
-        getNotifications(setNotifications)
-    }, [])
-
-    return (
-        <div className='relative'>
-            <FaBell onClick={() => setMenuState(!menuState)} className='cursor-pointer' />
-            {menuState && (
-                <ul className='absolute z-30 top-[160%] right-[-2rem] w-[26rem] px-4 py-6 border-[1px] border-primary bg-light cursor-pointer'>
-                    {notifications.map(notify => (
-                        <Link to={notify.link || ''}>
-                            <p>{notify.text}</p>
-                            <h5>{notify.date}</h5>
-                        </Link>
-                    ))}
-                </ul>  
-            )}
-        </div>
-    )
-}
-
-const Alert = () => {
-    // Alert Context.
-    const { alert, setAlert } = useAlert()
-    if (!alert) return null
-    const types = {
-        danger: 'bg-red-500',
-        warning: 'bg-yellow-500',
-        inform: 'bg-sky-500',
-        success: 'bg-emerald-500',
-    }
-    return (
-        <div className='relative z-20 w-full flex justify-center'>
-            <div className={`${types[alert[0]]} ${alert ? 'top-[2.2rem] lg:top-[.8rem]' : 'top-[-12rem]'} w-full max-w-[1840px] absolute py-6 px-4 transition-all duration-1000 flex justify-between rounded-xl`}>
-                <div>{alert[1]}</div>
-                <FaBars onClick={() => setAlert(false)} className='cursor-pointer' />
-            </div>
-        </div>
-    )
-}
-  
+ 
 export default function NavBar() {
+    const { currentUser } = useAuth()
     // Set Nav Width According to Scroll State. 
     const [scrolling, setScrolling] = useState(false)
     // Toggle Nav Menu.
@@ -290,6 +207,7 @@ export default function NavBar() {
     }
 
     const values = {
+        currentUser,
         menuState,
         setMenuState,
         scrolling,

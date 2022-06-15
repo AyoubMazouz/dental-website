@@ -15,7 +15,7 @@ const formParams = [
   { 
     type: 'text', 
     name: 'displayName', 
-    label: 'fullName',
+    label: 'UserName',
   },
   { 
     type: 'email', 
@@ -54,10 +54,9 @@ export default function SingUp() {
   useEffect(() => {
     if (currentUser) {
       createNewUser()
-      navigate('/personal-info')
+      navigate('/')
     }
   } , [currentUser])
-
 
   const props = {
     formValues,
@@ -68,8 +67,8 @@ export default function SingUp() {
   }
 
   return (
-    <div className='w-full grid place-items-center h-[80vh] text-light'>
-      <form className='max-w-[520px] w-full flex flex-col items-center bg-primary rounded-xl py-[4rem] px-2 sm:px-4 md:px-8'
+    <div className='w-full grid place-items-center h-[90vh]'>
+      <form className='max-w-[488px] w-full flex flex-col items-center bg-light rounded-xl py-[5rem] page-padding border-[3px] border-light-gray/30 shadow-lg'
         onSubmit={e => onSubmit(e, () => {
           try {
             signUp(formValues.email, formValues.password)
@@ -84,17 +83,29 @@ export default function SingUp() {
             setError(prev => ({ ...prev, ['formError']: 'Could Not Sign Up, try again.' }))
           }
         })}>
-        <div className='py-8'><Logo /></div>
-        <h3 className='py-4'>Sign Up</h3>
+        <Logo />
+        <h3 className='py-4'>Cree un nouveau compte</h3>
         {/* Error */}
-        {error.formError && <h5 className='bg-red-500 rounded-xl py-4 px-4 w-full my-4'>{error.formError}</h5>}
+        {
+          error.formError && 
+            <h5 className='bg-red-500 rounded-xl py-4 px-4 w-full my-4'>
+              {error.formError}
+            </h5>
+          }
         {/* Input Field */}
         {formParams.map(params => (
           <Input key={params.label} { ...params } { ...props } />
         ))}
-        {/* Submit Button */}
-        <button disabled={loading} type='submit' className='rounded-full w-full px-6 py-2 text-center bg-secondary text-lg'>Sign Up</button>
-        <Link to='/login'>Already have an account?</Link>
+        <div className='flex items-center justify-between w-full'>
+          <Link to='/login' className='link'>
+            Already have an account?
+          </Link>
+          {/* Submit Button */}
+          <button disabled={loading} type='submit' 
+            className='submit-btn'>
+              Sign Up
+          </button>
+        </div>
       </form>
     </div>
   )
