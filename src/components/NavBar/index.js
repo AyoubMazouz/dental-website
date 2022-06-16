@@ -1,23 +1,10 @@
 // React Imports.
-import { useEffect, useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useState } from 'react'
 // Context Imports.
 import { useAuth } from '../../contexts/AuthContext'
 // Components Imports.
-import Profile from './Profile'
-import Notification from './Notification'
-import Alert from './Alert'
-import Logo from '../Logo'
 import NavBarLg from './NavBarLg'
 import NavBarSm from './NavBarSm'
-// Icons Imports.
-import { FaYoutube, FaFacebookF, FaInstagram, FaLinkedinIn, 
-    FaLocationArrow, FaTwitter, FaWhatsapp, FaTimes, FaBars, 
-    FaPhone, FaCartPlus, FaAngleDown, FaShoppingCart } from 'react-icons/fa'
-import { CgProfile } from "react-icons/cg"
-    // Data Imports.
-import { links, socialLinks, info } from '../../data'
-
 
 
 

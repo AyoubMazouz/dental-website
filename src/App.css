@@ -1020,6 +1020,11 @@ url{
   margin-bottom: .8rem;
 }
 
+.my-6{
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .my-\[6rem\]{
   margin-top: 6rem;
   margin-bottom: 6rem;
@@ -1028,11 +1033,6 @@ url{
 .my-\[4rem\]{
   margin-top: 4rem;
   margin-bottom: 4rem;
-}
-
-.my-6{
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
 }
 
 .mb-\[2rem\]{
@@ -1071,12 +1071,8 @@ url{
   margin-top: 20vw;
 }
 
-.mb-\[4rem\]{
-  margin-bottom: 4rem;
-}
-
-.mb-\[-4rem\]{
-  margin-bottom: -4rem;
+.mb-\[-6rem\]{
+  margin-bottom: -6rem;
 }
 
 .mt-\[-8rem\]{
@@ -1103,16 +1099,8 @@ url{
   margin-top: 3rem;
 }
 
-.mb-\[-3rem\]{
-  margin-bottom: -3rem;
-}
-
-.mb-\[-5rem\]{
-  margin-bottom: -5rem;
-}
-
-.mb-\[-6rem\]{
-  margin-bottom: -6rem;
+.mb-\[4rem\]{
+  margin-bottom: 4rem;
 }
 
 .flex{
@@ -1269,6 +1257,26 @@ url{
 
 .h-\[220px\]{
   height: 220px;
+}
+
+.h-\[100px\]{
+  height: 100px;
+}
+
+.h-\[198px\]{
+  height: 198px;
+}
+
+.h-\[190px\]{
+  height: 190px;
+}
+
+.h-\[188px\]{
+  height: 188px;
+}
+
+.h-\[186px\]{
+  height: 186px;
 }
 
 .max-h-\[380px\]{
@@ -2600,11 +2608,6 @@ url{
 
   .lg\:gap-y-\[8rem\]{
     row-gap: 8rem;
-  }
-
-  .lg\:text-xl{
-    font-size: 1.25rem;
-    line-height: 1.75rem;
   }
 }
 

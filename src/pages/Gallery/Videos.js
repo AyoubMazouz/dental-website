@@ -43,16 +43,16 @@ export default function Videos() {
         typeof selected === 'number' && 
           <VideoModel currIndex={selected} docs={document} setSelected={setSelected} />
       }
-      {/* Image Gallery */}
+      {/* Videos Gallery */}
       <div className='grid justify-center my-[6rem]'>
         <div className='flex flex-wrap gap-4 justify-center max-w-[1800px] w-full'>
-          {/* Map trough the Array of Images and Only Display the Allowed Numnber of Images */}
+          {/* Map trough the Array of Videos urls and Only Display the Allowed Numnber of Videos */}
           {
             Object.entries(document)
               .map((doc, index) => index < elementsAtOnce ? ( 
               <div key={doc[0]} className='overflow-hidden rounded-lg'>
                 <img src={getThumbnail(doc[1])} alt={doc[0]} onClick={() => setSelected(index)}
-                  className='w-[332px] h-[220px] object-cover hover:scale-110 transition-transform duration-500 select-none'></img>
+                  className='w-[332px] h-[186px] object-cover hover:scale-110 transition-transform duration-500 select-none'></img>
               </div>
               ) : null)
           }
