@@ -6,6 +6,7 @@ import Input from '../components/Input'
 import Logo from '../components/Logo'
 // Context Imports.
 import { useAuth } from '../contexts/AuthContext'
+import { useAlert } from '../contexts/AlertContext'
 
 const formParams = [
   { 
@@ -24,6 +25,7 @@ const formParams = [
 
 export default function SingUp() {
   const { logIn, currentUser } = useAuth()
+  const { setAlert } = useAlert()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -41,6 +43,7 @@ export default function SingUp() {
     }
     catch (e) {
       setError('Could Not Log In')
+      setAlert(["danger", `Failed to log in!`])
     }
     setLoading(false)
   }
@@ -51,7 +54,10 @@ export default function SingUp() {
 
   // Redirect to Home page if Successfully Signed Up.
   useEffect(() => {
-    if (currentUser) navigate('/')
+    if (currentUser) {
+      navigate('/')
+      setAlert(["success", `Welcome Back ${currentUser.displayName}!`])
+    }
   } , [currentUser])
 
   const props = {

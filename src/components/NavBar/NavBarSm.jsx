@@ -89,7 +89,6 @@ export default function NavBarSmall ({ currentUser, menuState, setMenuState, scr
                     </ul>
                 )
             }
-            {!menuState && <Alert />}
         </nav>
   )
 }

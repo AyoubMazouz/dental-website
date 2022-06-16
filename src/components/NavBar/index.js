@@ -1,5 +1,7 @@
 // React Imports.
 import { useState } from 'react'
+// Components Imports.
+import Alert from './Alert'
 // Context Imports.
 import { useAuth } from '../../contexts/AuthContext'
 // Components Imports.
@@ -32,5 +34,6 @@ export default function NavBar() {
     return <div className={scrolling ? 'sticky top-0 z-20' : ''}>
         <NavBarLg {...values} />
         <NavBarSm {...values} />
+        <Alert />
     </div>
 }

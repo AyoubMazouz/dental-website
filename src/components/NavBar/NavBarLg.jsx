@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 // Components Imports.
 import Profile from './Profile'
 import Notification from './Notification'
-import Alert from './Alert'
 import Logo from '../Logo'
 // Icons Imports.
 import { FaYoutube, FaFacebookF, FaInstagram, FaLinkedinIn, 
@@ -123,7 +122,6 @@ export default function NavBarFull ({ currentUser, scrolling }) {
                     </div>
                 </ul>
             </div>
-            <Alert />
         </nav>
     )
 }

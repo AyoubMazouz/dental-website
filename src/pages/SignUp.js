@@ -54,6 +54,7 @@ export default function SingUp() {
   useEffect(() => {
     if (currentUser) {
       createNewUser()
+      setAlert(['success', 'Account Created successfully'])
       navigate('/')
     }
   } , [currentUser])

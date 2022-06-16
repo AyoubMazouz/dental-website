@@ -8,7 +8,14 @@ export function useAlert() {
 }
 
 export function AlertProvider({ children }) {
-    const [alert, setAlert] = useState([])
+    const [alert, setAlert] = useState(null)
+
+    useEffect(() => {
+        const unsubscribe = setTimeout(() => {
+            setAlert(null)
+        }, 10000)
+        return () => clearTimeout(unsubscribe)
+    }, [alert])
 
     const value = {
         alert,
