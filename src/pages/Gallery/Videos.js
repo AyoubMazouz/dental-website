@@ -48,11 +48,11 @@ export default function Videos() {
         <div className='flex flex-wrap gap-4 justify-center max-w-[1800px] w-full'>
           {/* Map trough the Array of Videos urls and Only Display the Allowed Numnber of Videos */}
           {
-            Object.entries(document)
+            document && Object.entries(document)
               .map((doc, index) => index < elementsAtOnce ? ( 
               <div key={doc[0]} className='overflow-hidden rounded-lg'>
                 <img src={getThumbnail(doc[1])} alt={doc[0]} onClick={() => setSelected(index)}
-                  className='w-[332px] h-[186px] object-cover hover:scale-110 transition-transform duration-500 select-none'></img>
+                  className='aspect-video w-[338px] object-cover hover:scale-110 transition-transform duration-500 select-none'></img>
               </div>
               ) : null)
           }

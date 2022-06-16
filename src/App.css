@@ -1279,6 +1279,14 @@ url{
   height: 186px;
 }
 
+.h-\[2200px\]{
+  height: 2200px;
+}
+
+.h-\[200px\]{
+  height: 200px;
+}
+
 .max-h-\[380px\]{
   max-height: 380px;
 }
@@ -1349,6 +1357,10 @@ url{
 
 .w-\[332px\]{
   width: 332px;
+}
+
+.w-\[338px\]{
+  width: 338px;
 }
 
 .min-w-\[22rem\]{

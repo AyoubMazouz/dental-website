@@ -12,19 +12,19 @@ export default function useAddVideoUrl () {
 	useEffect(() => {
 		// Get Videos Documents From DB.
 		getDoc(doc(db, "gallery", "videos"))
-			.then(snapshot => setDocument(snapshot.data()))
+			.then(snapshot => setDocument(snapshot.data() || {}))
 	}, [document])
 
 	const addVideo = url => {
 		if (!document) return
-		// Check if The link lead to Actual Video.
-		if (getVideoId(url)) {
-			// Add New Video.
-			document[getVideoId(url)] = url
-			setDoc(doc(db, "gallery", "videos"), document)
-			// Set The Docs to null To fetch them again to stay in sync with the db.
-			setDocument(null)
-		}
+		const videoId = getVideoId(url)
+		// Check if The link doesn't lead to an Actual Video.
+		if (!videoId) return 
+		// Add New Video.
+		document[videoId] = "https://youtube.com/embed/"+videoId
+		setDoc(doc(db, "gallery", "videos"), document)
+		// Set The Docs to null To fetch them again to stay in sync with the db.
+		setDocument(null)
 	}
 
 	const getVideoId = url => {
