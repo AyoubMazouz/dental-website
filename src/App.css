@@ -1146,8 +1146,8 @@ url{
   height: 5rem;
 }
 
-.h-\[768px\]{
-  height: 768px;
+.h-\[448px\]{
+  height: 448px;
 }
 
 .h-\[96px\]{
@@ -1234,6 +1234,10 @@ url{
   height: 2.7rem;
 }
 
+.h-\[3\.5rem\]{
+  height: 3.5rem;
+}
+
 .h-\[1rem\]{
   height: 1rem;
 }
@@ -1248,14 +1252,6 @@ url{
 
 .h-\[220px\]{
   height: 220px;
-}
-
-.h-\[396px\]{
-  height: 396px;
-}
-
-.h-\[448px\]{
-  height: 448px;
 }
 
 .max-h-\[380px\]{
@@ -1280,14 +1276,6 @@ url{
 
 .w-\[4rem\]{
   width: 4rem;
-}
-
-.w-\[1365px\]{
-  width: 1365px;
-}
-
-.w-\[1400px\]{
-  width: 1400px;
 }
 
 .w-\[99\.14vw\]{
@@ -1330,8 +1318,8 @@ url{
   width: 2.7rem;
 }
 
-.w-\[18rem\]{
-  width: 18rem;
+.w-\[20rem\]{
+  width: 20rem;
 }
 
 .w-\[332px\]{
@@ -1346,6 +1334,10 @@ url{
   min-width: 8rem;
 }
 
+.min-w-\[3\.5rem\]{
+  min-width: 3.5rem;
+}
+
 .max-w-\[1600px\]{
   max-width: 1600px;
 }
@@ -1356,6 +1348,10 @@ url{
 
 .max-w-\[22rem\]{
   max-width: 22rem;
+}
+
+.max-w-\[1400px\]{
+  max-width: 1400px;
 }
 
 .max-w-\[1800px\]{
@@ -1388,10 +1384,6 @@ url{
 
 .max-w-\[1920px\]{
   max-width: 1920px;
-}
-
-.max-w-\[1400px\]{
-  max-width: 1400px;
 }
 
 .translate-y-\[-25\%\]{
@@ -1610,6 +1602,10 @@ url{
   overflow: hidden;
 }
 
+.text-ellipsis{
+  text-overflow: ellipsis;
+}
+
 .rounded-xl{
   border-radius: 0.75rem;
 }
@@ -1662,10 +1658,6 @@ url{
   border-bottom-width: 3px;
 }
 
-.border-b-\[1px\]{
-  border-bottom-width: 1px;
-}
-
 .border-secondary{
   --tw-border-opacity: 1;
   border-color: rgb(254 133 115 / var(--tw-border-opacity));
@@ -1698,6 +1690,10 @@ url{
 .border-gray-200{
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
+}
+
+.border-light-gray\/20{
+  border-color: rgb(77 96 110 / 0.2);
 }
 
 .border-r-light{
@@ -1955,8 +1951,8 @@ url{
   padding-bottom: 0.5rem;
 }
 
-.pb-3{
-  padding-bottom: 0.75rem;
+.pb-4{
+  padding-bottom: 1rem;
 }
 
 .text-left{
@@ -2016,9 +2012,8 @@ url{
   line-height: 1.75rem;
 }
 
-.text-xs{
-  font-size: 0.75rem;
-  line-height: 1rem;
+.text-\[\.8rem\]{
+  font-size: .8rem;
 }
 
 .font-bold{
@@ -2549,12 +2544,12 @@ url{
     display: none;
   }
 
-  .lg\:h-\[70vh\]{
-    height: 70vh;
-  }
-
   .lg\:h-\[768px\]{
     height: 768px;
+  }
+
+  .lg\:h-\[70vh\]{
+    height: 70vh;
   }
 
   .lg\:w-\[18rem\]{

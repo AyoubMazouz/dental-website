@@ -19,7 +19,9 @@ export default function Profile () {
     const navigate = useNavigate()
     // Close Profile Menu if you Click Anywhere on the Screen.
     window.addEventListener('click', e => {
-        if (['profile', 'profileImg'].includes(e.target.id)) setMenuState(!menuState)
+        if (['profile', 'profile-avatar'].includes(e.target.id)){
+            setMenuState(prev => !prev)
+        }
         else setMenuState(false)
     })
     // Log Out.
@@ -36,36 +38,38 @@ export default function Profile () {
             console.log('LOG OUT FAIL')
         }
     }
-    if (currentUser) return (
+    return (
         // Profile 
         <div id='profile' className='h-[2.7rem] w-[2.7rem] relative'>
-            {/* Profile Image */}
-            <img id='profileImg' src="https://via.placeholder.com/100x100" alt="" 
-                className='w-full h-full object-cover rounded-full cursor-pointer' />
-            {menuState && (
-                <ul className='absolute z-50 top-[110%] right-0 w-[18rem] px-2 py-6 bg-light rounded-lg border-[1px] border-gray-200 flex flex-col gap-y-3'>
-                    <Link to='/profile' className='flex gap-4 border-b-[1px] border-gray-200 pb-3'>
-                        {/* Profile Image */}
-                        <img src="https://via.placeholder.com/100X100" alt="" className='object-cover h-12 w-12 rounded-full' />
-                        <div>
-                            {/* UserName */}
-                            <h5>{currentUser.displayName}</h5>
-                            {/* Email */}
-                            <h5 className='text-xs'>{currentUser.email}</h5>
-                        </div>
-                    </Link>
-                    {/* Log Out */}
-                    <li onClick={handleLogOut} className='cursor-pointer'>Log Out</li>
-                </ul>
-            )}
+            {/* Profile Avatar */}
+            <div id="profile-avatar" className='h-[2.7rem] w-[2.7rem] grid place-items-center bg-emerald-500 text-white rounded-full cursor-pointer select-none'>
+                {currentUser.displayName[0]}
+            </div>
+            {
+                menuState && (
+                    <ul className='absolute z-50 top-[110%] right-0 w-[20rem] px-4 py-6 bg-light rounded-lg border-[1px] border-gray-200 flex flex-col shadow-md'>
+                        <li className='flex gap-4 border-gray-200'>
+                            {/* Profile Avatar */}
+                            <div id="profile-avatar" className='h-[3.5rem] min-w-[3.5rem] grid place-items-center bg-emerald-500 text-white rounded-full select-none'>
+                                {currentUser.displayName[0]}
+                            </div>
+                            <div className='flex flex-col justify-around'>
+                                {/* Email */}
+                                <h5 className='text-ellipsis overflow-hidden w-[12rem] text-[.8rem]'>
+                                    {currentUser.email}
+                                </h5>
+                                {/* UserName */}
+                                <h5>{currentUser.displayName}</h5>
+                            </div>
+                        </li>
+                        <Link to="/profile" className='link text-base border-b-[3px] border-light-gray/20 pb-4 mt-2' >Manager votre compte</Link>
+                        {/* Log Out */}
+                        <li onClick={handleLogOut} className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-light-gray hover:text-primary font-bold pb-2 text-lg border-b-[3px] border-light-gray border-opacity-20 p-2 cursor-pointer'>
+                            Log Out
+                        </li>
+                    </ul>
+                )
+            }
         </div>
-    ) 
-    return (
-        // SignUp LogIn.
-        <Link to='/login' className='h-[2.7rem] w-[2.7rem] relative'>
-            {/* Profile Image */}
-            <img id='profileImg' src="https://via.placeholder.com/100x100" alt="" 
-                className='w-full h-full object-cover rounded-full cursor-pointer' />
-        </Link>
     )
 }

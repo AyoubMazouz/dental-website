@@ -22,9 +22,9 @@ export default function NavBarFull ({ currentUser, scrolling }) {
     const getLinks = (label, link, id) => {
         // Only one Link.
         if (typeof link.subLinks === 'undefined') return (
-            <li key={id}>
-                <Link to={link} className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[" "] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-primary hover:text-light-blue font-bold'>{label}</Link>
-            </li>
+            <Link key={id} to={link} className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-primary hover:text-light-blue font-bold'>
+                {label}
+            </Link>
         )
         // Link Contain more Links.
         else return (
