@@ -15,6 +15,7 @@ import { Video } from '../components/VideoModel'
 import useDocs from '../hooks/useDocs'
 // Icons Imports.
 import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin, FaTwitter, FaWhatsapp } from 'react-icons/fa'
+import { CgArrowLongRight } from 'react-icons/cg'
 // Data Imports.
 import { stats, info, ABOUT_HERO_IMG, VIDEO_URL } from '../data'
 
@@ -48,7 +49,7 @@ export default function About() {
         {/* Content */}
         <div className='flex flex-col items-center gap-y-[4rem] lg:gap-y-[8rem] py-[4rem] w-full bg-primary'>
           {/* Stats */}
-          <div className='max-w-[1600px] w-full flex-wrap flex gap-x-[2rem] gap-y-[1rem] justify-center items-start text-light'>
+          <div className='max-w-[1800px] w-full flex-wrap flex gap-x-[2rem] gap-y-[1rem] justify-center items-start text-light'>
             {
               stats.about.map((stat, id) => (
                 <Stats key={id} { ...stat } speed={3000} />
@@ -60,7 +61,7 @@ export default function About() {
         {/* About Us */}
         {
           primaryProfile && 
-            <div className='max-w-[1600px] w-full px-2 sm:px-4 md:px-8 mt-[20vw] lg:mt-0'>
+            <div className='max-w-[1800px] w-full px-2 sm:px-4 md:px-8 mt-[20vw] lg:mt-0'>
             <div className='w-full grid lg:grid-cols-2 gap-[2rem] lg:gap-[6rem]'>
               {/* Image */}
               <img src={primaryProfile.imgUrl} alt="" className='object-cover aspect-video w-full rounded-2xl' />
@@ -114,27 +115,42 @@ export default function About() {
         {/* Team */}
         {
           profilesDocs?.length > 1 && 
-          <div className='max-w-[1600px] w-full px-2 sm:px-4 md:px-8'>
-            <h1 className='--header mb-[4rem]'>Notre Equipe</h1>
-            <div className='w-full flex flex-wrap justify-around gap-4'>
-              {profilesDocs.map(profile => <AboutCard { ...profile } />)}
+            <div className='max-w-[1800px] w-full px-2 sm:px-4 md:px-8'>
+              <h1 className='font-bold text-primary w-full max-w-[1800px] my-6'>
+                Notre Equipe
+              </h1>
+              <div className='w-full flex flex-wrap justify-around gap-4'>
+                {profilesDocs.map(profile => <AboutCard { ...profile } />)}
+              </div>
             </div>
-          </div>
         }
 
         {
           VIDEO_URL && 
-            <div className='max-w-[1600px] w-full rounded-xl overflow-hidden px-2 sm:px-4 md:px-8'>
+            <div className='max-w-[1800px] w-full rounded-xl overflow-hidden px-2 sm:px-4 md:px-8'>
               <Video url={VIDEO_URL} />
             </div>
         }
         
-        {/* Reviews */}
-        <h1 className='--header max-w-[1600px] w-full mb-[-4rem]'>Reviews</h1>
+        {/* Reviews */} 
+        <h1 className='font-bold text-primary w-full max-w-[1800px] mb-[-6rem]'>
+          Reviews
+        </h1>
         <Reviews reviews={reviewsDocs} />
 
         {/* Gallery */}
-        <div className='max-w-[1600px] w-full rounded-xl overflow-hidden mx-2 px-2 sm:px-4 md:px-8'><Gallery /></div>
+        <div className='max-w-[1800px] w-full page-padding'>
+          <div className='flex justify-between'>
+            <h1 className='font-bold text-primary w-full my-6'>
+              Gallery
+            </h1>
+              <Link to='/gallery' className='link font-bold py-3 flex items-center gap-x-2'>
+                <p>More</p>
+                <CgArrowLongRight className='text-light-blue text-3xl' />
+              </Link>
+          </div>
+          <div className='rounded-xl overflow-hidden page-padding'><Gallery /></div>
+        </div>
 
         {/* Contact */}
         <ContactForm />

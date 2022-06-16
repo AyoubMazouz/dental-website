@@ -19,10 +19,12 @@ export default function Profile () {
     const navigate = useNavigate()
     // Close Profile Menu if you Click Anywhere on the Screen.
     window.addEventListener('click', e => {
-        if (['profile', 'profile-avatar'].includes(e.target.id)){
+        if (['profile', 'profile-avatar'].includes(e.target.id)) {
             setMenuState(prev => !prev)
         }
-        else setMenuState(false)
+        else if (menuState && !['profile', 'profile-avatar'].includes(e.target.id)) {
+            setMenuState(false)
+        }
     })
     // Log Out.
     const handleLogOut = async () => {

@@ -5,7 +5,6 @@ import SlideShow from '../components/SlideShow'
 import ServicesSlider from '../components/ServicesSlider'
 import GoogleMaps from '../components/GoogleMaps'
 import ContactForm from '../components/ContactForm'
-import Slider from '../components/Slider'
 import Stats from '../components/Stats'
 import Gallery from '../components/Gallery'
 // Hooks Imports.
@@ -13,11 +12,9 @@ import useDocs from '../hooks/useDocs'
 // Icons Imports.
 import { CgArrowLongRight } from 'react-icons/cg'
 // Data Imports.
-import { servicesData, stats, US_IMG, SLIDESHOW_IMGS } from '../data' 
+import { servicesData, stats, US_IMG, SLIDESHOW_IMGS, info } from '../data' 
 
 export default function Home() {
-
-  const { docs } = useDocs("before_and_after")
 
   return (
     <div className='flex gap-y-[6rem] lg:gap-y-[8rem] flex-col items-center text-light-gray bg-light overflow-hidden'>
@@ -69,17 +66,17 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Before & After */}
+      {/* Gallery */}
       <div className='max-w-[1800px] w-full page-padding'>
         <div className='flex justify-between'>
-          <h2 className='font-bold text-primary w-full capitalize leading-10'>
+          <h1 className='font-bold text-primary w-full my-6'>
             Gallery
-          </h2>
-            <Link to='/gallery' className='text-light-blue font-bold py-3 flex items-center gap-x-2 hover:underline hover:opacity-75 text-lg lg:text-xl'>
-              More<CgArrowLongRight className='text-light-blue text-3xl' />
-            </Link>
+          </h1>
+          <Link to='/gallery' className='link font-bold py-3 flex items-center gap-x-2'>
+            <p>More</p>
+            <CgArrowLongRight className='text-light-blue text-3xl' />
+          </Link>
         </div>
-          {/* Gallery */}
         <div className='rounded-xl overflow-hidden page-padding'><Gallery /></div>
       </div>
 
@@ -89,9 +86,8 @@ export default function Home() {
 
       {/* Contact */}
       <div className='text-light w-full'><ContactForm /></div>
-
       {/* GooGle Maps */}
-      {/* <div className='w-full h-[480px] mt-[-8rem]'><GoogleMaps location={info.location} /></div> */}
+      <div className='w-full h-[480px] mt-[-8rem]'><GoogleMaps location={info.location} /></div>
     </div>
   )
 }
