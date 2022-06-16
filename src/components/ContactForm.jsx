@@ -107,7 +107,7 @@ const Form = () => {
             ))
         }
         {/* Submit btn */}
-        <button disabled={loading} type="submit" className="h-[3.4rem] w-full col-span-2 bg-secondary hover:opacity-75 rounded-full transition-all duration-300 font-semibold text-light text-3xl">
+        <button disabled={loading} type="submit" className="submit-btn text-lg lg:text-2xl h-[3.4rem] w-full col-span-2 bg-secondary">
             Send
         </button>
     </form>
@@ -149,11 +149,18 @@ const Details = () => {
 export default function ContactForm() {
     return (
         <div id='contact' className='w-full bg-primary flex flex-col justify-center items-center py-[4rem] px-2 sm:px-4 md:px-8'>
-            <div className='max-w-[1600px] grid gap-[2rem] lg:gap-x-[6rem] gap-y-[4rem] grid-cols-2 lg:grid-cols-4'>
+            <div className='max-w-[1800px] grid gap-[2rem] lg:gap-x-[6rem] gap-y-[4rem] grid-cols-2 lg:grid-cols-4'>
                 {/* Header */}
-                <h1 className='col-span-full text-light border-r-2 border-r-light'>Contact</h1>
+                <h1 className='col-span-full text-light border-r-2 border-r-light'>
+                    Contact
+                </h1>
                 {/* Form & Details */}
-                <div className='col-span-2'><Form /></div><div className='col-span-2'><Details /></div>
+                <div className='col-span-2'>
+                    <Form />
+                </div>
+                <div className='col-span-2'>
+                    <Details />
+                </div>
             </div>
         </div>
     )

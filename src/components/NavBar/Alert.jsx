@@ -14,7 +14,7 @@ export default function Alert () {
     }
     return alert && (
         <div className='relative z-20 w-full flex justify-center'>
-            <div className={`${types[alert[0]][0]} top-[2.2rem] lg:top-[.8rem] w-full max-w-[1840px] absolute p-4 lg:px-8 flex text-white justify-between items-center rounded`}>
+            <div className={`${types[alert[0]][0]} top-[2.2rem] lg:top-[.8rem] w-full max-w-[1840px] absolute p-4 lg:px-8 flex text-white justify-between items-center rounded shadow-lg`}>
                 <div className="grid place-items-center">
                     {types[alert[0]][1]}
                 </div>

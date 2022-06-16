@@ -35,13 +35,13 @@ export default function Input({
             <textarea maxLength='500' {...{ type, name, label, required }} onFocus={() => setOnFocus(true)} 
                 onBlur={() => setOnFocus(false)} onChange={handleChange}
                 className={`input h-[10rem] ${inputStyles} ${error[name] && formValues[name].trim()
-                    ? 'border-red-500' : 'border-light-gray'}`}></textarea>
+                    ? 'ring-red-500' : 'ring-light-gray/25'}`}></textarea>
         )
         if (type === 'select') return (
             <select name={name} value={formValues[name]} onFocus={() => setOnFocus(true)} onBlur={() => setOnFocus(false)}
                 onChange={handleChange}
                 className={`input h-[3rem] ${inputStyles} ${error[name] && formValues[name].trim()
-                    ? 'border-red-500' : 'border-light-gray'}`}>
+                    ? 'ring-red-500' : 'ring-light-gray/25'}`}>
                 {options.map(option => (
                     <option value={option[0]} className='--select-option'>{option[1]}</option>
                 ))}
@@ -51,7 +51,7 @@ export default function Input({
             <input {...{ type, name, label, required }} value={formValues[name]} onChange={handleChange} 
                 onFocus={ () => setOnFocus(true) } onBlur={ () => setOnFocus(false) } 
                 className={`input h-[3rem] ${inputStyles} ${error[name] && formValues[name].trim()
-                    ? 'border-red-500' : 'border-light-gray'}`} />
+                    ? 'ring-red-500' : 'ring-light-gray/25'}`} />
         )
     }
     const getValidationMessage = () => {
@@ -83,7 +83,7 @@ export default function Input({
         else if (name === 'zip') return (
             <MdMail className='--form-icon top-[3rem]' />
         )
-        else if (['fullName', 'userName'].includes(name)) return (
+        else if (['fullName', 'userName', "displayName"].includes(name)) return (
             <MdPerson className='form-icon' />
         )
         else if (['password', 'confirmPassword'].includes(name)) return (
@@ -106,10 +106,14 @@ export default function Input({
             </label>
             {getInputField()}
             {getIcon()}
-            <MdDangerous onClick={() => {
-                setFormValues({ ...formValues, [name]: '' })
-                setError({ ...error, [name]: '' })
-            }} className='absolute top-[50%] right-[1rem] translate-y-[-25%] cursor-pointer text-primary' />
+            {
+                formValues[name]?.length > 0 && (
+                    <MdDangerous onClick={() => {
+                        setFormValues({ ...formValues, [name]: '' })
+                        setError({ ...error, [name]: '' })
+                    }} className='absolute top-[50%] right-[1rem] translate-y-[-25%] cursor-pointer text-primary' />
+                )
+            }
             {getValidationMessage()}
         </div>
     )

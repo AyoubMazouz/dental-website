@@ -1,9 +1,14 @@
 import { useState } from 'react'
+// Context Imports.
+import { useAlert } from '../contexts/AlertContext'
+
 
 export default function useFom(form) {
 
+    // Alert Context.
+    const { setAlert } = useAlert()
     const [formValues, setFormValues] = useState(form)
-    const [error, setError] = useState({...form, formError: ''})
+    const [error, setError] = useState({ ...form })
     // To Disable Sign Up Button While Waiting for a response.
     const [loading, setLoading] = useState(false)
 
@@ -17,9 +22,9 @@ export default function useFom(form) {
         setLoading(true)
         if (!valid(formValues, setError)) {
             setLoading(false)
-            return setError({ ...error, formError: Object.values(error).filter(e => e.length > 0) })
+            return setAlert([ "danger", Object.values(error).filter(e => e.length > 0) ])
         }
-        setError({ ...error, formError: '' })
+        setAlert(null)
         await func()
         setLoading(false)
       }
@@ -42,10 +47,9 @@ export const validateEmail = (email, setError=()=>'') => {
 }
 // Password.
 export const validatePassword = (password, setError=()=>'') => {
-    return true
     // Check Length.
-    if (password.length < 8) {
-        setError(error => ({ ...error, password: 'Password must be at least 8 characters long!' }))
+    if (password.length < 6) {
+        setError(error => ({ ...error, password: 'Password must be at least 6 characters long!' }))
         return false
     }
     // Check if Contains LowerCase Letters.
@@ -78,7 +82,6 @@ export const validateConfirmPassword = (password, confirmPassword, setError=()=>
 }
 // Phone.
 export const validatePhone = (phone, setError=()=>'') => {
-    return true
     const regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
     if (regex.test(phone.trim())) {
         setError(error => ({ ...error, phone: '' }))
@@ -109,7 +112,6 @@ export const validateUserName = (userName, setError=()=>'') => {
 }
 // Zip.
 export const validateZip = (zip, setError=()=>'') => {
-    return true
     // Check if is type of Number.
     if (isNaN(zip)) {
         setError(error => ({ ...error, zip: 'Zip code must be numbers.' } ))

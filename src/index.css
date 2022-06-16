@@ -44,8 +44,8 @@
       group-hover:text-light; 
   }
   .input { 
-    @apply focus:outline-none pl-[2.7rem] py-2 font-semibold border-[1px]
-      focus:border-emerald-500 resize-none transition-all duration-300 
+    @apply focus:outline-none pl-[2.7rem] py-2 font-semibold ring-2
+      focus:ring-emerald-500 resize-none transition-all duration-300 
       rounded-lg text-primary; 
   }
   .form-icon { 
@@ -64,10 +64,10 @@
     @apply text-light-blue hover:underline transition-all duration-300 font-semibold hover:opacity-75;
   }
   .submit-btn {
-    @apply rounded px-6 py-3 text-center bg-light-blue text-white hover:opacity-75;
+    @apply rounded px-6 py-3 text-center bg-light-blue text-white font-semibold hover:opacity-75 transition-all duration-300 disabled:opacity-50 disabled:cursor-wait;
   }
   .nav-bar-icons-sm {
-    @apply w-14 h-14 py-3 text-white hover:scale-110 hover:opacity-75 rounded-full transition-all duration-500 cursor-pointer;
+    @apply w-14 h-14 py-3 text-white hover:scale-110 hover:opacity-75 rounded-full transition-all duration-500;
   }
 }
 
