@@ -7,6 +7,6 @@ import LogIn from '../pages/LogIn'
 
 
 export default function PrivateRoute() {
-    const { currentUser } = useAuth()
-    return currentUser ? <Outlet /> : <LogIn />
+	const { currentUser } = useAuth()
+	return currentUser ? <Outlet /> : <LogIn />
 }

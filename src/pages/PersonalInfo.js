@@ -13,42 +13,42 @@ import useUserData from '../hooks/useUserData'
 import { getRegions, getCities } from '../data'
 
 const formParams = [
-  { 
-    type: 'text', 
-    name: 'fullName', 
+  {
+    type: 'text',
+    name: 'fullName',
     label: 'fullName',
   },
-  { 
-    type: 'tel', 
-    name: 'phone', 
+  {
+    type: 'tel',
+    name: 'phone',
     label: 'Phone',
   },
-  { 
-    type: 'select', 
-    name: 'region', 
+  {
+    type: 'select',
+    name: 'region',
     label: 'Region',
     options: getRegions
   },
-  { 
-    type: 'select', 
-    name: 'city', 
+  {
+    type: 'select',
+    name: 'city',
     label: 'city',
     options: []
   },
-  { 
-    type: 'text', 
-    name: 'zip', 
-    label: 'zip', 
+  {
+    type: 'text',
+    name: 'zip',
+    label: 'zip',
   },
-  { 
-    type: 'text', 
-    name: 'address1', 
+  {
+    type: 'text',
+    name: 'address1',
     label: 'address1',
   },
-  { 
-    type: 'text', 
-    name: 'address2', 
-    label: 'address2', 
+  {
+    type: 'text',
+    name: 'address2',
+    label: 'address2',
   },
 ]
 
@@ -71,9 +71,9 @@ export default function PersonalInfo() {
   useEffect(() => {
     if (!formValues.region) return
     formParams.forEach(params => {
-        if (params?.name === 'city') {
-            params.options = getCities(formValues.region)
-        }
+      if (params?.name === 'city') {
+        params.options = getCities(formValues.region)
+      }
     })
   }, [formValues.region])
 
@@ -88,7 +88,7 @@ export default function PersonalInfo() {
   return (
     <div className='w-full grid place-items-center text-light'>
       <form className='max-w-[520px] w-full flex flex-col items-center bg-primary rounded-xl py-[4rem] px-2 sm:px-4 md:px-8'
-        onSubmit={e => onSubmit(e,() => {
+        onSubmit={e => onSubmit(e, () => {
           UpdateUserInfo(formValues)
           navigate('/')
         })}>
@@ -99,7 +99,7 @@ export default function PersonalInfo() {
         {error.formError && <h5 className='bg-red-500 rounded-xl py-4 px-4 w-full my-4'>{error.formError}</h5>}
         {/* Input Field */}
         {formParams.map(params => (
-          <Input key={params.label} { ...params } { ...props } />
+          <Input key={params.label} {...params} {...props} />
         ))}
         {/* Submit Button */}
         <button disabled={loading} type='submit' className='rounded-full w-full px-6 py-2 text-center bg-secondary text-lg'>Complete</button>

@@ -9,22 +9,22 @@ import { useAuth } from '../contexts/AuthContext'
 import { useAlert } from '../contexts/AlertContext'
 
 const formParams = [
-  { 
-    type: 'email', 
-    name: 'email', 
+  {
+    type: 'email',
+    name: 'email',
     label: 'Email',
-    required: true, 
+    required: true,
   },
-  { 
-    type: 'password', 
-    name: 'password', 
+  {
+    type: 'password',
+    name: 'password',
     label: 'Password',
-    required: true, 
+    required: true,
   },
 ]
 const alerts = {
-  "auth/wrong-password" : ["danger", "Failed to login, password is wrong!"],
-  "auth/user-not-found" : ["warning", "Failed to login, user not found!"],
+  "auth/wrong-password": ["danger", "Failed to login, password is wrong!"],
+  "auth/user-not-found": ["warning", "Failed to login, user not found!"],
 }
 
 export default function SingUp() {
@@ -59,7 +59,7 @@ export default function SingUp() {
   // Redirect to Home page if Successfully Signed Up.
   // useEffect(() => {
   //   if (currentUser) {
-      
+
   //   }
   // } , [currentUser])
 
@@ -77,7 +77,7 @@ export default function SingUp() {
         {/* Input Field */}
         {
           formParams.map(params => (
-            <Input key={params.label} { ...params } { ...props } />
+            <Input key={params.label} {...params} {...props} />
           ))
         }
         <div className='w-full flex items-center justify-between font-semibold'>
@@ -85,7 +85,7 @@ export default function SingUp() {
             Cree Un Nouveau Compte
           </Link>
           {/* Submit Button */}
-          <button disabled={loading} type='submit' 
+          <button disabled={loading} type='submit'
             className='submit-btn'>
             Suivant
           </button>

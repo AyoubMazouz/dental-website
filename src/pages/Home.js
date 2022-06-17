@@ -12,7 +12,7 @@ import useDocs from '../hooks/useDocs'
 // Icons Imports.
 import { CgArrowLongRight } from 'react-icons/cg'
 // Data Imports.
-import { servicesData, stats, US_IMG, SLIDESHOW_IMGS, info } from '../data' 
+import { servicesData, stats, US_IMG, SLIDESHOW_IMGS, info } from '../data'
 
 export default function Home() {
 
@@ -23,7 +23,7 @@ export default function Home() {
 
       {/* Stats */}
       <div className='max-w-[1800px] w-full mt-[-5rem] flex-wrap flex gap-x-[2rem] gap-y-[1rem] justify-center items-start text-primary'>
-        {stats.home.map((stat, id) => <Stats key={id} { ...stat } speed={3000} />)}
+        {stats.home.map((stat, id) => <Stats key={id} {...stat} speed={3000} />)}
       </div>
 
       {/* Services */}
@@ -51,18 +51,18 @@ export default function Home() {
       <div className='max-w-[1800px] w-full grid lg:grid-cols-2 lg:gap-x-[6rem] gap-y-[2rem] page-padding'>
         <img src={US_IMG} alt="" className='object-cover aspect-[8/5] w-full h-full rounded-xl' />
         <div className='flex flex-col justify-around'>
-            <h2 className='text-primary my-4'>
-              Dentego, groupe engagé pour la santé dentaire de tous!
-            </h2>
+          <h2 className='text-primary my-4'>
+            Dentego, groupe engagé pour la santé dentaire de tous!
+          </h2>
+          <p>
             <p>
-              <p>
-                <b>Présentation du Groupe Dentego est une enseigne créée en 2013.</b> Fruit de compétences et de valeurs partagées par ses fondateurs, 
-                  <b>Dentego a à cœur</b> de promouvoir la santé bucco-dentaire accessible pour tous. <b>Dentego garantit</b> des traitements les plus adaptés aux besoins des patients, prodigués par le <b>dentiste de leur choix qui les accompagne tout au […]</b>
-              </p>
-              <Link to='/about' className='text-light-blue font-bold py-3 flex items-center gap-x-2 hover:underline hover:opacity-75'>
-                About Us<CgArrowLongRight className='text-light-blue text-3xl' />
-              </Link>
+              <b>Présentation du Groupe Dentego est une enseigne créée en 2013.</b> Fruit de compétences et de valeurs partagées par ses fondateurs,
+              <b>Dentego a à cœur</b> de promouvoir la santé bucco-dentaire accessible pour tous. <b>Dentego garantit</b> des traitements les plus adaptés aux besoins des patients, prodigués par le <b>dentiste de leur choix qui les accompagne tout au […]</b>
             </p>
+            <Link to='/about' className='text-light-blue font-bold py-3 flex items-center gap-x-2 hover:underline hover:opacity-75'>
+              About Us<CgArrowLongRight className='text-light-blue text-3xl' />
+            </Link>
+          </p>
         </div>
       </div>
 
@@ -80,8 +80,8 @@ export default function Home() {
         <div className='rounded-xl overflow-hidden page-padding'><Gallery /></div>
       </div>
 
-      
-      
+
+
       {/* Blog */}
 
       {/* Contact */}

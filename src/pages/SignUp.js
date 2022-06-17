@@ -12,32 +12,32 @@ import useForm from '../hooks/useFom'
 import useUserData from '../hooks/useUserData'
 
 const formParams = [
-  { 
-    type: 'text', 
-    name: 'displayName', 
+  {
+    type: 'text',
+    name: 'displayName',
     label: 'UserName',
   },
-  { 
-    type: 'email', 
-    name: 'email', 
+  {
+    type: 'email',
+    name: 'email',
     label: 'Email',
-    required: true, 
+    required: true,
   },
-  { 
-    type: 'password', 
-    name: 'password', 
+  {
+    type: 'password',
+    name: 'password',
     label: 'Password',
-    required: true, 
+    required: true,
   },
-  { 
-    type: 'password', 
-    name: 'confirmPassword', 
+  {
+    type: 'password',
+    name: 'confirmPassword',
     label: 'Confirm Password',
-    required: true, 
+    required: true,
   },
 ]
 const alerts = {
-  "auth/email-already-in-use" : ["warning", "Email already in use."],
+  "auth/email-already-in-use": ["warning", "Email already in use."],
 }
 
 export default function SingUp() {
@@ -63,18 +63,18 @@ export default function SingUp() {
 
   const onSubmitForm = e => {
     onSubmit(e, () => {
-        signUp(formValues.email, formValues.password)
-          .then(response => { 
-            updateProfile(response.user, { displayName: formValues.displayName })
-            createNewUser(response.user.uid)
-            setAlert(['success', 'Account created successfully'])
-            navigate('/')
-          })
-          .catch(error => {
-            setAlert(alerts[error.code] || ["warning", "something went wrong, try again!"])
-            console.log(error)
-          })
-      }
+      signUp(formValues.email, formValues.password)
+        .then(response => {
+          updateProfile(response.user, { displayName: formValues.displayName })
+          createNewUser(response.user.uid)
+          setAlert(['success', 'Account created successfully'])
+          navigate('/')
+        })
+        .catch(error => {
+          setAlert(alerts[error.code] || ["warning", "something went wrong, try again!"])
+          console.log(error)
+        })
+    }
     )
   }
 
@@ -88,16 +88,16 @@ export default function SingUp() {
         </h3>
         {/* Input Field */}
         {formParams.map(params => (
-          <Input key={params.label} { ...params } { ...props } />
+          <Input key={params.label} {...params} {...props} />
         ))}
         <div className='flex items-center justify-between w-full'>
           <Link to='/login' className='link'>
             Already have an account?
           </Link>
           {/* Submit Button */}
-          <button disabled={loading} type='submit' 
+          <button disabled={loading} type='submit'
             className='submit-btn'>
-              Sign Up
+            Sign Up
           </button>
         </div>
       </form>

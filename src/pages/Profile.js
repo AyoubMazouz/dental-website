@@ -39,15 +39,15 @@ const formParams = [
     },
     // Region.
     {
-        type: 'select', 
-        name: 'region', 
+        type: 'select',
+        name: 'region',
         label: 'Region',
         options: getRegions
     },
     // City.
-    { 
-        type: 'select', 
-        name: 'city', 
+    {
+        type: 'select',
+        name: 'city',
         label: 'city',
         options: []
     },
@@ -82,7 +82,7 @@ export default function Profile() {
     }, [])
 
     // Update Second Select List.
-    useEffect(() => { 
+    useEffect(() => {
         if (!formValues.region) return
         formParams.forEach(params => {
             if (params?.name === 'city') {
@@ -97,7 +97,7 @@ export default function Profile() {
         handleChange,
         error,
         setError,
-      }
+    }
 
     return (
         <div className='flex justify-center'>
@@ -116,7 +116,7 @@ export default function Profile() {
                     <div className='mb-12 flex gap-x-12'>
                         <img src={currentUser.photoUrl} alt="" className='w-[12rem] h-[12rem] object-cover rounded-full' />
                         <div><h4>{currentUser.displayName}</h4>
-                        <h5>{currentUser.email}</h5></div>
+                            <h5>{currentUser.email}</h5></div>
                     </div>
                     {/* Edit Button */}
                     <div>
@@ -128,7 +128,7 @@ export default function Profile() {
                 {error.formError && <h5 className='bg-red-500 rounded-xl py-4 px-4 w-full my-4'>{error.formError}</h5>}
                 <div className='space-y-3'>
                     {formParams.map(params => (
-                        <Input key={params.label} { ...params } { ...props } />
+                        <Input key={params.label} {...params} {...props} />
                     ))}
                 </div>
             </form>

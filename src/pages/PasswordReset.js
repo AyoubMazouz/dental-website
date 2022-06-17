@@ -9,11 +9,11 @@ import { useAuth } from '../contexts/AuthContext'
 import useForm from '../hooks/useFom'
 
 const formParams = [
-  { 
-    type: 'email', 
-    name: 'email', 
+  {
+    type: 'email',
+    name: 'email',
     label: 'Email',
-    required: true, 
+    required: true,
   },
 ]
 

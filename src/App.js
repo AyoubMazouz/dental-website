@@ -28,40 +28,40 @@ import { AlertProvider } from './contexts/AlertContext'
 
 const App = () => {
   return (
-  <Router>
-    <AuthProvider>
-      <AlertProvider>
-        {/* NavBar */}
-        <NavBar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/services' element={<Services />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/blog' element={<Blog />} />
-          {/* Authentication */}
-          <Route path='/signup' element={<SignUp />} />
-          <Route path='/login' element={<LogIn />} />
-          <Route path='/reset_password' element={<PasswordReset />} />
-          {/* Services */}
-          <Route path='/services' element={<Services />} />
-          <Route path='/services/:serviceName' element={<Service />} />
-          {/* Gallery */}
-          <Route path='/gallery' element={<Gallery />} />
-          <Route path='/gallery/:mediaPage' element={<Gallery />} />
-          {/* Private Routes */}
-          <Route element={<PrivateRoute />}>
-            <Route path='/personal-info' element={<PersonalInfo />} />
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/admin' element={<Admin />} />
-            <Route path='/admin/:setting' element={<Admin />} />
-          </Route>
-          {/* 404 Page */}
-          <Route path='*' element={<Page404 />} />
-        </Routes>
-        <Footer />
-      </AlertProvider>
-    </AuthProvider>
+    <Router>
+      <AuthProvider>
+        <AlertProvider>
+          {/* NavBar */}
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/services' element={<Services />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/blog' element={<Blog />} />
+            {/* Authentication */}
+            <Route path='/signup' element={<SignUp />} />
+            <Route path='/login' element={<LogIn />} />
+            <Route path='/reset_password' element={<PasswordReset />} />
+            {/* Services */}
+            <Route path='/services' element={<Services />} />
+            <Route path='/services/:serviceName' element={<Service />} />
+            {/* Gallery */}
+            <Route path='/gallery' element={<Gallery />} />
+            <Route path='/gallery/:mediaPage' element={<Gallery />} />
+            {/* Private Routes */}
+            <Route element={<PrivateRoute />}>
+              <Route path='/personal-info' element={<PersonalInfo />} />
+              <Route path='/profile' element={<Profile />} />
+              <Route path='/admin' element={<Admin />} />
+              <Route path='/admin/:setting' element={<Admin />} />
+            </Route>
+            {/* 404 Page */}
+            <Route path='*' element={<Page404 />} />
+          </Routes>
+          <Footer />
+        </AlertProvider>
+      </AuthProvider>
     </Router>
   );
 }
