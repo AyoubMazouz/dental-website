@@ -22,13 +22,16 @@ const formParams = [
     required: true, 
   },
 ]
+const alerts = {
+  "auth/wrong-password" : ["danger", "Failed to login, password is wrong!"],
+  "auth/user-not-found" : ["warning", "Failed to login, user not found!"],
+}
 
 export default function SingUp() {
-  const { logIn, currentUser } = useAuth()
+  const { logIn } = useAuth()
   const { setAlert } = useAlert()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
   const [formValues, setFormValues] = useState({
     email: '',
     password: '',
@@ -37,14 +40,15 @@ export default function SingUp() {
   const onSubmit = async e => {
     e.preventDefault()
     setLoading(true)
-    try {
-      setError('')
-      await logIn(formValues.email, formValues.password)
-    }
-    catch (e) {
-      setError('Could Not Log In')
-      setAlert(["danger", `Failed to log in!`])
-    }
+    logIn(formValues.email, formValues.password)
+      .then(response => {
+        navigate('/')
+        setAlert(["success", `Welcome Back ${response.user.displayName}!`])
+      })
+      .catch(error => {
+        setAlert(alerts[error.code] || ["warning", "something went wrong, try again!"])
+        console.log(error.message, error.code)
+      })
     setLoading(false)
   }
   const handleChange = e => {
@@ -53,18 +57,16 @@ export default function SingUp() {
   }
 
   // Redirect to Home page if Successfully Signed Up.
-  useEffect(() => {
-    if (currentUser) {
-      navigate('/')
-      setAlert(["success", `Welcome Back ${currentUser.displayName}!`])
-    }
-  } , [currentUser])
+  // useEffect(() => {
+  //   if (currentUser) {
+      
+  //   }
+  // } , [currentUser])
 
   const props = {
     formValues,
     setFormValues,
     handleChange,
-    error,
   }
 
   return (
@@ -72,13 +74,6 @@ export default function SingUp() {
       <form onSubmit={onSubmit} className='max-w-[488px] w-full flex flex-col items-center bg-light rounded-xl py-[5rem] page-padding border-[3px] border-light-gray/30 shadow-lg'>
         <Logo />
         <h3 className='my-4'>Se Connecter</h3>
-        {/* Error */}
-        {
-          error && 
-          <h5 className='bg-red-500 rounded-xl py-4 px-4 w-full my-4'>
-            {error}
-          </h5>
-        }
         {/* Input Field */}
         {
           formParams.map(params => (

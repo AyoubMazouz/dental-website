@@ -15,18 +15,18 @@ export default function useFom(form) {
     const handleChange = e => {
         const { name, value } = e.target
         setFormValues({ ...formValues, [name]: value })
-        valid(formValues, setError)
+        valid({ ...formValues, [name]: value }, setError)
     }
     const onSubmit = async (e, func) => {
         e.preventDefault()
         setLoading(true)
-        if (!valid(formValues, setError)) {
+        if (valid(formValues, setError)) {
+            setAlert(null)
+            await func()
             setLoading(false)
-            return setAlert([ "danger", Object.values(error).filter(e => e.length > 0) ])
         }
-        setAlert(null)
-        await func()
         setLoading(false)
+        setAlert([ "danger", Object.values(error).filter(e => e.length > 0)[0] ])
       }
 
     return { formValues, setFormValues, handleChange, onSubmit, error, setError, loading }
@@ -93,7 +93,7 @@ export const validatePhone = (phone, setError=()=>'') => {
 // FullName.
 export const validateFullName = (fullName, setError=()=>'') => {
     // Check Length.
-    if (fullName.length > 3) {
+    if (fullName.length > 2) {
         setError(error => ({ ...error, fullName: '' } ))
         return true
     }
@@ -101,13 +101,13 @@ export const validateFullName = (fullName, setError=()=>'') => {
     return false
 }
 // UserName.
-export const validateUserName = (userName, setError=()=>'') => {
+export const validateDisplayName = (displayName, setError=()=>'') => {
     // Check Length.
-    if (userName.length > 3) {
-        setError(error => ({ ...error, userName: '' } ))
+    if (displayName.length > 2) {
+        setError(error => ({ ...error, displayName: '' } ))
         return true
     }
-    setError(error => ({ ...error, userName: 'Name must be at least 3 characters long!' }))
+    setError(error => ({ ...error, displayName: 'UserName must be at least 3 characters long!' }))
     return false
 }
 // Zip.
@@ -128,7 +128,7 @@ export const validateZip = (zip, setError=()=>'') => {
 // Address1.
 export const validateAddress1 = (address1, setError=()=>'') => {
     // Check Length.
-    if (address1.length > 3) {
+    if (address1.length > 2) {
         setError(error => ({ ...error, address1: '' } ))
         return true
     }
@@ -138,7 +138,7 @@ export const validateAddress1 = (address1, setError=()=>'') => {
 // Address2.
 export const validateAddress2 = (address2, setError=()=>'') => {
     // Check Length.
-    if (address2.length > 3) {
+    if (address2.length > 2) {
         setError(error => ({ ...error, address2: '' } ))
         return true
     }
@@ -155,11 +155,9 @@ const valid = (formValues, setError) => {
     if (formValues?.phone)          result.push(validatePhone(formValues.phone, setError))
     if (formValues?.zip)            result.push(validateZip(formValues.zip, setError))
     if (formValues?.fullName)       result.push(validateFullName(formValues.fullName, setError))
-    if (formValues?.userName)       result.push(validateUserName(formValues.userName, setError))
+    if (formValues?.displayName)    result.push(validateDisplayName(formValues.displayName, setError))
     if (formValues?.address1)       result.push(validateAddress1(formValues.address1, setError))
     if (formValues?.address2)       result.push(validateAddress2(formValues.address2, setError))
-    
-    console.log(result)
 
     return result.every(value => value === true)
 }

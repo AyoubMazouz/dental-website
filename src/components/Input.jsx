@@ -24,10 +24,10 @@ export default function Input({
     formValues, 
     setFormValues, 
     handleChange, 
-    error, 
-    setError, 
-    labelStyles='', 
-    inputStyles='' 
+    error = {}, 
+    setError = () => null, 
+    labelStyles = '', 
+    inputStyles = '' 
 }) {
     const [onFocus, setOnFocus] = useState(false)
     const getInputField = () => {
@@ -83,7 +83,7 @@ export default function Input({
         else if (name === 'zip') return (
             <MdMail className='--form-icon top-[3rem]' />
         )
-        else if (['fullName', 'userName', "displayName"].includes(name)) return (
+        else if (['fullName', "displayName"].includes(name)) return (
             <MdPerson className='form-icon' />
         )
         else if (['password', 'confirmPassword'].includes(name)) return (

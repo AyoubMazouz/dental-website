@@ -36,6 +36,9 @@ const formParams = [
     required: true, 
   },
 ]
+const alerts = {
+  "auth/email-already-in-use" : ["warning", "Email already in use."],
+}
 
 export default function SingUp() {
   // Contexts.
@@ -50,15 +53,6 @@ export default function SingUp() {
     confirmPassword: '',
   })
 
-  // Redirect to Home page if Successfully Signed Up.
-  useEffect(() => {
-    if (currentUser) {
-      createNewUser()
-      setAlert(['success', 'Account Created successfully'])
-      navigate('/')
-    }
-  } , [currentUser])
-
   const props = {
     formValues,
     setFormValues,
@@ -67,32 +61,31 @@ export default function SingUp() {
     setError,
   }
 
+  const onSubmitForm = e => {
+    onSubmit(e, () => {
+        signUp(formValues.email, formValues.password)
+          .then(response => { 
+            updateProfile(response.user, { displayName: formValues.displayName })
+            createNewUser(response.user.uid)
+            setAlert(['success', 'Account created successfully'])
+            navigate('/')
+          })
+          .catch(error => {
+            setAlert(alerts[error.code] || ["warning", "something went wrong, try again!"])
+            console.log(error)
+          })
+      }
+    )
+  }
+
   return (
     <div className='w-full grid place-items-center h-[90vh]'>
       <form className='max-w-[488px] w-full flex flex-col items-center bg-light rounded-xl py-[5rem] page-padding border-[3px] border-light-gray/30 shadow-lg'
-        onSubmit={e => onSubmit(e, () => {
-          try {
-            signUp(formValues.email, formValues.password)
-            .then(cred => updateProfile(cred.user, { 
-              displayName: formValues.displayName,
-              photoUrl: 'https://via.placeholder.com/1000x1000'
-            }))
-            .catch(error => setError({ ...error, ['formError']: 'Email already used' }))
-            setAlert(['success', 'Account created successfully'])
-          }
-          catch (e) {
-            setError(prev => ({ ...prev, ['formError']: 'Could Not Sign Up, try again.' }))
-          }
-        })}>
+        onSubmit={e => onSubmitForm(e)}>
         <Logo />
-        <h3 className='py-4'>Cree un nouveau compte</h3>
-        {/* Error */}
-        {
-          error.formError && 
-            <h5 className='bg-red-500 rounded-xl py-4 px-4 w-full my-4'>
-              {error.formError}
-            </h5>
-          }
+        <h3 className='py-4'>
+          Cree un nouveau compte
+        </h3>
         {/* Input Field */}
         {formParams.map(params => (
           <Input key={params.label} { ...params } { ...props } />

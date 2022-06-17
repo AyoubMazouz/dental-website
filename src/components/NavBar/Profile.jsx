@@ -28,24 +28,23 @@ export default function Profile () {
     })
     // Log Out.
     const handleLogOut = async () => {
-        if (!currentUser) return 
-        try {
-            await logOut()
-            navigate('/login')
-            setAlert(['info', 'Logged Out'])
-            setNotifications({ text: 'hello from the other side: YOU LOGGED OUT!!!', time: '', link: '' })
-
-        }
-        catch {
-            console.log('LOG OUT FAIL')
-        }
+        logOut()
+            .then(response => {
+                navigate('/login')
+                setAlert(['info', 'Logged Out'])
+            })
+            .catch(error => {
+                console.log(error)
+                setAlert(["warning", error.message])
+            })
+        
     }
     return currentUser && (
         // Profile 
         <div id='profile' className='h-[2.7rem] w-[2.7rem] relative'>
             {/* Profile Avatar */}
             <div id="profile-avatar" className='h-[2.7rem] w-[2.7rem] grid place-items-center bg-emerald-500 text-white rounded-full cursor-pointer select-none'>
-                {currentUser.displayName[0]}
+                {currentUser?.displayName && currentUser?.displayName[0]}
             </div>
             {
                 menuState && (
@@ -53,15 +52,15 @@ export default function Profile () {
                         <li className='flex gap-4 border-gray-200'>
                             {/* Profile Avatar */}
                             <div id="profile-avatar" className='h-[3.5rem] min-w-[3.5rem] grid place-items-center bg-emerald-500 text-white rounded-full select-none'>
-                                {currentUser.displayName[0]}
+                                {currentUser?.displayName && currentUser?.displayName[0]}
                             </div>
                             <div className='flex flex-col justify-around'>
                                 {/* Email */}
                                 <h5 className='text-ellipsis overflow-hidden w-[12rem] text-[.8rem]'>
-                                    {currentUser.email}
+                                    {currentUser?.email}
                                 </h5>
                                 {/* UserName */}
-                                <h5>{currentUser.displayName}</h5>
+                                <h5>{currentUser?.displayName}</h5>
                             </div>
                         </li>
                         <Link to="/profile" className='link text-base border-b-[3px] border-light-gray/20 pb-4 mt-2' >
