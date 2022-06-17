@@ -26,7 +26,8 @@ export default function useFom(form) {
             setLoading(false)
         }
         setLoading(false)
-        setAlert([ "danger", Object.values(error).filter(e => e.length > 0)[0] ])
+        const firstError = Object.values(error).filter(e => e.length > 0)[0]
+        setAlert(firstError && [ "danger", firstError ])
       }
 
     return { formValues, setFormValues, handleChange, onSubmit, error, setError, loading }

@@ -4,6 +4,8 @@ import { useState } from 'react'
 import emailjs from 'emailjs-com'
 // Components Imports.
 import Input from './Input'
+// Context Imports.
+import { useAlert } from '../contexts/AlertContext'
 // Hooks Imports.
 import useForm from '../hooks/useFom'
 // Icons Imports.
@@ -55,6 +57,7 @@ const formParams = [
 
 
 const Form = () => {
+    const { setAlert } = useAlert()
     const { formValues, setFormValues, handleChange, onSubmit, error, setError, loading } = useForm({
         name: '',
         email: '',
@@ -87,20 +90,14 @@ const Form = () => {
                 'service_cofo6md', 
                 'template_qoq5yk2', 
                 templateParams, 
-                'GBDJ0fB2Nhe7KZSmS')
-              .then((result) => {
-                  console.log(result.text);
-              }, (error) => {
-                  console.log(error.text);
-              });
+                'GBDJ0fB2Nhe7KZSmS'
+            ).then(result => {
+                    setAlert(["success", "Message sent successfully!"])
+                }, error => {
+                    console.log(error.text, "emailjs");
+                    setAlert(["warning", "something went wrong, try again later!"])
+            })
         })}>
-        {/* Error */}
-        {
-            error.formError && 
-            <h5 className='bg-red-500 rounded-xl py-4 px-4 w-full my-4'>
-                {error.formError}
-            </h5>
-        }
         {
             formParams.map(params => (
                 <Input key={params.label} { ...params } { ...props } />
