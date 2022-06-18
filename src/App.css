@@ -7,7 +7,7 @@
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
-*/ 
+*/
 
 *,
 ::before,
@@ -416,8 +416,6 @@ video {
   max-width: 100%;
   height: auto;
 }
-
-/* HTML Page */
 
 html{
   scroll-behavior: smooth;
@@ -991,11 +989,6 @@ url{
   grid-column: 1 / -1;
 }
 
-.my-4{
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 .mx-6{
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -1029,6 +1022,11 @@ url{
 .my-6{
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+.my-4{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .my-\[6rem\]{
@@ -1728,11 +1726,6 @@ url{
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-red-500{
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-}
-
 .bg-secondary{
   --tw-bg-opacity: 1;
   background-color: rgb(254 133 115 / var(--tw-bg-opacity));
@@ -1768,6 +1761,11 @@ url{
 
 .bg-\[rgba\(0\2c 0\2c 0\2c \.3\)\]{
   background-color: rgba(0,0,0,.3);
+}
+
+.bg-red-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
 .bg-yellow-500{
@@ -1851,6 +1849,10 @@ url{
   padding: 0.5rem;
 }
 
+.p-\[43px\]{
+  padding: 43px;
+}
+
 .p-4{
   padding: 1rem;
 }
@@ -1875,14 +1877,14 @@ url{
   padding-bottom: 1rem;
 }
 
-.px-4{
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 .py-2{
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.px-4{
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .py-\[4rem\]{
@@ -2254,9 +2256,9 @@ url{
   }
 }
 
-.text-ellipsis-service-card{
-  text-overflow:ellipsis;
-  overflow:hidden;
+.text-ellipsis-service-card {
+  text-overflow: ellipsis;
+  overflow: hidden;
   display: -webkit-box !important;
   -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;

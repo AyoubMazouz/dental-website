@@ -1,55 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @tailwind base;
+
 @tailwind components;
+
 @tailwind utilities;
 
+
 @layer base {
-
-  /* HTML Page */
   html {
-    @apply font-[Poppins,
-    sans-serif] scroll-smooth
+    @apply font-[Poppins,sans-serif] scroll-smooth;
   }
-
   h1 {
-    @apply lg: text-5xl md:text-4xl text-3xl font-bold
+    @apply lg:text-5xl md:text-4xl text-3xl font-bold;
   }
-
   h2 {
-    @apply lg: text-4xl md:text-3xl text-2xl font-semibold
+    @apply lg:text-4xl md:text-3xl text-2xl font-semibold;
   }
-
   h3 {
-    @apply lg: text-3xl md:text-2xl text-xl font-semibold
+    @apply lg:text-3xl md:text-2xl text-xl font-semibold;
   }
-
   h4 {
-    @apply lg: text-xl text-lg font-medium
+    @apply lg:text-xl text-lg font-medium;
   }
-
   p {
-    @apply lg: text-xl md:text-lg leading-6 lg:leading-8
+    @apply lg:text-xl md:text-lg leading-6 lg:leading-8;
   }
-
   h5 {
-    @apply text-sm
+    @apply text-sm;
   }
-
   h6 {
-    @apply text-xs font-light
+    @apply text-xs font-light;
   }
 
   url {
-    @apply font-bold text-primary
+    @apply font-bold text-primary;
   }
 
   /* Markdown */
   .ReactMarkdown {
-    @apply text-light-gray [&_h1]: text-primary [&_h1]:mt-12 [&_h1]:mb-6 [&_h1]:scroll-mt-[6rem] [&_h2]:text-primary [&_h2]:mt-8 [&_h2]:mb-5 [&_h2]:scroll-mt-[6rem] [&_h3]:text-primary [&_h3]:mt-6 [&_h3]:mb-4 [&_p]:leading-8 [&_p]:lg:leading-10 [&_a]:text-light-blue [&_a]:underline [&_a]:font-bold [&_ul]:list-disc [&_ul]:my-8 [&_ul]:text-lg [&_ul]:lg:text-xl [&_li]:my-3 [&_li]:ml-[1.5rem]
+    @apply text-light-gray [&_h1]:text-primary [&_h1]:mt-12 [&_h1]:mb-6 [&_h1]:scroll-mt-[6rem] 
+    [&_h2]:text-primary [&_h2]:mt-8 [&_h2]:mb-5 [&_h2]:scroll-mt-[6rem] 
+    [&_h3]:text-primary [&_h3]:mt-6 [&_h3]:mb-4 
+    [&_p]:leading-8 [&_p]:lg:leading-10 
+    [&_a]:text-light-blue [&_a]:underline [&_a]:font-bold 
+    [&_ul]:list-disc [&_ul]:my-8 [&_ul]:text-lg [&_ul]:lg:text-xl 
+    [&_li]:my-3 [&_li]:ml-[1.5rem];
   }
-
-  ;
 }
 
 @layer components {
@@ -65,11 +62,11 @@
   }
 
   .nav-bar-icon {
-    @apply p-2 h-full w-12 transition-colors duration-300 group-hover: text-light;
+    @apply p-2 h-full w-12 transition-colors duration-300 group-hover:text-light;
   }
 
   .input {
-    @apply focus: outline-none pl-[2.7rem] py-2 font-semibold ring-2 focus:ring-emerald-500 resize-none transition-all duration-300 rounded-lg text-primary;
+    @apply focus:outline-none pl-[2.7rem] py-2 font-semibold ring-2 focus:ring-emerald-500 resize-none transition-all duration-300 rounded-lg text-primary;
   }
 
   .form-icon {
@@ -77,29 +74,29 @@
   }
 
   .select-option {
-    @apply px-12 bg-bluish-gray font-semibold text-primary lg: text-lg;
+    @apply px-12 bg-bluish-gray font-semibold text-primary lg:text-lg;
   }
 
   .footer-icon {
-    @apply [&>svg]: p-2 [&>svg]:h-full [&>svg]:w-12 [&>svg]:transition-all [&>svg]:duration-200 [&>svg]:rounded-lg [&>svg]:hover:translate-y-[-1rem] text-white hover:scale-110
+    @apply [&>svg]:p-2 [&>svg]:h-full [&>svg]:w-12 [&>svg]:transition-all [&>svg]:duration-200 [&>svg]:rounded-lg [&>svg]:hover:translate-y-[-1rem] text-white hover:scale-110
   }
 
   .link {
-    @apply text-light-blue hover: underline transition-all duration-300 font-semibold hover:opacity-75;
+    @apply text-light-blue hover:underline transition-all duration-300 font-semibold hover:opacity-75;
   }
 
   .submit-btn {
-    @apply rounded px-6 py-3 text-center bg-light-blue text-white font-semibold hover: opacity-75 transition-all duration-300 disabled:opacity-50 disabled:cursor-wait;
+    @apply rounded px-6 py-3 text-center bg-light-blue text-white font-semibold hover:opacity-75 transition-all duration-300 disabled:opacity-50 disabled:cursor-wait;
   }
 
   .nav-bar-icons-sm {
-    @apply w-14 h-14 py-3 text-white hover: scale-110 hover:opacity-75 rounded-full transition-all duration-500;
+    @apply w-14 h-14 py-3 text-white hover:scale-110 hover:opacity-75 rounded-full transition-all duration-500;
   }
 }
 
 @layer utilities {
   .page-padding {
-    @apply px-2 sm: px-4 md:px-8;
+    @apply px-2 sm:px-4 md:px-8;
   }
 
   .--appearance-none {
