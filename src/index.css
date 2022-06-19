@@ -39,12 +39,12 @@
 
   /* Markdown */
   .ReactMarkdown {
-    @apply text-light-gray [&_h1]:text-primary [&_h1]:mt-12 [&_h1]:mb-6 [&_h1]:scroll-mt-[6rem] 
-    [&_h2]:text-primary [&_h2]:mt-8 [&_h2]:mb-5 [&_h2]:scroll-mt-[6rem] 
-    [&_h3]:text-primary [&_h3]:mt-6 [&_h3]:mb-4 
-    [&_p]:leading-8 [&_p]:lg:leading-10 
-    [&_a]:text-light-blue [&_a]:underline [&_a]:font-bold 
-    [&_ul]:list-disc [&_ul]:my-8 [&_ul]:text-lg [&_ul]:lg:text-xl 
+    @apply text-light-gray [&_h1]:text-primary [&_h1]:mt-12 [&_h1]:mb-6 [&_h1]:scroll-mt-[6rem]
+    [&_h2]:text-primary [&_h2]:mt-8 [&_h2]:mb-5 [&_h2]:scroll-mt-[6rem]
+    [&_h3]:text-primary [&_h3]:mt-6 [&_h3]:mb-4
+    [&_p]:leading-8 [&_p]:lg:leading-10
+    [&_a]:text-light-blue [&_a]:underline [&_a]:font-bold
+    [&_ul]:list-disc [&_ul]:my-8 [&_ul]:text-lg [&_ul]:lg:text-xl
     [&_li]:my-3 [&_li]:ml-[1.5rem];
   }
 }
@@ -103,13 +103,21 @@
     -webkit-appearance: none;
   }
 
-  .text-ellipsis-service-card {
+  /* Line Ellipsis */
+  .line-ellipsis {
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box !important;
-    -webkit-line-clamp: 7;
     -webkit-box-orient: vertical;
     white-space: normal;
+  }
+  .text-ellipsis-service-card {
+    @apply line-ellipsis;
+    -webkit-line-clamp: 7;
+  }
+  .text-ellipsis-review-card {
+    @apply line-ellipsis;
+    -webkit-line-clamp: 6;
   }
 
   .w-gallery-swiper-important {

@@ -22,9 +22,5 @@ export function AlertProvider({ children }) {
 		setAlert,
 	}
 
-	return (
-		<AlertContext.Provider value={value}>
-			{children}
-		</AlertContext.Provider>
-	)
+	return <AlertContext.Provider value={value}>{children}</AlertContext.Provider>
 }

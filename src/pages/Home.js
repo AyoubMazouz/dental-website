@@ -46,8 +46,7 @@ export default function Home() {
 						</p>
 						<Link
 							to="/services"
-							className="text-light-blue font-bold py-3 flex items-center gap-x-2 hover:underline hover:opacity-75"
-						>
+							className="text-light-blue font-bold py-3 flex items-center gap-x-2 hover:underline hover:opacity-75">
 							Our Services
 							<CgArrowLongRight className="text-light-blue text-3xl" />
 						</Link>
@@ -83,8 +82,7 @@ export default function Home() {
 						</p>
 						<Link
 							to="/about"
-							className="text-light-blue font-bold py-3 flex items-center gap-x-2 hover:underline hover:opacity-75"
-						>
+							className="text-light-blue font-bold py-3 flex items-center gap-x-2 hover:underline hover:opacity-75">
 							About Us
 							<CgArrowLongRight className="text-light-blue text-3xl" />
 						</Link>
@@ -98,8 +96,7 @@ export default function Home() {
 					<h1 className="font-bold text-primary w-full my-6">Gallery</h1>
 					<Link
 						to="/gallery"
-						className="link font-bold py-3 flex items-center gap-x-2"
-					>
+						className="link font-bold py-3 flex items-center gap-x-2">
 						<p>More</p>
 						<CgArrowLongRight className="text-light-blue text-3xl" />
 					</Link>

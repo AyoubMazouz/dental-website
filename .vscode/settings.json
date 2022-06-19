@@ -1,0 +1,26 @@
+{
+	"breadcrumbs.enabled": false,
+
+	"prettier.jsxBracketSameLine": true,
+
+	"workbench.iconTheme": "eq-material-theme-icons-light",
+	"workbench.colorTheme": "Andromeda Colorizer",
+
+
+	"editor.wordWrap": "on",
+	"editor.formatOnSave": true,
+	"editor.fontLigatures": true,
+	"editor.minimap.enabled": false,
+	"editor.tabSize": 2,
+	"editor.lineHeight": 1.5,
+	"editor.fontSize": 14,
+
+	"files.trimTrailingWhitespace": true,
+	"files.exclude": {
+		"**/.git": true,
+		"**/node_modules": true,
+		"**/package-lock.json": true,
+	},
+
+	"terminal.integrated.cursorBlinking": true,
+}
