@@ -9,7 +9,7 @@
 
 @layer base {
   html {
-    @apply font-[Poppins,sans-serif] scroll-smooth;
+    @apply font-poppins scroll-smooth;
   }
   h1 {
     @apply lg:text-5xl md:text-4xl text-3xl font-bold;
