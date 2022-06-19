@@ -73,15 +73,16 @@ export default function NavBarFull({ currentUser, scrolling }) {
 		return Object.entries(socialLinks).map(([label, link], id) => {
 			return (
 				link && (
-					<Link
+					<a
 						key={id}
-						to={link}
+						href={link}
+						target="__blanc__"
 						className="h-full gap-2 flex items-center w-12 hover:w-36 transition-all duration-500 cursor-pointer bg-light group [&>svg]:bg-primary [&>svg]:text-light">
 						{icons[label]}
 						<h5 className="hidden group-hover:block text-dark font-semibold">
 							{label}
 						</h5>
-					</Link>
+					</a>
 				)
 			)
 		})
