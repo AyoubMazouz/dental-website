@@ -1041,6 +1041,22 @@ url{
   bottom: 25px;
 }
 
+.top-\[2rem\]{
+  top: 2rem;
+}
+
+.top-\[2\.5rem\]{
+  top: 2.5rem;
+}
+
+.right-\[\.8rem\]{
+  right: .8rem;
+}
+
+.right-\[\.9rem\]{
+  right: .9rem;
+}
+
 .z-40{
   z-index: 40;
 }
@@ -1189,6 +1205,14 @@ url{
 
 .mb-\[4rem\]{
   margin-bottom: 4rem;
+}
+
+.-mr-4{
+  margin-right: -1rem;
+}
+
+.-mr-2{
+  margin-right: -0.5rem;
 }
 
 .flex{
@@ -1613,6 +1637,18 @@ url{
 
 .translate-y-\[6rem\]{
   --tw-translate-y: 6rem;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-x-\[50\%\]{
+  --tw-translate-x: 50%;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-y-\[-50\%\]{
+  --tw-translate-y: -50%;
   -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -2766,6 +2802,16 @@ url{
 .group:hover .group-hover\:text-\[\#25d366\]{
   --tw-text-opacity: 1;
   color: rgb(37 211 102 / var(--tw-text-opacity));
+}
+
+.group:hover .group-hover\:text-whatsapp{
+  --tw-text-opacity: 1;
+  color: rgb(37 211 102 / var(--tw-text-opacity));
+}
+
+.group:hover .group-hover\:text-white{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 @media (min-width: 640px){

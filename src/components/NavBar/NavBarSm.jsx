@@ -3,25 +3,20 @@ import { useNavigate, Link } from "react-router-dom"
 // Components Imports.
 import Profile from "./Profile"
 import Notification from "./Notification"
-import Alert from "./Alert"
 import Logo from "../Logo"
 // Icons Imports.
 import {
-	FaYoutube,
-	FaFacebookF,
-	FaInstagram,
-	FaLinkedinIn,
-	FaLocationArrow,
-	FaTwitter,
-	FaWhatsapp,
-	FaTimes,
-	FaBars,
-	FaPhone,
-	FaCartPlus,
-	FaAngleDown,
-	FaShoppingCart,
-} from "react-icons/fa"
-import { CgProfile } from "react-icons/cg"
+	YoutubeIC,
+	FacebookIC,
+	InstagramIC,
+	LinkedinIC,
+	TwitterIC,
+	WhatsappIC,
+	CartIC,
+	CloseIC,
+	MenuIC,
+	RoundedProfileIC,
+} from "../../data/icons.data"
 // Data Imports.
 import { links, socialLinks } from "../../data"
 
@@ -42,8 +37,7 @@ export default function NavBarSmall({
 						setMenuState(false)
 						navigate(link)
 					}}
-					className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 hover:text-primary text-2xl font-semibold cursor-pointer'
-				>
+					className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 hover:text-primary text-2xl font-semibold cursor-pointer'>
 					{label}
 				</li>
 			)
@@ -52,12 +46,12 @@ export default function NavBarSmall({
 	// Social Media Icons
 	const getIcons = () => {
 		const icons = {
-			facebook: <FaFacebookF className="nav-bar-icons-sm bg-facebook" />,
-			youtube: <FaYoutube className="nav-bar-icons-sm bg-youtube" />,
-			twitter: <FaTwitter className="nav-bar-icons-sm bg-twitter" />,
-			instagram: <FaInstagram className="nav-bar-icons-sm bg-instagram" />,
-			linkedin: <FaLinkedinIn className="nav-bar-icons-sm bg-linkedin" />,
-			whatsapp: <FaWhatsapp className="nav-bar-icons-sm bg-whatsapp" />,
+			facebook: <FacebookIC className="nav-bar-icons-sm bg-facebook" />,
+			youtube: <YoutubeIC className="nav-bar-icons-sm bg-youtube" />,
+			twitter: <TwitterIC className="nav-bar-icons-sm bg-twitter" />,
+			instagram: <InstagramIC className="nav-bar-icons-sm bg-instagram" />,
+			linkedin: <LinkedinIC className="nav-bar-icons-sm bg-linkedin" />,
+			whatsapp: <WhatsappIC className="nav-bar-icons-sm bg-whatsapp" />,
 		}
 		return Object.entries(socialLinks).map(([label, link], id) => {
 			return (
@@ -73,39 +67,35 @@ export default function NavBarSmall({
 		<nav
 			className={`text-dark relative lg:hidden flex items-center justify-center transition-all duration-500 bg-light px-2 sm:px-4 md:px-8 max-w-[1920px] ${
 				menuState ? "h-[100vh]" : "h-[70px]"
-			} ${scrolling ? "sticky top-0 z-20" : ""}`}
-		>
+			} ${scrolling ? "sticky top-0 z-20" : ""}`}>
 			<div className="absolute top-0 w-full flex items-center justify-between px-4 py-4">
 				{/* Toggle button */}
 				{/* Open */}
-				<FaBars
+				<MenuIC
 					onClick={() => setMenuState((prev) => !prev)}
 					className={
 						menuState
 							? "hidden"
-							: "text-2xl text-slate-700 hover:text-sky-500 trans cursor-pointer"
+							: "text-4xl text-slate-700 hover:text-sky-500 trans cursor-pointer"
 					}
 				/>
 				{/* Closed */}
-				<FaTimes
+				<CloseIC
 					onClick={() => setMenuState((prev) => !prev)}
 					className={
 						menuState
-							? "text-2xl text-slate-700 hover:text-sky-500 trans cursor-pointer hover:rotate-180"
+							? "text-4xl text-slate-700 hover:text-sky-500 trans cursor-pointer hover:rotate-180"
 							: "hidden"
 					}
 				/>
 				{/* Logo */}
 				<Logo />
-				<a href="sms:+18664504185&body=Hi%2520there%252C%2520I%2527d%2520like%2520to%2520place%2520an%2520order%2520for...">
-					Click here to text us!
-				</a>
 				{!menuState && (
 					<div className="flex items-center gap-x-6 text-xl">
 						{currentUser ? (
 							<>
 								<Link to="/cart">
-									<FaShoppingCart className="cursor-pointer text-2xl text-primary hover:text-light-blue transition-colors duration-300" />
+									<CartIC className="cursor-pointer text-2xl text-primary hover:text-light-blue transition-colors duration-300" />
 								</Link>
 								<Notification />
 								<Profile />
@@ -113,9 +103,8 @@ export default function NavBarSmall({
 						) : (
 							<Link
 								to="login"
-								className="text-light-blue font-semibold border-[3px] border-light-blue rounded py-2 px-4 shadow-md hover:bg-light-blue hover:text-white hover:shadow-light-blue transition-all duration-300 flex gap-x-3 text-base"
-							>
-								<CgProfile className="text-2xl" />
+								className="text-light-blue font-semibold border-[3px] border-light-blue rounded py-2 px-4 shadow-md hover:bg-light-blue hover:text-white hover:shadow-light-blue transition-all duration-300 flex gap-x-3 text-base">
+								<RoundedProfileIC className="text-2xl" />
 								Se Connecter
 							</Link>
 						)}

@@ -3,17 +3,16 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 // Icons Imports.
 import {
-	MdEdit,
-	MdEmail,
-	MdPerson,
-	MdPhoneEnabled,
-	MdLocationCity,
-	MdDangerous,
-	MdLocationOn,
-	MdMail,
-	MdSubject,
-	MdPassword,
-} from "react-icons/md"
+	EditIC,
+	MailIC,
+	PersonIC,
+	PhoneIC,
+	LocationIC,
+	CloseIC,
+	SubjectIC,
+	PasswordIC,
+	ErrorIC,
+} from "../data/icons.data"
 
 export default function Input({
 	type,
@@ -43,8 +42,7 @@ export default function Input({
 						error[name] && formValues[name].trim()
 							? "ring-red-500"
 							: "ring-light-gray/25"
-					}`}
-				></textarea>
+					}`}></textarea>
 			)
 		if (type === "select")
 			return (
@@ -58,8 +56,7 @@ export default function Input({
 						error[name] && formValues[name].trim()
 							? "ring-red-500"
 							: "ring-light-gray/25"
-					}`}
-				>
+					}`}>
 					{options.map((option) => (
 						<option value={option[0]} className="--select-option">
 							{option[1]}
@@ -96,43 +93,41 @@ export default function Input({
 	// prettier-ignore
 	const getIcon = () => {
 		if (error[name] && !onFocus && formValues[name].trim()) return (
-			<MdDangerous className="form-icon text-red-500" />
+			<ErrorIC className="form-icon text-red-500" />
 		)
 		else if (name === "phone") return (
-			<MdPhoneEnabled className="form-icon" />
+			<PhoneIC className="form-icon" />
 		)
 		else if (name === "email") return (
-			<MdEmail className="form-icon" />
+			<MailIC className="form-icon" />
 		)
 		else if (name === "message") return (
-			<MdEdit className="form-icon top-[3rem]" />
-		) 
+			<EditIC className="form-icon top-[3rem]" />
+		)
 		else if (name === "city") return (
-			<MdLocationCity className="form-icon top-[3rem]" />
+			<LocationIC className="form-icon top-[3rem]" />
 		)
 		else if (name === "zip") return (
-			<MdMail className="--form-icon top-[3rem]" />
+			<MailIC className="--form-icon top-[3rem]" />
 		)
 		else if (["fullName", "displayName"].includes(name)) return (
-			<MdPerson className="form-icon" />
+			<PersonIC className="form-icon" />
 		)
 		else if (["password", "confirmPassword"].includes(name)) return (
-			<MdPassword className="form-icon" />
-		) 
+			<PasswordIC className="form-icon" />
+		)
 		else if (["subject", "region"].includes(name)) return (
-			<MdSubject className="form-icon" />
+			<SubjectIC className="form-icon" />
 		)
 		else if (["address1", "address2"].includes(name)) return (
-			<MdLocationOn className="form-icon" />
+			<LocationIC className="form-icon" />
 		)
 	}
-	console.log(label)
 	return (
 		<div className="relative flex flex-col text-lg w-full">
 			<label
 				htmlFor={name}
-				className={`transition-all duration-300 ${labelStyles}`}
-			>
+				className={`transition-all duration-300 ${labelStyles}`}>
 				{label}
 				<span className="text-light-gray text-sm mx-2">
 					{required ? "" : "optional"}
@@ -141,12 +136,12 @@ export default function Input({
 			{getInputField()}
 			{getIcon()}
 			{formValues[name]?.length > 0 && (
-				<MdDangerous
+				<CloseIC
 					onClick={() => {
 						setFormValues({ ...formValues, [name]: "" })
 						setError({ ...error, [name]: "" })
 					}}
-					className="absolute top-[50%] right-[1rem] translate-y-[-25%] cursor-pointer text-primary"
+					className="absolute top-[2.5rem] right-[.8rem] cursor-pointer text-primary text-2xl"
 				/>
 			)}
 			{getValidationMessage()}

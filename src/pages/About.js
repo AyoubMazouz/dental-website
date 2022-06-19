@@ -15,16 +15,16 @@ import { Video } from "../components/VideoModel"
 import useDocs from "../hooks/useDocs"
 // Icons Imports.
 import {
-	FaFacebook,
-	FaInstagram,
-	FaYoutube,
-	FaLinkedin,
-	FaTwitter,
-	FaWhatsapp,
-} from "react-icons/fa"
+	FacebookIC,
+	InstagramIC,
+	YoutubeIC,
+	LinkedinIC,
+	TwitterIC,
+	WhatsappIC,
+} from "../data/icons.data"
 import { CgArrowLongRight } from "react-icons/cg"
 // Data Imports.
-import { stats, info, ABOUT_HERO_IMG, VIDEO_URL } from "../data"
+import { stats, info, VIDEO_URL } from "../data"
 
 export default function About() {
 	// Get Reviews from FireStore.
@@ -89,31 +89,33 @@ export default function About() {
 									{/* Social Media Links */}
 									<ul className="flex items-center justify-center h-12">
 										{primaryProfile?.facebook && (
-											<Link to="" className="">
-												<FaFacebook className="w-[4rem] h-[4rem] text-5xl p-1 rounded-full pt-1 px-3 transition-all duration-500 cursor-pointer bg-light text-facebook hover:scale-[.8] hover:bg-facebook hover:text-light" />
+											<Link to="" className="footer-icon group">
+												<FacebookIC className="text-light-gray group-hover:text-white group-hover:bg-facebook" />
 											</Link>
 										)}
 										{primaryProfile?.twitter && (
-											<Link to="" className="">
-												<FaTwitter
-													className="w-[4rem] h-[4rem] text-5xl p-1 rounded-full pt-1 px-3 transition-all duration-500 
-                                cursor-pointer bg-light text-twitter hover:scale-[.8] hover:bg-twitter hover:text-light"
-												/>
+											<Link to="" className="footer-icon group">
+												<TwitterIC className="text-light-gray group-hover:text-white group-hover:bg-twitter" />
 											</Link>
 										)}
 										{primaryProfile?.instagram && (
-											<Link to="" className="">
-												<FaInstagram className="w-[4rem] h-[4rem] text-5xl p-1 rounded-full pt-1 px-3 transition-all duration-500 cursor-pointer bg-light text-instagram hover:scale-[.8] hover:bg-instagram hover:text-light" />
+											<Link to="" className="footer-icon group">
+												<InstagramIC className="text-light-gray group-hover:text-white group-hover:bg-instagram" />
+											</Link>
+										)}
+										{primaryProfile?.linkedin && (
+											<Link to="" className="footer-icon group">
+												<LinkedinIC className="text-light-gray group-hover:text-white group-hover:bg-linkedin" />
 											</Link>
 										)}
 										{primaryProfile?.youtube && (
-											<Link to="#" className="">
-												<FaYoutube className="w-[4rem] h-[4rem] text-5xl p-1 rounded-full pt-1 px-3 transition-all duration-500 cursor-pointer bg-light text-youtube hover:scale-[.8] hover:bg-youtube hover:text-light" />
+											<Link to="#" className="footer-icon group">
+												<YoutubeIC className="text-light-gray group-hover:text-white group-hover:bg-youtube" />
 											</Link>
 										)}
 										{primaryProfile?.whatsapp && (
-											<Link to="#" className="">
-												<FaWhatsapp className="w-[4rem] h-[4rem] text-5xl p-1 rounded-full pt-1 px-3 transition-all duration-500 cursor-pointer bg-light text-whatsapp hover:scale-[.8] hover:bg-whatsapp hover:text-light" />
+											<Link to="#" className="footer-icon group">
+												<WhatsappIC className="text-light-gray group-hover:text-white group-hover:bg-whatsapp" />
 											</Link>
 										)}
 									</ul>
@@ -154,8 +156,7 @@ export default function About() {
 						<h1 className="font-bold text-primary w-full my-6">Gallery</h1>
 						<Link
 							to="/gallery"
-							className="link font-bold py-3 flex items-center gap-x-2"
-						>
+							className="link font-bold py-3 flex items-center gap-x-2">
 							<p>More</p>
 							<CgArrowLongRight className="text-light-blue text-3xl" />
 						</Link>
