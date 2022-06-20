@@ -1334,6 +1334,10 @@ url{
   height: 1rem;
 }
 
+.h-0{
+  height: 0px;
+}
+
 .max-h-\[380px\]{
   max-height: 380px;
 }
@@ -1416,6 +1420,10 @@ url{
 
 .w-\[338px\]{
   width: 338px;
+}
+
+.w-0{
+  width: 0px;
 }
 
 .min-w-\[22rem\]{
@@ -1849,6 +1857,11 @@ url{
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
+.bg-emerald-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(16 185 129 / var(--tw-bg-opacity));
+}
+
 .bg-yellow-500{
   --tw-bg-opacity: 1;
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
@@ -1857,11 +1870,6 @@ url{
 .bg-sky-500{
   --tw-bg-opacity: 1;
   background-color: rgb(14 165 233 / var(--tw-bg-opacity));
-}
-
-.bg-emerald-500{
-  --tw-bg-opacity: 1;
-  background-color: rgb(16 185 129 / var(--tw-bg-opacity));
 }
 
 .bg-facebook{
@@ -2103,6 +2111,10 @@ url{
   line-height: 2.5rem;
 }
 
+.text-\[8rem\]{
+  font-size: 8rem;
+}
+
 .text-base{
   font-size: 1rem;
   line-height: 1.5rem;
@@ -2115,14 +2127,6 @@ url{
 
 .text-\[\.8rem\]{
   font-size: .8rem;
-}
-
-.text-\[12rem\]{
-  font-size: 12rem;
-}
-
-.text-\[8rem\]{
-  font-size: 8rem;
 }
 
 .font-bold{

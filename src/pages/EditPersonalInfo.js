@@ -9,6 +9,7 @@ import Input from "../components/Input"
 // Hooks Imports.
 import useForm from "../hooks/useFom"
 import useUserData from "../hooks/useUserData"
+import useResizeImage from "../hooks/useResizeImage"
 // Context Imports.
 import { useAlert } from "../contexts/AlertContext"
 // Data Imports.
@@ -81,6 +82,8 @@ export default function EditPersonalInfo() {
 	// Auth Context.
 	const { currentUser } = useAuth()
 	const { setAlert } = useAlert()
+	const { resizeImageToDataUrl } = useResizeImage()
+
 	const navigate = useNavigate()
 	const { getUserInfo, UpdateUserInfo, updateProfilePhoto } =
 		useUserData(currentUser)
@@ -106,9 +109,9 @@ export default function EditPersonalInfo() {
 
 	function openFileDialog() {
 		const input = document.getElementById("photo-img-dialog")
-		input.onchange = (_) => {
-			let files = Array.from(input.files)
-			updateProfilePhoto(files[0])
+		input.onchange = () => {
+			const file = Array.from(input.files)[0]
+			updateProfilePhoto(file, 200)
 		}
 		input.click()
 	}
@@ -144,7 +147,7 @@ export default function EditPersonalInfo() {
 					onSubmit(e, () => {
 						UpdateUserInfo(formValues).then(() =>
 							setAlert([
-								"info",
+								"success",
 								"Your personal info has been updated successfully",
 							])
 						)
@@ -161,6 +164,12 @@ export default function EditPersonalInfo() {
 									className="w-[12rem] h-[12rem] object-cover rounded-lg border-4 border-light-blue/25"
 								/>
 								<div className="photo-edit" onClick={openFileDialog}>
+									<input
+										id="photo-img-dialog"
+										type="file"
+										accept=".png, .jpeg, .jpg"
+										className="w-0 h-0"
+									/>
 									Edit
 									<EditIC />
 								</div>
@@ -201,11 +210,6 @@ export default function EditPersonalInfo() {
 					))}
 				</div>
 			</form>
-			<input
-				id="photo-img-dialog"
-				type="file"
-				accept=".png .jpeg .jpg"
-				className="opacity-0"></input>
 		</div>
 	)
 }

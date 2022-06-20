@@ -1,7 +1,7 @@
 // FireBase Imports.
 import { updateDoc, setDoc, doc, getDoc, arrayUnion } from "firebase/firestore"
 import { updateProfile } from "firebase/auth"
-import { uploadBytes, ref, getDownloadURL } from "firebase/storage"
+import { ref, getDownloadURL, uploadString } from "firebase/storage"
 import { db, storage } from "../firebase"
 // Context Imports.
 import { useAlert } from "../contexts/AlertContext"
@@ -54,26 +54,51 @@ export default function useUserData(user) {
 
 	const updateProfilePhoto = (file) => {
 		if (!file) return
-		let [progress, error] = [null, null]
 
-		const fileRef = ref(storage, `photo-url/${user.uid}`)
+		// Desired Image Size.
+		const SIZE = 256
 
-		uploadBytes(fileRef, file)
-			.then(
-				(snapshot) =>
-					(progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100)
-			)
-			.then(() =>
-				getDownloadURL(fileRef).then((url) =>
-					updateProfile(user, {
-						photoURL: url,
-					}).then(() =>
-						setAlert(["info", "Photo has been updated successfully!"])
+		const reader = new FileReader()
+
+		reader.onload = (e) => {
+			const img = new Image()
+			// Set
+			img.src = e.target.result
+
+			img.onload = () => {
+				// Dynamically Creating Canvas.
+				const canvas = document.createElement("canvas")
+				canvas.width = SIZE
+				canvas.height = (SIZE * (img.height / img.width)) | 0
+				const ctx = canvas.getContext("2d")
+				// Drawing the resized Image to the Canvas.
+				ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
+
+				// Image Reference.
+				// Uses the User Id, Every time user update the Image it get overwritten.
+				const fileRef = ref(storage, `photo-url/${user.uid}`)
+				// DataURL of the Resized Image
+				const dataURL = canvas.toDataURL("image/jpeg")
+				// Use UploadString Method because the image is represented as a string.
+				uploadString(fileRef, dataURL, "data_url")
+					.then(
+						(snapshot) =>
+							console.log(snapshot.bytesTransferred / snapshot.totalBytes) * 100
 					)
-				)
-			)
-
-		return { progress, error }
+					// Update PhotoURL.
+					.then(() =>
+						getDownloadURL(fileRef).then((url) =>
+							updateProfile(user, {
+								photoURL: url,
+							}).then(() =>
+								setAlert(["success", "Photo has been updated successfully!"])
+							)
+						)
+					)
+			}
+		}
+		// Read File.
+		reader.readAsDataURL(file)
 	}
 
 	return {
