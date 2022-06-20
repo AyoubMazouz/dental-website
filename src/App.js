@@ -15,8 +15,8 @@ import Contact from "./pages/Contact"
 import SignUp from "./pages/SignUp"
 import LogIn from "./pages/LogIn"
 import Blog from "./pages/Blog"
-import Profile from "./pages/Profile"
-import PersonalInfo from "./pages/PersonalInfo"
+import EditPersonalInfo from "./pages/EditPersonalInfo"
+import AddPersonalInfo from "./pages/AddPersonalInfo"
 import PasswordReset from "./pages/PasswordReset"
 import Services from "./pages/Services"
 import Service from "./pages/Services/Service"
@@ -51,8 +51,11 @@ const App = () => {
 						<Route path="/gallery/:mediaPage" element={<Gallery />} />
 						{/* Private Routes */}
 						<Route element={<PrivateRoute />}>
-							<Route path="/personal-info" element={<PersonalInfo />} />
-							<Route path="/profile" element={<Profile />} />
+							<Route path="/add-personal-info" element={<AddPersonalInfo />} />
+							<Route
+								path="/edit-personal-info"
+								element={<EditPersonalInfo />}
+							/>
 							<Route path="/admin" element={<Admin />} />
 							<Route path="/admin/:setting" element={<Admin />} />
 						</Route>

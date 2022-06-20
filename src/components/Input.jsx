@@ -12,6 +12,9 @@ import {
 	SubjectIC,
 	PasswordIC,
 	ErrorIC,
+	HomeIC,
+	CityIC,
+	GlobeIC,
 } from "../data/icons.data"
 
 export default function Input({
@@ -95,32 +98,35 @@ export default function Input({
 		if (error[name] && !onFocus && formValues[name].trim()) return (
 			<ErrorIC className="form-icon text-red-500" />
 		)
-		else if (name === "phone") return (
-			<PhoneIC className="form-icon" />
+		else if (["phone"].includes(name)) return (
+			<PhoneIC className={`form-icon ${onFocus && "text-light-blue"}`} />
 		)
-		else if (name === "email") return (
-			<MailIC className="form-icon" />
+		else if (["email"].includes(name)) return (
+			<MailIC className={`form-icon ${onFocus && "text-light-blue"}`} />
 		)
-		else if (name === "message") return (
-			<EditIC className="form-icon top-[3rem]" />
+		else if (["message"].includes(name)) return (
+			<EditIC className={`form-icon ${onFocus && "text-light-blue"}`} />
 		)
-		else if (name === "city") return (
-			<LocationIC className="form-icon top-[3rem]" />
+		else if (["city"].includes(name)) return (
+			<CityIC className={`form-icon ${onFocus && "text-light-blue"}`} />
 		)
-		else if (name === "zip") return (
-			<MailIC className="--form-icon top-[3rem]" />
+		else if (["zip"].includes(name)) return (
+			<HomeIC className={`form-icon ${onFocus && "text-light-blue"}`} />
 		)
-		else if (["fullName", "displayName"].includes(name)) return (
-			<PersonIC className="form-icon" />
+		else if (["fullName", "firstName", "lastName", "displayName"].includes(name)) return (
+			<PersonIC className={`form-icon ${onFocus && "text-light-blue"}`} />
 		)
 		else if (["password", "confirmPassword"].includes(name)) return (
-			<PasswordIC className="form-icon" />
+			<PasswordIC className={`form-icon ${onFocus && "text-light-blue"}`} />
 		)
-		else if (["subject", "region"].includes(name)) return (
-			<SubjectIC className="form-icon" />
+		else if (["subject", ].includes(name)) return (
+			<SubjectIC className={`form-icon ${onFocus && "text-light-blue"}`} />
+		)
+		else if (["region"].includes(name)) return (
+			<GlobeIC className={`form-icon ${onFocus && "text-light-blue"}`} />
 		)
 		else if (["address1", "address2"].includes(name)) return (
-			<LocationIC className="form-icon" />
+			<LocationIC className={`form-icon ${onFocus && "text-light-blue"}`} />
 		)
 	}
 	return (
@@ -141,7 +147,7 @@ export default function Input({
 						setFormValues({ ...formValues, [name]: "" })
 						setError({ ...error, [name]: "" })
 					}}
-					className="absolute top-[2.5rem] right-[.8rem] cursor-pointer text-primary text-2xl"
+					className="absolute top-[2.5rem] right-[.8rem] cursor-pointer text-light-gray hover:text-light-blue text-2xl"
 				/>
 			)}
 			{getValidationMessage()}

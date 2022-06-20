@@ -66,11 +66,11 @@
   }
 
   .input {
-    @apply focus:outline-none pl-[2.7rem] py-2 font-semibold ring-2 focus:ring-emerald-500 resize-none transition-all duration-300 rounded-lg text-primary;
+    @apply focus:outline-none pl-[2.7rem] py-2 font-semibold ring-2 focus:ring-light-blue resize-none transition-all duration-300 rounded-lg text-primary focus:text-light-blue;
   }
 
   .form-icon {
-    @apply absolute top-[50%] left-[1rem] translate-y-[-25%] text-light-gray opacity-100;
+    @apply absolute top-[50%] left-[0.8rem] text-2xl translate-y-[-25%] text-light-gray opacity-100;
   }
 
   .select-option {
@@ -78,7 +78,7 @@
   }
 
   .footer-icon {
-    @apply [&>svg]:p-2 [&>svg]:h-full [&>svg]:w-12 [&>svg]:transition-all [&>svg]:duration-200 [&>svg]:rounded-lg [&>svg]:hover:translate-y-[-1rem] text-white hover:scale-110
+    @apply [&>svg]:p-2 [&>svg]:h-full [&>svg]:w-12 [&>svg]:transition-all [&>svg]:duration-200 [&>svg]:rounded-lg [&>svg]:hover:translate-y-[-1rem] text-white hover:scale-110;
   }
 
   .link {
@@ -91,6 +91,10 @@
 
   .nav-bar-icons-sm {
     @apply w-14 h-14 py-3 text-white hover:scale-110 hover:opacity-75 rounded-full transition-all duration-500;
+  }
+
+  .photo-edit {
+    @apply absolute bottom-4 right-4 text-white flex gap-x-2 py-1 px-2 bg-light-blue hover:bg-secondary rounded-md font-semibold cursor-pointer transition-colors duration-300 [&>svg]:text-xl;
   }
 }
 

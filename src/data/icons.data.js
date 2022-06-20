@@ -1,5 +1,11 @@
 // Fa
-import { FaFacebookF, FaTwitter, FaYoutube, FaLinkedinIn } from "react-icons/fa"
+import {
+	FaFacebookF,
+	FaTwitter,
+	FaYoutube,
+	FaLinkedinIn,
+	FaGlobeAfrica,
+} from "react-icons/fa"
 // Md
 import {
 	MdKeyboardArrowDown,
@@ -13,6 +19,8 @@ import {
 	MdEmail,
 	MdPerson,
 	MdError,
+	MdHome,
+	MdLocationCity,
 } from "react-icons/md"
 // Ri
 import {
@@ -42,6 +50,10 @@ export const PersonIC = MdPerson
 export const SubjectIC = MdSubject
 export const PasswordIC = RiLockPasswordFill
 export const ErrorIC = MdError
+export const HomeIC = MdHome
+export const CityIC = MdLocationCity
+export const GlobeIC = FaGlobeAfrica
+
 // others
 export const ArrowDownIC = MdKeyboardArrowDown
 export const LocationIC = MdLocationOn
