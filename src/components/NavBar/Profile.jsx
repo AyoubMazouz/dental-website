@@ -12,8 +12,8 @@ export default function Profile() {
 	// Toggle Profile Menu.
 	const [menuState, setMenuState] = useState(false)
 	// Contexts.
-	const { currentUser, logOut } = useAuth()
-	const { setNotifications } = useUserData(currentUser)
+	const { currUser, logOut } = useAuth()
+	const { setNotifications, displayName, avatar } = useUserData()
 	const { setAlert } = useAlert()
 	const navigate = useNavigate()
 	// Close Profile Menu if you Click Anywhere on the Screen.
@@ -30,41 +30,40 @@ export default function Profile() {
 	// Log Out.
 	const handleLogOut = async () => {
 		logOut()
-			.then((response) => {
+			.then(() => {
 				navigate("/login")
 				setAlert(["info", "Logged Out"])
 			})
 			.catch((error) => {
-				console.log(error)
 				setAlert(["warning", error.message])
 			})
 	}
 	return (
-		currentUser && (
+		currUser && (
 			// Profile
-			<div id="profile" className="h-[2.7rem] w-[2.7rem] relative">
+			<div id="profile" className="h-[3rem] w-[3rem] relative">
 				{/* Profile Avatar */}
-				<div
+				<img
 					id="profile-avatar"
-					className="h-[2.7rem] w-[2.7rem] grid place-items-center bg-emerald-500 text-white rounded-full cursor-pointer select-none">
-					{currentUser?.displayName && currentUser?.displayName[0]}
-				</div>
+					src={avatar}
+					alt={displayName}
+					className="h-[3rem] w-[3rem] rounded-full cursor-pointer select-none"></img>
 				{menuState && (
 					<ul className="absolute z-50 top-[110%] right-0 w-[20rem] px-4 py-6 bg-light rounded-lg border-[1px] border-gray-200 flex flex-col shadow-md">
 						<li className="flex gap-4 border-gray-200">
 							{/* Profile Avatar */}
-							<div
+							<img
 								id="profile-avatar"
-								className="h-[3.5rem] min-w-[3.5rem] grid place-items-center bg-emerald-500 text-white rounded-full select-none">
-								{currentUser?.displayName && currentUser?.displayName[0]}
-							</div>
+								src={avatar}
+								alt={displayName}
+								className="h-[3rem] w-[3rem] rounded-full cursor-pointer select-none"></img>
 							<div className="flex flex-col justify-around">
 								{/* Email */}
 								<h5 className="text-ellipsis overflow-hidden w-[12rem] text-[.8rem]">
-									{currentUser?.email}
+									{currUser?.email}
 								</h5>
 								{/* UserName */}
-								<h5>{currentUser?.displayName}</h5>
+								<h5>{displayName}</h5>
 							</div>
 						</li>
 						<Link

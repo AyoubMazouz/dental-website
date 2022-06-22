@@ -1,6 +1,5 @@
-// React Imports.
+// React Router Dom Imports.
 import { useNavigate, Link } from "react-router-dom"
-import { useState, useEffect } from "react"
 // Components Imports.
 import Input from "../components/Input"
 import Logo from "../components/Logo"
@@ -10,6 +9,7 @@ import { useAlert } from "../contexts/AlertContext"
 // Hooks Imports.
 import useForm from "../hooks/useFom"
 import useUserData from "../hooks/useUserData"
+import useEditImg from "../hooks/useEditImg"
 
 const formParams = [
 	{
@@ -44,7 +44,8 @@ export default function SingUp() {
 	// Contexts.
 	const { signUp, updateProfile, currentUser } = useAuth()
 	const { setAlert } = useAlert()
-	const { createNewUser } = useUserData(currentUser)
+	const { createNewUser } = useUserData()
+	const { getRandomAvatar } = useEditImg()
 	const navigate = useNavigate()
 	const {
 		formValues,
@@ -73,7 +74,12 @@ export default function SingUp() {
 		onSubmit(e, () => {
 			signUp(formValues.email, formValues.password)
 				.then((response) => {
-					updateProfile(response.user, { displayName: formValues.displayName })
+					getRandomAvatar().then((dataURL) =>
+						updateProfile(response.user, {
+							displayName: formValues.displayName,
+							photoURL: dataURL,
+						})
+					)
 					createNewUser(response.user.uid)
 					setAlert(["success", "Account created successfully"])
 					navigate("/add-personal-info")
@@ -85,7 +91,6 @@ export default function SingUp() {
 							"something went wrong, try again!",
 						]
 					)
-					console.log(error)
 				})
 		})
 	}
@@ -96,7 +101,7 @@ export default function SingUp() {
 				className="max-w-[488px] w-full flex flex-col items-center bg-light rounded-xl py-[5rem] page-padding border-[3px] border-light-gray/30 shadow-lg"
 				onSubmit={(e) => onSubmitForm(e)}>
 				<Logo />
-				<h3 className="py-4">Cree un nouveau compte</h3>
+				<h3 className="my-6">Cree un nouveau compte</h3>
 				{/* Input Field */}
 				{formParams.map((params) => (
 					<Input key={params.label} {...params} {...props} />

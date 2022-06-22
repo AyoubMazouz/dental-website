@@ -1,11 +1,16 @@
 {
 	"breadcrumbs.enabled": false,
 
+	"color-highlight.enable": true,
+
+	"prettier.enable": true,
 	"prettier.jsxBracketSameLine": true,
+	"prettier.arrowParens": "always",
+	"prettier.bracketSpacing": true,
+	"prettier.tabWidth": 2,
 
 	"workbench.iconTheme": "eq-material-theme-icons-light",
 	"workbench.colorTheme": "Andromeda Colorizer",
-
 
 	"editor.wordWrap": "on",
 	"editor.formatOnSave": true,
@@ -14,6 +19,9 @@
 	"editor.tabSize": 2,
 	"editor.lineHeight": 1.5,
 	"editor.fontSize": 14,
+	"editor.bracketPairColorization.enabled": true,
+	"editor.matchBrackets": "always",
+
 
 	"files.trimTrailingWhitespace": true,
 	"files.exclude": {

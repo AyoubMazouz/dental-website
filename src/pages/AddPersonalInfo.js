@@ -1,6 +1,7 @@
 // React Imports.
-import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
+// React Router Dom Imports.
+import { useNavigate, Link } from "react-router-dom"
 // Components Imports.
 import Input from "../components/Input"
 import Logo from "../components/Logo"
@@ -17,43 +18,51 @@ const formParams = [
 		type: "text",
 		name: "firstName",
 		label: "FirstName",
+		span: 1,
 	},
 	{
 		type: "text",
 		name: "lastName",
 		label: "LastName",
+		span: 1,
 	},
 	{
 		type: "tel",
 		name: "phone",
 		label: "Phone",
+		span: 1,
+	},
+	{
+		type: "text",
+		name: "zip",
+		label: "zip",
+		span: 1,
 	},
 	{
 		type: "select",
 		name: "region",
 		label: "Region",
 		options: getRegions,
+		span: 2,
 	},
 	{
 		type: "select",
 		name: "city",
 		label: "city",
 		options: [],
-	},
-	{
-		type: "text",
-		name: "zip",
-		label: "zip",
+		span: 2,
 	},
 	{
 		type: "text",
 		name: "address1",
 		label: "address1",
+		span: 2,
 	},
 	{
 		type: "text",
 		name: "address2",
 		label: "address2",
+		span: 2,
 	},
 ]
 
@@ -99,43 +108,35 @@ export default function EditInfo() {
 	}
 
 	return (
-		<div className="w-full grid place-items-center text-light">
+		<div className="w-full grid place-items-center h-[90vh]">
 			<form
-				className="max-w-[520px] w-full flex flex-col items-center bg-primary rounded-xl py-[4rem] px-2 sm:px-4 md:px-8"
+				className="max-w-[680px] w-full grid grid-cols-2 gap-x-12 bg-light rounded-xl py-[5rem] page-padding border-[3px] border-light-gray/30 shadow-lg"
 				onSubmit={(e) =>
 					onSubmit(e, () => {
 						UpdateUserInfo(formValues)
 						navigate("/")
 					})
 				}>
-				<div className="py-8">
+				<div className="col-span-full flex flex-col items-center">
 					<Logo />
+					<h3 className="my-6">Cree un nouveau compte</h3>
 				</div>
-				<h3 className="py-4">Personal Info</h3>
-				{/* Error */}
-				{error.formError && (
-					<h5 className="bg-red-500 rounded-xl py-4 px-4 w-full my-4">
-						{error.formError}
-					</h5>
-				)}
 				{/* Input Field */}
 				{formParams.map((params) => (
-					<Input key={params.label} {...params} {...props} />
+					<div className={"col-span-" + params.span}>
+						<Input key={params.label} {...params} {...props} />
+					</div>
 				))}
-				{/* Submit Button */}
-				<button
-					disabled={loading}
-					type="submit"
-					className="rounded-full w-full px-6 py-2 text-center bg-secondary text-lg">
-					Complete
-				</button>
-				{/* Skip Button */}
-				<button
-					disabled={loading}
-					onClick={() => navigate("/")}
-					className="rounded-full w-full px-6 py-2 text-center bg-secondary text-lg">
-					Skip
-				</button>
+				<div className="flex items-center justify-between w-full col-span-full">
+					{/* Skip Button */}
+					<Link to="/" className="link">
+						Passer
+					</Link>
+					{/* Submit Button */}
+					<button disabled={loading} type="submit" className="submit-btn">
+						Suivant
+					</button>
+				</div>
 			</form>
 		</div>
 	)

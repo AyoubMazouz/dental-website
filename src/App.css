@@ -856,41 +856,6 @@ url{
   opacity: 0.75;
 }
 
-.photo-edit{
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  display: flex;
-  cursor: pointer;
-  -webkit-column-gap: 0.5rem;
-          column-gap: 0.5rem;
-  border-radius: 0.375rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 145 255 / var(--tw-bg-opacity));
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  font-weight: 600;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-  transition-property: color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-}
-
-.photo-edit:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 133 115 / var(--tw-bg-opacity));
-}
-
-.photo-edit>svg{
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .pointer-events-none{
   pointer-events: none;
 }
@@ -1010,6 +975,18 @@ url{
 
 .right-0{
   right: 0px;
+}
+
+.bottom-4{
+  bottom: 1rem;
+}
+
+.right-4{
+  right: 1rem;
+}
+
+.left-4{
+  left: 1rem;
 }
 
 .z-40{
@@ -1274,12 +1251,16 @@ url{
   height: 480px;
 }
 
+.h-\[90vh\]{
+  height: 90vh;
+}
+
 .h-\[12rem\]{
   height: 12rem;
 }
 
-.h-\[90vh\]{
-  height: 90vh;
+.h-0{
+  height: 0px;
 }
 
 .h-\[80vh\]{
@@ -1314,10 +1295,6 @@ url{
   height: 2.7rem;
 }
 
-.h-\[3\.5rem\]{
-  height: 3.5rem;
-}
-
 .h-\[238px\]{
   height: 238px;
 }
@@ -1332,10 +1309,6 @@ url{
 
 .h-\[1rem\]{
   height: 1rem;
-}
-
-.h-0{
-  height: 0px;
 }
 
 .max-h-\[380px\]{
@@ -1394,6 +1367,10 @@ url{
   width: 12rem;
 }
 
+.w-0{
+  width: 0px;
+}
+
 .w-8{
   width: 2rem;
 }
@@ -1410,6 +1387,10 @@ url{
   width: 2.7rem;
 }
 
+.w-\[3rem\]{
+  width: 3rem;
+}
+
 .w-\[20rem\]{
   width: 20rem;
 }
@@ -1422,16 +1403,8 @@ url{
   width: 338px;
 }
 
-.w-0{
-  width: 0px;
-}
-
 .min-w-\[22rem\]{
   min-width: 22rem;
-}
-
-.min-w-\[3\.5rem\]{
-  min-width: 3.5rem;
 }
 
 .max-w-\[1800px\]{
@@ -1466,8 +1439,8 @@ url{
   max-width: 17ch;
 }
 
-.max-w-\[520px\]{
-  max-width: 520px;
+.max-w-\[680px\]{
+  max-width: 680px;
 }
 
 .max-w-\[1000px\]{
@@ -1732,16 +1705,20 @@ url{
   border-radius: 0.25rem;
 }
 
+.rounded-md{
+  border-radius: 0.375rem;
+}
+
 .border-2{
   border-width: 2px;
 }
 
-.border-4{
-  border-width: 4px;
-}
-
 .border-\[3px\]{
   border-width: 3px;
+}
+
+.border-4{
+  border-width: 4px;
 }
 
 .border-\[1px\]{
@@ -1774,12 +1751,12 @@ url{
   border-color: rgb(77 96 110 / var(--tw-border-opacity));
 }
 
-.border-light-blue\/25{
-  border-color: rgb(0 145 255 / 0.25);
-}
-
 .border-light-gray\/30{
   border-color: rgb(77 96 110 / 0.3);
+}
+
+.border-light-blue\/25{
+  border-color: rgb(0 145 255 / 0.25);
 }
 
 .border-light-blue{
@@ -1857,11 +1834,6 @@ url{
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
-.bg-emerald-500{
-  --tw-bg-opacity: 1;
-  background-color: rgb(16 185 129 / var(--tw-bg-opacity));
-}
-
 .bg-yellow-500{
   --tw-bg-opacity: 1;
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
@@ -1870,6 +1842,11 @@ url{
 .bg-sky-500{
   --tw-bg-opacity: 1;
   background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+}
+
+.bg-emerald-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(16 185 129 / var(--tw-bg-opacity));
 }
 
 .bg-facebook{
@@ -2017,14 +1994,14 @@ url{
   padding-bottom: 0.75rem;
 }
 
-.py-16{
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
 .py-\[5rem\]{
   padding-top: 5rem;
   padding-bottom: 5rem;
+}
+
+.py-16{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .px-8{
@@ -2109,10 +2086,6 @@ url{
 .text-4xl{
   font-size: 2.25rem;
   line-height: 2.5rem;
-}
-
-.text-\[8rem\]{
-  font-size: 8rem;
 }
 
 .text-base{
@@ -2486,6 +2459,11 @@ url{
   background-color: rgb(0 145 255 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-secondary:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 133 115 / var(--tw-bg-opacity));
+}
+
 .hover\:text-light:hover{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -2760,6 +2738,11 @@ url{
 .\[\&\>svg\]\:bg-primary>svg{
   --tw-bg-opacity: 1;
   background-color: rgb(0 95 160 / var(--tw-bg-opacity));
+}
+
+.\[\&\>svg\]\:text-xl>svg{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .\[\&\>svg\]\:text-light>svg{

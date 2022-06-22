@@ -21,7 +21,7 @@ import {
 import { links, socialLinks } from "../../data"
 
 export default function NavBarSmall({
-	currentUser,
+	currUser,
 	menuState,
 	setMenuState,
 	scrolling,
@@ -92,7 +92,7 @@ export default function NavBarSmall({
 				<Logo />
 				{!menuState && (
 					<div className="flex items-center gap-x-6 text-xl">
-						{currentUser ? (
+						{currUser ? (
 							<>
 								<Link to="/cart">
 									<CartIC className="cursor-pointer text-2xl text-primary hover:text-light-blue transition-colors duration-300" />

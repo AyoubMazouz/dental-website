@@ -22,7 +22,7 @@ import {
 // Data Imports.
 import { links, socialLinks, info } from "../../data"
 
-export default function NavBarFull({ currentUser, scrolling }) {
+export default function NavBarFull({ currUser, scrolling }) {
 	// Nav Links.
 	const getLinks = (label, link, id) => {
 		// Only one Link.
@@ -129,7 +129,7 @@ export default function NavBarFull({ currentUser, scrolling }) {
 						})}
 					</div>
 					<div className="flex items-center gap-x-6 text-xl">
-						{currentUser ? (
+						{currUser ? (
 							<>
 								<Link to="/cart">
 									<CartIC className="cursor-pointer text-2xl text-primary hover:text-light-blue transition-colors duration-300" />

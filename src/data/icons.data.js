@@ -34,6 +34,8 @@ import { IoLogoWhatsapp } from "react-icons/io"
 import { TiLocationArrow } from "react-icons/ti"
 // Gi
 import { CgProfile } from "react-icons/cg"
+// Bi
+import { BiReset } from "react-icons/bi"
 
 // Social Media
 export const FacebookIC = FaFacebookF
@@ -64,3 +66,4 @@ export const CartIC = RiShoppingCartFill
 export const MenuIC = MdMenu
 export const CloseIC = MdClose
 export const NotificationIC = MdNotifications
+export const ResetIC = BiReset

@@ -1,3 +1,5 @@
+// React Imports.
+import { useState, useEffect } from "react"
 // FireBase Imports.
 import { updateDoc, setDoc, doc, getDoc, arrayUnion } from "firebase/firestore"
 import { updateProfile } from "firebase/auth"
@@ -5,14 +7,27 @@ import { ref, getDownloadURL, uploadString } from "firebase/storage"
 import { db, storage } from "../firebase"
 // Context Imports.
 import { useAlert } from "../contexts/AlertContext"
+import { useAuth } from "../contexts/AuthContext"
+// Hooks Imports.
+import useEditImg from "../hooks/useEditImg"
 
-export default function useUserData(user) {
+export default function useUserData() {
 	const { setAlert } = useAlert()
+	const { currUser } = useAuth()
+	const { optimizeProfileImg, getRandomAvatar } = useEditImg()
+	const [avatar, setAvatar] = useState(null)
+	const [displayName, setDisplayName] = useState(null)
 
-	const getData = () => getDoc(doc(db, "users", user.uid))
+	useEffect(() => updateValues(), [currUser])
 
-	const createNewUser = (uid) => {
-		setDoc(doc(db, "users", uid), {
+	const getData = () => getDoc(doc(db, "users", currUser.uid))
+	const updateValues = () => {
+		setAvatar(currUser.photoURL)
+		setDisplayName(currUser.displayName)
+	}
+
+	const createNewUser = () => {
+		setDoc(doc(db, "users", currUser.uid), {
 			info: {
 				fullName: "",
 				phone: "",
@@ -27,7 +42,7 @@ export default function useUserData(user) {
 	}
 
 	const UpdateUserInfo = (info) =>
-		updateDoc(doc(db, "users", user.uid), { info })
+		updateDoc(doc(db, "users", currUser.uid), { info })
 
 	const getUserInfo = async (setFormValues) => {
 		const response = await getData()
@@ -42,7 +57,7 @@ export default function useUserData(user) {
 	}
 
 	const setNewNotification = (notification) => {
-		return updateDoc(doc(db, "users", user.uid), {
+		return updateDoc(doc(db, "users", currUser.uid), {
 			notifications: arrayUnion(notification),
 		})
 	}
@@ -54,54 +69,41 @@ export default function useUserData(user) {
 
 	const updateProfilePhoto = (file) => {
 		if (!file) return
-
-		// Desired Image Size.
-		const SIZE = 256
-
-		const reader = new FileReader()
-
-		reader.onload = (e) => {
-			const img = new Image()
-			// Set
-			img.src = e.target.result
-
-			img.onload = () => {
-				// Dynamically Creating Canvas.
-				const canvas = document.createElement("canvas")
-				canvas.width = SIZE
-				canvas.height = (SIZE * (img.height / img.width)) | 0
-				const ctx = canvas.getContext("2d")
-				// Drawing the resized Image to the Canvas.
-				ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-
-				// Image Reference.
-				// Uses the User Id, Every time user update the Image it get overwritten.
-				const fileRef = ref(storage, `photo-url/${user.uid}`)
-				// DataURL of the Resized Image
-				const dataURL = canvas.toDataURL("image/jpeg")
-				// Use UploadString Method because the image is represented as a string.
-				uploadString(fileRef, dataURL, "data_url")
-					.then(
-						(snapshot) =>
-							console.log(snapshot.bytesTransferred / snapshot.totalBytes) * 100
+		// Uses the User Id, Every time user update the Image it get overwritten.
+		const fileRef = ref(storage, `photo-url/${currUser.uid}`)
+		optimizeProfileImg(file).then((dataURL) => {
+			// Use UploadString Method because the image is represented as a string.
+			uploadString(fileRef, dataURL, "data_url")
+				.then(
+					(snapshot) =>
+						console.log(snapshot.bytesTransferred / snapshot.totalBytes) * 100
+				)
+				// Update PhotoURL.
+				.then(() =>
+					getDownloadURL(fileRef).then((url) =>
+						updateProfile(currUser, {
+							photoURL: url,
+						}).then(() => {
+							updateValues()
+							setAlert(["success", "Photo has been updated successfully!"])
+						})
 					)
-					// Update PhotoURL.
-					.then(() =>
-						getDownloadURL(fileRef).then((url) =>
-							updateProfile(user, {
-								photoURL: url,
-							}).then(() =>
-								setAlert(["success", "Photo has been updated successfully!"])
-							)
-						)
-					)
-			}
-		}
-		// Read File.
-		reader.readAsDataURL(file)
+				)
+		})
 	}
 
+	const updateRandomAvatar = () =>
+		getRandomAvatar().then((url) =>
+			updateProfile(currUser, { photoURL: url }).then(() => {
+				updateValues()
+				setAlert(["success", "Profile Image has been updated successfully!"])
+			})
+		)
+
 	return {
+		currUser,
+		displayName,
+		avatar,
 		getData,
 		createNewUser,
 		getUserInfo,
@@ -110,5 +112,6 @@ export default function useUserData(user) {
 		setNewNotification,
 		getCartItems,
 		updateProfilePhoto,
+		updateRandomAvatar,
 	}
 }

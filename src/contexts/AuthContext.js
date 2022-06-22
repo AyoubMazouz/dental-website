@@ -8,8 +8,7 @@ import {
 	signOut,
 	sendPasswordResetEmail,
 	updateProfile as _updateProfile,
-} from 'firebase/auth'
-
+} from "firebase/auth"
 
 const AuthContext = createContext()
 
@@ -18,26 +17,28 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-	const [currentUser, setCurrentUser] = useState()
+	const [currUser, setCurrUser] = useState()
 	const [loading, setLoading] = useState(true)
 
-	const signUp = (email, password) => createUserWithEmailAndPassword(auth, email, password)
+	const signUp = (email, password) =>
+		createUserWithEmailAndPassword(auth, email, password)
 
-	const logIn = (email, password) => signInWithEmailAndPassword(auth, email, password)
+	const logIn = (email, password) =>
+		signInWithEmailAndPassword(auth, email, password)
 
 	const logOut = () => signOut(auth)
 
 	const resetPassword = (email) => sendPasswordResetEmail(auth, email)
 
-	const updateEmail = (email) => currentUser.updateEmail(auth, email)
+	const updateEmail = (email) => currUser.updateEmail(auth, email)
 
-	const updatePassword = (password) => currentUser.updatePassword(auth, password)
+	const updatePassword = (password) => currUser.updatePassword(auth, password)
 
 	const updateProfile = (user, data) => _updateProfile(user, data)
 
 	useEffect(() => {
-		const unsubscribe = auth.onAuthStateChanged(user => {
-			setCurrentUser(user)
+		const unsubscribe = auth.onAuthStateChanged((user) => {
+			setCurrUser(user)
 			setLoading(false)
 		})
 
@@ -45,7 +46,7 @@ export function AuthProvider({ children }) {
 	}, [])
 
 	const value = {
-		currentUser,
+		currUser,
 		logIn,
 		signUp,
 		logOut,

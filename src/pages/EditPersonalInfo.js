@@ -1,21 +1,18 @@
 // React Imports.
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 // React Router Dom Imports.
 import { useNavigate } from "react-router-dom"
-// context Imports.
-import { useAuth } from "../contexts/AuthContext"
 // Components Imports.
 import Input from "../components/Input"
 // Hooks Imports.
 import useForm from "../hooks/useFom"
 import useUserData from "../hooks/useUserData"
-import useResizeImage from "../hooks/useResizeImage"
 // Context Imports.
 import { useAlert } from "../contexts/AlertContext"
 // Data Imports.
 import { getRegions, getCities } from "../data"
 // Icons Imports.
-import { EditIC } from "../data/icons.data"
+import { EditIC, ResetIC } from "../data/icons.data"
 
 const formParams = [
 	// FirstName.
@@ -79,14 +76,18 @@ const formParams = [
 ]
 
 export default function EditPersonalInfo() {
-	// Auth Context.
-	const { currentUser } = useAuth()
 	const { setAlert } = useAlert()
-	const { resizeImageToDataUrl } = useResizeImage()
 
 	const navigate = useNavigate()
-	const { getUserInfo, UpdateUserInfo, updateProfilePhoto } =
-		useUserData(currentUser)
+	const {
+		currUser,
+		displayName,
+		avatar,
+		getUserInfo,
+		UpdateUserInfo,
+		updateProfilePhoto,
+		updateRandomAvatar,
+	} = useUserData()
 	const {
 		formValues,
 		setFormValues,
@@ -108,10 +109,10 @@ export default function EditPersonalInfo() {
 	})
 
 	function openFileDialog() {
-		const input = document.getElementById("photo-img-dialog")
+		const input = document.getElementById("photo-dialog")
 		input.onchange = () => {
 			const file = Array.from(input.files)[0]
-			updateProfilePhoto(file, 200)
+			updateProfilePhoto(file)
 		}
 		input.click()
 	}
@@ -156,16 +157,21 @@ export default function EditPersonalInfo() {
 				<div className="mb-20 flex justify-between">
 					{/* Profile */}
 					<div className="mb-8 flex gap-x-12">
-						{currentUser.photoURL ? (
+						{avatar && (
 							<div className="relative">
 								<img
-									src={currentUser.photoURL}
-									alt={currentUser.displayName}
+									src={avatar}
+									alt={displayName}
 									className="w-[12rem] h-[12rem] object-cover rounded-lg border-4 border-light-blue/25"
 								/>
-								<div className="photo-edit" onClick={openFileDialog}>
+								<div
+									onClick={openFileDialog}
+									className="absolute bottom-4 right-4 text-white flex gap-x-2
+									py-1 px-2 bg-light-blue hover:bg-secondary rounded-md
+									font-semibold cursor-pointer transition-colors duration-300
+									[&>svg]:text-xl">
 									<input
-										id="photo-img-dialog"
+										id="photo-dialog"
 										type="file"
 										accept=".png, .jpeg, .jpg"
 										className="w-0 h-0"
@@ -173,21 +179,18 @@ export default function EditPersonalInfo() {
 									Edit
 									<EditIC />
 								</div>
-							</div>
-						) : (
-							<div className="relative">
-								<div className="w-[12rem] h-[12rem] object-cover rounded-lg border-4 border-light-blue/25 grid place-items-center text-[8rem] font-bold text-white bg-emerald-500">
-									{currentUser.displayName[0]}
-								</div>
-								<div className="photo-edit" onClick={openFileDialog}>
-									Edit
-									<EditIC />
+								<div
+									className="absolute bottom-4 left-4 text-white
+									py-1 px-2 bg-light-blue hover:bg-secondary rounded-md
+									font-semibold cursor-pointer transition-colors duration-300
+									[&>svg]:text-xl">
+									<ResetIC onClick={updateRandomAvatar} />
 								</div>
 							</div>
 						)}
 						<div>
-							<h3>{currentUser.displayName}</h3>
-							<h4>{currentUser.email}</h4>
+							<h3>{displayName}</h3>
+							<h4>{currUser?.email}</h4>
 						</div>
 					</div>
 					{/* Edit Button */}
