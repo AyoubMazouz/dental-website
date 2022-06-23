@@ -74,13 +74,13 @@ export default function SingUp() {
 		onSubmit(e, () => {
 			signUp(formValues.email, formValues.password)
 				.then((response) => {
+					createNewUser(response.user.uid)
 					getRandomAvatar().then((dataURL) =>
 						updateProfile(response.user, {
 							displayName: formValues.displayName,
 							photoURL: dataURL,
 						})
 					)
-					createNewUser(response.user.uid)
 					setAlert(["success", "Account created successfully"])
 					navigate("/add-personal-info")
 				})
@@ -91,6 +91,7 @@ export default function SingUp() {
 							"something went wrong, try again!",
 						]
 					)
+					console.log(error)
 				})
 		})
 	}

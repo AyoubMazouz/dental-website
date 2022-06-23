@@ -97,7 +97,7 @@ export default function NavBarSmall({
 								<Link to="/cart">
 									<CartIC className="cursor-pointer text-2xl text-primary hover:text-light-blue transition-colors duration-300" />
 								</Link>
-								<Notification />
+								{/* <Notification /> */}
 								<Profile />
 							</>
 						) : (

@@ -41,7 +41,6 @@ export default function Profile() {
 
 	const [_, setTemp] = useState(0)
 	useEffect(() => {
-		console.log("hello changes")
 		setTemp((prev) => prev + 1)
 	}, [currUser.displayName, currUser.userEmail, currUser.photoURL])
 	return (

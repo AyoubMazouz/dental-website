@@ -21,6 +21,7 @@ export default function Gallery() {
 				}}
 				spaceBetween={10}
 				navigation={true}
+				grabCursor
 				modules={[FreeMode, Navigation, Thumbs]}
 				className="mySwiper2 rounded-xl w-full max-w-[1400px] h-[448px] lg:h-[768px] mb-[10px]">
 				{Object.entries(document).map((doc) => (
@@ -38,13 +39,14 @@ export default function Gallery() {
 				spaceBetween={10}
 				slidesPerView={"auto"}
 				freeMode={true}
+				grabCursor
 				watchSlidesProgress={true}
 				modules={[FreeMode, Navigation, Thumbs]}
 				className="mySwiper w-full max-w-[1400px] h-[96px]">
 				{Object.entries(document).map((doc) => (
 					<SwiperSlide
 						key={doc[0]}
-						className="rounded-xl overflow-hidden cursor-pointer w-gallery-swiper-important">
+						className="rounded-xl overflow-hidden w-gallery-swiper-important">
 						<img
 							src={doc[1]}
 							alt={doc[0]}

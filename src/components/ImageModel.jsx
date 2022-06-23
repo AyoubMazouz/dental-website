@@ -11,9 +11,9 @@ export default function ImageModel({ currIndex, docs, setSelected }) {
 	const [index, _] = useState(currIndex)
 	const [thumbsSwiper, setThumbsSwiper] = useState(null)
 	return (
-		<div className="w-[100vw] h-[100vh] bg-[rgba(0,0,0,.9)] grid place-items-center fixed z-40 top-0">
+		<div className="w-[99vw] h-[100vh] bg-[rgba(0,0,0,.9)] grid place-items-center fixed z-40 top-0">
 			<MdClose
-				className="text-light text-6xl absolute z-10 top-[1rem] left-[3rem] cursor-pointer"
+				className="text-light text-3xl lg:text-5xl absolute z-10 top-3 right-3 cursor-pointer"
 				onClick={() => setSelected(null)}
 			/>
 			<Swiper
@@ -43,6 +43,7 @@ export default function ImageModel({ currIndex, docs, setSelected }) {
 				onSwiper={setThumbsSwiper}
 				spaceBetween={10}
 				slidesPerView={"auto"}
+				grabCursor
 				freeMode={true}
 				watchSlidesProgress={true}
 				modules={[FreeMode, Navigation, Thumbs]}
@@ -50,7 +51,7 @@ export default function ImageModel({ currIndex, docs, setSelected }) {
 				{Object.entries(docs).map((doc) => (
 					<SwiperSlide
 						key={doc[0]}
-						className="rounded-lg overflow-hidden cursor-pointer w-gallery-swiper-important">
+						className="rounded-lg overflow-hidden w-gallery-swiper-important">
 						<img
 							src={doc[1]}
 							alt={doc[0]}

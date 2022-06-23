@@ -95,15 +95,13 @@ export default function EditPersonalInfo() {
 		setError,
 		loading,
 	} = useForm({
-		info: {
-			fullName: "",
-			phone: "",
-			region: "",
-			city: "",
-			zip: "",
-			address1: "",
-			address2: "",
-		},
+		fullName: "",
+		phone: "",
+		region: "",
+		city: "",
+		zip: "",
+		address1: "",
+		address2: "",
 	})
 
 	function openFileDialog() {
@@ -139,7 +137,18 @@ export default function EditPersonalInfo() {
 	}
 
 	return (
-		<div className="w-full py-16 grid justify-center text-light-gray page-padding">
+		<form
+			className="w-full py-16 grid justify-center text-light-gray page-padding"
+			onSubmit={(e) =>
+				onSubmit(e, () => {
+					UpdateUserInfo(formValues).then(() =>
+						setAlert([
+							"success",
+							"Your personal info has been updated successfully",
+						])
+					)
+				})
+			}>
 			<div className="max-w-[1000px] w-full flex justify-between page-padding">
 				{/* Profile */}
 				<div className="mb-4 flex gap-x-6 flex-wrap">
@@ -190,26 +199,13 @@ export default function EditPersonalInfo() {
 					</button>
 				</div>
 			</div>
-			<form
-				className="max-w-[1000px] w-full page-padding"
-				onSubmit={(e) =>
-					onSubmit(e, () => {
-						UpdateUserInfo(formValues).then(() =>
-							setAlert([
-								"success",
-								"Your personal info has been updated successfully",
-							])
-						)
-					})
-				}>
-				<div className="lg:grid grid-cols-2 gap-x-12">
-					{formParams.map((params) => (
-						<div className={"col-span-" + params.colspan}>
-							<Input key={params.label} {...params} {...props} />
-						</div>
-					))}
-				</div>
-			</form>
-		</div>
+			<div className="lg:grid grid-cols-2 gap-x-12">
+				{formParams.map((params) => (
+					<div className={"col-span-" + params.colspan}>
+						<Input key={params.label} {...params} {...props} />
+					</div>
+				))}
+			</div>
+		</form>
 	)
 }

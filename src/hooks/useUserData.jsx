@@ -18,28 +18,24 @@ export default function useUserData() {
 
 	const getData = () => getDoc(doc(db, "users", currUser.uid))
 
-	const createNewUser = () => {
-		setDoc(doc(db, "users", currUser.uid), {
-			info: {
-				fullName: "",
-				phone: "",
-				region: "",
-				city: "",
-				zip: "",
-				address1: "",
-				address2: "",
-			},
-			notification: [],
+	const createNewUser = (uid) => {
+		setDoc(doc(db, "users", uid), {
+			fullName: "",
+			phone: "",
+			region: "",
+			city: "",
+			zip: "",
+			address1: "",
+			address2: "",
 		})
 	}
 
 	const UpdateUserInfo = (info) =>
-		updateDoc(doc(db, "users", currUser.uid), { info })
+		updateDoc(doc(db, "users", currUser.uid), info)
 
 	const getUserInfo = async (setFormValues) => {
 		const response = await getData()
-		const data = response.data()
-		setFormValues(data.info)
+		setFormValues(response.data())
 	}
 
 	const getNotifications = async (setNotifications) => {
