@@ -42,7 +42,7 @@ const alerts = {
 
 export default function SingUp() {
 	// Contexts.
-	const { signUp, updateProfile, currentUser } = useAuth()
+	const { signUp, updateProfile } = useAuth()
 	const { setAlert } = useAlert()
 	const { createNewUser } = useUserData()
 	const { getRandomAvatar } = useEditImg()

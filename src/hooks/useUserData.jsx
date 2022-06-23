@@ -17,6 +17,7 @@ export default function useUserData() {
 	const { optimizeProfileImg, getRandomAvatar } = useEditImg()
 	const [avatar, setAvatar] = useState(null)
 	const [displayName, setDisplayName] = useState(null)
+	const [userEmail, setUserEmail] = useState(null)
 
 	useEffect(() => updateValues(), [currUser])
 
@@ -24,6 +25,7 @@ export default function useUserData() {
 	const updateValues = () => {
 		setAvatar(currUser.photoURL)
 		setDisplayName(currUser.displayName)
+		setUserEmail(currUser.email)
 	}
 
 	const createNewUser = () => {
@@ -104,6 +106,7 @@ export default function useUserData() {
 		currUser,
 		displayName,
 		avatar,
+		userEmail,
 		getData,
 		createNewUser,
 		getUserInfo,

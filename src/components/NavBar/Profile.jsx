@@ -13,7 +13,7 @@ export default function Profile() {
 	const [menuState, setMenuState] = useState(false)
 	// Contexts.
 	const { currUser, logOut } = useAuth()
-	const { setNotifications, displayName, avatar } = useUserData()
+	const { displayName, avatar, userEmail } = useUserData()
 	const { setAlert } = useAlert()
 	const navigate = useNavigate()
 	// Close Profile Menu if you Click Anywhere on the Screen.
@@ -60,7 +60,7 @@ export default function Profile() {
 							<div className="flex flex-col justify-around">
 								{/* Email */}
 								<h5 className="text-ellipsis overflow-hidden w-[12rem] text-[.8rem]">
-									{currUser?.email}
+									{userEmail}
 								</h5>
 								{/* UserName */}
 								<h5>{displayName}</h5>

@@ -12,7 +12,7 @@ import { useAlert } from "../contexts/AlertContext"
 // Data Imports.
 import { getRegions, getCities } from "../data"
 // Icons Imports.
-import { EditIC, ResetIC } from "../data/icons.data"
+import { EditIC, RandomIC } from "../data/icons.data"
 
 const formParams = [
 	// FirstName.
@@ -83,6 +83,7 @@ export default function EditPersonalInfo() {
 		currUser,
 		displayName,
 		avatar,
+		userEmail,
 		getUserInfo,
 		UpdateUserInfo,
 		updateProfilePhoto,
@@ -141,9 +142,62 @@ export default function EditPersonalInfo() {
 	}
 
 	return (
-		<div className="flex justify-center text-light-gray">
+		<div className="w-full py-16 grid justify-center text-light-gray page-padding">
+			<div className="max-w-[1000px] w-full flex justify-between page-padding">
+				{/* Profile */}
+				<div className="mb-4 flex gap-x-6 flex-wrap">
+					{avatar && (
+						<div className="relative">
+							<img
+								src={avatar}
+								alt={displayName}
+								className="w-[7rem] lg:w-[10rem] h-[7rem] lg:h-[10rem] object-cover rounded-lg border-4 border-light-gray/25"
+							/>
+							<div
+								onClick={openFileDialog}
+								className="absolute top-2 right-2 text-white flex gap-x-1
+									p-1 bg-light-blue hover:bg-light-blue/75 rounded-md
+									font-semibold cursor-pointer transition-colors duration-300
+									[&>svg]:text-xl text-sm">
+								<input
+									id="photo-dialog"
+									type="file"
+									accept=".png, .jpeg, .jpg"
+									className="w-0 h-0"
+								/>
+								Edit
+								<EditIC />
+							</div>
+							<div
+								className="absolute top-12 right-2 text-white
+									p-1 bg-light-blue hover:bg-light-blue/75 rounded-md
+									font-semibold cursor-pointer transition-colors duration-300
+									[&>svg]:text-xl">
+								<RandomIC onClick={updateRandomAvatar} />
+							</div>
+						</div>
+					)}
+					<div className="p-2">
+						<h4 className="text-light-blue font-bold capitalize">
+							{displayName}
+						</h4>
+						<h5 className="font-semibold">{userEmail}</h5>
+					</div>
+				</div>
+				{/* Edit Button */}
+				<div>
+					<button disabled={loading} type="submit" className="submit-btn m-2">
+						Save
+					</button>
+					<button
+						onClick={() => navigate("/")}
+						className="submit-btn bg-secondary m-2">
+						Cancel
+					</button>
+				</div>
+			</div>
 			<form
-				className="max-w-[1000px] w-full py-16"
+				className="max-w-[1000px] w-full page-padding"
 				onSubmit={(e) =>
 					onSubmit(e, () => {
 						UpdateUserInfo(formValues).then(() =>
@@ -154,58 +208,7 @@ export default function EditPersonalInfo() {
 						)
 					})
 				}>
-				<div className="mb-20 flex justify-between">
-					{/* Profile */}
-					<div className="mb-8 flex gap-x-12">
-						{avatar && (
-							<div className="relative">
-								<img
-									src={avatar}
-									alt={displayName}
-									className="w-[12rem] h-[12rem] object-cover rounded-lg border-4 border-light-blue/25"
-								/>
-								<div
-									onClick={openFileDialog}
-									className="absolute bottom-4 right-4 text-white flex gap-x-2
-									py-1 px-2 bg-light-blue hover:bg-secondary rounded-md
-									font-semibold cursor-pointer transition-colors duration-300
-									[&>svg]:text-xl">
-									<input
-										id="photo-dialog"
-										type="file"
-										accept=".png, .jpeg, .jpg"
-										className="w-0 h-0"
-									/>
-									Edit
-									<EditIC />
-								</div>
-								<div
-									className="absolute bottom-4 left-4 text-white
-									py-1 px-2 bg-light-blue hover:bg-secondary rounded-md
-									font-semibold cursor-pointer transition-colors duration-300
-									[&>svg]:text-xl">
-									<ResetIC onClick={updateRandomAvatar} />
-								</div>
-							</div>
-						)}
-						<div>
-							<h3>{displayName}</h3>
-							<h4>{currUser?.email}</h4>
-						</div>
-					</div>
-					{/* Edit Button */}
-					<div className="space-x-4">
-						<button disabled={loading} type="submit" className="submit-btn">
-							Save
-						</button>
-						<button
-							onClick={() => navigate("/")}
-							className="submit-btn bg-secondary">
-							Cancel
-						</button>
-					</div>
-				</div>
-				<div className="grid grid-cols-2 gap-x-12">
+				<div className="lg:grid grid-cols-2 gap-x-12">
 					{formParams.map((params) => (
 						<div className={"col-span-" + params.colspan}>
 							<Input key={params.label} {...params} {...props} />
