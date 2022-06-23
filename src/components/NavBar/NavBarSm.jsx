@@ -19,6 +19,7 @@ import {
 } from "../../data/icons.data"
 // Data Imports.
 import { links, socialLinks } from "../../data"
+import { useState } from "react"
 
 export default function NavBarSmall({
 	currUser,
@@ -26,20 +27,32 @@ export default function NavBarSmall({
 	setMenuState,
 	scrolling,
 }) {
-	const navigate = useNavigate()
-	// Nav Links.
 	const getLinks = () => {
-		return Object.entries(links).map(([label, link], id) => {
+		return Object.entries(links).map(([label, link]) => {
+			if (link?.subLinks) {
+				return (
+					<details className="w-full py-2 hover:bg-light-blue hover:text-white text-xl font-semibold cursor-pointer flex select-none">
+						<summary>{label}</summary>
+						{Object.entries(link.subLinks).map(([subLabel, subLink]) => (
+							<Link
+								to={subLink}
+								onClick={() => setMenuState(false)}
+								className="hover:bg-white hover:text-light-blue py-1 text-lg">
+								{subLabel}
+							</Link>
+						))}
+					</details>
+				)
+			}
+
 			return (
-				<li
-					key={id}
-					onClick={() => {
-						setMenuState(false)
-						navigate(link)
-					}}
-					className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 hover:text-primary text-2xl font-semibold cursor-pointer'>
+				<Link
+					to={link}
+					key={label}
+					onClick={() => setMenuState(false)}
+					className="w-full py-2 hover:bg-light-blue hover:text-white text-xl font-semibold cursor-pointer select-none">
 					{label}
-				</li>
+				</Link>
 			)
 		})
 	}
@@ -65,38 +78,26 @@ export default function NavBarSmall({
 	}
 	return (
 		<nav
-			className={`text-dark relative lg:hidden flex items-center justify-center transition-all duration-500 bg-light px-2 sm:px-4 md:px-8 max-w-[1920px] ${
-				menuState ? "h-[100vh]" : "h-[70px]"
-			} ${scrolling ? "sticky top-0 z-20" : ""}`}>
-			<div className="absolute top-0 w-full flex items-center justify-between px-4 py-4">
+			className={`lg:hidden sticky top-0 w-full min-h-[80px] transition-all duration-500 bg-light overflow-hidden shadow-lg`}>
+			<div className="flex items-center justify-between px-4 py-4">
 				{/* Toggle button */}
-				{/* Open */}
-				<MenuIC
-					onClick={() => setMenuState((prev) => !prev)}
-					className={
-						menuState
-							? "hidden"
-							: "text-4xl text-slate-700 hover:text-sky-500 trans cursor-pointer"
-					}
-				/>
-				{/* Closed */}
-				<CloseIC
-					onClick={() => setMenuState((prev) => !prev)}
-					className={
-						menuState
-							? "text-4xl text-slate-700 hover:text-sky-500 trans cursor-pointer hover:rotate-180"
-							: "hidden"
-					}
-				/>
+				{menuState ? (
+					<CloseIC
+						onClick={() => setMenuState((prev) => !prev)}
+						className="text-4xl text-slate-700 hover:text-sky-500 cursor-pointer"
+					/>
+				) : (
+					<MenuIC
+						onClick={() => setMenuState((prev) => !prev)}
+						className="text-4xl text-slate-700 hover:text-sky-500 cursor-pointer"
+					/>
+				)}
 				{/* Logo */}
 				<Logo />
-				{!menuState && (
-					<div className="flex items-center gap-x-6 text-xl">
-						{currUser ? (
+				<div className="flex items-center gap-x-6 text-xl">
+					{!menuState &&
+						(currUser ? (
 							<>
-								<Link to="/cart">
-									<CartIC className="cursor-pointer text-2xl text-primary hover:text-light-blue transition-colors duration-300" />
-								</Link>
 								{/* <Notification /> */}
 								<Profile />
 							</>
@@ -107,19 +108,16 @@ export default function NavBarSmall({
 								<RoundedProfileIC className="text-2xl" />
 								Se Connecter
 							</Link>
-						)}
-					</div>
-				)}
+						))}
+				</div>
 			</div>
 			{menuState && (
-				<ul className="text-center py-8 mt-12">
+				<ul className="text-center w-full rounded-lg  border-b-2 border-light-gray/25 py-4">
 					{/* Links */}
-					<ul className="w-full flex flex-col items-center gap-y-3">
-						{getLinks()}
-					</ul>
+					<ul className="w-full flex flex-col text-light-gray">{getLinks()}</ul>
 					{/* Call to Action */}
 					{/* Social media Icons */}
-					<ul className="flex items-center justify-center flex-wrap mt-12 gap-2">
+					<ul className="flex items-center justify-center flex-wrap mt-6 gap-2">
 						{getIcons()}
 					</ul>
 				</ul>
