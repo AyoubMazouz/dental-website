@@ -175,10 +175,8 @@ export default function EditPersonalInfo() {
 						</div>
 					)}
 					<div className="p-2">
-						<h4 className="text-light-blue font-bold capitalize">
-							{currUser.displayName}
-						</h4>
 						<h5 className="font-semibold">{currUser.email}</h5>
+						<h4 className="font-bold capitalize">{currUser.displayName}</h4>
 					</div>
 				</div>
 				{/* Edit Button */}

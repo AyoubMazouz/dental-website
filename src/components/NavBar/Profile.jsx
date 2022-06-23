@@ -46,13 +46,13 @@ export default function Profile() {
 	}, [currUser.displayName, currUser.userEmail, currUser.photoURL])
 	return (
 		// Profile
-		<div id="profile" className="h-[3.6rem] w-[3.6rem] relative">
+		<div id="profile" className="h-[3.1rem] w-[3.1rem] relative">
 			{/* Profile Avatar */}
 			<img
 				id="profile-avatar"
 				src={currUser.photoURL}
 				alt={currUser.displayName}
-				className="h-[3.6rem] w-[3.6rem] rounded-full cursor-pointer select-none border-[3px] border-light-gray/25"></img>
+				className="h-[3.1rem] w-[3.1rem] rounded-full cursor-pointer select-none border-[3px] border-light-gray/25"></img>
 			{menuState && (
 				<ul className="absolute z-50 top-[110%] right-0 w-[20rem] px-4 py-6 bg-light rounded-lg border-[1px] border-gray-200 flex flex-col shadow-md">
 					<li className="flex gap-4 border-gray-200">
@@ -61,8 +61,8 @@ export default function Profile() {
 							id="profile-avatar"
 							src={currUser.photoURL}
 							alt={currUser.displayName}
-							className="h-[3rem] w-[3rem] rounded-full cursor-pointer select-none"></img>
-						<div className="flex flex-col justify-around">
+							className="h-[4rem] w-[4rem] rounded-full cursor-pointer border-[3px] border-light-gray/25 select-none"></img>
+						<div className="p-2 font-semibold">
 							{/* Email */}
 							<h5 className="text-ellipsis overflow-hidden w-[12rem] text-[.8rem]">
 								{currUser.email}
