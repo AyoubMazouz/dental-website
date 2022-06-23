@@ -38,20 +38,21 @@ export default function SlideShow({ images }) {
 				</Swiper>
 			</div>
 			{/* Header */}
-			<div className="w-full h-full absolute pointer-events-none z-10 top-0 flex flex-col justify-center items-center bg-[rgba(0,0,0,.3)]">
-				<h1 className="font-bold max-w-[17ch] text-center text-light my-[3rem]">
+			<div className="w-full h-full absolute pointer-events-none z-10 top-0 flex flex-col justify-center items-center bg-[rgba(0,0,0,.25)]">
+				<h1 className="font-bold max-w-[17ch] text-center text-light my-[3rem] md:text-5xl lg:text-7xl text-stroke uppercase">
 					Dentego, le meilleur de la santé dentaire, pour tous
 				</h1>
-				<div className="flex gap-4 text-light">
-					<Link
-						to="contact"
-						className="bg-secondary px-6 py-2 rounded-full pointer-events-auto">
-						<h4>Rendez vous</h4>
+				<div className="flex gap-4 text-light pointer-events-auto">
+					<Link to="contact" className="submit-btn">
+						<h4>Nous contacter</h4>
+					</Link>
+					<Link to="about" className="submit-btn lg:block hidden bg-secondary">
+						<h4>à propos de nous</h4>
 					</Link>
 					<a
 						href={`'tel:${info.phone[0]}`}
-						className="border-secondary border-2 px-6 py-2 rounded-full pointer-events-auto">
-						<h4>Appelez</h4>
+						className="submit-btn lg:hidden bg-secondary">
+						<h4>Rendez vous</h4>
 					</a>
 				</div>
 			</div>

@@ -22,7 +22,7 @@ import {
 	TwitterIC,
 	WhatsappIC,
 } from "../data/icons.data"
-import { CgArrowLongRight } from "react-icons/cg"
+import { LinkArrowIC } from "../data/icons.data"
 // Data Imports.
 import { stats, info, VIDEO_URL } from "../data"
 
@@ -55,11 +55,11 @@ export default function About() {
 			{/* Hero Section */}
 			<Hero {...heroValues} />
 
-			<div className="flex flex-col items-center text-dark gap-y-[4rem] lg:gap-y-[8rem] overflow-hidden">
+			<div className="flex flex-col items-center gap-y-[4rem] lg:gap-y-[8rem] overflow-hidden">
 				{/* Content */}
-				<div className="flex flex-col items-center gap-y-[4rem] lg:gap-y-[8rem] py-[4rem] w-full bg-primary">
+				<div className="flex flex-col items-center gap-y-[4rem] lg:gap-y-[8rem] py-[4rem] w-full">
 					{/* Stats */}
-					<div className="max-w-[1800px] w-full flex-wrap flex gap-x-[2rem] gap-y-[1rem] justify-center items-start text-light">
+					<div className="max-w-[1800px] w-full flex-wrap flex gap-x-[2rem] gap-y-[1rem] justify-center items-start text-primary">
 						{stats.about.map((stat, id) => (
 							<Stats key={id} {...stat} speed={3000} />
 						))}
@@ -158,7 +158,7 @@ export default function About() {
 							to="/gallery"
 							className="link font-bold py-3 flex items-center gap-x-2">
 							<p>More</p>
-							<CgArrowLongRight className="text-light-blue text-3xl" />
+							<LinkArrowIC className="text-light-blue text-4xl" />
 						</Link>
 					</div>
 					<div className="rounded-xl overflow-hidden page-padding">

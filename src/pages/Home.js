@@ -8,7 +8,7 @@ import ContactForm from "../components/ContactForm"
 import Stats from "../components/Stats"
 import Gallery from "../components/Gallery"
 // Icons Imports.
-import { CgArrowLongRight } from "react-icons/cg"
+import { LinkArrowIC } from "../data/icons.data"
 // Data Imports.
 import { servicesData, stats, US_IMG, SLIDESHOW_IMGS, info } from "../data"
 
@@ -46,7 +46,7 @@ export default function Home() {
 							to="/services"
 							className="text-light-blue font-bold py-3 flex items-center gap-x-2 hover:underline hover:opacity-75">
 							Our Services
-							<CgArrowLongRight className="text-light-blue text-3xl" />
+							<LinkArrowIC className="text-light-blue text-4xl" />
 						</Link>
 					</p>
 				</div>
@@ -82,7 +82,7 @@ export default function Home() {
 							to="/about"
 							className="text-light-blue font-bold py-3 flex items-center gap-x-2 hover:underline hover:opacity-75">
 							About Us
-							<CgArrowLongRight className="text-light-blue text-3xl" />
+							<LinkArrowIC className="text-light-blue text-4xl" />
 						</Link>
 					</p>
 				</div>
@@ -96,7 +96,7 @@ export default function Home() {
 						to="/gallery"
 						className="link font-bold py-3 flex items-center gap-x-2">
 						<p>More</p>
-						<CgArrowLongRight className="text-light-blue text-3xl" />
+						<LinkArrowIC className="text-light-blue text-4xl" />
 					</Link>
 				</div>
 				<div className="rounded-xl overflow-hidden page-padding">

@@ -97,21 +97,19 @@ export default function NavBarFull({ currUser, scrolling }) {
 			}`}>
 			{!scrolling && (
 				<div className="w-full bg-primary flex items-center">
-					<div className="w-full h-[40px] max-w-[1920px] px-6 flex justify-around items-center text-light">
-						{/* Top */}
+					{/* Top */}
+					<div className="w-full h-[40px] max-w-[2500px] px-6 flex justify-around items-center text-light">
 						{/* Social Media Icons */}
 						<ul className="flex items-center justify-center h-full bg-primary">
 							{getIcons()}
 						</ul>
 						{/* Address */}
-						<Link to="#" className="link text-white flex items-center">
+						<a
+							href={`mailto:${info.address[0]}`}
+							className="link text-white flex items-center">
 							<LocationArrowIC className="text-2xl" />
 							{info.address}
-						</Link>
-						<Link to="#" className="link text-white flex items-center">
-							<PhoneIC className="text-2xl" />
-							{info.phone[0]}
-						</Link>
+						</a>
 					</div>
 				</div>
 			)}

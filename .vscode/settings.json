@@ -15,7 +15,7 @@
 	"editor.wordWrap": "on",
 	"editor.formatOnSave": true,
 	"editor.fontLigatures": true,
-	"editor.minimap.enabled": false,
+	"editor.minimap.enabled": true,
 	"editor.tabSize": 2,
 	"editor.lineHeight": 1.5,
 	"editor.fontSize": 14,

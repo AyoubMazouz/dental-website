@@ -66,7 +66,7 @@
   }
 
   .input {
-    @apply focus:outline-none pl-[2.7rem] py-2 font-semibold ring-2 focus:ring-light-blue resize-none transition-all duration-300 rounded text-primary focus:text-light-blue shadow-[inset_0_0_5px_2px_rgba(0,0,0,0.25)];
+    @apply focus:outline-none pl-[2.7rem] py-2 font-semibold ring-2 focus:ring-light-blue resize-none transition-all duration-300 rounded text-primary focus:text-light-blue shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.25)];
   }
 
   .form-icon {
@@ -86,7 +86,7 @@
   }
 
   .submit-btn {
-    @apply rounded px-6 py-3 text-center bg-light-blue text-white font-semibold hover:opacity-75 transition-all duration-300 disabled:opacity-50 disabled:cursor-wait;
+    @apply rounded shadow-[0_1px_5px_1px_rgba(0,0,0,.25)] px-6 py-3 text-center bg-light-blue text-white font-semibold hover:opacity-[85%] transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-wait;
   }
 
   .nav-bar-icons-sm {
@@ -96,6 +96,11 @@
 }
 
 @layer utilities {
+
+  .max-width {
+    @apply max-w-[1800px] w-full;
+  }
+
   .page-padding {
     @apply px-2 sm:px-4 md:px-8;
   }
@@ -119,6 +124,11 @@
   .text-ellipsis-review-card {
     @apply line-ellipsis;
     -webkit-line-clamp: 6;
+  }
+
+  .text-stroke{
+    -webkit-text-stroke: 4px;
+    -webkit-text-fill-color: transparent;
   }
 
   .w-gallery-swiper-important {

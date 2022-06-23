@@ -22,6 +22,7 @@ import {
 	MdError,
 	MdHome,
 	MdLocationCity,
+	MdArrowRightAlt,
 } from "react-icons/md"
 // Ri
 import {
@@ -66,3 +67,4 @@ export const MenuIC = MdMenu
 export const CloseIC = MdClose
 export const NotificationIC = MdNotifications
 export const RandomIC = FaRandom
+export const LinkArrowIC = MdArrowRightAlt
