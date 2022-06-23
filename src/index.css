@@ -65,6 +65,10 @@
     @apply p-2 h-full w-12 transition-colors duration-300 group-hover:text-light;
   }
 
+  .nav-bar-icons-sm {
+    @apply w-14 h-14 py-3 text-white hover:scale-110 hover:opacity-75 rounded-full transition-all duration-500;
+  }
+
   .input {
     @apply focus:outline-none pl-[2.7rem] py-2 font-semibold ring-2 focus:ring-light-blue resize-none transition-all duration-300 rounded text-primary focus:text-light-blue shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.25)];
   }
@@ -89,9 +93,6 @@
     @apply rounded shadow-[0_1px_5px_1px_rgba(0,0,0,.25)] px-6 py-3 text-center bg-light-blue text-white font-semibold hover:opacity-[85%] transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-wait;
   }
 
-  .nav-bar-icons-sm {
-    @apply w-14 h-14 py-3 text-white hover:scale-110 hover:opacity-75 rounded-full transition-all duration-500;
-  }
 
 }
 
@@ -126,8 +127,12 @@
     -webkit-line-clamp: 6;
   }
 
-  .text-stroke{
+  .text-stroke-lg{
     -webkit-text-stroke: 4px;
+    -webkit-text-fill-color: transparent;
+  }
+  .text-stroke-md{
+    -webkit-text-stroke: 2px;
     -webkit-text-fill-color: transparent;
   }
 

@@ -39,7 +39,7 @@ export default function SlideShow({ images }) {
 			</div>
 			{/* Header */}
 			<div className="w-full h-full absolute pointer-events-none z-10 top-0 flex flex-col justify-center items-center bg-[rgba(0,0,0,.25)]">
-				<h1 className="font-bold max-w-[17ch] text-center text-light my-[3rem] md:text-5xl lg:text-7xl text-stroke uppercase">
+				<h1 className="font-bold max-w-[17ch] text-center text-light my-[3rem] md:text-5xl lg:text-7xl text-stroke-md lg:text-stroke-lg uppercase">
 					Dentego, le meilleur de la santé dentaire, pour tous
 				</h1>
 				<div className="flex gap-4 text-light pointer-events-auto">

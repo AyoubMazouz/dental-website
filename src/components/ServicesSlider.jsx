@@ -1,62 +1,73 @@
 // React Router Dom Imports.
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from "react-router-dom"
 // Icons Import.
-import { FaCalendar } from 'react-icons/fa'
-import { CgArrowLongRight } from 'react-icons/cg'
+import { CalendarIC, LinkArrowIC } from "../data/icons.data"
 // SwiperJs Imports.
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode, Scrollbar, Pagination, Navigation } from 'swiper';
-import "swiper/css";
-import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Navigation } from "swiper"
+import "swiper/css"
+import "swiper/css/pagination"
 
 export default function ServicesSlider({ servicesData }) {
 	return (
-		<div><Swiper
-			slidesPerView={"auto"}
-			spaceBetween={30}
-			centeredSlides={true}
-			pagination={{
-				clickable: true,
-			}}
-			modules={[Pagination, Navigation]}
-			className="mySwiper"
-		>
-			{
-				Object.entries(servicesData).map((serviceData, id) => {
-					const service = { link: serviceData[0], ...serviceData[1] }
-					return (
-						<SwiperSlide key={id} className="max-w-[28rem] max-h-[32rem] rounded-3xl overflow-hidden">
-							<ServicesCard {...service} />
-						</SwiperSlide>
-					)
-				})
-			}
-		</Swiper></div>
+		<div>
+			<Swiper
+				slidesPerView={"auto"}
+				spaceBetween={30}
+				centeredSlides={true}
+				grabCursor
+				modules={[Navigation]}
+				className="mySwiper">
+				{Object.entries(servicesData).map((serviceData, id) => (
+					<SwiperSlide
+						key={id}
+						className="lg:max-h-[32rem] lg:max-w-[28rem] max-h-[28rem] max-w-[20rem] overflow-hidden rounded-xl">
+						<ServicesCard
+							{...{ link: `services/${serviceData[0]}`, ...serviceData[1] }}
+						/>
+					</SwiperSlide>
+				))}
+			</Swiper>
+		</div>
 	)
 }
 
 const ServicesCard = ({ imgUrl, alt, description, title, link }) => {
 	const navigate = useNavigate()
 	return (
-		<div className='h-[32rem] w-[28rem] relative group transition-transform duration-300'
-			onClick={() => navigate(link)}>
-			<img src={imgUrl} alt={alt} className='object-cover w-full h-full pointer-events-none' />
-			<div className="absolute z-10 bottom-[-25rem] group-hover:bottom-0 w-full h-[30rem] bg-primary text-light px-4 transition-all duration-300">
-				<h4 className='text-center mt-[1.6rem] pointer-events-none'>
+		<div className="lg:h-[32rem] lg:w-[28rem] h-[28rem] w-[20rem] relative group transition-transform duration-300">
+			<img
+				src={imgUrl}
+				alt={alt}
+				className="object-cover w-full h-full"
+				onClick={() => navigate(link)}
+			/>
+			<div className="absolute z-10 bottom-[-25rem] group-hover:bottom-[-4rem] w-full h-[30rem] backdrop-blur bg-white/[65%] text-light-gray px-4 transition-all duration-300 rounded-xl">
+				<h4 className="text-center text-primary mt-[1.6rem] font-semibold group-hover:hidden">
 					{title}
 				</h4>
 
-				<div className='flex flex-col justify-around h-full pb-[3rem]'>
-					<p className='text-left mt-8 pointer-events-none text-ellipsis-service-card h-[7char]'>
+				<div className="font-semibold">
+					<h4 className="text-center text-primary mt-[1.6rem] font-semibold">
+						{title}
+					</h4>
+					<p className="text-left mt-8 text-ellipsis-service-card h-[7char]">
 						{description}
 					</p>
-					<p><Link to={link} className="text-light hover:text-secondary font-bold flex gap-x-2 items-center">
-						Lire la suite
-						<CgArrowLongRight className='text-3xl' />
-					</Link></p>
+					<p>
+						<Link to={link} className="link flex gap-x-2 my-4">
+							Lire la suite
+							<LinkArrowIC className="text-4xl" />
+						</Link>
+					</p>
 				</div>
 			</div>
-			<FaCalendar className='--nav-icons absolute top-[1rem] right-[1rem] bg-secondary text-light p-2 rounded-full' />
+			<Link
+				to="contact"
+				className="gap-1 flex items-center p-2 cursor-pointer bg-secondary text-light absolute top-3 right-3 transition-all duration-300 rounded-full hover:underline text-sm font-semibold hover:bg-secondary/75 hover:scale-105 ">
+				<CalendarIC className="text-2xl" />
+				Rendez vous
+			</Link>
 		</div>
 	)
 }

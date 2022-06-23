@@ -6,6 +6,7 @@ import {
 	FaLinkedinIn,
 	FaGlobeAfrica,
 	FaRandom,
+	FaCalendarAlt
 } from "react-icons/fa"
 // Md
 import {
@@ -68,3 +69,4 @@ export const CloseIC = MdClose
 export const NotificationIC = MdNotifications
 export const RandomIC = FaRandom
 export const LinkArrowIC = MdArrowRightAlt
+export const CalendarIC = FaCalendarAlt
