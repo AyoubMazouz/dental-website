@@ -124,9 +124,9 @@ export default function NavBarFull({ currUser, scrolling }) {
 					</div>
 					{/* NavLinks */}
 					<div className="gap-x-[2rem] flex">
-						{Object.entries(links).map(([label, link], id) => {
-							return getLinks(label, link, id)
-						})}
+						{Object.entries(links).map(([label, link], id) =>
+							getLinks(label, link, id)
+						)}
 					</div>
 					<div className="flex items-center gap-x-6 text-xl">
 						{currUser ? (

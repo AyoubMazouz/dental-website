@@ -15,18 +15,8 @@ export default function useUserData() {
 	const { setAlert } = useAlert()
 	const { currUser } = useAuth()
 	const { optimizeProfileImg, getRandomAvatar } = useEditImg()
-	const [avatar, setAvatar] = useState(null)
-	const [displayName, setDisplayName] = useState(null)
-	const [userEmail, setUserEmail] = useState(null)
-
-	useEffect(() => updateValues(), [currUser])
 
 	const getData = () => getDoc(doc(db, "users", currUser.uid))
-	const updateValues = () => {
-		setAvatar(currUser.photoURL)
-		setDisplayName(currUser.displayName)
-		setUserEmail(currUser.email)
-	}
 
 	const createNewUser = () => {
 		setDoc(doc(db, "users", currUser.uid), {
@@ -86,7 +76,6 @@ export default function useUserData() {
 						updateProfile(currUser, {
 							photoURL: url,
 						}).then(() => {
-							updateValues()
 							setAlert(["success", "Photo has been updated successfully!"])
 						})
 					)
@@ -96,17 +85,13 @@ export default function useUserData() {
 
 	const updateRandomAvatar = () =>
 		getRandomAvatar().then((url) =>
-			updateProfile(currUser, { photoURL: url }).then(() => {
-				updateValues()
+			updateProfile(currUser, { photoURL: url }).then(() =>
 				setAlert(["success", "Profile Image has been updated successfully!"])
-			})
+			)
 		)
 
 	return {
 		currUser,
-		displayName,
-		avatar,
-		userEmail,
 		getData,
 		createNewUser,
 		getUserInfo,

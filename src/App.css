@@ -1339,6 +1339,10 @@ url{
   height: 7rem;
 }
 
+.h-\[3\.6rem\]{
+  height: 3.6rem;
+}
+
 .max-h-\[380px\]{
   max-height: 380px;
 }
@@ -1433,6 +1437,10 @@ url{
 
 .w-\[7rem\]{
   width: 7rem;
+}
+
+.w-\[3\.6rem\]{
+  width: 3.6rem;
 }
 
 .min-w-\[22rem\]{

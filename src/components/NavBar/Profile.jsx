@@ -7,13 +7,13 @@ import { useAuth } from "../../contexts/AuthContext"
 import { useAlert } from "../../contexts/AlertContext"
 // Hooks Imports.
 import useUserData from "../../hooks/useUserData"
+import { useEffect } from "react"
 
 export default function Profile() {
 	// Toggle Profile Menu.
 	const [menuState, setMenuState] = useState(false)
 	// Contexts.
-	const { currUser, logOut } = useAuth()
-	const { displayName, avatar, userEmail } = useUserData()
+	const { logOut, currUser } = useAuth()
 	const { setAlert } = useAlert()
 	const navigate = useNavigate()
 	// Close Profile Menu if you Click Anywhere on the Screen.
@@ -38,48 +38,52 @@ export default function Profile() {
 				setAlert(["warning", error.message])
 			})
 	}
+
+	const [_, setTemp] = useState(0)
+	useEffect(() => {
+		console.log("hello changes")
+		setTemp((prev) => prev + 1)
+	}, [currUser.displayName, currUser.userEmail, currUser.photoURL])
 	return (
-		currUser && (
-			// Profile
-			<div id="profile" className="h-[3rem] w-[3rem] relative">
-				{/* Profile Avatar */}
-				<img
-					id="profile-avatar"
-					src={avatar}
-					alt={displayName}
-					className="h-[3rem] w-[3rem] rounded-full cursor-pointer select-none"></img>
-				{menuState && (
-					<ul className="absolute z-50 top-[110%] right-0 w-[20rem] px-4 py-6 bg-light rounded-lg border-[1px] border-gray-200 flex flex-col shadow-md">
-						<li className="flex gap-4 border-gray-200">
-							{/* Profile Avatar */}
-							<img
-								id="profile-avatar"
-								src={avatar}
-								alt={displayName}
-								className="h-[3rem] w-[3rem] rounded-full cursor-pointer select-none"></img>
-							<div className="flex flex-col justify-around">
-								{/* Email */}
-								<h5 className="text-ellipsis overflow-hidden w-[12rem] text-[.8rem]">
-									{userEmail}
-								</h5>
-								{/* UserName */}
-								<h5>{displayName}</h5>
-							</div>
-						</li>
-						<Link
-							to="/edit-personal-info"
-							className="link text-base border-b-[3px] border-light-gray/20 pb-4 mt-2">
-							Manager votre compte
-						</Link>
-						{/* Log Out */}
-						<li
-							onClick={handleLogOut}
-							className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-light-gray hover:text-primary font-bold pb-2 text-lg border-b-[3px] border-light-gray border-opacity-20 p-2 cursor-pointer'>
-							Log Out
-						</li>
-					</ul>
-				)}
-			</div>
-		)
+		// Profile
+		<div id="profile" className="h-[3.6rem] w-[3.6rem] relative">
+			{/* Profile Avatar */}
+			<img
+				id="profile-avatar"
+				src={currUser.photoURL}
+				alt={currUser.displayName}
+				className="h-[3.6rem] w-[3.6rem] rounded-full cursor-pointer select-none border-[3px] border-light-gray/25"></img>
+			{menuState && (
+				<ul className="absolute z-50 top-[110%] right-0 w-[20rem] px-4 py-6 bg-light rounded-lg border-[1px] border-gray-200 flex flex-col shadow-md">
+					<li className="flex gap-4 border-gray-200">
+						{/* Profile Avatar */}
+						<img
+							id="profile-avatar"
+							src={currUser.photoURL}
+							alt={currUser.displayName}
+							className="h-[3rem] w-[3rem] rounded-full cursor-pointer select-none"></img>
+						<div className="flex flex-col justify-around">
+							{/* Email */}
+							<h5 className="text-ellipsis overflow-hidden w-[12rem] text-[.8rem]">
+								{currUser.email}
+							</h5>
+							{/* UserName */}
+							<h5>{currUser.displayName}</h5>
+						</div>
+					</li>
+					<Link
+						to="/edit-personal-info"
+						className="link text-base border-b-[3px] border-light-gray/20 pb-4 mt-2">
+						Manager votre compte
+					</Link>
+					{/* Log Out */}
+					<li
+						onClick={handleLogOut}
+						className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-light-gray hover:text-primary font-bold pb-2 text-lg border-b-[3px] border-light-gray border-opacity-20 p-2 cursor-pointer'>
+						Log Out
+					</li>
+				</ul>
+			)}
+		</div>
 	)
 }

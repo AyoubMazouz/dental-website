@@ -81,9 +81,6 @@ export default function EditPersonalInfo() {
 	const navigate = useNavigate()
 	const {
 		currUser,
-		displayName,
-		avatar,
-		userEmail,
 		getUserInfo,
 		UpdateUserInfo,
 		updateProfilePhoto,
@@ -146,11 +143,11 @@ export default function EditPersonalInfo() {
 			<div className="max-w-[1000px] w-full flex justify-between page-padding">
 				{/* Profile */}
 				<div className="mb-4 flex gap-x-6 flex-wrap">
-					{avatar && (
+					{currUser.photoURL && (
 						<div className="relative">
 							<img
-								src={avatar}
-								alt={displayName}
+								src={currUser.photoURL}
+								alt={currUser.displayName}
 								className="w-[7rem] lg:w-[10rem] h-[7rem] lg:h-[10rem] object-cover rounded-lg border-4 border-light-gray/25"
 							/>
 							<div
@@ -179,9 +176,9 @@ export default function EditPersonalInfo() {
 					)}
 					<div className="p-2">
 						<h4 className="text-light-blue font-bold capitalize">
-							{displayName}
+							{currUser.displayName}
 						</h4>
-						<h5 className="font-semibold">{userEmail}</h5>
+						<h5 className="font-semibold">{currUser.email}</h5>
 					</div>
 				</div>
 				{/* Edit Button */}
