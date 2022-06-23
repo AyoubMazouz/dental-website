@@ -7,8 +7,6 @@ import GoogleMaps from "../components/GoogleMaps"
 import ContactForm from "../components/ContactForm"
 import Stats from "../components/Stats"
 import Gallery from "../components/Gallery"
-// Hooks Imports.
-import useDocs from "../hooks/useDocs"
 // Icons Imports.
 import { CgArrowLongRight } from "react-icons/cg"
 // Data Imports.

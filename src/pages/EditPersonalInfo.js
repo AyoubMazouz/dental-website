@@ -152,17 +152,16 @@ export default function EditPersonalInfo() {
 							/>
 							<div
 								onClick={openFileDialog}
-								className="absolute top-2 right-2 text-white flex gap-x-1
-									p-1 bg-light-blue hover:bg-light-blue/75 rounded-md
-									font-semibold cursor-pointer transition-colors duration-300
-									[&>svg]:text-xl text-sm">
+								className="absolute top-12 right-2 text-white
+								p-1 bg-light-blue hover:bg-light-blue/75 rounded-md
+								font-semibold cursor-pointer transition-colors duration-300
+								[&>svg]:text-xl">
 								<input
 									id="photo-dialog"
 									type="file"
 									accept=".png, .jpeg, .jpg"
 									className="w-0 h-0"
 								/>
-								Edit
 								<EditIC />
 							</div>
 							<div
