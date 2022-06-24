@@ -39,11 +39,11 @@
 
   /* Markdown */
   .ReactMarkdown {
-    @apply text-light-gray [&_h1]:text-primary [&_h1]:mt-12 [&_h1]:mb-6 [&_h1]:scroll-mt-[6rem]
+    @apply text-gray [&_h1]:text-primary [&_h1]:mt-12 [&_h1]:mb-6 [&_h1]:scroll-mt-[6rem]
     [&_h2]:text-primary [&_h2]:mt-8 [&_h2]:mb-5 [&_h2]:scroll-mt-[6rem]
     [&_h3]:text-primary [&_h3]:mt-6 [&_h3]:mb-4
     [&_p]:leading-8 [&_p]:lg:leading-10
-    [&_a]:text-light-blue [&_a]:underline [&_a]:font-bold
+    [&_a]:text-accent [&_a]:underline [&_a]:font-bold
     [&_ul]:list-disc [&_ul]:my-8 [&_ul]:text-lg [&_ul]:lg:text-xl
     [&_li]:my-3 [&_li]:ml-[1.5rem];
   }
@@ -66,15 +66,15 @@
   }
 
   .nav-bar-icons-sm {
-    @apply w-10 h-10 py-2 text-white hover:scale-110 hover:opacity-75 rounded-full transition-all duration-500;
+    @apply w-10 h-10 py-2 text-light hover:scale-110 hover:opacity-75 rounded-full transition-all duration-500;
   }
 
   .input {
-    @apply focus:outline-none pl-[2.7rem] py-2 font-semibold ring-2 border-2 border-light-gray/25 focus:ring-light-blue resize-none transition-all duration-300 rounded text-primary focus:text-light-blue shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.10)];
+    @apply focus:outline-none pl-[2.7rem] py-2 font-semibold ring-2 border-2 border-gray/25 focus:ring-accent resize-none transition-all duration-300 rounded text-primary focus:text-accent shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.10)] bg-light;
   }
 
   .form-icon {
-    @apply absolute top-[50%] left-[0.8rem] text-2xl translate-y-[-25%] text-light-gray opacity-100;
+    @apply absolute top-[50%] left-[0.8rem] text-2xl translate-y-[-25%] text-gray opacity-100;
   }
 
   .select-option {
@@ -82,15 +82,15 @@
   }
 
   .footer-icon {
-    @apply [&>svg]:p-2 [&>svg]:h-full [&>svg]:w-12 [&>svg]:transition-all [&>svg]:duration-200 [&>svg]:rounded-lg [&>svg]:hover:translate-y-[-1rem] text-white hover:scale-110;
+    @apply [&>svg]:p-2 [&>svg]:h-full [&>svg]:w-12 [&>svg]:transition-all [&>svg]:duration-200 [&>svg]:rounded-lg [&>svg]:hover:translate-y-[-1rem] text-light hover:scale-110;
   }
 
   .link {
-    @apply text-light-blue hover:underline transition-all duration-300 font-semibold hover:opacity-75;
+    @apply text-accent hover:underline transition-all duration-300 font-semibold hover:opacity-75;
   }
 
   .submit-btn {
-    @apply rounded shadow-[0_1px_5px_1px_rgba(0,0,0,.25)] px-6 py-3 text-center bg-light-blue text-white font-semibold hover:opacity-[85%] transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-wait;
+    @apply rounded shadow-[0_1px_5px_1px_rgba(0,0,0,.25)] px-6 py-3 text-center bg-accent text-light font-semibold hover:opacity-[85%] transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-wait;
   }
 
 
@@ -116,7 +116,7 @@
     overflow: hidden;
     display: -webkit-box !important;
     -webkit-box-orient: vertical;
-    white-space: normal;
+    light-space: normal;
   }
   .text-ellipsis-service-card {
     @apply line-ellipsis;

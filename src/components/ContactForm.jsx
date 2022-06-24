@@ -20,24 +20,28 @@ const formParams = [
 		type: "text",
 		name: "fullName",
 		label: "Votre Nom",
+		placeHolder: "Entrer votre nom...",
 		required: true,
 	},
 	{
 		type: "email",
 		name: "email",
 		label: "Votre Email Address",
+		placeHolder: "Entrer votre address electronique...",
 		required: true,
 	},
 	{
 		type: "phone",
 		name: "phone",
 		label: "Votre numero de Telephone",
+		placeHolder: "Entrer votre numero de telephone...",
 		required: false,
 	},
 	{
 		type: "select",
 		name: "subject",
 		label: "Subject",
+		placeHolder: "Selectioner un sujet...",
 		required: true,
 		options: [
 			["option1", "option1"],
@@ -51,6 +55,7 @@ const formParams = [
 		type: "textarea",
 		name: "message",
 		label: "message",
+		placeHolder: "Ecriver votre message...",
 		required: true,
 	},
 ]

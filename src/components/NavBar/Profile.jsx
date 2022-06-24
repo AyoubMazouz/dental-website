@@ -51,16 +51,16 @@ export default function Profile() {
 				id="profile-avatar"
 				src={currUser.photoURL}
 				alt={currUser.displayName}
-				className="h-[3.1rem] w-[3.1rem] rounded-full cursor-pointer select-none border-[3px] border-light-gray/25"></img>
+				className="h-[3.1rem] w-[3.1rem] rounded-full cursor-pointer select-none border-[3px] border-gray/25"></img>
 			{menuState && (
-				<ul className="absolute z-50 top-[110%] right-0 w-[20rem] px-4 py-6 bg-light rounded-lg border-[1px] border-gray-200 flex flex-col shadow-md">
-					<li className="flex gap-4 border-gray-200">
+				<ul className="absolute z-50 top-[110%] right-0 w-[20rem] px-4 py-6 bg-light rounded-lg border-[1px] border-gray/25 flex flex-col shadow-md">
+					<li className="flex gap-4 border-gray/25">
 						{/* Profile Avatar */}
 						<img
 							id="profile-avatar"
 							src={currUser.photoURL}
 							alt={currUser.displayName}
-							className="h-[4rem] w-[4rem] rounded-full cursor-pointer border-[3px] border-light-gray/25 select-none"></img>
+							className="h-[4rem] w-[4rem] rounded-full cursor-pointer border-[3px] border-gray/25 select-none"></img>
 						<div className="p-2 font-semibold">
 							{/* Email */}
 							<h5 className="text-ellipsis overflow-hidden w-[12rem] text-[.8rem]">
@@ -72,13 +72,13 @@ export default function Profile() {
 					</li>
 					<Link
 						to="/edit-personal-info"
-						className="link text-base border-b-[3px] border-light-gray/20 pb-4 mt-2">
+						className="link text-base border-b-[3px] border-gray/20 pb-4 mt-2">
 						Manager votre compte
 					</Link>
 					{/* Log Out */}
 					<li
 						onClick={handleLogOut}
-						className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-light-gray hover:text-primary font-bold pb-2 text-lg border-b-[3px] border-light-gray border-opacity-20 p-2 cursor-pointer'>
+						className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-gray hover:text-primary font-bold pb-2 text-lg border-b-[3px] border-gray border-opacity-20 p-2 cursor-pointer'>
 						Log Out
 					</li>
 				</ul>

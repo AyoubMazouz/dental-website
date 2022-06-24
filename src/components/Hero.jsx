@@ -15,7 +15,7 @@ export default function Hero({ imgUrl, alt, currentPage, title, description }) {
 				className={`w-full h-full absolute top-0 flex justify-end flex-col text-sm items-center page-padding ${
 					imgUrl
 						? "bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-[rgba(0,0,0,0.6)] lg:via-transparent to-transparent text-light"
-						: "text-light-gray"
+						: "text-gray"
 				}`}>
 				<div className="py-12 w-full max-w-[1800px] space-y-6">
 					<div className="flex gap-x-2">

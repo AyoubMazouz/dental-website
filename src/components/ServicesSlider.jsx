@@ -42,7 +42,7 @@ const ServicesCard = ({ imgUrl, alt, description, title, link }) => {
 				className="object-cover w-full h-full"
 				onClick={() => navigate(link)}
 			/>
-			<div className="absolute z-10 bottom-[-25rem] group-hover:bottom-[-4rem] w-full h-[30rem] backdrop-blur bg-white/[65%] text-light-gray px-4 transition-all duration-300 rounded-xl">
+			<div className="absolute z-10 bottom-[-25rem] group-hover:bottom-[-4rem] w-full h-[30rem] backdrop-blur bg-light/[65%] text-gray px-4 transition-all duration-300 rounded-xl">
 				<h4 className="text-center text-primary mt-[1.6rem] font-semibold group-hover:hidden">
 					{title}
 				</h4>

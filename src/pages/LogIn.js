@@ -65,10 +65,10 @@ export default function SingUp() {
 	}
 
 	return (
-		<div className="w-full grid place-items-center h-[90vh] text-light-gray">
+		<div className="w-full grid place-items-center h-[90vh] text-gray">
 			<form
 				onSubmit={onSubmit}
-				className="max-w-[488px] w-full flex flex-col items-center bg-light rounded-xl py-[5rem] page-padding border-[3px] border-light-gray/30 shadow-lg">
+				className="max-w-[488px] w-full flex flex-col items-center bg-light rounded-xl py-[5rem] page-padding border-[3px] border-gray/30 shadow-lg">
 				<Logo />
 				<h3 className="my-6">Se Connecter</h3>
 				{/* Input Field */}

@@ -110,7 +110,7 @@ export default function EditInfo() {
 	return (
 		<div className="w-full grid place-items-center h-[90vh]">
 			<form
-				className="max-w-[680px] w-full grid grid-cols-2 gap-x-12 bg-light rounded-xl py-[5rem] page-padding border-[3px] border-light-gray/30 shadow-lg"
+				className="max-w-[680px] w-full grid grid-cols-2 gap-x-12 bg-light rounded-xl py-[5rem] page-padding border-[3px] border-gray/30 shadow-lg"
 				onSubmit={(e) =>
 					onSubmit(e, () => {
 						UpdateUserInfo(formValues)

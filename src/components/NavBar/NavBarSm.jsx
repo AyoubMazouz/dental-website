@@ -31,13 +31,13 @@ export default function NavBarSmall({
 		return Object.entries(links).map(([label, link]) => {
 			if (link?.subLinks) {
 				return (
-					<details className="w-full py-2 hover:bg-light-blue hover:text-white text-xl font-semibold cursor-pointer flex select-none">
+					<details className="w-full py-2 hover:bg-accent hover:text-light text-xl font-semibold cursor-pointer flex select-none">
 						<summary>{label}</summary>
 						{Object.entries(link.subLinks).map(([subLabel, subLink]) => (
 							<Link
 								to={subLink}
 								onClick={() => setMenuState(false)}
-								className="hover:bg-white hover:text-light-blue py-1 text-lg">
+								className="hover:bg-light hover:text-accent py-1 text-lg">
 								{subLabel}
 							</Link>
 						))}
@@ -50,7 +50,7 @@ export default function NavBarSmall({
 					to={link}
 					key={label}
 					onClick={() => setMenuState(false)}
-					className="w-full py-2 hover:bg-light-blue hover:text-white text-xl font-semibold cursor-pointer select-none">
+					className="w-full py-2 hover:bg-accent hover:text-light text-xl font-semibold cursor-pointer select-none">
 					{label}
 				</Link>
 			)
@@ -104,7 +104,7 @@ export default function NavBarSmall({
 						) : (
 							<Link
 								to="login"
-								className="text-light-blue font-semibold border-[3px] border-light-blue rounded py-2 px-4 shadow-md hover:bg-light-blue hover:text-white hover:shadow-light-blue transition-all duration-300 flex gap-x-3 text-base">
+								className="text-accent font-semibold border-[3px] border-accent rounded py-2 px-4 shadow-md hover:bg-accent hover:text-light hover:shadow-accent transition-all duration-300 flex gap-x-3 text-base">
 								<RoundedProfileIC className="text-2xl" />
 								Se Connecter
 							</Link>

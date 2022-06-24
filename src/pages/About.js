@@ -90,32 +90,32 @@ export default function About() {
 									<ul className="flex items-center justify-center h-12">
 										{primaryProfile?.facebook && (
 											<Link to="" className="footer-icon group">
-												<FacebookIC className="text-light-gray group-hover:text-white group-hover:bg-facebook" />
+												<FacebookIC className="text-light-gray group-hover:text-light group-hover:bg-facebook" />
 											</Link>
 										)}
 										{primaryProfile?.twitter && (
 											<Link to="" className="footer-icon group">
-												<TwitterIC className="text-light-gray group-hover:text-white group-hover:bg-twitter" />
+												<TwitterIC className="text-light-gray group-hover:text-light group-hover:bg-twitter" />
 											</Link>
 										)}
 										{primaryProfile?.instagram && (
 											<Link to="" className="footer-icon group">
-												<InstagramIC className="text-light-gray group-hover:text-white group-hover:bg-instagram" />
+												<InstagramIC className="text-light-gray group-hover:text-light group-hover:bg-instagram" />
 											</Link>
 										)}
 										{primaryProfile?.linkedin && (
 											<Link to="" className="footer-icon group">
-												<LinkedinIC className="text-light-gray group-hover:text-white group-hover:bg-linkedin" />
+												<LinkedinIC className="text-light-gray group-hover:text-light group-hover:bg-linkedin" />
 											</Link>
 										)}
 										{primaryProfile?.youtube && (
 											<Link to="#" className="footer-icon group">
-												<YoutubeIC className="text-light-gray group-hover:text-white group-hover:bg-youtube" />
+												<YoutubeIC className="text-light-gray group-hover:text-light group-hover:bg-youtube" />
 											</Link>
 										)}
 										{primaryProfile?.whatsapp && (
 											<Link to="#" className="footer-icon group">
-												<WhatsappIC className="text-light-gray group-hover:text-white group-hover:bg-whatsapp" />
+												<WhatsappIC className="text-light-gray group-hover:text-light group-hover:bg-whatsapp" />
 											</Link>
 										)}
 									</ul>
@@ -158,7 +158,7 @@ export default function About() {
 							to="/gallery"
 							className="link font-bold py-3 flex items-center gap-x-2">
 							<p>More</p>
-							<LinkArrowIC className="text-light-blue text-4xl" />
+							<LinkArrowIC className="text-accent text-4xl" />
 						</Link>
 					</div>
 					<div className="rounded-xl overflow-hidden page-padding">

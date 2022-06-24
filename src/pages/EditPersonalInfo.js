@@ -138,7 +138,7 @@ export default function EditPersonalInfo() {
 
 	return (
 		<form
-			className="w-full py-16 grid justify-center text-light-gray page-padding"
+			className="w-full py-16 grid justify-center text-gray page-padding"
 			onSubmit={(e) =>
 				onSubmit(e, () => {
 					UpdateUserInfo(formValues).then(() =>
@@ -157,12 +157,12 @@ export default function EditPersonalInfo() {
 							<img
 								src={currUser.photoURL}
 								alt={currUser.displayName}
-								className="w-[7rem] lg:w-[10rem] h-[7rem] lg:h-[10rem] object-cover rounded-lg border-4 border-light-gray/25"
+								className="w-[7rem] lg:w-[10rem] h-[7rem] lg:h-[10rem] object-cover rounded-lg border-4 border-gray/25"
 							/>
 							<div
 								onClick={openFileDialog}
-								className="absolute top-2 right-2 text-white
-								p-1 bg-light-blue hover:bg-light-blue/75 rounded-md
+								className="absolute top-2 right-2 text-light
+								p-1 bg-accent hover:bg-accent/75 rounded-md
 								font-semibold cursor-pointer transition-colors duration-300
 								[&>svg]:text-xl">
 								<input
@@ -174,8 +174,8 @@ export default function EditPersonalInfo() {
 								<EditIC />
 							</div>
 							<div
-								className="absolute top-2 right-10 text-white
-									p-1 bg-light-blue hover:bg-light-blue/75 rounded-md
+								className="absolute top-2 right-10 text-light
+									p-1 bg-accent hover:bg-accent/75 rounded-md
 									font-semibold cursor-pointer transition-colors duration-300
 									[&>svg]:text-xl">
 								<RandomIC onClick={updateRandomAvatar} />

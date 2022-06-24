@@ -52,8 +52,8 @@ export default function Summary({ headerList }) {
 		<>
 			{/* Large Screen & Bottom Page Summary */}
 			<div className="col-span-full lg:col-span-1 w-full h-full relative">
-				<div className="w-full bg-bluish-gray text-light-gray text-lg font-semibold rounded-xl flex flex-col gap-y-3 px-4 py-12 sticky top-[8rem]">
-					<h2 className="mb-4 flex gap-x-2 text-light-blue">
+				<div className="w-full bg-bluish-gray text-gray text-lg font-semibold rounded-xl flex flex-col gap-y-3 px-4 py-12 sticky top-[8rem]">
+					<h2 className="mb-4 flex gap-x-2 text-accent">
 						<MdList className="text-4xl" />
 						Summaire
 					</h2>
@@ -71,8 +71,8 @@ export default function Summary({ headerList }) {
 					}`}>
 					<div
 						id="summary-container"
-						className="text-light-gray text-lg flex flex-col">
-						<h2 className="flex gap-x-2 text-light-blue pointer-events-none">
+						className="text-gray text-lg flex flex-col">
+						<h2 className="flex gap-x-2 text-accent pointer-events-none">
 							<MdList className="text-4xl pointer-events-none" />
 							Summaire
 						</h2>

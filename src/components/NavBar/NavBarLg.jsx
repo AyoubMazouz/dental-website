@@ -31,7 +31,7 @@ export default function NavBarFull({ currUser, scrolling }) {
 				<Link
 					key={id}
 					to={link}
-					className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.29rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-primary hover:text-light-blue font-bold'>
+					className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.29rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-primary hover:text-accent font-bold'>
 					{label}
 				</Link>
 			)
@@ -40,7 +40,7 @@ export default function NavBarFull({ currUser, scrolling }) {
 			return (
 				<li
 					key={id}
-					className="group relative cursor-pointer text-primary hover:text-light-blue font-bold">
+					className="group relative cursor-pointer text-primary hover:text-accent font-bold">
 					<Link to={link.link} className="flex items-center">
 						{label}
 						<ArrowDownIC className="opacity-75 text-2xl -mr-2" />
@@ -50,7 +50,7 @@ export default function NavBarFull({ currUser, scrolling }) {
 							<Link
 								key={id}
 								to={link}
-								className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-light-gray hover:text-primary font-bold pb-2 text-lg border-b-[3px] border-light-gray border-opacity-20'>
+								className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-gray hover:text-primary font-bold pb-2 text-lg border-b-[3px] border-gray border-opacity-20'>
 								{label}
 							</Link>
 						))}
@@ -93,7 +93,7 @@ export default function NavBarFull({ currUser, scrolling }) {
 			className={`${
 				scrolling
 					? "w-full sticky top-0 z-20 h-[80px] hidden lg:flex flex-col justify-center items-center bg-light shadow-lg transitions duration-200"
-					: "w-full h-[160px] hidden lg:flex flex-col justify-center items-center transitions duration-200"
+					: "w-full h-[160px] hidden lg:flex flex-col justify-center items-center transitions duration-200 bg-light"
 			}`}>
 			{!scrolling && (
 				<div className="w-full bg-primary flex items-center">
@@ -106,7 +106,7 @@ export default function NavBarFull({ currUser, scrolling }) {
 						{/* Address */}
 						<a
 							href={`mailto:${info.address[0]}`}
-							className="link text-white flex items-center">
+							className="link text-light flex items-center">
 							<LocationArrowIC className="text-2xl" />
 							{info.address}
 						</a>
@@ -130,7 +130,7 @@ export default function NavBarFull({ currUser, scrolling }) {
 						{currUser ? (
 							<>
 								<Link to="/cart">
-									<CartIC className="cursor-pointer text-2xl text-primary hover:text-light-blue transition-colors duration-300" />
+									<CartIC className="cursor-pointer text-2xl text-primary hover:text-accent transition-colors duration-300" />
 								</Link>
 								{/* <Notification /> */}
 								<Profile />
@@ -138,7 +138,7 @@ export default function NavBarFull({ currUser, scrolling }) {
 						) : (
 							<Link
 								to="login"
-								className="text-light-blue font-semibold border-[3px] border-light-blue rounded py-2 px-4 shadow-md hover:bg-light-blue hover:text-white hover:shadow-light-blue transition-all duration-300 flex gap-x-3">
+								className="text-accent font-semibold border-[3px] border-accent rounded py-2 px-4 shadow-md hover:bg-accent hover:text-light hover:shadow-accent transition-all duration-300 flex gap-x-3">
 								<RoundedProfileIC className="text-3xl" />
 								Se Connecter
 							</Link>

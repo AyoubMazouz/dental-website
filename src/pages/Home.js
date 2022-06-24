@@ -14,7 +14,7 @@ import { servicesData, stats, US_IMG, SLIDESHOW_IMGS, info } from "../data"
 
 export default function Home() {
 	return (
-		<div className="flex gap-y-[6rem] lg:gap-y-[8rem] flex-col items-center text-light-gray bg-light overflow-hidden">
+		<div className="flex gap-y-[6rem] lg:gap-y-[8rem] flex-col items-center text-gray bg-light overflow-hidden">
 			{/* SlideShow */}
 			<SlideShow images={SLIDESHOW_IMGS} />
 
@@ -44,9 +44,9 @@ export default function Home() {
 						</p>
 						<Link
 							to="/services"
-							className="text-light-blue font-bold py-3 flex items-center gap-x-2 hover:underline hover:opacity-75">
+							className="text-accent font-bold py-3 flex items-center gap-x-2 hover:underline hover:opacity-75">
 							Our Services
-							<LinkArrowIC className="text-light-blue text-4xl" />
+							<LinkArrowIC className="text-accent text-4xl" />
 						</Link>
 					</p>
 				</div>
@@ -80,9 +80,9 @@ export default function Home() {
 						</p>
 						<Link
 							to="/about"
-							className="text-light-blue font-bold py-3 flex items-center gap-x-2 hover:underline hover:opacity-75">
+							className="text-accent font-bold py-3 flex items-center gap-x-2 hover:underline hover:opacity-75">
 							About Us
-							<LinkArrowIC className="text-light-blue text-4xl" />
+							<LinkArrowIC className="text-accent text-4xl" />
 						</Link>
 					</p>
 				</div>
@@ -96,7 +96,7 @@ export default function Home() {
 						to="/gallery"
 						className="link font-bold py-3 flex items-center gap-x-2">
 						<p>More</p>
-						<LinkArrowIC className="text-light-blue text-4xl" />
+						<LinkArrowIC className="text-accent text-4xl" />
 					</Link>
 				</div>
 				<div className="rounded-xl overflow-hidden page-padding">
