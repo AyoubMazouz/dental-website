@@ -62,11 +62,11 @@ export default function Input({
 							? "ring-red-500"
 							: "ring-gray/25"
 					}`}>
-					<option value="autre" selected hidden>
-						Selectionner un sujet
+					<option value="Autre" selected hidden>
+						{placeHolder}
 					</option>
 					{options.map((option) => (
-						<option value={option[0]}>{option[1]}</option>
+						<option value={option}>{option}</option>
 					))}
 				</select>
 			)
