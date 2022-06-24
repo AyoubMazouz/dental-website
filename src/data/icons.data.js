@@ -24,6 +24,7 @@ import {
 	MdHome,
 	MdLocationCity,
 	MdArrowRightAlt,
+	MdArrowForwardIos,
 } from "react-icons/md"
 // Ri
 import {
@@ -73,6 +74,7 @@ export const CloseIC = MdClose
 
 // others
 export const ArrowDownIC = MdKeyboardArrowDown
+export const ArrowRightIC = MdArrowForwardIos
 export const LocationIC = MdLocationOn
 export const LocationArrowIC = TiLocationArrow
 export const RoundedProfileIC = CgProfile

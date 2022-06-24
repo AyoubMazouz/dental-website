@@ -12,7 +12,7 @@ import {
 	LinkedinIC,
 	TwitterIC,
 	WhatsappIC,
-	CartIC,
+	ArrowRightIC,
 	CloseIC,
 	MenuIC,
 	RoundedProfileIC,
@@ -29,31 +29,38 @@ export default function NavBarSmall({
 }) {
 	const getLinks = () => {
 		return Object.entries(links).map(([label, link]) => {
-			if (link?.subLinks) {
+			if (typeof link?.subLinks === "undefined")
 				return (
-					<details className="w-full py-2 hover:bg-accent hover:text-light text-xl font-semibold cursor-pointer flex select-none">
-						<summary>{label}</summary>
-						{Object.entries(link.subLinks).map(([subLabel, subLink]) => (
-							<Link
-								to={subLink}
-								onClick={() => setMenuState(false)}
-								className="hover:bg-light hover:text-accent py-1 text-lg">
-								{subLabel}
-							</Link>
-						))}
-					</details>
+					<Link
+						to={link}
+						key={label}
+						onClick={() => setMenuState(false)}
+						className="relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[''] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-gray hover:text-primary font-bold pb-1 border-b-[3px] border-gray/25">
+						{label}
+					</Link>
 				)
-			}
-
-			return (
-				<Link
-					to={link}
-					key={label}
-					onClick={() => setMenuState(false)}
-					className="w-full py-2 hover:bg-accent hover:text-light text-xl font-semibold cursor-pointer select-none">
-					{label}
-				</Link>
-			)
+			else
+				return (
+					<li tabindex="0">
+						<Link
+							to={link}
+							className="relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[''] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-gray hover:text-primary font-bold pb-1 border-b-[3px] border-gray/25 flex justify-between ml-[-1rem]">
+							{label}
+							<ArrowRightIC />
+						</Link>
+						<ul className="bg-light w-72 text-base space-y-2 py-6 px-4 rounded-md">
+							{Object.entries(link.subLinks).map(([subLabel, subLink]) => (
+								<Link
+									to={subLink}
+									key={subLabel}
+									onClick={() => setMenuState(false)}
+									className="relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[''] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-gray hover:text-primary font-bold pb-1 border-b-[3px] border-gray/25">
+									{subLabel}
+								</Link>
+							))}
+						</ul>
+					</li>
+				)
 		})
 	}
 	// Social Media Icons
@@ -78,50 +85,37 @@ export default function NavBarSmall({
 	}
 	return (
 		<nav
-			className={`lg:hidden sticky top-0 w-full min-h-[80px] transition-all duration-500 bg-light text-gray overflow-hidden shadow-lg`}>
+			className={`lg:hidden sticky top-0 w-full min-h-[80px] transition-all duration-500 bg-light text-gray shadow-lg`}>
 			<div className="flex items-center justify-between px-4 py-4">
-				{/* Toggle button */}
-				{menuState ? (
-					<CloseIC
-						onClick={() => setMenuState((prev) => !prev)}
-						className="text-4xl text-gray hover:text-sky-500 cursor-pointer"
-					/>
-				) : (
-					<MenuIC
-						onClick={() => setMenuState((prev) => !prev)}
-						className="text-4xl text-gray hover:text-sky-500 cursor-pointer"
-					/>
-				)}
+				{/* Toggle menu */}
+				<div className="dropdown">
+					<label tabindex="0" className="btn btn-ghost btn-circle">
+						<RoundedProfileIC className="text-3xl" />
+					</label>
+					<ul
+						tabindex="0"
+						className="menu menu-compact dropdown-content shadow-md bg-light rounded-md w-52 z-20 text-base flex flex-col space-y-2 py-6 px-4">
+						{getLinks()}
+					</ul>
+				</div>
 				{/* Logo */}
 				<Logo />
 				<div className="flex items-center gap-x-6 text-xl">
-					{!menuState &&
-						(currUser ? (
-							<>
-								{/* <Notification /> */}
-								<Profile />
-							</>
-						) : (
-							<Link
-								to="login"
-								className="text-accent font-semibold border-[3px] border-accent rounded py-2 px-4 shadow-md hover:bg-accent hover:text-light hover:shadow-accent transition-all duration-300 flex gap-x-3 text-base">
-								<RoundedProfileIC className="text-2xl" />
-								Se Connecter
-							</Link>
-						))}
+					{currUser ? (
+						<>
+							{/* <Notification /> */}
+							<Profile />
+						</>
+					) : (
+						<Link
+							to="login"
+							className="text-accent font-semibold border-[3px] border-accent rounded py-2 px-4 shadow-md hover:bg-accent hover:text-light hover:shadow-accent transition-all duration-300 flex gap-x-3 text-base items-center">
+							<RoundedProfileIC className="text-3xl" />
+							Se Connecter
+						</Link>
+					)}
 				</div>
 			</div>
-			{menuState && (
-				<ul className="text-center w-full rounded-lg  border-b-2 border-light-gray/25 py-4">
-					{/* Links */}
-					<ul className="w-full flex flex-col text-light-gray">{getLinks()}</ul>
-					{/* Call to Action */}
-					{/* Social media Icons */}
-					<ul className="flex items-center justify-center flex-wrap mt-6 gap-2">
-						{getIcons()}
-					</ul>
-				</ul>
-			)}
 		</nav>
 	)
 }

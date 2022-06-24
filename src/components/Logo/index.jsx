@@ -6,18 +6,16 @@ import logo from "./logo.png"
 export default function Logo({ type }) {
 	if (!type)
 		return (
-			<Link
-				to="/"
-				className="text-lg capitalize flex gap-x-2 items-center select-none">
+			<Link to="/" className="flex items-center select-none">
 				<img
 					src={logo}
 					alt="dental care"
-					className="w-16 pointer-events-none"
+					className="w-12 lg:w-16 pointer-events-none mx-2"
 				/>
-				<h3>
+				<div className="text-xl capitalize">
 					dental
-					<span className="font-bold text-sky-500 underline">Care</span>
-				</h3>
+					<span className="font-bold text-accent underline">Care</span>
+				</div>
 			</Link>
 		)
 	if (type === "form")
@@ -32,7 +30,7 @@ export default function Logo({ type }) {
 				/>
 				<h3>
 					dental
-					<span className="font-bold text-sky-500 underline">Care</span>
+					<span className="font-bold text-accent underline">Care</span>
 				</h3>
 			</div>
 		)

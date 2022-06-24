@@ -57,12 +57,12 @@ export default function Input({
 					onFocus={() => setOnFocus(true)}
 					onBlur={() => setOnFocus(false)}
 					onChange={handleChange}
-					className={`input h-[3rem] ${inputStyles} ${
+					className={`input ${
 						error[name] && formValues[name].trim()
 							? "ring-red-500"
 							: "ring-gray/25"
 					}`}>
-					<option value="Autre" selected hidden>
+					<option value="Autre" selected hidden className="text-gray">
 						{placeHolder}
 					</option>
 					{options.map((option) => (

@@ -25,7 +25,7 @@ export default function NavBarFull({ currUser, scrolling }) {
 	// Nav Links.
 	const getLinks = (label, link, id) => {
 		// Only one Link.
-		if (typeof link.subLinks === "undefined")
+		if (typeof link?.subLinks === "undefined")
 			return (
 				<Link
 					key={id}
@@ -45,12 +45,12 @@ export default function NavBarFull({ currUser, scrolling }) {
 						<ArrowDownIC className="opacity-75 text-2xl -mr-2" />
 					</Link>
 					<ul className="absolute text-base w-[22rem] z-20 flex flex-col space-y-4 py-8 px-6 bg-light rounded shadow-lg invisible group-hover:visible">
-						{Object.entries(link.subLinks).map(([label, link], id) => (
+						{Object.entries(link.subLinks).map(([subLabel, subLink]) => (
 							<Link
-								key={id}
-								to={link}
-								className='relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[""] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-gray hover:text-primary font-bold pb-2 text-lg border-b-[3px] border-gray border-opacity-20'>
-								{label}
+								key={subLabel}
+								to={subLink}
+								className="relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[''] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-gray hover:text-primary font-bold pb-2 text-md border-b-[3px] border-gray/25">
+								{subLabel}
 							</Link>
 						))}
 					</ul>
@@ -118,7 +118,7 @@ export default function NavBarFull({ currUser, scrolling }) {
 					{/* Logo */}
 					<Logo />
 					{/* NavLinks */}
-					<div className="gap-x-[2rem] flex">
+					<div className="gap-x-6 flex">
 						{Object.entries(links).map(([label, link], id) =>
 							getLinks(label, link, id)
 						)}
