@@ -13,7 +13,7 @@ export function AlertProvider({ children }) {
 	useEffect(() => {
 		const unsubscribe = setTimeout(() => {
 			setAlert(null)
-		}, 10000)
+		}, 1000000)
 		return () => clearTimeout(unsubscribe)
 	}, [alert])
 

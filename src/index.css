@@ -90,9 +90,6 @@
   .link {
     @apply text-accent hover:underline transition-all duration-300 font-semibold hover:opacity-75;
   }
-
-
-
 }
 
 @layer utilities {
