@@ -39,7 +39,7 @@ export default function Hero({ imgUrl, alt, currentPage, title, description }) {
 							{currentPage?.label || currentPage}
 						</span>
 					</div>
-					<h1>{title}</h1>
+					<h1 className={!description && "text-primary"}>{title}</h1>
 					<p>{description}</p>
 				</div>
 			</div>

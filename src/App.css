@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /*
-! tailwindcss v3.1.0 | MIT License | https://tailwindcss.com
+! tailwindcss v3.1.4 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -599,6 +599,53 @@ url{
   margin-left: 1.5rem;
 }
 
+*, ::before, ::after{
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}
+
 ::-webkit-backdrop{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -646,7 +693,7 @@ url{
   --tw-backdrop-sepia:  ;
 }
 
-*, ::before, ::after, ::backdrop{
+::backdrop{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -1149,8 +1196,8 @@ url{
   margin-right: -0.5rem;
 }
 
-.mt-12{
-  margin-top: 3rem;
+.mt-6{
+  margin-top: 1.5rem;
 }
 
 .mt-\[3rem\]{
@@ -1161,8 +1208,8 @@ url{
   margin-bottom: 4rem;
 }
 
-.mt-6{
-  margin-top: 1.5rem;
+.mb-\[6rem\]{
+  margin-bottom: 6rem;
 }
 
 .flex{
@@ -1178,7 +1225,7 @@ url{
 }
 
 .aspect-\[3\/4\]{
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 3/4;
 }
 
 .aspect-video{
@@ -1186,7 +1233,7 @@ url{
 }
 
 .aspect-\[8\/5\]{
-  aspect-ratio: 8 / 5;
+  aspect-ratio: 8/5;
 }
 
 .h-\[26rem\]{
@@ -2337,6 +2384,10 @@ url{
     padding-left: 2rem;
     padding-right: 2rem;
   }
+}
+
+.--appearance-none {
+  -webkit-appearance: none;
 }
 
 /* Line Ellipsis */

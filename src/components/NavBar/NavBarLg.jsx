@@ -79,7 +79,7 @@ export default function NavBarFull({ currUser, scrolling }) {
 						target="__blanc__"
 						className="h-full gap-2 flex items-center w-12 hover:w-36 transition-all duration-500 cursor-pointer bg-light group [&>svg]:bg-primary [&>svg]:text-light">
 						{icons[label]}
-						<h5 className="hidden group-hover:block text-dark font-semibold">
+						<h5 className="hidden group-hover:block text-dark font-semibold capitalize">
 							{label}
 						</h5>
 					</a>
