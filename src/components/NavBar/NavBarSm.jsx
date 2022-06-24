@@ -78,18 +78,18 @@ export default function NavBarSmall({
 	}
 	return (
 		<nav
-			className={`lg:hidden sticky top-0 w-full min-h-[80px] transition-all duration-500 bg-light overflow-hidden shadow-lg`}>
+			className={`lg:hidden sticky top-0 w-full min-h-[80px] transition-all duration-500 bg-light text-gray overflow-hidden shadow-lg`}>
 			<div className="flex items-center justify-between px-4 py-4">
 				{/* Toggle button */}
 				{menuState ? (
 					<CloseIC
 						onClick={() => setMenuState((prev) => !prev)}
-						className="text-4xl text-slate-700 hover:text-sky-500 cursor-pointer"
+						className="text-4xl text-gray hover:text-sky-500 cursor-pointer"
 					/>
 				) : (
 					<MenuIC
 						onClick={() => setMenuState((prev) => !prev)}
-						className="text-4xl text-slate-700 hover:text-sky-500 cursor-pointer"
+						className="text-4xl text-gray hover:text-sky-500 cursor-pointer"
 					/>
 				)}
 				{/* Logo */}

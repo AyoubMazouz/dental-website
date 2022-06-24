@@ -46,7 +46,7 @@ export default function Gallery() {
 				{Object.entries(document).map((doc) => (
 					<SwiperSlide
 						key={doc[0]}
-						className="rounded-xl overflow-hidden w-gallery-swiper-important">
+						className="rounded-md overflow-hidden w-gallery-swiper-important">
 						<img
 							src={doc[1]}
 							alt={doc[0]}

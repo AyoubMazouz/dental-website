@@ -115,11 +115,9 @@ export default function NavBarFull({ currUser, scrolling }) {
 			)}
 			{/* bottom */}
 			<div className="w-full max-w-[1920px] h-[75%] px-8 flex justify-between items-center">
-				<ul className="h-full w-full flex justify-between items-center text-xl">
+				<ul className="h-full w-full flex justify-between items-center text-xl text-gray">
 					{/* Logo */}
-					<div className="h-full flex items-center">
-						<Logo />
-					</div>
+					<Logo />
 					{/* NavLinks */}
 					<div className="gap-x-[2rem] flex">
 						{Object.entries(links).map(([label, link], id) =>

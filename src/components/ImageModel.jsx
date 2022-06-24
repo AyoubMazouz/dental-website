@@ -51,7 +51,7 @@ export default function ImageModel({ currIndex, docs, setSelected }) {
 				{Object.entries(docs).map((doc) => (
 					<SwiperSlide
 						key={doc[0]}
-						className="rounded-lg overflow-hidden w-gallery-swiper-important">
+						className="rounded-md overflow-hidden w-gallery-swiper-important">
 						<img
 							src={doc[1]}
 							alt={doc[0]}

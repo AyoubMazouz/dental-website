@@ -42,16 +42,18 @@ export default function SlideShow({ images }) {
 				<h1 className="font-bold max-w-[17ch] text-center text-light my-[3rem] md:text-5xl lg:text-7xl text-stroke-md lg:text-stroke-lg uppercase">
 					Dentego, le meilleur de la santé dentaire, pour tous
 				</h1>
-				<div className="flex gap-4 text-light pointer-events-auto">
+				<div className="flex gap-4 pointer-events-auto">
 					<Link to="contact" className="submit-btn">
 						<h4>Nous contacter</h4>
 					</Link>
-					<Link to="about" className="submit-btn lg:block hidden bg-secondary">
+					<Link
+						to="about"
+						className="submit-btn lg:flex hidden bg-secondary hover:bg-secondary/75">
 						<h4>à propos de nous</h4>
 					</Link>
 					<a
 						href={`'tel:${info.phone[0]}`}
-						className="submit-btn lg:hidden bg-secondary">
+						className="submit-btn lg:hidden bg-secondary hover:bg-secondary/75">
 						<h4>Rendez vous</h4>
 					</a>
 				</div>

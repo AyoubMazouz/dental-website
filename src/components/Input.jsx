@@ -108,7 +108,7 @@ export default function Input({
 			<MailIC className={`form-icon ${onFocus && "text-accent"}`} />
 		)
 		else if (["message"].includes(name)) return (
-			<EditIC className={`form-icon ${onFocus && "text-accent"}`} />
+			<EditIC className={`form-icon top-[3rem] ${onFocus && "text-accent"}`} />
 		)
 		else if (["city"].includes(name)) return (
 			<CityIC className={`form-icon ${onFocus && "text-accent"}`} />
