@@ -66,7 +66,9 @@ export default function Input({
 						{placeHolder}
 					</option>
 					{options.map((option) => (
-						<option value={option}>{option}</option>
+						<option value={option} className="text-gray text-base">
+							{option}
+						</option>
 					))}
 				</select>
 			)
