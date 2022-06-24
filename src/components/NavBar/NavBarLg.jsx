@@ -14,9 +14,8 @@ import {
 	WhatsappIC,
 	ArrowDownIC,
 	LocationArrowIC,
-	PhoneIC,
 	RoundedProfileIC,
-	CartIC,
+	NotificationIC,
 } from "../../data/icons.data"
 
 // Data Imports.
@@ -107,7 +106,7 @@ export default function NavBarFull({ currUser, scrolling }) {
 						<a
 							href={`mailto:${info.address[0]}`}
 							className="link text-light flex items-center">
-							<LocationArrowIC className="text-2xl" />
+							<LocationArrowIC className="text-3xl" />
 							{info.address}
 						</a>
 					</div>
@@ -127,16 +126,14 @@ export default function NavBarFull({ currUser, scrolling }) {
 					<div className="flex items-center gap-x-6 text-xl">
 						{currUser ? (
 							<>
-								<Link to="/cart">
-									<CartIC className="cursor-pointer text-2xl text-primary hover:text-accent transition-colors duration-300" />
-								</Link>
+								<NotificationIC className="cursor-pointer text-3xl text-primary hover:text-accent transition-colors duration-300" />
 								{/* <Notification /> */}
 								<Profile />
 							</>
 						) : (
 							<Link
 								to="login"
-								className="text-accent font-semibold border-[3px] border-accent rounded py-2 px-4 shadow-md hover:bg-accent hover:text-light hover:shadow-accent transition-all duration-300 flex gap-x-3">
+								className="btn text-accent border-[3px] border-accent rounded shadow-md hover:bg-accent hover:text-light hover:shadow-accent hover:border-accent transition-all duration-300 flex gap-x-3">
 								<RoundedProfileIC className="text-3xl" />
 								Se Connecter
 							</Link>

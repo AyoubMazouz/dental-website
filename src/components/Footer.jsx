@@ -20,11 +20,8 @@ const { whatsapp, linkedin, youtube, twitter, instagram, facebook } =
 	socialLinks
 
 const Footer = () => {
-	const [email, setEmail] = useState({ email: "" })
+	const [formValues, setFormValues] = useState({ email: "" })
 
-	const handleChange = (ev) => {
-		setEmail(ev.target.value)
-	}
 	const getIcons = () => (
 		<>
 			{facebook && (
@@ -70,22 +67,24 @@ const Footer = () => {
 					vero sapiente?
 				</p>
 
-				<div className="relative flex flex-col sm:flex-row justify-center items-center gap-4">
+				<form className="relative flex flex-col sm:flex-row justify-center items-center gap-4">
 					<div className="border-r-[3px] border-gray/25 absolute left-0 text-accent text-3xl grid items-center px-3 md:px-6 h-[4rem]">
 						<MailIC className="" />
 					</div>
 					<input
 						type="email"
 						placeHolder="Votre address email..."
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
+						value={formValues.email}
+						onChange={(e) => setFormValues({ email: e.target.value })}
 						className="input w-full h-[4rem] pl-16 md:pl-24"
 					/>
 
-					<button className="bg-accent hover:bg-accent/75 px-6 rounded font-semibold absolute right-[.2rem] top-[50%] translate-y-[-50%] h-[3.6rem] shadow-none">
+					<button
+						type="submit"
+						className="bg-accent hover:bg-accent/75 px-6 rounded font-semibold absolute right-[.2rem] top-[50%] translate-y-[-50%] h-[3.6rem] shadow-none">
 						Subscribe
 					</button>
-				</div>
+				</form>
 			</div>
 
 			{/* Nav Links */}

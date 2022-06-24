@@ -40,7 +40,7 @@ export default function PasswordReset() {
 	} = useForm({ email: "" })
 
 	return (
-		<div className="w-full grid place-items-center h-[80vh] text-light-gray">
+		<div className="w-full grid place-items-center h-[80vh] text-gray">
 			<form
 				className="max-w-[488px] w-full flex flex-col items-center bg-light rounded-xl py-[5rem] page-padding border-[3px] border-light-gray/30 shadow-lg"
 				onSubmit={(e) =>
@@ -53,10 +53,9 @@ export default function PasswordReset() {
 								setAlert(alerts[error.message])
 							})
 					})
-				}
-			>
-				<Logo />
-				<h3 className="my-4">Reset Password</h3>
+				}>
+				<Logo type="form" />
+				<h3 className="my-6">Reset Password</h3>
 				{/* Input Field */}
 				{formParams.map((params) => (
 					<Input

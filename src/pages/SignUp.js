@@ -97,11 +97,11 @@ export default function SingUp() {
 	}
 
 	return (
-		<div className="w-full grid place-items-center h-[90vh]">
+		<div className="w-full grid place-items-center h-[90vh] text-gray">
 			<form
 				className="max-w-[488px] w-full flex flex-col items-center bg-light rounded-xl py-[5rem] page-padding border-[3px] border-gray/30 shadow-lg"
 				onSubmit={(e) => onSubmitForm(e)}>
-				<Logo />
+				<Logo type="form" />
 				<h3 className="my-6">Cree un nouveau compte</h3>
 				{/* Input Field */}
 				{formParams.map((params) => (

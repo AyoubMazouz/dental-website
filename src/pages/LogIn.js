@@ -69,7 +69,7 @@ export default function SingUp() {
 			<form
 				onSubmit={onSubmit}
 				className="max-w-[488px] w-full flex flex-col items-center bg-light rounded-xl py-[5rem] page-padding border-[3px] border-gray/30 shadow-lg">
-				<Logo />
+				<Logo type="form" />
 				<h3 className="my-6">Se Connecter</h3>
 				{/* Input Field */}
 				{formParams.map((params) => (
