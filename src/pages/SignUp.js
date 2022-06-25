@@ -44,7 +44,7 @@ export default function SingUp() {
 	// Contexts.
 	const { signUp, updateProfile } = useAuth()
 	const { setAlert } = useAlert()
-	const { createNewUser } = useUserData()
+	const { createNewUser, setNewNotification } = useUserData()
 	const { getRandomAvatar } = useEditImg()
 	const navigate = useNavigate()
 	const {
@@ -75,6 +75,14 @@ export default function SingUp() {
 			signUp(formValues.email, formValues.password)
 				.then((response) => {
 					createNewUser(response.user.uid)
+					setNewNotification(
+						{
+							title: `welcome`,
+							content: `Hello ${formValues.displayName} welcome to DentalCare`,
+							link: "",
+						},
+						response.user.uid
+					)
 					getRandomAvatar().then((dataURL) =>
 						updateProfile(response.user, {
 							displayName: formValues.displayName,

@@ -10,13 +10,12 @@ import { useAlert } from "../contexts/AlertContext"
 import { useAuth } from "../contexts/AuthContext"
 // Hooks Imports.
 import useEditImg from "../hooks/useEditImg"
+import { async } from "@firebase/util"
 
 export default function useUserData() {
 	const { setAlert } = useAlert()
 	const { currUser } = useAuth()
 	const { optimizeProfileImg, getRandomAvatar } = useEditImg()
-
-	const getData = () => getDoc(doc(db, "users", currUser.uid))
 
 	const createNewUser = (uid) => {
 		setDoc(doc(db, "users", uid), {
@@ -34,20 +33,17 @@ export default function useUserData() {
 		updateDoc(doc(db, "users", currUser.uid), info)
 
 	const getUserInfo = async (setFormValues) => {
-		const response = await getData()
-		setFormValues(response.data())
+		const response = await getDoc(doc(db, "users", currUser.uid))
+		setFormValues(response.data() || {})
 	}
 
 	const getNotifications = async (setNotifications) => {
-		const response = await getData()
-		const data = response.data()
-		setNotifications(data.notifications)
+		const response = await getDoc(doc(db, "notifications", currUser.uid))
+		setNotifications(response.data() || {})
 	}
 
-	const setNewNotification = (notification) => {
-		return updateDoc(doc(db, "users", currUser.uid), {
-			notifications: arrayUnion(notification),
-		})
+	const setNewNotification = async (notification, uid = currUser.uid) => {
+		return setDoc(doc(db, "notifications", uid), notification, { merge: true })
 	}
 
 	const getCartItems = (setItems) => {
@@ -88,7 +84,6 @@ export default function useUserData() {
 
 	return {
 		currUser,
-		getData,
 		createNewUser,
 		getUserInfo,
 		UpdateUserInfo,

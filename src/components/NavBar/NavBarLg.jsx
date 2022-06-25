@@ -126,8 +126,7 @@ export default function NavBarFull({ currUser, scrolling }) {
 					<div className="flex items-center gap-x-6 text-xl">
 						{currUser ? (
 							<>
-								<NotificationIC className="cursor-pointer text-3xl text-primary hover:text-accent transition-colors duration-300" />
-								{/* <Notification /> */}
+								<Notification />
 								<Profile />
 							</>
 						) : (

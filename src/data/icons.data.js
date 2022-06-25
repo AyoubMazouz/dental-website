@@ -44,6 +44,8 @@ import {
 import { TiLocationArrow } from "react-icons/ti"
 // Gi
 import { CgProfile } from "react-icons/cg"
+// Ai
+import { AiOutlineMenuUnfold, AiTwotoneNotification } from "react-icons/ai"
 
 // Social Media
 export const FacebookIC = FaFacebookF
@@ -79,8 +81,9 @@ export const LocationIC = MdLocationOn
 export const LocationArrowIC = TiLocationArrow
 export const RoundedProfileIC = CgProfile
 export const CartIC = RiShoppingCartFill
-export const MenuIC = MdMenu
+export const MenuIC = AiOutlineMenuUnfold
 export const NotificationIC = MdNotifications
 export const RandomIC = FaRandom
 export const LinkArrowIC = MdArrowRightAlt
 export const CalendarIC = FaCalendarAlt
+export const NotificationBoxIC = AiTwotoneNotification
