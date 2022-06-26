@@ -9,7 +9,7 @@ import { useAlert } from "../contexts/AlertContext"
 // Hooks Imports.
 import useForm from "../hooks/useFom"
 import useUserData from "../hooks/useUserData"
-import useEditImg from "../hooks/useEditImg"
+import { getRandomAvatar } from "../util/image"
 
 const formParams = [
 	{
@@ -45,7 +45,6 @@ export default function SingUp() {
 	const { signUp, updateProfile } = useAuth()
 	const { setAlert } = useAlert()
 	const { createNewUser, setNewNotification } = useUserData()
-	const { getRandomAvatar } = useEditImg()
 	const navigate = useNavigate()
 	const {
 		formValues,
@@ -80,6 +79,7 @@ export default function SingUp() {
 							title: `welcome`,
 							content: `Hello ${formValues.displayName} welcome to DentalCare`,
 							link: "",
+							date: "",
 						},
 						response.user.uid
 					)
@@ -116,7 +116,7 @@ export default function SingUp() {
 					<Input key={params.label} {...params} {...props} />
 				))}
 				<div className="flex w-full items-center justify-between">
-					<Link to="/login" className="link">
+					<Link to="login" className="link">
 						Already have an account?
 					</Link>
 					{/* Submit Button */}

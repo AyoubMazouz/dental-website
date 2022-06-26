@@ -6,3 +6,9 @@ export const getThumbnailFromUrl = (url) => {
 		return "//img.youtube.com/vi/" + VideoId + "/0.jpg"
 	}
 }
+
+export const getVideoIdFromUrl = (url) => {
+	// Take Youtube Video URL and get the Id.
+	const VideoId = url.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/)?.pop()
+	if (VideoId?.length == 11) return VideoId
+}

@@ -9,15 +9,17 @@ import { db, storage } from "../firebase"
 import { useAlert } from "../contexts/AlertContext"
 import { useAuth } from "../contexts/AuthContext"
 // Hooks Imports.
-import useEditImg from "../hooks/useEditImg"
-import { async } from "@firebase/util"
+import {
+	optimizeProfileImg,
+	getRandomAvatar,
+	getRandomString,
+} from "../util/image"
 
 export default function useUserData() {
 	const { setAlert } = useAlert()
 	const { currUser } = useAuth()
-	const { optimizeProfileImg, getRandomAvatar } = useEditImg()
 
-	const createNewUser = (uid) => {
+	const createNewUser = (uid = currUser.uid) =>
 		setDoc(doc(db, "users", uid), {
 			fullName: "",
 			phone: "",
@@ -27,28 +29,19 @@ export default function useUserData() {
 			address1: "",
 			address2: "",
 		})
-	}
 
 	const UpdateUserInfo = (info) =>
 		updateDoc(doc(db, "users", currUser.uid), info)
 
-	const getUserInfo = async (setFormValues) => {
-		const response = await getDoc(doc(db, "users", currUser.uid))
-		setFormValues(response.data() || {})
-	}
+	const getUserInfo = async () => getDoc(doc(db, "users", currUser.uid))
 
-	const getNotifications = async (setNotifications) => {
-		const response = await getDoc(doc(db, "notifications", currUser.uid))
-		setNotifications(response.data() || {})
-	}
+	const getNotifications = async () =>
+		getDoc(doc(db, "notifications", currUser.uid))
 
 	const setNewNotification = async (notification, uid = currUser.uid) => {
-		return setDoc(doc(db, "notifications", uid), notification, { merge: true })
-	}
-
-	const getCartItems = (setItems) => {
-		if (!localStorage.getItem("cartItems")) return
-		setItems(JSON.parse(localStorage.getItem("cartItems")))
+		const payload = new Object()
+		payload[getRandomString(16)] = notification
+		setDoc(doc(db, "notifications", uid), payload, { merge: true })
 	}
 
 	const updateProfilePhoto = (file) => {
@@ -89,7 +82,6 @@ export default function useUserData() {
 		UpdateUserInfo,
 		getNotifications,
 		setNewNotification,
-		getCartItems,
 		updateProfilePhoto,
 		updateRandomAvatar,
 	}

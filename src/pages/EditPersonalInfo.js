@@ -62,7 +62,8 @@ const formParams = [
 		type: "select",
 		name: "region",
 		label: "Region",
-		options: getRegions,
+		placeHolder: "Selectionner votre region...",
+		options: [],
 		colspan: 2,
 	},
 	// City.
@@ -70,6 +71,7 @@ const formParams = [
 		type: "select",
 		name: "city",
 		label: "city",
+		placeHolder: "Selectionner votre ville..",
 		options: [],
 		colspan: 2,
 	},
@@ -115,18 +117,26 @@ export default function EditPersonalInfo() {
 
 	// Get User Data.
 	useEffect(() => {
-		getUserInfo(setFormValues)
+		getUserInfo()
+			.then((response) => response.data())
+			.then((data) => setFormValues(data))
 	}, [])
 
 	// Update Second Select List.
 	useEffect(() => {
-		if (!formValues.region) return
 		formParams.forEach((params) => {
-			if (params?.name === "city") {
+			if (params.name === "region") params.options = getRegions()
+		})
+	}, [])
+	// Update Second Select List.
+	useEffect(() => {
+		formParams.forEach((params) => {
+			if (params.name === "city" && formValues.region) {
 				params.options = getCities(formValues.region)
+				setFormValues({ city: "", ...formValues })
 			}
 		})
-	}, [formValues?.region])
+	}, [formValues.region])
 
 	const props = {
 		formValues,
@@ -138,7 +148,7 @@ export default function EditPersonalInfo() {
 
 	return (
 		<form
-			className="w-full py-16 grid justify-center text-gray page-padding"
+			className="page-padding grid w-full justify-center py-16 text-gray"
 			onSubmit={(e) =>
 				onSubmit(e, () => {
 					UpdateUserInfo(formValues).then(() =>
@@ -149,34 +159,34 @@ export default function EditPersonalInfo() {
 					)
 				})
 			}>
-			<div className="max-w-[1000px] w-full flex justify-between page-padding">
+			<div className="page-padding flex w-full max-w-[1000px] justify-between">
 				{/* Profile */}
-				<div className="mb-4 flex gap-x-6 flex-wrap">
+				<div className="mb-4 flex flex-wrap gap-x-6">
 					{currUser.photoURL && (
 						<div className="relative">
 							<img
 								src={currUser.photoURL}
 								alt={currUser.displayName}
-								className="w-[7rem] lg:w-[10rem] h-[7rem] lg:h-[10rem] object-cover rounded-lg border-4 border-gray/25"
+								className="h-[7rem] w-[7rem] rounded-lg border-4 border-gray/25 object-cover lg:h-[10rem] lg:w-[10rem]"
 							/>
 							<div
 								onClick={openFileDialog}
-								className="absolute top-2 right-2 text-light
-								p-1 bg-accent hover:bg-accent/75 rounded-md
-								font-semibold cursor-pointer transition-colors duration-300
+								className="absolute top-2 right-2 cursor-pointer
+								rounded-md bg-accent p-1 font-semibold
+								text-light transition-colors duration-300 hover:bg-accent/75
 								[&>svg]:text-xl">
 								<input
 									id="photo-dialog"
 									type="file"
 									accept=".png, .jpeg, .jpg"
-									className="w-0 h-0 absolute"
+									className="absolute h-0 w-0"
 								/>
 								<EditIC />
 							</div>
 							<div
-								className="absolute top-2 right-10 text-light
-									p-1 bg-accent hover:bg-accent/75 rounded-md
-									font-semibold cursor-pointer transition-colors duration-300
+								className="absolute top-2 right-10 cursor-pointer
+									rounded-md bg-accent p-1 font-semibold
+									text-light transition-colors duration-300 hover:bg-accent/75
 									[&>svg]:text-xl">
 								<RandomIC onClick={updateRandomAvatar} />
 							</div>
@@ -194,12 +204,12 @@ export default function EditPersonalInfo() {
 					</button>
 					<button
 						onClick={() => navigate("/")}
-						className="submit-btn bg-secondary m-2">
+						className="submit-btn m-2 bg-secondary">
 						Cancel
 					</button>
 				</div>
 			</div>
-			<div className="lg:grid grid-cols-2 gap-x-12">
+			<div className="grid-cols-2 gap-x-12 lg:grid">
 				{formParams.map((params) => (
 					<div className={"col-span-" + params.colspan}>
 						<Input key={params.label} {...params} {...props} />

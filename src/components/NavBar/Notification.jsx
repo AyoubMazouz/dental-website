@@ -14,15 +14,16 @@ export default function Notification() {
 	const { currentUser } = useAuth()
 	const { getNotifications } = useUserData(currentUser)
 	// Hooks.
-	const [notifications, setNotifications] = useState({})
+	const [notifications, setNotifications] = useState(null)
 
 	useEffect(() => {
-		getNotifications(setNotifications)
-		console.log(notifications)
+		getNotifications()
+			.then((response) => response.data())
+			.then((data) => setNotifications(data))
 	}, [])
 
 	return (
-		<div className="dropdown dropdown-end z-20">
+		<div className="dropdown-end dropdown z-20">
 			<label
 				tabindex="0"
 				className="btn btn-ghost btn-circle text-3xl text-gray">
@@ -32,16 +33,26 @@ export default function Notification() {
 				tabindex="0"
 				className="dropdown-content menu w-96 rounded-md bg-light pb-4 shadow-md ">
 				<h4 className="mb-4 px-2 text-lg font-semibold">Notifications</h4>
-				{Object.keys(notifications).length > 0 ? (
-					Object.values(notifications).map((notification) => (
-						<Link
-							to={notification.link}
-							className="border-t-[3px] border-b-[3px] border-gray/25 p-2 text-base hover:bg-bluish-gray">
-							<div className="py-1 font-semibold">{notification.title}</div>
-							<div>{notification.content}</div>
-							<div className="text-right text-sm">{notification.date}</div>
-						</Link>
-					))
+				{Object.keys(notifications || {}).length > 0 ? (
+					Object.values(notifications)
+						.reverse()
+						.map(({ link, title, content, date }) =>
+							link ? (
+								<Link
+									to={link}
+									className="border-t-[3px] border-b-[3px] border-gray/25 p-2 text-base hover:bg-bluish-gray">
+									<div className="py-1 font-semibold">{title}</div>
+									<div>{content}</div>
+									<div className="text-right text-sm">{date}</div>
+								</Link>
+							) : (
+								<div className="border-t-[3px] border-b-[3px] border-gray/25 p-2 text-base hover:bg-bluish-gray">
+									<div className="py-1 font-semibold">{title}</div>
+									<div>{content}</div>
+									<div className="text-right text-sm">{date}</div>
+								</div>
+							)
+						)
 				) : (
 					<div className="grid place-items-center py-6 opacity-75">
 						<NotificationBoxIC className="-rotate-45 text-8xl" />
