@@ -30,21 +30,21 @@ export default function Notification() {
 			</label>
 			<ul
 				tabindex="0"
-				className="menu dropdown-content shadow-md rounded-md bg-light w-96 pb-4 ">
-				<h4 className="mb-4 text-lg font-semibold px-2">Notifications</h4>
+				className="dropdown-content menu w-96 rounded-md bg-light pb-4 shadow-md ">
+				<h4 className="mb-4 px-2 text-lg font-semibold">Notifications</h4>
 				{Object.keys(notifications).length > 0 ? (
 					Object.values(notifications).map((notification) => (
 						<Link
 							to={notification.link}
-							className="border-t-[3px] border-b-[3px] border-gray/25 hover:bg-bluish-gray text-base p-2">
-							<div className="font-semibold py-1">{notification.title}</div>
+							className="border-t-[3px] border-b-[3px] border-gray/25 p-2 text-base hover:bg-bluish-gray">
+							<div className="py-1 font-semibold">{notification.title}</div>
 							<div>{notification.content}</div>
-							<div className="text-sm text-right">{notification.date}</div>
+							<div className="text-right text-sm">{notification.date}</div>
 						</Link>
 					))
 				) : (
-					<div className="grid place-items-center opacity-75 py-6">
-						<NotificationBoxIC className="text-8xl -rotate-45" />
+					<div className="grid place-items-center py-6 opacity-75">
+						<NotificationBoxIC className="-rotate-45 text-8xl" />
 						<h4>You have 0 notifications</h4>
 					</div>
 				)}

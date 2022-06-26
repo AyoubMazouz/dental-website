@@ -3,25 +3,25 @@ import { Link } from "react-router-dom"
 
 export default function Hero({ imgUrl, alt, currentPage, title, description }) {
 	return (
-		<div className="w-full relative flex justify-center overflow-hidden min-h-[300px]">
+		<div className="relative flex min-h-[300px] w-full justify-center overflow-hidden">
 			{imgUrl && (
 				<img
 					src={imgUrl}
 					alt={alt}
-					className="w-[99.14vw] h-[65vh] object-cover"
+					className="h-[65vh] w-[99.14vw] object-cover"
 				/>
 			)}
 			<div
-				className={`w-full h-full absolute top-0 flex justify-end flex-col text-sm items-center page-padding ${
+				className={`page-padding absolute top-0 flex h-full w-full flex-col items-center justify-end text-sm ${
 					imgUrl
-						? "bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-[rgba(0,0,0,0.6)] lg:via-transparent to-transparent text-light"
+						? "bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-[rgba(0,0,0,0.6)] to-transparent text-light lg:via-transparent"
 						: "text-gray"
 				}`}>
-				<div className="py-12 w-full max-w-[1800px] space-y-6">
+				<div className="w-full max-w-[1800px] space-y-6 py-12">
 					<div className="flex gap-x-2">
 						<Link
 							to="/"
-							className="hover:underline hover:opacity-75 transition-all duration-300">
+							className="transition-all duration-300 hover:underline hover:opacity-75">
 							home
 						</Link>
 						{currentPage?.parent && (
@@ -29,7 +29,7 @@ export default function Hero({ imgUrl, alt, currentPage, title, description }) {
 								<span>{">"}</span>
 								<Link
 									to={currentPage?.parent.link}
-									className="hover:underline hover:opacity-75 transition-all duration-300">
+									className="transition-all duration-300 hover:underline hover:opacity-75">
 									{currentPage?.parent.label}
 								</Link>
 							</>

@@ -24,7 +24,7 @@ export default function Photos() {
 		title: "Photos",
 	}
 	return (
-		<div>
+		<>
 			{/* Hero Section */}
 			<Hero {...heroValues} />
 			{typeof selected === "number" && (
@@ -35,24 +35,24 @@ export default function Photos() {
 				/>
 			)}
 			{/* Image Gallery */}
-			<div className="grid justify-center mb-[6rem]">
-				<div className="flex flex-wrap gap-4 justify-center max-width">
+			<div className="mb-[6rem] grid justify-center">
+				<div className="max-width flex flex-wrap justify-center gap-4">
 					{/* Map trough the Array of Images and Only Display the Allowed Numnber of Images */}
-					{Object.entries(document).map((doc, index) =>
+					{Object.entries(document).map(([alt, url], index) =>
 						index < elementsAtOnce ? (
-							<div key={doc[0]} className="overflow-hidden rounded-lg">
+							<div key={alt} className="overflow-hidden rounded-lg">
 								<img
-									src={doc[1]}
-									alt={doc[0]}
+									src={url}
+									alt={alt}
 									onClick={() => setSelected(index)}
-									className="w-[332px] h-[220px] object-cover hover:scale-110 transition-transform duration-500 select-none"></img>
+									className="h-[220px] w-[332px] select-none object-cover transition-transform duration-500 hover:scale-110"></img>
 							</div>
 						) : null
 					)}
 				</div>
 				{/* Load More Button */}
 				{Object.keys(document).length > elementsAtOnce ? (
-					<div className="grid justify-center mt-[3rem]">
+					<div className="mt-[3rem] grid justify-center">
 						<button
 							onClick={() => setElementsAtOnce((prev) => prev + 10)}
 							className="submit-btn">
@@ -63,6 +63,6 @@ export default function Photos() {
 					<div className="h-[6rem]"></div>
 				)}
 			</div>
-		</div>
+		</>
 	)
 }

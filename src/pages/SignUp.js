@@ -105,9 +105,9 @@ export default function SingUp() {
 	}
 
 	return (
-		<div className="w-full grid place-items-center h-[90vh] text-gray">
+		<div className="grid h-[90vh] w-full place-items-center text-gray">
 			<form
-				className="max-w-[488px] w-full flex flex-col items-center bg-light rounded-xl py-[5rem] page-padding border-[3px] border-gray/30 shadow-lg"
+				className="page-padding flex w-full max-w-[488px] flex-col items-center rounded-xl border-[3px] border-gray/30 bg-light py-[5rem] shadow-lg"
 				onSubmit={(e) => onSubmitForm(e)}>
 				<Logo type="form" />
 				<h3 className="my-6">Cree un nouveau compte</h3>
@@ -115,7 +115,7 @@ export default function SingUp() {
 				{formParams.map((params) => (
 					<Input key={params.label} {...params} {...props} />
 				))}
-				<div className="flex items-center justify-between w-full">
+				<div className="flex w-full items-center justify-between">
 					<Link to="/login" className="link">
 						Already have an account?
 					</Link>

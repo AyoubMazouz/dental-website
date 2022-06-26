@@ -5,6 +5,8 @@ import useDoc from "../../hooks/useDoc"
 // Components Imports.
 import Hero from "../../components/Hero"
 import VideoModel from "../../components/VideoModel"
+// Utilities Imports.
+import { getThumbnailFromUrl } from "../../util/video"
 
 export default function Videos() {
 	// Selected Image to Display on the Model.
@@ -13,15 +15,6 @@ export default function Videos() {
 	const [elementsAtOnce, setElementsAtOnce] = useState(20)
 	// Images From db.
 	const { document } = useDoc("gallery", "videos")
-
-	const getThumbnail = (url) => {
-		// Take Youtube Video URL and get the Id.
-		// Then Create URL for the Video Image.
-		const VideoId = url.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/)?.pop()
-		if (VideoId?.length == 11) {
-			return "//img.youtube.com/vi/" + VideoId + "/0.jpg"
-		}
-	}
 
 	const heroValues = {
 		currentPage: {
@@ -45,25 +38,25 @@ export default function Videos() {
 				/>
 			)}
 			{/* Videos Gallery */}
-			<div className="grid justify-center mb-[6rem]">
-				<div className="flex flex-wrap gap-4 justify-center max-width">
+			<div className="mb-[6rem] grid justify-center">
+				<div className="max-width flex flex-wrap justify-center gap-4">
 					{/* Map trough the Array of Videos urls and Only Display the Allowed Numnber of Videos */}
 					{document &&
-						Object.entries(document).map((doc, index) =>
+						Object.entries(document).map(([id, url], index) =>
 							index < elementsAtOnce ? (
-								<div key={doc[0]} className="overflow-hidden rounded-lg">
+								<div key={id} className="overflow-hidden rounded-lg">
 									<img
-										src={getThumbnail(doc[1])}
-										alt={doc[0]}
+										src={getThumbnailFromUrl(url)}
+										alt={id}
 										onClick={() => setSelected(index)}
-										className="aspect-video w-[338px] object-cover hover:scale-110 transition-transform duration-500 select-none"></img>
+										className="aspect-video w-[338px] select-none object-cover transition-transform duration-500 hover:scale-110"></img>
 								</div>
 							) : null
 						)}
 				</div>
 				{/* Load More Button */}
 				{Object.keys(document).length > elementsAtOnce ? (
-					<div className="grid justify-center mt-[3rem]">
+					<div className="mt-[3rem] grid justify-center">
 						<button
 							onClick={() => setElementsAtOnce((prev) => prev + 10)}
 							className="submit-btn">

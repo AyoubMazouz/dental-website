@@ -26,27 +26,23 @@ export default function BeforeAndAfterGallery() {
 			{/* Hero Section */}
 			<Hero {...heroValues} />
 			{/* Image Gallery */}
-			<div className="grid justify-center mb-[6rem]">
-				<div className="flex flex-wrap gap-4 justify-center max-width">
+			<div className="mb-[6rem] grid justify-center">
+				<div className="max-width flex flex-wrap justify-center gap-4">
 					{/* Map trough the Array of Images and Only Display the Allowed Numnber of Images */}
-					{Object.entries(document).map((doc, index) =>
-						index < elementsAtOnce ? (
-							<div
-								key={doc[0]}
-								className="overflow-hidden rounded-lg aspect-video h-[238px]">
-								<Slider
-									id={index}
-									alt={""}
-									before={doc[1][0]}
-									after={doc[1][1]}
-								/>
-							</div>
-						) : null
+					{Object.entries(document).map(
+						([alt, [before, after]], index) =>
+							index < elementsAtOnce && (
+								<div
+									key={alt}
+									className="aspect-video h-[190px] overflow-hidden rounded-lg">
+									<Slider id={alt} alt={alt} before={before} after={after} />
+								</div>
+							)
 					)}
 				</div>
 				{/* Load More Button */}
 				{Object.keys(document).length > elementsAtOnce ? (
-					<div className="grid justify-center mt-[3rem]">
+					<div className="mt-[3rem] grid justify-center">
 						<button
 							onClick={() => setElementsAtOnce((prev) => prev + 10)}
 							className="submit-btn">
