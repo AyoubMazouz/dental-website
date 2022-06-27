@@ -7,8 +7,10 @@ fetch("./regions.json")
 	})
 	.catch((error) => console.log(error))
 
-export const getRegions = () => regionsJson.map((region) => region.name)
+export const getRegions = () =>
+	regionsJson && regionsJson.map((region) => region.name)
 export const getCities = (r) =>
+	regionsJson &&
 	regionsJson.filter((region) => region.name === r)[0].cities_list
 
 export const SERVICES_MD_URL =

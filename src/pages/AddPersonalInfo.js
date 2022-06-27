@@ -14,54 +14,64 @@ import useUserData from "../hooks/useUserData"
 import { getRegions, getCities } from "../data"
 
 const formParams = [
+	// FirstName.
 	{
 		type: "text",
 		name: "firstName",
-		label: "FirstName",
+		label: "Prenom",
 		span: 1,
 	},
+	// LastName.
 	{
 		type: "text",
 		name: "lastName",
-		label: "LastName",
+		label: "Nom",
 		span: 1,
 	},
+	// Phone.
 	{
 		type: "tel",
 		name: "phone",
-		label: "Phone",
+		label: "Telephone",
 		span: 1,
 	},
+	// Zip Code.
 	{
 		type: "text",
 		name: "zip",
-		label: "zip",
+		label: "Zip Code",
 		span: 1,
 	},
+	// Address 01.
+	{
+		type: "text",
+		name: "address1",
+		label: "Address 1",
+		span: 2,
+	},
+	// Address 02.
+	{
+		type: "text",
+		name: "address2",
+		label: "Address 2",
+		span: 2,
+	},
+	// Region.
 	{
 		type: "select",
 		name: "region",
 		label: "Region",
-		options: getRegions,
+		placeHolder: "Selectionner votre region...",
+		options: [],
 		span: 2,
 	},
+	// City.
 	{
 		type: "select",
 		name: "city",
 		label: "city",
+		placeHolder: "Selectionner votre ville..",
 		options: [],
-		span: 2,
-	},
-	{
-		type: "text",
-		name: "address1",
-		label: "address1",
-		span: 2,
-	},
-	{
-		type: "text",
-		name: "address2",
-		label: "address2",
 		span: 2,
 	},
 ]
@@ -91,10 +101,16 @@ export default function EditInfo() {
 
 	// Update Second Select List.
 	useEffect(() => {
-		if (!formValues.region) return
 		formParams.forEach((params) => {
-			if (params?.name === "city") {
+			if (params.name === "region") params.options = getRegions()
+		})
+	}, [])
+	// Update Second Select List.
+	useEffect(() => {
+		formParams.forEach((params) => {
+			if (params.name === "city" && formValues.region) {
 				params.options = getCities(formValues.region)
+				setFormValues({ city: "", ...formValues })
 			}
 		})
 	}, [formValues.region])
@@ -108,9 +124,9 @@ export default function EditInfo() {
 	}
 
 	return (
-		<div className="w-full grid place-items-center h-[90vh]">
+		<div className="grid h-[90vh] w-full place-items-center">
 			<form
-				className="max-w-[680px] w-full grid grid-cols-2 gap-x-12 bg-light rounded-xl py-[5rem] page-padding border-[3px] border-gray/30 shadow-lg"
+				className="page-padding grid w-full max-w-[680px] grid-cols-2 gap-x-12 rounded-xl border-[3px] border-gray/25 bg-light py-[5rem] shadow-lg"
 				onSubmit={(e) =>
 					onSubmit(e, () => {
 						UpdateUserInfo(formValues)
@@ -119,7 +135,7 @@ export default function EditInfo() {
 				}>
 				<div className="col-span-full flex flex-col items-center">
 					<Logo />
-					<h3 className="my-6">Cree un nouveau compte</h3>
+					<h3 className="my-6">Ajoutez votre info personnel</h3>
 				</div>
 				{/* Input Field */}
 				{formParams.map((params) => (
@@ -127,7 +143,7 @@ export default function EditInfo() {
 						<Input key={params.label} {...params} {...props} />
 					</div>
 				))}
-				<div className="flex items-center justify-between w-full col-span-full">
+				<div className="col-span-full flex w-full items-center justify-between">
 					{/* Skip Button */}
 					<Link to="/" className="link">
 						Passer

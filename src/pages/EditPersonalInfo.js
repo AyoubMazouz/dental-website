@@ -20,42 +20,42 @@ const formParams = [
 		type: "text",
 		name: "firstName",
 		label: "Prenom",
-		colspan: 1,
+		span: 1,
 	},
 	// LastName.
 	{
 		type: "text",
 		name: "lastName",
 		label: "Nom",
-		colspan: 1,
+		span: 1,
 	},
 	// Phone.
 	{
 		type: "tel",
 		name: "phone",
 		label: "Telephone",
-		colspan: 1,
+		span: 1,
 	},
 	// Zip Code.
 	{
 		type: "text",
 		name: "zip",
 		label: "Zip Code",
-		colspan: 1,
+		span: 1,
 	},
 	// Address 01.
 	{
 		type: "text",
 		name: "address1",
 		label: "Address 1",
-		colspan: 2,
+		span: 2,
 	},
 	// Address 02.
 	{
 		type: "text",
 		name: "address2",
 		label: "Address 2",
-		colspan: 2,
+		span: 2,
 	},
 	// Region.
 	{
@@ -64,7 +64,7 @@ const formParams = [
 		label: "Region",
 		placeHolder: "Selectionner votre region...",
 		options: [],
-		colspan: 2,
+		span: 2,
 	},
 	// City.
 	{
@@ -73,7 +73,7 @@ const formParams = [
 		label: "city",
 		placeHolder: "Selectionner votre ville..",
 		options: [],
-		colspan: 2,
+		span: 2,
 	},
 ]
 
@@ -211,7 +211,7 @@ export default function EditPersonalInfo() {
 			</div>
 			<div className="grid-cols-2 gap-x-12 lg:grid">
 				{formParams.map((params) => (
-					<div className={"col-span-" + params.colspan}>
+					<div className={"col-span-" + params.span}>
 						<Input key={params.label} {...params} {...props} />
 					</div>
 				))}

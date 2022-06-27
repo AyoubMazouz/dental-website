@@ -65,11 +65,12 @@ export default function Input({
 					<option value="Autre" selected hidden className="text-gray">
 						{placeHolder}
 					</option>
-					{options.map((option) => (
-						<option value={option} className="text-gray text-base">
-							{option}
-						</option>
-					))}
+					{options?.length > 0 &&
+						options.map((option) => (
+							<option value={option} className="text-base text-gray">
+								{option}
+							</option>
+						))}
 				</select>
 			)
 		else
@@ -136,12 +137,12 @@ export default function Input({
 		)
 	}
 	return (
-		<div className="relative flex flex-col text-lg w-full">
+		<div className="relative flex w-full flex-col text-lg">
 			<label
 				htmlFor={name}
 				className={`transition-all duration-300 ${labelStyles}`}>
 				{label}
-				<span className="text-gray text-sm mx-2">
+				<span className="mx-2 text-sm text-gray">
 					{required ? "" : "optional"}
 				</span>
 			</label>
@@ -153,7 +154,7 @@ export default function Input({
 						setFormValues({ ...formValues, [name]: "" })
 						setError({ ...error, [name]: "" })
 					}}
-					className="absolute top-[2.5rem] right-[.8rem] cursor-pointer text-gray hover:text-accent text-2xl"
+					className="absolute top-[2.5rem] right-[.8rem] cursor-pointer text-2xl text-gray hover:text-accent"
 				/>
 			)}
 			{getValidationMessage()}

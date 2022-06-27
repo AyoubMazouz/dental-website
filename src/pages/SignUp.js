@@ -76,10 +76,11 @@ export default function SingUp() {
 					createNewUser(response.user.uid)
 					setNewNotification(
 						{
-							title: `welcome`,
+							type: "info",
+							title: "welcome",
 							content: `Hello ${formValues.displayName} welcome to DentalCare`,
 							link: "",
-							date: "",
+							date: "19:45pm - sat 05",
 						},
 						response.user.uid
 					)

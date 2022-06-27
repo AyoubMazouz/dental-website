@@ -2541,11 +2541,6 @@ url{
   margin-bottom: 4rem;
 }
 
-.my-3{
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
 .mb-\[2rem\]{
   margin-bottom: 2rem;
 }
@@ -2622,24 +2617,12 @@ url{
   margin-top: 3rem;
 }
 
-.mb-\[4rem\]{
-  margin-bottom: 4rem;
-}
-
-.mb-6{
-  margin-bottom: 1.5rem;
-}
-
-.mb-16{
-  margin-bottom: 4rem;
-}
-
-.mb-\[5rem\]{
-  margin-bottom: 5rem;
-}
-
 .mb-20{
   margin-bottom: 5rem;
+}
+
+.mb-\[4rem\]{
+  margin-bottom: 4rem;
 }
 
 .flex{
@@ -2664,10 +2647,6 @@ url{
 
 .aspect-\[8\/5\]{
   aspect-ratio: 8/5;
-}
-
-.aspect-square{
-  aspect-ratio: 1 / 1;
 }
 
 .h-\[26rem\]{
@@ -2786,8 +2765,8 @@ url{
   height: 3.1rem;
 }
 
-.h-\[238px\]{
-  height: 238px;
+.h-\[190px\]{
+  height: 190px;
 }
 
 .h-\[6rem\]{
@@ -2802,14 +2781,6 @@ url{
   height: 1rem;
 }
 
-.h-\[130px\]{
-  height: 130px;
-}
-
-.h-\[190px\]{
-  height: 190px;
-}
-
 .max-h-\[28rem\]{
   max-height: 28rem;
 }
@@ -2820,14 +2791,6 @@ url{
 
 .max-h-\[380px\]{
   max-height: 380px;
-}
-
-.max-h-\[130px\]{
-  max-height: 130px;
-}
-
-.max-h-\[220px\]{
-  max-height: 220px;
 }
 
 .max-h-\[190px\]{
@@ -2930,10 +2893,6 @@ url{
   width: 338px;
 }
 
-.w-\[220px\]{
-  width: 220px;
-}
-
 .max-w-\[2500px\]{
   max-width: 2500px;
 }
@@ -2986,20 +2945,16 @@ url{
   max-width: 1920px;
 }
 
+.max-w-\[340px\]{
+  max-width: 340px;
+}
+
 .max-w-\[1600px\]{
   max-width: 1600px;
 }
 
 .max-w-\[1200px\]{
   max-width: 1200px;
-}
-
-.max-w-\[220px\]{
-  max-width: 220px;
-}
-
-.max-w-\[340px\]{
-  max-width: 340px;
 }
 
 .translate-y-\[-50\%\]{
@@ -3276,10 +3231,6 @@ url{
   border-bottom-width: 3px;
 }
 
-.border-t-\[3px\]{
-  border-top-width: 3px;
-}
-
 .border-gray\/25{
   border-color: rgb(77 96 110 / 0.25);
 }
@@ -3412,17 +3363,13 @@ url{
   background-color: rgb(37 211 102 / var(--tw-bg-opacity));
 }
 
+.bg-black\/75{
+  background-color: rgb(0 0 0 / 0.75);
+}
+
 .bg-green-500{
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity));
-}
-
-.bg-black\/50{
-  background-color: rgb(0 0 0 / 0.5);
-}
-
-.bg-black\/75{
-  background-color: rgb(0 0 0 / 0.75);
 }
 
 .bg-gradient-to-t{
@@ -3586,10 +3533,6 @@ url{
 
 .text-center{
   text-align: center;
-}
-
-.text-right{
-  text-align: right;
 }
 
 .text-lg{
@@ -4057,11 +4000,6 @@ url{
 .hover\:bg-accent:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(0 145 255 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-bluish-gray:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(248 252 255 / var(--tw-bg-opacity));
 }
 
 .hover\:text-light:hover{

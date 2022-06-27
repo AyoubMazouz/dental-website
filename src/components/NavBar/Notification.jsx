@@ -7,7 +7,14 @@ import { useAuth } from "../../contexts/AuthContext"
 // Hooks Imports.
 import useUserData from "../../hooks/useUserData"
 // Icons Imports.
-import { NotificationIC, NotificationBoxIC } from "../../data/icons.data"
+import {
+	NotificationIC,
+	NotificationBoxIC,
+	SuccessIC,
+	DangerIC,
+	InfoIC,
+	WarningIC,
+} from "../../data/icons.data"
 
 export default function Notification() {
 	// Contexts.
@@ -34,25 +41,9 @@ export default function Notification() {
 				className="dropdown-content menu w-96 rounded-md bg-light pb-4 shadow-md ">
 				<h4 className="mb-4 px-2 text-lg font-semibold">Notifications</h4>
 				{Object.keys(notifications || {}).length > 0 ? (
-					Object.values(notifications)
-						.reverse()
-						.map(({ link, title, content, date }) =>
-							link ? (
-								<Link
-									to={link}
-									className="border-t-[3px] border-b-[3px] border-gray/25 p-2 text-base hover:bg-bluish-gray">
-									<div className="py-1 font-semibold">{title}</div>
-									<div>{content}</div>
-									<div className="text-right text-sm">{date}</div>
-								</Link>
-							) : (
-								<div className="border-t-[3px] border-b-[3px] border-gray/25 p-2 text-base hover:bg-bluish-gray">
-									<div className="py-1 font-semibold">{title}</div>
-									<div>{content}</div>
-									<div className="text-right text-sm">{date}</div>
-								</div>
-							)
-						)
+					Object.entries(notifications).map(([id, notification]) => (
+						<Notify {...{ id, ...notification }} />
+					))
 				) : (
 					<div className="grid place-items-center py-6 opacity-75">
 						<NotificationBoxIC className="-rotate-45 text-8xl" />
@@ -62,4 +53,15 @@ export default function Notification() {
 			</ul>
 		</div>
 	)
+}
+
+export function Notify({ id, type, content, title, date }) {
+	if (type === "info")
+		return (
+			<div className="relative flex w-full bg-info py-2 px-2 text-info-dark">
+				<InfoIC className="text-3xl" />
+				<div>{content}</div>
+				<div>{date}</div>
+			</div>
+		)
 }
