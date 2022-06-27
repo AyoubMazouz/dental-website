@@ -7,6 +7,7 @@ import {
 	FaGlobeAfrica,
 	FaRandom,
 	FaCalendarAlt,
+	FaTrashAlt,
 } from "react-icons/fa"
 // Md
 import {
@@ -67,12 +68,13 @@ export const HomeIC = MdHome
 export const CityIC = MdLocationCity
 export const GlobeIC = FaGlobeAfrica
 
-// Alert.
+// Alert / Notification.
 export const WarningIC = IoIosWarning
 export const InfoIC = IoIosInformationCircle
 export const DangerIC = IoIosCloseCircle
 export const SuccessIC = IoIosCheckmarkCircle
 export const CloseIC = MdClose
+export const TrashIC = FaTrashAlt
 
 // others
 export const ArrowDownIC = MdKeyboardArrowDown

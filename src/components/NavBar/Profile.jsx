@@ -20,6 +20,7 @@ export default function Profile() {
 		logOut()
 			.then(() => {
 				setNewNotification({
+					type: "warning",
 					title: `Goodbye`,
 					content: `Goodbye ${currUser.displayName} we hope you come back to DentalCare`,
 					link: "",

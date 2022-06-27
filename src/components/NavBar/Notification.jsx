@@ -14,6 +14,7 @@ import {
 	DangerIC,
 	InfoIC,
 	WarningIC,
+	TrashIC,
 } from "../../data/icons.data"
 
 export default function Notification() {
@@ -29,6 +30,8 @@ export default function Notification() {
 			.then((data) => setNotifications(data))
 	}, [])
 
+	const deleteNotification = (id) => id
+
 	return (
 		<div className="dropdown-end dropdown z-20">
 			<label
@@ -38,11 +41,16 @@ export default function Notification() {
 			</label>
 			<ul
 				tabindex="0"
-				className="dropdown-content menu w-96 rounded-md bg-light pb-4 shadow-md ">
-				<h4 className="mb-4 px-2 text-lg font-semibold">Notifications</h4>
+				className="dropdown-content menu w-[30rem] overflow-hidden rounded-md bg-light shadow-lg">
+				<div className="mb-4 flex justify-between px-2">
+					<h4 className="text-lg font-semibold">Notifications</h4>
+					<div className="link flex items-center gap-x-1 text-base">
+						clearAll <TrashIC className="cursor-pointer text-2xl" />
+					</div>
+				</div>
 				{Object.keys(notifications || {}).length > 0 ? (
 					Object.entries(notifications).map(([id, notification]) => (
-						<Notify {...{ id, ...notification }} />
+						<Notify {...{ id, deleteNotification, ...notification }} />
 					))
 				) : (
 					<div className="grid place-items-center py-6 opacity-75">
@@ -55,13 +63,24 @@ export default function Notification() {
 	)
 }
 
-export function Notify({ id, type, content, title, date }) {
-	if (type === "info")
+export function Notify({ id, type, content, title, date, deleteNotification }) {
+	const icons = {
+		success: <SuccessIC className="text-3xl" />,
+		danger: <DangerIC className="text-3xl" />,
+		warning: <WarningIC className="text-3xl" />,
+		info: <InfoIC className="text-3xl" />,
+	}
+	if (["success", "info", "warning", "danger"].includes(type))
 		return (
-			<div className="relative flex w-full bg-info py-2 px-2 text-info-dark">
-				<InfoIC className="text-3xl" />
-				<div>{content}</div>
-				<div>{date}</div>
+			<div
+				className={`relative flex w-full items-center gap-x-2 bg-${type} py-4 pl-2 pr-10 font-semibold text-${type}-dark`}>
+				<div>{icons[type]}</div>
+				<div className="text-base">{content}</div>
+				<div className="absolute bottom-1 right-4 text-xs">{date}</div>
+				<TrashIC
+					className=" absolute top-2 right-4 cursor-pointer text-2xl"
+					onClick={() => deleteNotification(id)}
+				/>
 			</div>
 		)
 }

@@ -8,10 +8,11 @@ fetch("./regions.json")
 	.catch((error) => console.log(error))
 
 export const getRegions = () =>
-	regionsJson && regionsJson.map((region) => region.name)
+	regionsJson ? regionsJson.map((region) => region.name) : []
 export const getCities = (r) =>
-	regionsJson &&
-	regionsJson.filter((region) => region.name === r)[0].cities_list
+	regionsJson
+		? regionsJson.filter((region) => region.name === r)[0].cities_list
+		: []
 
 export const SERVICES_MD_URL =
 	"https://firebasestorage.googleapis.com/v0/b/dental-website-347119.appspot.com/o/services%2Ftext%2Findex.md?alt=media&token=0156b3fe-14ac-49cf-bb6a-e5875e53a9de"
