@@ -80,7 +80,6 @@ export default function SingUp() {
 							title: "welcome",
 							content: `Hello ${formValues.displayName} welcome to DentalCare`,
 							link: "",
-							date: "19:45pm - sat 05",
 						},
 						response.user.uid
 					)

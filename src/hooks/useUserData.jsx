@@ -1,7 +1,13 @@
-// React Imports.
-import { useState, useEffect } from "react"
 // FireBase Imports.
-import { updateDoc, setDoc, doc, getDoc, arrayUnion } from "firebase/firestore"
+import {
+	updateDoc,
+	setDoc,
+	doc,
+	getDoc,
+	deleteDoc,
+	deleteField,
+	serverTimestamp,
+} from "firebase/firestore"
 import { updateProfile } from "firebase/auth"
 import { ref, getDownloadURL, uploadString } from "firebase/storage"
 import { db, storage } from "../firebase"
@@ -35,15 +41,6 @@ export default function useUserData() {
 
 	const getUserInfo = async () => getDoc(doc(db, "users", currUser.uid))
 
-	const getNotifications = async () =>
-		getDoc(doc(db, "notifications", currUser.uid))
-
-	const setNewNotification = async (notification, uid = currUser.uid) => {
-		const payload = new Object()
-		payload[getRandomString(16)] = notification
-		setDoc(doc(db, "notifications", uid), payload, { merge: true })
-	}
-
 	const updateProfilePhoto = (file) => {
 		if (!file) return
 		// Uses the User Id, Every time user update the Image it get overwritten.
@@ -75,14 +72,50 @@ export default function useUserData() {
 			)
 		)
 
+	// Notification.
+	const getNotifications = async () =>
+		new Promise((resolve, reject) => {
+			getDoc(doc(db, "notifications", currUser.uid))
+				.then((response) => response.data())
+				.then((data) => {
+					const result = Object.fromEntries(
+						Object.entries(data).sort((a, b) =>
+							a[1].createdAt.valueOf() < b[1].createdAt.valueOf() ? 1 : -1
+						)
+					)
+					resolve(result)
+				})
+		})
+
+	const setNewNotification = async (notification) => {
+		const payload = new Object()
+		notification.createdAt = serverTimestamp()
+		notification.seen = true
+		payload[getRandomString(16)] = notification
+
+		setDoc(doc(db, "notifications", currUser.uid), payload, { merge: true })
+	}
+
+	const deleteNotification = (id) =>
+		updateDoc(doc(db, "notifications", currUser.uid), {
+			[id]: deleteField(),
+		})
+
+	const deleteNotifications = () =>
+		deleteDoc(doc(db, "notifications", currUser.uid))
+			.then(() => setAlert(["warning", "you deleted all notifications"]))
+			.catch((error) => console.log(error))
+
 	return {
 		currUser,
 		createNewUser,
 		getUserInfo,
 		UpdateUserInfo,
-		getNotifications,
-		setNewNotification,
 		updateProfilePhoto,
 		updateRandomAvatar,
+		getNotifications,
+		setNewNotification,
+		deleteNotification,
+		deleteNotifications,
 	}
 }

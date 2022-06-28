@@ -24,7 +24,6 @@ export default function Profile() {
 					title: `Goodbye`,
 					content: `Goodbye ${currUser.displayName} we hope you come back to DentalCare`,
 					link: "",
-					date: "",
 				})
 				navigate("/login")
 				setAlert(["info", "Logged Out"])

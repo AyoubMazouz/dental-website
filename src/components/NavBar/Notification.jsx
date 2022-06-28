@@ -16,21 +16,23 @@ import {
 	WarningIC,
 	TrashIC,
 } from "../../data/icons.data"
+import { getRandomString } from "../../util/image"
 
 export default function Notification() {
 	// Contexts.
 	const { currentUser } = useAuth()
-	const { getNotifications } = useUserData(currentUser)
+	const {
+		setNewNotification,
+		getNotifications,
+		deleteNotification,
+		deleteNotifications,
+	} = useUserData(currentUser)
 	// Hooks.
 	const [notifications, setNotifications] = useState(null)
 
 	useEffect(() => {
-		getNotifications()
-			.then((response) => response.data())
-			.then((data) => setNotifications(data))
+		getNotifications().then((result) => setNotifications(result))
 	}, [])
-
-	const deleteNotification = (id) => id
 
 	return (
 		<div className="dropdown-end dropdown z-20">
@@ -44,13 +46,30 @@ export default function Notification() {
 				className="dropdown-content menu w-[30rem] overflow-hidden rounded-md bg-light shadow-lg">
 				<div className="mb-4 flex justify-between px-2">
 					<h4 className="text-lg font-semibold">Notifications</h4>
-					<div className="link flex items-center gap-x-1 text-base">
-						clearAll <TrashIC className="cursor-pointer text-2xl" />
+					<div
+						className="link flex items-center gap-x-1 text-base"
+						onClick={() => {
+							deleteNotifications()
+						}}>
+						clearAll
+						<TrashIC className="cursor-pointer text-2xl" />
+					</div>
+					<div
+						className="link flex items-center gap-x-1 text-base"
+						onClick={() => {
+							setNewNotification({
+								type: "info",
+								content: getRandomString(30),
+							})
+						}}>
+						add new
 					</div>
 				</div>
 				{Object.keys(notifications || {}).length > 0 ? (
 					Object.entries(notifications).map(([id, notification]) => (
-						<Notify {...{ id, deleteNotification, ...notification }} />
+						<Notify
+							{...{ id, deleteNotification, setNotifications, ...notification }}
+						/>
 					))
 				) : (
 					<div className="grid place-items-center py-6 opacity-75">
@@ -63,7 +82,14 @@ export default function Notification() {
 	)
 }
 
-export function Notify({ id, type, content, title, date, deleteNotification }) {
+export function Notify({
+	id,
+	type,
+	content,
+	createdAt,
+	deleteNotification,
+	setNotifications,
+}) {
 	const icons = {
 		success: <SuccessIC className="text-3xl" />,
 		danger: <DangerIC className="text-3xl" />,
@@ -76,10 +102,22 @@ export function Notify({ id, type, content, title, date, deleteNotification }) {
 				className={`relative flex w-full items-center gap-x-2 bg-${type} py-4 pl-2 pr-10 font-semibold text-${type}-dark`}>
 				<div>{icons[type]}</div>
 				<div className="text-base">{content}</div>
-				<div className="absolute bottom-1 right-4 text-xs">{date}</div>
+				<div className="absolute bottom-1 right-4 text-xs">
+					{`${createdAt.toDate().toLocaleTimeString("fr-FR")} - ${createdAt
+						.toDate()
+						.getMonth()}/${createdAt.toDate().getDate()}`}
+				</div>
 				<TrashIC
 					className=" absolute top-2 right-4 cursor-pointer text-2xl"
-					onClick={() => deleteNotification(id)}
+					onClick={() => {
+						deleteNotification(id).then(() =>
+							setNotifications((prev) =>
+								Object.fromEntries(
+									Object.entries(prev).filter(([key, _]) => key !== id)
+								)
+							)
+						)
+					}}
 				/>
 			</div>
 		)
