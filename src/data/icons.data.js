@@ -47,6 +47,7 @@ import { TiLocationArrow } from "react-icons/ti"
 import { CgProfile } from "react-icons/cg"
 // Ai
 import { AiOutlineMenuUnfold, AiTwotoneNotification } from "react-icons/ai"
+import { FcGoogle } from "react-icons/fc"
 
 // Social Media
 export const FacebookIC = FaFacebookF
@@ -89,3 +90,4 @@ export const RandomIC = FaRandom
 export const LinkArrowIC = MdArrowRightAlt
 export const CalendarIC = FaCalendarAlt
 export const NotificationBoxIC = AiTwotoneNotification
+export const GoogleIC = FcGoogle

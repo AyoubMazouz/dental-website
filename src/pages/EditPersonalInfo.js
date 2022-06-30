@@ -8,12 +8,11 @@ import Input from "../components/Input"
 import useForm from "../hooks/useFom"
 import useUserData from "../hooks/useUserData"
 // Context Imports.
-import { useAlert } from "../contexts/AlertContext"
+import { useNotification } from "../contexts/NotificationContext"
 // Data Imports.
 import { getRegions, getCities } from "../data"
 // Icons Imports.
 import { EditIC, RandomIC } from "../data/icons.data"
-import { useAuth } from "../contexts/AuthContext"
 
 const formParams = [
 	// FirstName.
@@ -79,16 +78,17 @@ const formParams = [
 ]
 
 export default function EditPersonalInfo() {
-	const { setAlert } = useAlert()
-	const { displayName, email, avatar, info } = useAuth()
-
 	const navigate = useNavigate()
-	const { updateInfo, updateProfilePhoto, updateRandomAvatar } = useUserData()
-
-	useEffect(() => {
-		if (info) setFormValues(info)
-	}, [info])
-
+	const { setAlert } = useNotification()
+	const {
+		updateInfo,
+		updateProfilePhoto,
+		updateRandomAvatar,
+		displayName,
+		email,
+		avatar,
+		info,
+	} = useUserData()
 	const {
 		formValues,
 		setFormValues,
@@ -106,6 +106,10 @@ export default function EditPersonalInfo() {
 		address1: "",
 		address2: "",
 	})
+
+	useEffect(() => {
+		if (info) setFormValues(info)
+	}, [info])
 
 	function openFileDialog() {
 		const input = document.getElementById("photo-dialog")

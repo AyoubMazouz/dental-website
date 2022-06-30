@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 // Context Imports.
 import { useAuth } from "../../contexts/AuthContext"
-import { useAlert } from "../../contexts/AlertContext"
+import { useNotification } from "../../contexts/NotificationContext"
 // Hooks Imports.
 import useUserData from "../../hooks/useUserData"
 // Icons Imports.
@@ -21,22 +21,13 @@ import { getRandomString } from "../../util/image"
 
 export default function Notification() {
 	// Contexts.
-	const { currentUser } = useAuth()
 	const {
+		setAlert,
+		notifications,
 		setNewNotification,
-		getNotifications,
 		deleteNotification,
 		deleteNotifications,
-	} = useUserData(currentUser)
-	// Hooks.
-	const [notifications, setNotifications] = useState(null)
-	const { setAlert } = useAlert()
-
-	useEffect(() => {
-		// Listen to real time changes in db.
-		const unsubscribe = getNotifications((data) => setNotifications(data))
-		return () => unsubscribe()
-	}, [])
+	} = useNotification()
 
 	return (
 		<div className="dropdown-end dropdown z-20">

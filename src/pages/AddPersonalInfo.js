@@ -12,7 +12,7 @@ import useForm from "../hooks/useFom"
 import useUserData from "../hooks/useUserData"
 // Data Imports.
 import { getRegions, getCities } from "../data"
-import { useAlert } from "../contexts/AlertContext"
+import { useNotification } from "../contexts/NotificationContext"
 
 const formParams = [
 	// FirstName.
@@ -79,7 +79,7 @@ const formParams = [
 
 export default function EditInfo() {
 	const { currentUser } = useAuth()
-	const { setAlert } = useAlert()
+	const { setAlert } = useNotification()
 	const navigate = useNavigate()
 	const { updateInfo } = useUserData(currentUser)
 	const {

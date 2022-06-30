@@ -24,13 +24,13 @@ import Page404 from "./pages/Page404"
 import Admin from "./pages/admin"
 // Context Imports.
 import { AuthProvider } from "./contexts/AuthContext"
-import { AlertProvider } from "./contexts/AlertContext"
+import { NotificationProvider } from "./contexts/NotificationContext"
 
 const App = () => {
 	return (
 		<Router>
 			<AuthProvider>
-				<AlertProvider>
+				<NotificationProvider>
 					{/* NavBar */}
 					<NavBar />
 					<Routes>
@@ -63,7 +63,7 @@ const App = () => {
 						<Route path="*" element={<Page404 />} />
 					</Routes>
 					<Footer />
-				</AlertProvider>
+				</NotificationProvider>
 			</AuthProvider>
 		</Router>
 	)

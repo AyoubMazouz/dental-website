@@ -6,7 +6,7 @@ import Input from "../components/Input"
 import Logo from "../components/Logo"
 // Context Imports.
 import { useAuth } from "../contexts/AuthContext"
-import { useAlert } from "../contexts/AlertContext"
+import { useNotification } from "../contexts/NotificationContext"
 
 const formParams = [
 	{
@@ -29,7 +29,7 @@ const alerts = {
 
 export default function SingUp() {
 	const { logIn } = useAuth()
-	const { setAlert } = useAlert()
+	const { setAlert } = useNotification()
 	const navigate = useNavigate()
 	const [loading, setLoading] = useState(false)
 	const [formValues, setFormValues] = useState({
@@ -65,17 +65,17 @@ export default function SingUp() {
 	}
 
 	return (
-		<div className="w-full grid place-items-center h-[90vh] text-gray">
+		<div className="grid h-[90vh] w-full place-items-center text-gray">
 			<form
 				onSubmit={onSubmit}
-				className="max-w-[488px] w-full flex flex-col items-center bg-light rounded-xl py-[5rem] page-padding border-[3px] border-gray/30 shadow-lg">
+				className="page-padding flex w-full max-w-[488px] flex-col items-center rounded-xl border-[3px] border-gray/30 bg-light py-[5rem] shadow-lg">
 				<Logo type="form" />
 				<h3 className="my-6">Se Connecter</h3>
 				{/* Input Field */}
 				{formParams.map((params) => (
 					<Input key={params.label} {...params} {...props} />
 				))}
-				<div className="w-full flex items-center justify-between font-semibold">
+				<div className="flex w-full items-center justify-between font-semibold">
 					<Link to="/signup" className="link">
 						Cree Un Nouveau Compte
 					</Link>
@@ -84,7 +84,7 @@ export default function SingUp() {
 						Suivant
 					</button>
 				</div>
-				<Link to="/reset_password" className="w-full text-left link">
+				<Link to="/reset_password" className="link w-full text-left">
 					Forgot your password?
 				</Link>
 			</form>

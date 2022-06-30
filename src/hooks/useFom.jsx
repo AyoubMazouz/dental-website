@@ -1,10 +1,10 @@
 import { useState } from "react"
 // Context Imports.
-import { useAlert } from "../contexts/AlertContext"
+import { useNotification } from "../contexts/NotificationContext"
 
 export default function useFom(form) {
 	// Alert Context.
-	const { setAlert } = useAlert()
+	const { setAlert } = useNotification()
 	const [formValues, setFormValues] = useState(form)
 	const [error, setError] = useState({ ...form })
 	// To Disable Sign Up Button While Waiting for a response.
