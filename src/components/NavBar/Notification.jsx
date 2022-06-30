@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 // Context Imports.
 import { useAuth } from "../../contexts/AuthContext"
+import { useAlert } from "../../contexts/AlertContext"
 // Hooks Imports.
 import useUserData from "../../hooks/useUserData"
 // Icons Imports.
@@ -29,9 +30,12 @@ export default function Notification() {
 	} = useUserData(currentUser)
 	// Hooks.
 	const [notifications, setNotifications] = useState(null)
+	const { setAlert } = useAlert()
 
 	useEffect(() => {
-		getNotifications().then((result) => setNotifications(result))
+		// Listen to real time changes in db.
+		const unsubscribe = getNotifications((data) => setNotifications(data))
+		return () => unsubscribe()
 	}, [])
 
 	return (
@@ -48,9 +52,11 @@ export default function Notification() {
 					<h4 className="text-lg font-semibold">Notifications</h4>
 					<div
 						className="link flex items-center gap-x-1 text-base"
-						onClick={() => {
-							deleteNotifications()
-						}}>
+						onClick={() =>
+							deleteNotifications().then(() =>
+								setAlert(["warning", "you deleted all notifications"])
+							)
+						}>
 						clearAll
 						<TrashIC className="cursor-pointer text-2xl" />
 					</div>
@@ -65,11 +71,9 @@ export default function Notification() {
 						add new
 					</div>
 				</div>
-				{Object.keys(notifications || {}).length > 0 ? (
+				{notifications && Object.keys(notifications).length > 0 ? (
 					Object.entries(notifications).map(([id, notification]) => (
-						<Notify
-							{...{ id, deleteNotification, setNotifications, ...notification }}
-						/>
+						<Notify key={id} {...{ id, deleteNotification, ...notification }} />
 					))
 				) : (
 					<div className="grid place-items-center py-6 opacity-75">
@@ -82,14 +86,7 @@ export default function Notification() {
 	)
 }
 
-export function Notify({
-	id,
-	type,
-	content,
-	createdAt,
-	deleteNotification,
-	setNotifications,
-}) {
+export function Notify({ id, type, content, createdAt, deleteNotification }) {
 	const icons = {
 		success: <SuccessIC className="text-3xl" />,
 		danger: <DangerIC className="text-3xl" />,
@@ -102,22 +99,10 @@ export function Notify({
 				className={`relative flex w-full items-center gap-x-2 bg-${type} py-4 pl-2 pr-10 font-semibold text-${type}-dark`}>
 				<div>{icons[type]}</div>
 				<div className="text-base">{content}</div>
-				<div className="absolute bottom-1 right-4 text-xs">
-					{`${createdAt.toDate().toLocaleTimeString("fr-FR")} - ${createdAt
-						.toDate()
-						.getMonth()}/${createdAt.toDate().getDate()}`}
-				</div>
+				<div className="absolute bottom-1 right-4 text-xs">{createdAt}</div>
 				<TrashIC
 					className=" absolute top-2 right-4 cursor-pointer text-2xl"
-					onClick={() => {
-						deleteNotification(id).then(() =>
-							setNotifications((prev) =>
-								Object.fromEntries(
-									Object.entries(prev).filter(([key, _]) => key !== id)
-								)
-							)
-						)
-					}}
+					onClick={() => deleteNotification(id)}
 				/>
 			</div>
 		)

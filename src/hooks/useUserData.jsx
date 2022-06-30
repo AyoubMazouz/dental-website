@@ -7,6 +7,7 @@ import {
 	deleteDoc,
 	deleteField,
 	serverTimestamp,
+	onSnapshot,
 } from "firebase/firestore"
 import { updateProfile } from "firebase/auth"
 import { ref, getDownloadURL, uploadString } from "firebase/storage"
@@ -20,80 +21,125 @@ import {
 	getRandomAvatar,
 	getRandomString,
 } from "../util/image"
+import { useEffect } from "react"
 
 export default function useUserData() {
 	const { setAlert } = useAlert()
-	const { currUser } = useAuth()
+	const { currUser, setInfo, setAvatar, setEmail, setDisplayName, setId } =
+		useAuth()
 
-	const createNewUser = (uid = currUser.uid) =>
-		setDoc(doc(db, "users", uid), {
-			fullName: "",
-			phone: "",
-			region: "",
-			city: "",
-			zip: "",
-			address1: "",
-			address2: "",
+	useEffect(() => {
+		if (currUser) updateAuthStates()
+	}, [currUser])
+
+	const updateAuthStates = () => {
+		if (currUser)
+			getDoc(doc(db, "users", currUser.uid)).then((snapshot) => {
+				if (snapshot.exists()) {
+					const data = snapshot.data()
+					setId(data.id)
+					setDisplayName(data.displayName)
+					setEmail(data.email)
+					setAvatar(data.avatar)
+					setInfo(data.info)
+				}
+			})
+	}
+
+	const createNewUser = (id, displayName, email) =>
+		getRandomAvatar().then((ImageURL) =>
+			setDoc(doc(db, "users", id), {
+				id,
+				displayName,
+				email,
+				avatar: ImageURL,
+			}).then(() => updateAuthStates())
+		)
+
+	const updateInfo = (info) =>
+		new Promise((resolve, reject) => {
+			updateDoc(doc(db, "users", currUser.uid), { info })
+				.then(() => resolve())
+				.catch((error) => reject(error))
 		})
 
-	const UpdateUserInfo = (info) =>
-		updateDoc(doc(db, "users", currUser.uid), info)
-
-	const getUserInfo = async () => getDoc(doc(db, "users", currUser.uid))
-
-	const updateProfilePhoto = (file) => {
+	const updateProfilePhoto = async (file) => {
 		if (!file) return
 		// Uses the User Id, Every time user update the Image it get overwritten.
 		const fileRef = ref(storage, `photo-url/${currUser.uid}`)
-		optimizeProfileImg(file).then((dataURL) => {
-			// Use UploadString Method because the image is represented as a string.
-			uploadString(fileRef, dataURL, "data_url")
-				.then(
-					(snapshot) =>
-						console.log(snapshot.bytesTransferred / snapshot.totalBytes) * 100
-				)
-				// Update PhotoURL.
-				.then(() =>
-					getDownloadURL(fileRef).then((url) =>
-						updateProfile(currUser, {
-							photoURL: url,
-						}).then(() => {
-							setAlert(["success", "Photo has been updated successfully!"])
-						})
-					)
-				)
-		})
+		const dataURL = await optimizeProfileImg(file)
+		// Use UploadString Method because the image is represented as a string.
+		uploadString(fileRef, dataURL, "data_url")
+			.then((snapshot) => console.log(snapshot))
+			// Update PhotoURL.
+			.then(async () => {
+				const ImageURL = await getDownloadURL(fileRef)
+				await updateDoc(doc(db, "users", currUser.uid), { avatar: ImageURL })
+				updateAuthStates()
+			})
 	}
 
 	const updateRandomAvatar = () =>
-		getRandomAvatar().then((url) =>
-			updateProfile(currUser, { photoURL: url }).then(() =>
-				setAlert(["success", "Profile Image has been updated successfully!"])
-			)
-		)
-
-	// Notification.
-	const getNotifications = async () =>
-		new Promise((resolve, reject) => {
-			getDoc(doc(db, "notifications", currUser.uid))
-				.then((response) => response.data())
-				.then((data) => {
-					const result = Object.fromEntries(
-						Object.entries(data).sort((a, b) =>
-							a[1].createdAt.valueOf() < b[1].createdAt.valueOf() ? 1 : -1
-						)
+		new Promise((resolve) => {
+			getRandomAvatar()
+				.then((ImageURL) =>
+					updateDoc(doc(db, "users", currUser.uid), { avatar: ImageURL }).then(
+						() => updateAuthStates()
 					)
-					resolve(result)
-				})
+				)
+				.then(() => resolve())
 		})
 
-	const setNewNotification = async (notification) => {
+	// # Notification:
+	// notifications {
+	//		...users,
+	//		currUser: {
+	//			...notifications,
+	//			id (random 16 char string): {
+	//				type: "danger", : string
+	//				content: {}, : object
+	//				new: "true", : bool
+	//				createdAt: Timestamp
+	//			}
+	// 		}
+	// 	}
+	const getNotifications = (callback) =>
+		// Listen for changes in real time,
+		// Sort by Timestamp,
+		// Replace Timestamp with a String representation, return null if Timestamp doesn't exist yet.
+		// Return null if there is no notifications.
+		onSnapshot(doc(db, "notifications", currUser.uid), (snapshot) => {
+			if (snapshot.exists() && Object.keys(snapshot.data()).length > 0) {
+				const result = Object.fromEntries(
+					Object.entries(snapshot.data())
+						.sort((a, b) =>
+							a[1].createdAt?.valueOf() < b[1].createdAt?.valueOf() ? 1 : -1
+						)
+						.map(([id, value]) => {
+							// convert Timestamp to Javascript date Object.
+							const timestamp = value?.createdAt?.toDate()
+							// If Timestamp doesn't exist return null to not display it.
+							if (!timestamp) return [id, { ...value, createdAt: null }]
+							const time = timestamp.toLocaleTimeString("fr-FR")
+							const date = ` - ${timestamp.getMonth()}/${timestamp.getDate()}`
+							value.createdAt = time + date
+							return [id, value]
+						})
+				)
+				callback(result)
+			} else callback(null)
+		})
+
+	const setNewNotification = (notification) => {
 		const payload = new Object()
 		notification.createdAt = serverTimestamp()
-		notification.seen = true
+		notification.read = true
+		// Random string serve as a unique key.
 		payload[getRandomString(16)] = notification
 
-		setDoc(doc(db, "notifications", currUser.uid), payload, { merge: true })
+		return setDoc(doc(db, "notifications", currUser.uid), payload, {
+			merge: true,
+		})
 	}
 
 	const deleteNotification = (id) =>
@@ -103,14 +149,10 @@ export default function useUserData() {
 
 	const deleteNotifications = () =>
 		deleteDoc(doc(db, "notifications", currUser.uid))
-			.then(() => setAlert(["warning", "you deleted all notifications"]))
-			.catch((error) => console.log(error))
 
 	return {
-		currUser,
 		createNewUser,
-		getUserInfo,
-		UpdateUserInfo,
+		updateInfo,
 		updateProfilePhoto,
 		updateRandomAvatar,
 		getNotifications,

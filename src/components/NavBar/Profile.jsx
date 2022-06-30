@@ -11,7 +11,7 @@ import { useEffect } from "react"
 
 export default function Profile() {
 	// Contexts.
-	const { logOut, currUser } = useAuth()
+	const { logOut, currUser, displayName, email, avatar } = useAuth()
 	const { setAlert } = useAlert()
 	const navigate = useNavigate()
 	const { setNewNotification } = useUserData()
@@ -22,7 +22,7 @@ export default function Profile() {
 				setNewNotification({
 					type: "warning",
 					title: `Goodbye`,
-					content: `Goodbye ${currUser.displayName} we hope you come back to DentalCare`,
+					content: `Goodbye ${displayName} we hope you come back to DentalCare`,
 					link: "",
 				})
 				navigate("/login")
@@ -36,7 +36,7 @@ export default function Profile() {
 	const [_, setTemp] = useState(0)
 	useEffect(() => {
 		setTemp((prev) => prev + 1)
-	}, [currUser.displayName, currUser.userEmail, currUser.photoURL])
+	}, [displayName, email, avatar])
 
 	return (
 		<div className="dropdown-end dropdown">
@@ -44,8 +44,8 @@ export default function Profile() {
 				{/* Profile Avatar */}
 				<img
 					id="profile-avatar"
-					src={currUser.photoURL}
-					alt={currUser.displayName}
+					src={avatar}
+					alt={displayName}
 					className="h-[3.1rem] w-[3.1rem] cursor-pointer select-none rounded-full border-[3px] border-gray/25"></img>
 			</label>
 			<ul
@@ -55,16 +55,16 @@ export default function Profile() {
 					{/* Profile Avatar */}
 					<img
 						id="profile-avatar"
-						src={currUser.photoURL}
-						alt={currUser.displayName}
+						src={avatar}
+						alt={displayName}
 						className="h-[4rem] w-[4rem] cursor-pointer select-none rounded-full border-[3px] border-gray/25"></img>
 					<div className="p-2 font-semibold">
 						{/* Email */}
 						<h5 className="w-[11rem] overflow-hidden text-ellipsis text-[.8rem]">
-							{currUser.email}
+							{email}
 						</h5>
 						{/* UserName */}
-						<h5>{currUser.displayName}</h5>
+						<h5>{displayName}</h5>
 					</div>
 				</div>
 				<Link

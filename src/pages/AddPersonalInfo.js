@@ -12,6 +12,7 @@ import useForm from "../hooks/useFom"
 import useUserData from "../hooks/useUserData"
 // Data Imports.
 import { getRegions, getCities } from "../data"
+import { useAlert } from "../contexts/AlertContext"
 
 const formParams = [
 	// FirstName.
@@ -77,10 +78,10 @@ const formParams = [
 ]
 
 export default function EditInfo() {
-	// Auth Context.
 	const { currentUser } = useAuth()
+	const { setAlert } = useAlert()
 	const navigate = useNavigate()
-	const { UpdateUserInfo } = useUserData(currentUser)
+	const { updateInfo } = useUserData(currentUser)
 	const {
 		formValues,
 		setFormValues,
@@ -129,7 +130,17 @@ export default function EditInfo() {
 				className="page-padding grid w-full max-w-[680px] grid-cols-2 gap-x-12 rounded-xl border-[3px] border-gray/25 bg-light py-[5rem] shadow-lg"
 				onSubmit={(e) =>
 					onSubmit(e, () => {
-						UpdateUserInfo(formValues)
+						updateInfo(formValues)
+							.then(() => {
+								setAlert([
+									"success",
+									"Your personal info has been updated successfully",
+								])
+							})
+							.catch((error) => {
+								console.log(error)
+								setAlert(["danger", "Something went wrong, please try again!"])
+							})
 						navigate("/")
 					})
 				}>

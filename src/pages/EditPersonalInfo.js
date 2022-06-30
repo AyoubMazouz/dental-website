@@ -13,6 +13,7 @@ import { useAlert } from "../contexts/AlertContext"
 import { getRegions, getCities } from "../data"
 // Icons Imports.
 import { EditIC, RandomIC } from "../data/icons.data"
+import { useAuth } from "../contexts/AuthContext"
 
 const formParams = [
 	// FirstName.
@@ -79,15 +80,15 @@ const formParams = [
 
 export default function EditPersonalInfo() {
 	const { setAlert } = useAlert()
+	const { displayName, email, avatar, info } = useAuth()
 
 	const navigate = useNavigate()
-	const {
-		currUser,
-		getUserInfo,
-		UpdateUserInfo,
-		updateProfilePhoto,
-		updateRandomAvatar,
-	} = useUserData()
+	const { updateInfo, updateProfilePhoto, updateRandomAvatar } = useUserData()
+
+	useEffect(() => {
+		if (info) setFormValues(info)
+	}, [info])
+
 	const {
 		formValues,
 		setFormValues,
@@ -110,17 +111,12 @@ export default function EditPersonalInfo() {
 		const input = document.getElementById("photo-dialog")
 		input.onchange = () => {
 			const file = Array.from(input.files)[0]
-			updateProfilePhoto(file)
+			updateProfilePhoto(file).then(() =>
+				setAlert(["success", "Photo has been updated successfully!"])
+			)
 		}
 		input.click()
 	}
-
-	// Get User Data.
-	useEffect(() => {
-		getUserInfo()
-			.then((response) => response.data())
-			.then((data) => setFormValues(data))
-	}, [])
 
 	// Update Second Select List.
 	useEffect(() => {
@@ -150,23 +146,28 @@ export default function EditPersonalInfo() {
 		<form
 			className="page-padding grid w-full justify-center py-16 text-gray"
 			onSubmit={(e) =>
-				onSubmit(e, () => {
-					UpdateUserInfo(formValues).then(() =>
-						setAlert([
-							"success",
-							"Your personal info has been updated successfully",
-						])
-					)
-				})
+				onSubmit(e, () =>
+					updateInfo(formValues)
+						.then(() => {
+							setAlert([
+								"success",
+								"Your personal info has been updated successfully",
+							])
+						})
+						.catch((error) => {
+							console.log(error)
+							setAlert(["danger", "Something went wrong, please try again!"])
+						})
+				)
 			}>
 			<div className="page-padding flex w-full max-w-[1000px] justify-between">
 				{/* Profile */}
 				<div className="mb-4 flex flex-wrap gap-x-6">
-					{currUser.photoURL && (
+					{avatar && (
 						<div className="relative">
 							<img
-								src={currUser.photoURL}
-								alt={currUser.displayName}
+								src={avatar}
+								alt={displayName}
 								className="h-[7rem] w-[7rem] rounded-lg border-4 border-gray/25 object-cover lg:h-[10rem] lg:w-[10rem]"
 							/>
 							<div
@@ -188,13 +189,22 @@ export default function EditPersonalInfo() {
 									rounded-md bg-accent p-1 font-semibold
 									text-light transition-colors duration-300 hover:bg-accent/75
 									[&>svg]:text-xl">
-								<RandomIC onClick={updateRandomAvatar} />
+								<RandomIC
+									onClick={() => {
+										updateRandomAvatar().then(() =>
+											setAlert([
+												"success",
+												"Profile Image has been updated successfully!",
+											])
+										)
+									}}
+								/>
 							</div>
 						</div>
 					)}
 					<div className="p-2">
-						<h5 className="font-semibold">{currUser.email}</h5>
-						<h4 className="font-bold capitalize">{currUser.displayName}</h4>
+						<h5 className="font-semibold">{email}</h5>
+						<h4 className="font-bold capitalize">{displayName}</h4>
 					</div>
 				</div>
 				{/* Edit Button */}

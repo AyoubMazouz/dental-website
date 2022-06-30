@@ -42,7 +42,7 @@ const alerts = {
 
 export default function SingUp() {
 	// Contexts.
-	const { signUp, updateProfile } = useAuth()
+	const { signUp } = useAuth()
 	const { setAlert } = useAlert()
 	const { createNewUser, setNewNotification } = useUserData()
 	const navigate = useNavigate()
@@ -73,7 +73,11 @@ export default function SingUp() {
 		onSubmit(e, () => {
 			signUp(formValues.email, formValues.password)
 				.then((response) => {
-					createNewUser(response.user.uid)
+					createNewUser(
+						response.user.uid,
+						formValues.displayName,
+						formValues.email
+					)
 					setNewNotification(
 						{
 							type: "info",
@@ -82,12 +86,6 @@ export default function SingUp() {
 							link: "",
 						},
 						response.user.uid
-					)
-					getRandomAvatar().then((dataURL) =>
-						updateProfile(response.user, {
-							displayName: formValues.displayName,
-							photoURL: dataURL,
-						})
 					)
 					setAlert(["success", "Account created successfully"])
 					navigate("/add-personal-info")

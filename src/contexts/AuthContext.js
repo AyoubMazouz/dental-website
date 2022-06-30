@@ -9,6 +9,17 @@ import {
 	sendPasswordResetEmail,
 	updateProfile as _updateProfile,
 } from "firebase/auth"
+import {
+	updateDoc,
+	setDoc,
+	doc,
+	getDoc,
+	deleteDoc,
+	deleteField,
+	serverTimestamp,
+	onSnapshot,
+} from "firebase/firestore"
+import { db, storage } from "../firebase"
 
 const AuthContext = createContext()
 
@@ -17,8 +28,14 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-	const [currUser, setCurrUser] = useState()
 	const [loading, setLoading] = useState(true)
+	const [currUser, setCurrUser] = useState()
+	const [document, setDocument] = useState()
+	const [id, setId] = useState()
+	const [displayName, setDisplayName] = useState()
+	const [email, setEmail] = useState()
+	const [avatar, setAvatar] = useState()
+	const [info, setInfo] = useState()
 
 	const signUp = (email, password) =>
 		createUserWithEmailAndPassword(auth, email, password)
@@ -42,7 +59,7 @@ export function AuthProvider({ children }) {
 			setLoading(false)
 		})
 
-		return unsubscribe
+		return () => unsubscribe()
 	}, [])
 
 	const value = {
@@ -54,6 +71,19 @@ export function AuthProvider({ children }) {
 		updateEmail,
 		updatePassword,
 		updateProfile,
+		// States.
+		setInfo,
+		info,
+		setAvatar,
+		avatar,
+		setEmail,
+		email,
+		setDisplayName,
+		displayName,
+		setId,
+		id,
+		setDocument,
+		document,
 	}
 
 	return (
