@@ -1,13 +1,13 @@
 // React Imports.
 import { useNavigate, Link } from "react-router-dom"
 // Components Imports.
-import Input from "../components/Input"
-import Logo from "../components/Logo"
+import Input from "../../components/Input"
+import Logo from "../../components/Logo"
 // Context Imports.
-import { useAuth } from "../contexts/AuthContext"
-import { useNotification } from "../contexts/NotificationContext"
+import { useAuth } from "../../contexts/AuthContext"
+import { useNotification } from "../../contexts/NotificationContext"
 // Hooks Imports.
-import useForm from "../hooks/useFom"
+import useForm from "../../hooks/useFom"
 
 const formParams = [
 	{

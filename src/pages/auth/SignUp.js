@@ -1,16 +1,16 @@
 // React Router Dom Imports.
 import { useNavigate, Link } from "react-router-dom"
 // Components Imports.
-import Input from "../components/Input"
-import Logo from "../components/Logo"
+import Input from "../../components/Input"
+import Logo from "../../components/Logo"
 // Context Imports.
-import { useAuth } from "../contexts/AuthContext"
-import { useNotification } from "../contexts/NotificationContext"
+import { useAuth } from "../../contexts/AuthContext"
+import { useNotification } from "../../contexts/NotificationContext"
 // Hooks Imports.
-import useForm from "../hooks/useFom"
-import useUserData from "../hooks/useUserData"
+import useForm from "../../hooks/useFom"
+import useUserData from "../../hooks/useUserData"
 // Icons Imports.
-import { GoogleIC, FacebookIC } from "../data/icons.data"
+import { GoogleIC, FacebookIC } from "../../data/icons.data"
 
 const formParams = [
 	{
@@ -45,16 +45,15 @@ export default function SingUp() {
 	// Contexts.
 	const { signUp, AuthWithGoogle, AuthWithFacebook } = useAuth()
 	const { setAlert, newNotification } = useNotification()
-	const { createNewUser } = useUserData()
+	const { createNewUser, UserDocExist } = useUserData()
 	const navigate = useNavigate()
 	const {
 		formValues,
 		setFormValues,
 		handleChange,
 		onSubmit,
-		error,
-		setError,
 		loading,
+		setLoading,
 	} = useForm({
 		displayName: "",
 		email: "",
@@ -85,47 +84,47 @@ export default function SingUp() {
 		})
 	}
 	const signUpWithGoogle = async () => {
+		setLoading(true)
 		try {
-			const response = await AuthWithGoogle()
-			await createNewUser(
-				response.user.uid,
-				response.user.displayName,
-				response.user.email,
-				response.user.photoURL
-			)
+			const res = await AuthWithGoogle()
+			if (await !UserDocExist(res.user.uid)) {
+				await createNewUser(
+					res.user.uid,
+					res.user.displayName,
+					res.user.email,
+					res.user.photoURL
+				)
+			}
 			await newNotification({
 				type: "info",
-				title: "welcome",
-				content: `Hello ${response.user.displayName} welcome to DentalCare`,
-				link: "",
+				content: `Welcome back ${res.user.displayName}.`,
 			})
 			setAlert(["success", "Log In with Google successfully"])
-			navigate("/add-personal-info")
+			navigate("/")
 		} catch (err) {
-			setAlert(alerts[error.code] || ["error", error.message])
-			console.log(err)
+			setAlert(alerts[err.code] || ["error", err.message])
 		}
+		setLoading(false)
 	}
 	const signUpWithFacebook = async () => {
 		try {
-			const response = await AuthWithFacebook()
-			await createNewUser(
-				response.user.uid,
-				response.user.displayName,
-				response.user.email,
-				response.user.photoURL
-			)
+			const res = await AuthWithFacebook()
+			if (await !UserDocExist(res.user.uid)) {
+				await createNewUser(
+					res.user.uid,
+					res.user.displayName,
+					res.user.email,
+					res.user.photoURL
+				)
+			}
 			await newNotification({
 				type: "info",
-				title: "welcome",
-				content: `Hello ${response.user.displayName} welcome to DentalCare`,
-				link: "",
+				content: `Welcome back ${res.user.displayName}.`,
 			})
-			setAlert(["success", "Log In with Google successfully"])
-			navigate("/add-personal-info")
+			setAlert(["success", "Log In with Facebook successfully"])
+			navigate("/")
 		} catch (err) {
-			setAlert(alerts[error.code] || ["error", error.message])
-			console.log(err)
+			setAlert(alerts[err.code] || ["error", err.message])
 		}
 	}
 

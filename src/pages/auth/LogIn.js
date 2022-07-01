@@ -2,13 +2,15 @@
 import { useNavigate, Link } from "react-router-dom"
 import { useState } from "react"
 // Components Imports.
-import Input from "../components/Input"
-import Logo from "../components/Logo"
+import Input from "../../components/Input"
+import Logo from "../../components/Logo"
 // Context Imports.
-import { useAuth } from "../contexts/AuthContext"
-import { useNotification } from "../contexts/NotificationContext"
+import { useAuth } from "../../contexts/AuthContext"
+import { useNotification } from "../../contexts/NotificationContext"
+// Hooks Imports.
+import useUserData from "../../hooks/useUserData"
 // Icons Imports.
-import { GoogleIC, FacebookIC } from "../data/icons.data"
+import { GoogleIC, FacebookIC } from "../../data/icons.data"
 
 const formParams = [
 	{
@@ -31,6 +33,7 @@ const alerts = {
 
 export default function SingUp() {
 	const { logIn, AuthWithGoogle, AuthWithFacebook } = useAuth()
+	const { UserDocExist, createNewUser } = useUserData()
 	const { setAlert, newNotification } = useNotification()
 	const navigate = useNavigate()
 	const [loading, setLoading] = useState(false)
@@ -57,32 +60,47 @@ export default function SingUp() {
 	}
 
 	const signUpWithGoogle = async () => {
+		setLoading(true)
 		try {
-			const response = await AuthWithGoogle()
+			const res = await AuthWithGoogle()
+			if (await !UserDocExist(res.user.uid)) {
+				await createNewUser(
+					res.user.uid,
+					res.user.displayName,
+					res.user.email,
+					res.user.photoURL
+				)
+			}
 			await newNotification({
 				type: "info",
-				content: `Welcome back ${response.user.displayName}.`,
+				content: `Welcome back ${res.user.displayName}.`,
 			})
 			setAlert(["success", "Log In with Google successfully"])
 			navigate("/")
 		} catch (err) {
 			setAlert(alerts[err.code] || ["error", err.message])
-			console.log(err)
 		}
+		setLoading(false)
 	}
 	const signUpWithFacebook = async () => {
 		try {
-			const response = await AuthWithFacebook()
-			console.log(response)
+			const res = await AuthWithFacebook()
+			if (await !UserDocExist(res.user.uid)) {
+				await createNewUser(
+					res.user.uid,
+					res.user.displayName,
+					res.user.email,
+					res.user.photoURL
+				)
+			}
 			await newNotification({
 				type: "info",
-				content: `Welcome back ${response.user.displayName}.`,
+				content: `Welcome back ${res.user.displayName}.`,
 			})
 			setAlert(["success", "Log In with Facebook successfully"])
 			navigate("/")
 		} catch (err) {
 			setAlert(alerts[err.code] || ["error", err.message])
-			console.log(err)
 		}
 	}
 

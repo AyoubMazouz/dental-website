@@ -18,7 +18,7 @@ import { optimizeProfileImg, getRandomAvatar } from "../util/image"
 export default function useUserData() {
 	const { currUser } = useAuth()
 	const [document, setDocument] = useState()
-	const [id, setId] = useState()
+	const [uid, setUid] = useState()
 	const [displayName, setDisplayName] = useState()
 	const [email, setEmail] = useState()
 	const [avatar, setAvatar] = useState()
@@ -34,7 +34,7 @@ export default function useUserData() {
 		if (snapshot.exists()) {
 			const data = snapshot.data()
 			setDocument(data)
-			setId(data.id)
+			setUid(data.id)
 			setDisplayName(data.displayName)
 			setEmail(data.email)
 			setAvatar(data.avatar)
@@ -42,13 +42,13 @@ export default function useUserData() {
 		}
 	}
 
-	const createNewUser = async (id, displayName, email, imageURL) => {
+	const createNewUserDoc = async (uid, displayName, email, imageURL) => {
 		let avatar = imageURL
 		if (!imageURL) {
 			avatar = await getRandomAvatar()
 		}
-		await setDoc(doc(db, "users", id), {
-			id,
+		await setDoc(doc(db, "users", uid), {
+			id: uid,
 			displayName,
 			email,
 			avatar,
@@ -81,18 +81,25 @@ export default function useUserData() {
 		await updateDoc(doc(db, "users", currUser.uid), { avatar: ImageURL })
 		updateAuthStates()
 	}
+
+	const UserDocExist = async (uid) => {
+		const res = await getDoc(doc(db, "users", uid))
+		return res.exists()
+	}
+
 	return {
 		// Methods
 		updateInfo,
-		createNewUser,
+		createNewUserDoc,
 		updateProfilePhoto,
 		updateRandomAvatar,
+		UserDocExist,
 		// Stats.
 		displayName,
 		document,
 		avatar,
 		email,
 		info,
-		id,
+		uid,
 	}
 }

@@ -137,10 +137,8 @@ export default function Input({
 		)
 	}
 	return (
-		<div className="relative flex w-full flex-col text-lg">
-			<label
-				htmlFor={name}
-				className={`transition-all duration-300 ${labelStyles}`}>
+		<div className="relative flex w-full flex-col">
+			<label htmlFor={name}>
 				{label}
 				<span className="mx-2 text-sm text-gray">
 					{required ? "" : "optional"}
