@@ -4,7 +4,7 @@ import { useState } from "react"
 import useDoc from "../../hooks/useDoc"
 // Components Imports.
 import Hero from "../../components/Hero"
-import Slider from "../../components/Slider"
+import Slider from "./components/Slider"
 
 export default function BeforeAndAfterGallery() {
 	// How Many Images to Show At Once.

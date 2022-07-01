@@ -3,7 +3,7 @@ import { useState } from "react"
 // Hooks Imports.
 import useDoc from "../../hooks/useDoc"
 // Components Imports.
-import ImageModel from "../../components/ImageModel"
+import ImageModel from "./components/ImageModel"
 import Hero from "../../components/Hero"
 
 export default function Photos() {

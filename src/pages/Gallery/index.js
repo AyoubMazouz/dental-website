@@ -9,9 +9,9 @@ import { FreeMode, Scrollbar, Pagination } from "swiper"
 import useDoc from "../../hooks/useDoc"
 // Components Imports.
 import Hero from "../../components/Hero"
-import ImageModel from "../../components/ImageModel"
+import ImageModel from "./components/ImageModel"
 import VideoModel from "../../components/VideoModel"
-import Slider from "../../components/Slider"
+import Slider from "./components/Slider"
 //  Pages Imports.
 import Photos from "./Photos"
 import Videos from "./Videos"

@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import NavBar from "./components/NavBar"
 import Footer from "./components/Footer"
 import PrivateRoute from "./components/PrivateRoute"
+import HideAuthRoute from "./components/HideAuthRoute"
 // Pages Imports.
 import Home from "./pages/Home"
 import About from "./pages/About"
@@ -16,12 +17,12 @@ import SignUp from "./pages/auth/SignUp"
 import LogIn from "./pages/auth/LogIn"
 import Blog from "./pages/Blog"
 import EditPersonalInfo from "./pages/EditPersonalInfo"
-import AddPersonalInfo from "./pages/AddPersonalInfo"
+import AddPersonalInfo from "./pages/auth/AddPersonalInfo"
 import PasswordReset from "./pages/auth/PasswordReset"
 import Services from "./pages/Services"
 import Service from "./pages/Services/Service"
-import Page404 from "./pages/Page404"
 import Admin from "./pages/admin"
+import Page404 from "./pages/Page404"
 // Context Imports.
 import { AuthProvider } from "./contexts/AuthContext"
 import { NotificationProvider } from "./contexts/NotificationContext"
@@ -39,16 +40,19 @@ const App = () => {
 						<Route path="/services" element={<Services />} />
 						<Route path="/contact" element={<Contact />} />
 						<Route path="/blog" element={<Blog />} />
-						{/* Authentication */}
-						<Route path="/signup" element={<SignUp />} />
-						<Route path="/login" element={<LogIn />} />
-						<Route path="/reset_password" element={<PasswordReset />} />
 						{/* Services */}
 						<Route path="/services" element={<Services />} />
 						<Route path="/services/:serviceName" element={<Service />} />
 						{/* Gallery */}
 						<Route path="/gallery" element={<Gallery />} />
 						<Route path="/gallery/:mediaPage" element={<Gallery />} />
+						{/* Authentication */}
+						<Route path="/reset_password" element={<PasswordReset />} />
+						{/* Hidden Routes after Auth */}
+						<Route element={<HideAuthRoute />}>
+							<Route path="/signup" element={<SignUp />} />
+							<Route path="/login" element={<LogIn />} />
+						</Route>
 						{/* Private Routes */}
 						<Route element={<PrivateRoute />}>
 							<Route path="/add-personal-info" element={<AddPersonalInfo />} />

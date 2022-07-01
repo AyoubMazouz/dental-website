@@ -3,16 +3,16 @@ import { useEffect } from "react"
 // React Router Dom Imports.
 import { useNavigate, Link } from "react-router-dom"
 // Components Imports.
-import Input from "../components/Input"
-import Logo from "../components/Logo"
+import Input from "../../components/Input"
+import Logo from "../../components/Logo"
 // Context Imports.
-import { useAuth } from "../contexts/AuthContext"
+import { useAuth } from "../../contexts/AuthContext"
 // Hooks Imports.
-import useForm from "../hooks/useFom"
-import useUserData from "../hooks/useUserData"
+import useForm from "../../hooks/useFom"
+import useUserData from "../../hooks/useUserData"
 // Data Imports.
-import { getRegions, getCities } from "../data"
-import { useNotification } from "../contexts/NotificationContext"
+import { getRegions, getCities } from "../../data"
+import { useNotification } from "../../contexts/NotificationContext"
 
 const formParams = [
 	// FirstName.
