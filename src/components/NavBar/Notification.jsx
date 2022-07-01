@@ -1,12 +1,7 @@
-// React Imports.
-import { useEffect, useState } from "react"
 // React Router Dom Imports.
 import { Link } from "react-router-dom"
 // Context Imports.
-import { useAuth } from "../../contexts/AuthContext"
 import { useNotification } from "../../contexts/NotificationContext"
-// Hooks Imports.
-import useUserData from "../../hooks/useUserData"
 // Icons Imports.
 import {
 	NotificationIC,

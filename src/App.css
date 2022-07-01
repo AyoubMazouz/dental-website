@@ -2858,6 +2858,10 @@ url{
   height: 4rem;
 }
 
+.h-20{
+  height: 5rem;
+}
+
 .max-h-\[28rem\]{
   max-height: 28rem;
 }
@@ -2972,6 +2976,18 @@ url{
 
 .w-16{
   width: 4rem;
+}
+
+.w-60{
+  width: 15rem;
+}
+
+.w-80{
+  width: 20rem;
+}
+
+.w-56{
+  width: 14rem;
 }
 
 .max-w-\[2500px\]{

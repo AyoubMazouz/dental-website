@@ -16,12 +16,12 @@ export default function Profile() {
 
 	const { setAlert } = useNotification()
 	const navigate = useNavigate()
-	const { setNewNotification } = useNotification()
-	// Log Out.
-	const handleLogOut = async () => {
+	const { newNotification } = useNotification()
+
+	const LogOut = async () => {
 		try {
 			await logOut()
-			await setNewNotification({
+			await newNotification({
 				type: "warning",
 				title: `Goodbye`,
 				content: `Goodbye ${displayName} we hope you come back to DentalCare`,
@@ -53,21 +53,23 @@ export default function Profile() {
 			</label>
 			<ul
 				tabindex="0"
-				className="w-62 dropdown-content menu rounded-md border-[1px] border-gray/25 bg-light px-4 py-6 text-base shadow-md">
+				className="dropdown-content menu w-80 rounded-md border-[1px] border-gray/25 bg-light px-4 py-6 text-base shadow-md">
 				<div className="flex border-gray/25">
 					{/* Profile Avatar */}
 					<img
 						id="profile-avatar"
 						src={avatar}
 						alt={displayName}
-						className="h-[4rem] w-[4rem] cursor-pointer select-none rounded-full border-[3px] border-gray/25"></img>
+						className="h-16 w-16 cursor-pointer select-none rounded-full border-[3px] border-gray/25"></img>
 					<div className="p-2 font-semibold">
 						{/* Email */}
-						<h5 className="w-[11rem] overflow-hidden text-ellipsis text-[.8rem]">
+						<h5 className="w-56 overflow-hidden text-ellipsis text-[.8rem]">
 							{email}
 						</h5>
 						{/* UserName */}
-						<h5>{displayName}</h5>
+						<h5 className="w-56 overflow-hidden text-ellipsis text-[.8rem]">
+							{displayName}
+						</h5>
 					</div>
 				</div>
 				<Link
@@ -77,10 +79,7 @@ export default function Profile() {
 				</Link>
 				{/* Log Out */}
 				<li
-					onClick={() => {
-						handleLogOut()
-						navigate("/")
-					}}
+					onClick={LogOut}
 					className='relative cursor-pointer border-b-[3px] border-gray border-opacity-20 pb-1 pt-2 text-lg font-bold text-gray after:absolute after:-bottom-[.2rem] after:left-0 after:h-[.2rem] after:w-0 after:bg-secondary after:transition-all after:duration-300 after:content-[""] hover:text-primary after:hover:w-full'>
 					Log Out
 				</li>

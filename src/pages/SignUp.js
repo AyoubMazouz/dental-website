@@ -44,8 +44,8 @@ const alerts = {
 export default function SingUp() {
 	// Contexts.
 	const { signUp, AuthWithGoogle } = useAuth()
-	const { setAlert } = useNotification()
-	const { createNewUser, setNewNotification } = useUserData()
+	const { setAlert, newNotification } = useNotification()
+	const { createNewUser } = useUserData()
 	const navigate = useNavigate()
 	const {
 		formValues,
@@ -71,56 +71,48 @@ export default function SingUp() {
 	}
 
 	const signUpWithEmail = (e) => {
-		onSubmit(e, () => {
-			signUp(formValues.email, formValues.password)
-				.then((response) => {
-					createNewUser(
-						response.user.uid,
-						formValues.displayName,
-						formValues.email
-					)
-					setNewNotification(
-						{
-							type: "info",
-							title: "welcome",
-							content: `Hello ${formValues.displayName} welcome to DentalCare`,
-							link: "",
-						},
-						response.user.uid
-					)
-					setAlert(["success", "Account created successfully"])
-					navigate("/add-personal-info")
+		onSubmit(e, async () => {
+			try {
+				const response = await signUp(formValues.email, formValues.password)
+				await createNewUser(
+					response.user.uid,
+					formValues.displayName,
+					formValues.email
+				)
+				await newNotification({
+					type: "info",
+					title: "welcome",
+					content: `Hello ${formValues.displayName} welcome to DentalCare`,
+					link: "",
 				})
-				.catch((error) => {
-					setAlert(alerts[error.code] || ["warning", error.code])
-				})
+				setAlert(["success", "Account created successfully"])
+				navigate("/add-personal-info")
+			} catch (error) {
+				setAlert(alerts[error.code] || ["warning", error.code])
+			}
 		})
 	}
-	const signUpWithGoogle = () => {
-		AuthWithGoogle()
-			.then((response) => {
-				console.log(response)
-				createNewUser(
-					response.user.uid,
-					response.user.displayName,
-					response.user.email,
-					response.user.photoURL
-				)
-				setNewNotification(
-					{
-						type: "info",
-						title: "welcome",
-						content: `Hello ${response.user.displayName} welcome to DentalCare`,
-						link: "",
-					},
-					response.user.uid
-				)
-				setAlert(["success", "Log In with Google successfully"])
-				navigate("/add-personal-info")
+	const signUpWithGoogle = async () => {
+		try {
+			const response = await AuthWithGoogle()
+			await createNewUser(
+				response.user.uid,
+				response.user.displayName,
+				response.user.email,
+				response.user.photoURL
+			)
+			await newNotification({
+				type: "info",
+				title: "welcome",
+				content: `Hello ${response.user.displayName} welcome to DentalCare`,
+				link: "",
 			})
-			.catch((error) => {
-				setAlert(alerts[error.code] || ["warning", error.message])
-			})
+			setAlert(["success", "Log In with Google successfully"])
+			navigate("/add-personal-info")
+		} catch (err) {
+			setAlert(alerts[error.code] || ["error", error.message])
+			console.log(err)
+		}
 	}
 
 	return (
@@ -134,7 +126,7 @@ export default function SingUp() {
 						<Input key={params.label} {...params} {...props} />
 					))}
 					<div className="flex w-full items-center justify-between">
-						<Link to="login" className="link">
+						<Link to="/login" className="link">
 							Already have an account?
 						</Link>
 						{/* Submit Button */}

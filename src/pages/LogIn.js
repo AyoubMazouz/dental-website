@@ -49,7 +49,7 @@ export default function SingUp() {
 				setAlert(
 					alerts[error.code] || ["warning", "something went wrong, try again!"]
 				)
-				console.log(error.message, error.code)
+				console.log(error)
 			})
 		setLoading(false)
 	}
