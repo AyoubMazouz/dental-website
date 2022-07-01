@@ -10,7 +10,7 @@ import { useNotification } from "../contexts/NotificationContext"
 import useForm from "../hooks/useFom"
 import useUserData from "../hooks/useUserData"
 // Icons Imports.
-import { GoogleIC } from "../data/icons.data"
+import { GoogleIC, FacebookIC } from "../data/icons.data"
 
 const formParams = [
 	{
@@ -43,7 +43,7 @@ const alerts = {
 
 export default function SingUp() {
 	// Contexts.
-	const { signUp, AuthWithGoogle } = useAuth()
+	const { signUp, AuthWithGoogle, AuthWithFacebook } = useAuth()
 	const { setAlert, newNotification } = useNotification()
 	const { createNewUser } = useUserData()
 	const navigate = useNavigate()
@@ -61,14 +61,6 @@ export default function SingUp() {
 		password: "",
 		confirmPassword: "",
 	})
-
-	const props = {
-		formValues,
-		setFormValues,
-		handleChange,
-		error,
-		setError,
-	}
 
 	const signUpWithEmail = (e) => {
 		onSubmit(e, async () => {
@@ -114,16 +106,46 @@ export default function SingUp() {
 			console.log(err)
 		}
 	}
+	const signUpWithFacebook = async () => {
+		try {
+			const response = await AuthWithFacebook()
+			await createNewUser(
+				response.user.uid,
+				response.user.displayName,
+				response.user.email,
+				response.user.photoURL
+			)
+			await newNotification({
+				type: "info",
+				title: "welcome",
+				content: `Hello ${response.user.displayName} welcome to DentalCare`,
+				link: "",
+			})
+			setAlert(["success", "Log In with Google successfully"])
+			navigate("/add-personal-info")
+		} catch (err) {
+			setAlert(alerts[error.code] || ["error", error.message])
+			console.log(err)
+		}
+	}
 
 	return (
-		<div className="grid h-[90vh] w-full place-items-center text-gray">
-			<div className="page-padding flex w-full max-w-[488px] flex-col items-center rounded-xl border-[3px] border-gray/30 bg-light py-[5rem] shadow-lg">
-				<form onSubmit={(e) => signUpWithEmail(e)}>
+		<div className="grid w-full place-items-center py-12 text-gray">
+			<div className="page-padding flex w-full max-w-[488px] flex-col items-center rounded-xl border-2 border-gray/30 bg-light py-[5rem] shadow-lg">
+				<form className="w-full" onSubmit={(e) => signUpWithEmail(e)}>
 					<Logo type="form" />
 					<h3 className="my-6">Cree un nouveau compte</h3>
 					{/* Input Field */}
 					{formParams.map((params) => (
-						<Input key={params.label} {...params} {...props} />
+						<Input
+							key={params.label}
+							{...params}
+							{...{
+								formValues,
+								setFormValues,
+								handleChange,
+							}}
+						/>
 					))}
 					<div className="flex w-full items-center justify-between">
 						<Link to="/login" className="link">
@@ -140,6 +162,12 @@ export default function SingUp() {
 					onClick={signUpWithGoogle}>
 					<GoogleIC className="text-3xl" />
 					log in with google
+				</button>
+				<button
+					className="submit-btn mt-6 flex w-full items-center gap-x-2 border-2 bg-white text-accent hover:text-white"
+					onClick={signUpWithFacebook}>
+					<FacebookIC className="text-3xl" />
+					log in with facebook
 				</button>
 			</div>
 		</div>

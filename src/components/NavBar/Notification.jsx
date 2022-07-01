@@ -12,17 +12,11 @@ import {
 	WarningIC,
 	TrashIC,
 } from "../../data/icons.data"
-import { getRandomString } from "../../util/image"
 
 export default function Notification() {
 	// Contexts.
-	const {
-		setAlert,
-		notifications,
-		setNewNotification,
-		deleteNotification,
-		deleteNotifications,
-	} = useNotification()
+	const { setAlert, notifications, deleteNotification, deleteNotifications } =
+		useNotification()
 
 	return (
 		<div className="dropdown-end dropdown z-20">
@@ -38,23 +32,19 @@ export default function Notification() {
 					<h4 className="text-lg font-semibold">Notifications</h4>
 					<div
 						className="link flex items-center gap-x-1 text-base"
-						onClick={() =>
-							deleteNotifications().then(() =>
-								setAlert(["warning", "you deleted all notifications"])
-							)
-						}>
+						onClick={() => {
+							if (notifications) {
+								deleteNotifications().then(() =>
+									setAlert(["warning", "you deleted all notifications"]).catch(
+										(err) => setAlert(["warning", err.message])
+									)
+								)
+							} else {
+								setAlert(["info", "you have 0 notifications"])
+							}
+						}}>
 						clearAll
 						<TrashIC className="cursor-pointer text-2xl" />
-					</div>
-					<div
-						className="link flex items-center gap-x-1 text-base"
-						onClick={() => {
-							setNewNotification({
-								type: "info",
-								content: getRandomString(30),
-							})
-						}}>
-						add new
 					</div>
 				</div>
 				{notifications && Object.keys(notifications).length > 0 ? (

@@ -70,7 +70,7 @@ export function NotificationProvider({ children }) {
 			} else setNotifications(null)
 		})
 		return () => unsubscribe()
-	}, [])
+	}, [id])
 
 	const newNotification = (notification) => {
 		const payload = new Object()
@@ -84,9 +84,9 @@ export function NotificationProvider({ children }) {
 		})
 	}
 
-	const deleteNotification = (id) =>
+	const deleteNotification = (notificationId) =>
 		updateDoc(doc(db, "notifications", id), {
-			[id]: deleteField(),
+			[notificationId]: deleteField(),
 		})
 
 	const deleteNotifications = () => deleteDoc(doc(db, "notifications", id))

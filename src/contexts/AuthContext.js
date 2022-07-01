@@ -1,7 +1,7 @@
 // React Imports.
 import { createContext, useContext, useState, useEffect } from "react"
 // Firebase Imports.
-import { auth, googleProvider } from "../firebase"
+import { auth, googleProvider, facebookProvider } from "../firebase"
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
@@ -28,7 +28,7 @@ export function AuthProvider({ children }) {
 		signInWithEmailAndPassword(auth, email, password)
 
 	const AuthWithGoogle = () => signInWithPopup(auth, googleProvider)
-	const AuthWithFacebook = () => {}
+	const AuthWithFacebook = () => signInWithPopup(auth, facebookProvider)
 
 	const logOut = () => signOut(auth)
 
@@ -52,8 +52,8 @@ export function AuthProvider({ children }) {
 		currUser,
 		logIn,
 		signUp,
-		AuthWithFacebook,
 		AuthWithGoogle,
+		AuthWithFacebook,
 		logOut,
 		resetPassword,
 		updateEmail,
