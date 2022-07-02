@@ -15,12 +15,13 @@ import Gallery from "./pages/Gallery"
 import Contact from "./pages/Contact"
 import SignUp from "./pages/auth/SignUp"
 import LogIn from "./pages/auth/LogIn"
-import Blog from "./pages/Blog"
 import EditPersonalInfo from "./pages/EditPersonalInfo"
 import AddPersonalInfo from "./pages/auth/AddPersonalInfo"
 import PasswordReset from "./pages/auth/PasswordReset"
 import Services from "./pages/Services"
 import Service from "./pages/Services/Service"
+import Blogs from "./pages/Blogs"
+import Blog from "./pages/Blogs/Blog"
 import Admin from "./pages/admin"
 import Page404 from "./pages/Page404"
 // Context Imports.
@@ -39,10 +40,11 @@ const App = () => {
 						<Route path="/about" element={<About />} />
 						<Route path="/services" element={<Services />} />
 						<Route path="/contact" element={<Contact />} />
-						<Route path="/blog" element={<Blog />} />
+						<Route path="/blogs" element={<Blogs />} />
+						<Route path="/blogs/:blogParam" element={<Blog />} />
 						{/* Services */}
 						<Route path="/services" element={<Services />} />
-						<Route path="/services/:serviceName" element={<Service />} />
+						<Route path="/services/:serviceId" element={<Service />} />
 						{/* Gallery */}
 						<Route path="/gallery" element={<Gallery />} />
 						<Route path="/gallery/:mediaPage" element={<Gallery />} />

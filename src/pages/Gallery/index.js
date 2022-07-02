@@ -57,7 +57,7 @@ export default function Gallery() {
 	if (mediaPage?.length > 0) return page
 	return (
 		<>
-			<Hero title="Gallery" currentPage="Gallery" />
+			<Hero title="Gallery" />
 			{/* Photo Model */}
 			{typeof photoModel === "number" && (
 				<ImageModel

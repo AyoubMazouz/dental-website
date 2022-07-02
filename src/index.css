@@ -62,7 +62,7 @@
   }
 
   .nav-bar-icon {
-    @apply p-2 h-full w-12 transition-colors duration-300 group-hover:text-light;
+    @apply p-2 h-full w-16 transition-colors duration-300 group-hover:text-light;
   }
 
   .nav-bar-icons-sm {
@@ -70,7 +70,7 @@
   }
 
   .input {
-    @apply focus:outline-none pl-[3rem] py-2 font-semibold ring-2 border-2 border-gray/25 focus:ring-accent resize-none transition-all duration-300 rounded text-primary focus:text-accent shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.10)] bg-light md:text-lg;
+    @apply focus:outline-none pl-[3rem] py-2 font-semibold ring-2 border-2 border-gray/25 focus:ring-accent resize-none transition-all duration-300 rounded text-primary focus:text-accent shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.10)] bg-light;
   }
   .form-icon {
     @apply absolute top-[50%] left-[1.5rem] text-2xl translate-y-[-25%] translate-x-[-50%] text-gray opacity-100;
@@ -121,6 +121,10 @@
   .text-ellipsis-review-card {
     @apply line-ellipsis;
     -webkit-line-clamp: 6;
+  }
+  .text-blog-card {
+    @apply line-ellipsis;
+    -webkit-line-clamp: 4;
   }
 
   .text-stroke-lg{

@@ -1,6 +1,6 @@
+// React Imports.
+import { useState } from "react"
 // Icons Imports.
-import { safeGet } from "@firebase/util"
-import { useEffect, useState } from "react"
 import { MdList } from "react-icons/md"
 
 export default function Summary({ headerList }) {
@@ -34,7 +34,7 @@ export default function Summary({ headerList }) {
 				return (
 					<a
 						href={`#${header.innerText}`}
-						className="hover:text-secondary pl-[1rem] my-2">
+						className="my-2 pl-[1rem] hover:text-secondary">
 						{header.innerText}
 					</a>
 				)
@@ -42,7 +42,7 @@ export default function Summary({ headerList }) {
 				return (
 					<a
 						href={`#${header.innerText}`}
-						className="hover:text-secondary pl-[2.5rem]">
+						className="pl-[2.5rem] hover:text-secondary">
 						{header.innerText}
 					</a>
 				)
@@ -51,8 +51,8 @@ export default function Summary({ headerList }) {
 	return (
 		<>
 			{/* Large Screen & Bottom Page Summary */}
-			<div className="col-span-full lg:col-span-1 w-full h-full relative">
-				<div className="w-full bg-bluish-gray text-gray text-lg font-semibold rounded-xl flex flex-col gap-y-3 px-4 py-12 sticky top-[8rem]">
+			<div className="relative col-span-full h-full w-full lg:col-span-1">
+				<div className="sticky top-[8rem] flex w-full flex-col gap-y-3 rounded-xl bg-bluish-gray px-4 py-12 text-lg font-semibold text-gray">
 					<h2 className="mb-4 flex gap-x-2 text-accent">
 						<MdList className="text-4xl" />
 						Summaire
@@ -66,14 +66,14 @@ export default function Summary({ headerList }) {
 				<div
 					//
 					id="summary"
-					className={`lg:hidden w-full mx-2 bg-bluish-gray font-semibold rounded-xl px-4 py-8 transition-all duration-300 shadow-lg fixed overflow-y-scroll max-h-[500px] cursor-pointer ${
+					className={`fixed mx-2 max-h-[500px] w-full cursor-pointer overflow-y-scroll rounded-xl bg-bluish-gray px-4 py-8 font-semibold shadow-lg transition-all duration-300 lg:hidden ${
 						summaryStat ? "bottom-[25px]" : "bottom-0"
 					}`}>
 					<div
 						id="summary-container"
-						className="text-gray text-lg flex flex-col">
-						<h2 className="flex gap-x-2 text-accent pointer-events-none">
-							<MdList className="text-4xl pointer-events-none" />
+						className="flex flex-col text-lg text-gray">
+						<h2 className="pointer-events-none flex gap-x-2 text-accent">
+							<MdList className="pointer-events-none text-4xl" />
 							Summaire
 						</h2>
 						{summaryStat && getHeadersReady()}

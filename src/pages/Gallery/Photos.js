@@ -25,8 +25,7 @@ export default function Photos() {
 	}
 	return (
 		<>
-			{/* Hero Section */}
-			<Hero {...heroValues} />
+			<Hero title="Photos" parent="Gallery" />
 			{typeof selected === "number" && (
 				<ImageModel
 					currIndex={selected}

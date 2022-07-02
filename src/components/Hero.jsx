@@ -1,19 +1,19 @@
 // React Router Dom Imports.
 import { Link } from "react-router-dom"
 
-export default function Hero({ imgUrl, alt, currentPage, title, description }) {
+export default function Hero({ imgURL, parent, title, description }) {
 	return (
 		<div className="relative flex min-h-[300px] w-full justify-center overflow-hidden">
-			{imgUrl && (
+			{imgURL && (
 				<img
-					src={imgUrl}
-					alt={alt}
+					src={imgURL}
+					alt={title}
 					className="h-[65vh] w-[99.14vw] object-cover"
 				/>
 			)}
 			<div
 				className={`page-padding absolute top-0 flex h-full w-full flex-col items-center justify-end text-sm ${
-					imgUrl
+					imgURL
 						? "bg-gradient-to-t from-[rgba(0,0,0,0.8)] via-[rgba(0,0,0,0.6)] to-transparent text-light lg:via-transparent"
 						: "text-gray"
 				}`}>
@@ -24,20 +24,18 @@ export default function Hero({ imgUrl, alt, currentPage, title, description }) {
 							className="transition-all duration-300 hover:underline hover:opacity-75">
 							home
 						</Link>
-						{currentPage?.parent && (
+						{parent && (
 							<>
 								<span>{">"}</span>
 								<Link
-									to={currentPage?.parent.link}
+									to={"/" + parent.replace(" ", "-").toLowerCase()}
 									className="transition-all duration-300 hover:underline hover:opacity-75">
-									{currentPage?.parent.label}
+									{parent}
 								</Link>
 							</>
 						)}
 						<span>{">"}</span>
-						<span className="underline">
-							{currentPage?.label || currentPage}
-						</span>
+						<span className="underline">{title}</span>
 					</div>
 					<h1 className={!description && "text-primary"}>{title}</h1>
 					<p>{description}</p>

@@ -43,7 +43,7 @@ export default function Profile() {
 		<div className="dropdown-end dropdown">
 			<label
 				tabindex="0"
-				className="btn btn-circle h-16 w-16 border-2 border-gray/25">
+				className="btn btn-circle h-12 w-12 border-2 border-gray/25">
 				{/* Profile Avatar */}
 				<img
 					id="profile-avatar"
@@ -53,14 +53,17 @@ export default function Profile() {
 			</label>
 			<ul
 				tabindex="0"
-				className="dropdown-content menu w-80 rounded-md border-[1px] border-gray/25 bg-light px-4 py-6 text-base shadow-md">
+				className="dropdown-content menu w-80 rounded-md border-[1px] border-gray/25 bg-light px-4 py-6 shadow-md">
 				<div className="flex border-gray/25">
 					{/* Profile Avatar */}
+
 					<img
 						id="profile-avatar"
 						src={avatar}
 						alt={displayName}
-						className="h-16 w-16 cursor-pointer select-none rounded-full border-[3px] border-gray/25"></img>
+						onClick={() => navigate("/edit-personal-info")}
+						className="border-[3px]border-gray/25 h-16 w-16 cursor-pointer select-none rounded-full"
+					/>
 					<div className="p-2 font-semibold">
 						{/* Email */}
 						<h5 className="w-56 overflow-hidden text-ellipsis text-[.8rem]">
@@ -80,7 +83,7 @@ export default function Profile() {
 				{/* Log Out */}
 				<li
 					onClick={LogOut}
-					className='relative cursor-pointer border-b-[3px] border-gray border-opacity-20 pb-1 pt-2 text-lg font-bold text-gray after:absolute after:-bottom-[.2rem] after:left-0 after:h-[.2rem] after:w-0 after:bg-secondary after:transition-all after:duration-300 after:content-[""] hover:text-primary after:hover:w-full'>
+					className='relative cursor-pointer border-b-[3px] border-gray border-opacity-20 pb-1 pt-2  font-bold text-gray after:absolute after:-bottom-[.2rem] after:left-0 after:h-[.2rem] after:w-0 after:bg-secondary after:transition-all after:duration-300 after:content-[""] hover:text-primary after:hover:w-full'>
 					Log Out
 				</li>
 			</ul>

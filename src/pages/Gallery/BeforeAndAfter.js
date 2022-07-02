@@ -11,20 +11,9 @@ export default function BeforeAndAfterGallery() {
 	const [elementsAtOnce, setElementsAtOnce] = useState(20)
 	// Images From db.
 	const { document } = useDoc("gallery", "before_and_after")
-	const heroValues = {
-		currentPage: {
-			label: "Before and after",
-			parent: {
-				label: "Gallery",
-				link: "/gallery",
-			},
-		},
-		title: "Before And After",
-	}
 	return (
 		<div>
-			{/* Hero Section */}
-			<Hero {...heroValues} />
+			<Hero title="Before and after" parent="Gallery" />
 			{/* Image Gallery */}
 			<div className="mb-[6rem] grid justify-center">
 				<div className="max-width flex flex-wrap justify-center gap-4">

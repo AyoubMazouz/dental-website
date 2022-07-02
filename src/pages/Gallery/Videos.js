@@ -16,20 +16,9 @@ export default function Videos() {
 	// Images From db.
 	const { document } = useDoc("gallery", "videos")
 
-	const heroValues = {
-		currentPage: {
-			label: "Videos",
-			parent: {
-				label: "Gallery",
-				link: "/gallery",
-			},
-		},
-		title: "Videos",
-	}
 	return (
-		<div>
-			{/* Hero Section */}
-			<Hero {...heroValues} />
+		<>
+			<Hero title="Videos" parent="Gallery" />
 			{typeof selected === "number" && (
 				<VideoModel
 					currIndex={selected}
@@ -67,6 +56,6 @@ export default function Videos() {
 					<div className="h-[6rem]"></div>
 				)}
 			</div>
-		</div>
+		</>
 	)
 }
