@@ -76,7 +76,7 @@ export default function NavBarFull({ currUser, scrolling }) {
 						key={id}
 						href={link}
 						target="__blanc__"
-						className="group flex h-full w-14 cursor-pointer items-center gap-x-2 bg-light transition-all duration-500 hover:w-40 [&>svg]:bg-primary [&>svg]:text-light">
+						className="group flex h-full w-12 cursor-pointer items-center gap-x-1 bg-light transition-all duration-500 hover:w-36 ">
 						{icons[label]}
 						<h5 className="hidden font-semibold capitalize text-dark group-hover:block">
 							{label}

@@ -42,11 +42,9 @@ export default function Home() {
 							prodigués par le dentiste de votre choix, au prix le plus juste et
 							avec <b>une prise en charge rapide, globale et personnalisée.</b>
 						</p>
-						<Link
-							to="/services"
-							className="flex items-center gap-x-2 py-3 font-bold text-accent hover:underline hover:opacity-75">
+						<Link to="/services" className="link flex items-center gap-x-1">
 							Our Services
-							<LinkArrowIC className="text-4xl text-accent" />
+							<LinkArrowIC className="text-3xl text-accent" />
 						</Link>
 					</p>
 				</div>
@@ -78,11 +76,9 @@ export default function Home() {
 							plus adaptés aux besoins des patients, prodigués par le{" "}
 							<b>dentiste de leur choix qui les accompagne tout au […]</b>
 						</p>
-						<Link
-							to="/about"
-							className="flex items-center gap-x-2 py-3 font-bold text-accent hover:underline hover:opacity-75">
+						<Link to="/about" className="link flex items-center gap-x-1">
 							About Us
-							<LinkArrowIC className="text-4xl text-accent" />
+							<LinkArrowIC className="text-3xl text-accent" />
 						</Link>
 					</p>
 				</div>
@@ -92,11 +88,9 @@ export default function Home() {
 			<div className="page-padding w-full max-w-[1800px]">
 				<div className="flex items-center justify-between">
 					<h1 className="my-6 w-full font-bold text-primary">Gallery</h1>
-					<Link
-						to="/gallery"
-						className="link flex items-center gap-x-2 py-3 font-bold">
+					<Link to="/gallery" className="link flex items-center gap-x-1">
 						<p>More</p>
-						<LinkArrowIC className="text-4xl text-accent" />
+						<LinkArrowIC className="text-3xl text-accent" />
 					</Link>
 				</div>
 				<div className="page-padding overflow-hidden rounded-xl">

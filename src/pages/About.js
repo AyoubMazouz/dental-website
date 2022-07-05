@@ -152,11 +152,9 @@ export default function About() {
 				<div className="page-padding w-full max-w-[1800px]">
 					<div className="flex justify-between">
 						<h1 className="my-6 w-full font-bold text-primary">Gallery</h1>
-						<Link
-							to="/gallery"
-							className="link flex items-center gap-x-2 py-3 font-bold">
+						<Link to="/gallery" className="link flex items-center gap-x-1">
 							<p>More</p>
-							<LinkArrowIC className="text-4xl text-accent" />
+							<LinkArrowIC className="text-3xl text-accent" />
 						</Link>
 					</div>
 					<div className="page-padding overflow-hidden rounded-xl">
