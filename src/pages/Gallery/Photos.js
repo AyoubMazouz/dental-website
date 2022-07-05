@@ -10,19 +10,9 @@ export default function Photos() {
 	// Selected Image to Display on the Model.
 	const [selected, setSelected] = useState(null)
 	// How Many Images to Show At Once.
-	const [elementsAtOnce, setElementsAtOnce] = useState(20)
+	const [eleAtOnce, setEleAtOnce] = useState(25)
 	// Images From db.
 	const { document } = useDoc("gallery", "photos")
-	const heroValues = {
-		currentPage: {
-			label: "Photos",
-			parent: {
-				label: "Gallery",
-				link: "/gallery",
-			},
-		},
-		title: "Photos",
-	}
 	return (
 		<>
 			<Hero title="Photos" parent="Gallery" />
@@ -38,7 +28,7 @@ export default function Photos() {
 				<div className="max-width flex flex-wrap justify-center gap-4">
 					{/* Map trough the Array of Images and Only Display the Allowed Numnber of Images */}
 					{Object.entries(document).map(([alt, url], index) =>
-						index < elementsAtOnce ? (
+						index < eleAtOnce ? (
 							<div key={alt} className="overflow-hidden rounded-lg">
 								<img
 									src={url}
@@ -50,10 +40,10 @@ export default function Photos() {
 					)}
 				</div>
 				{/* Load More Button */}
-				{Object.keys(document).length > elementsAtOnce ? (
+				{Object.keys(document).length > eleAtOnce ? (
 					<div className="mt-[3rem] grid justify-center">
 						<button
-							onClick={() => setElementsAtOnce((prev) => prev + 10)}
+							onClick={() => setEleAtOnce((prev) => prev + 10)}
 							className="submit-btn">
 							Load More
 						</button>

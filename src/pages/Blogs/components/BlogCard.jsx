@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { LinkArrowIC } from "../../../data/icons.data"
 
-export default function Blogcard({
+export default function BlogCard({
 	blogId,
 	title,
 	description,
@@ -17,8 +17,6 @@ export default function Blogcard({
 	day = day > 9 ? day : `0${day}`
 	month = month > 9 ? month : `0${month}`
 	lastUpdate = `${day}/${month}/${year}`
-
-	console.log()
 
 	return (
 		<div className="flex h-[280px] overflow-hidden rounded-lg shadow-lg">

@@ -12,7 +12,7 @@ export default function Videos() {
 	// Selected Image to Display on the Model.
 	const [selected, setSelected] = useState(null)
 	// How Many Images to Show At Once.
-	const [elementsAtOnce, setElementsAtOnce] = useState(20)
+	const [eleAtOnce, setEleAtOnce] = useState(25)
 	// Images From db.
 	const { document } = useDoc("gallery", "videos")
 
@@ -32,7 +32,7 @@ export default function Videos() {
 					{/* Map trough the Array of Videos urls and Only Display the Allowed Numnber of Videos */}
 					{document &&
 						Object.entries(document).map(([id, url], index) =>
-							index < elementsAtOnce ? (
+							index < eleAtOnce ? (
 								<div key={id} className="overflow-hidden rounded-lg">
 									<img
 										src={getThumbnailFromUrl(url)}
@@ -44,10 +44,10 @@ export default function Videos() {
 						)}
 				</div>
 				{/* Load More Button */}
-				{Object.keys(document).length > elementsAtOnce ? (
+				{Object.keys(document).length > eleAtOnce ? (
 					<div className="mt-[3rem] grid justify-center">
 						<button
-							onClick={() => setElementsAtOnce((prev) => prev + 10)}
+							onClick={() => setEleAtOnce((prev) => prev + 10)}
 							className="submit-btn">
 							Load More
 						</button>
