@@ -1,7 +1,7 @@
 // Icons Imports.
 import { PhoneIC } from "../../data/icons.data"
 // Data Imports.
-import { info } from "../../data"
+import { info } from "../../data/info.data"
 const { image, alt, address, phone, workHours } = info
 
 export default function Details({ setAlert }) {
@@ -11,21 +11,21 @@ export default function Details({ setAlert }) {
 			<img
 				src={image}
 				alt={alt}
-				className="object-cover max-h-[380px] w-full rounded-2xl hidden lg:block"
+				className="hidden max-h-[380px] w-full rounded-2xl object-cover lg:block"
 			/>
 
 			{/* Address */}
-			<h3 className="text-light mx-6 mt-2">{address}</h3>
-			<div className="w-full gap-8 flex flex-wrap mx-4 text-bluish-gray mt-[2rem]">
+			<h3 className="mx-6 mt-2 text-light">{address}</h3>
+			<div className="mx-4 mt-[2rem] flex w-full flex-wrap gap-8 text-bluish-gray">
 				{/* Work Hours */}
 				<ul>
 					{Object.entries(workHours).map(([day, time], id) => {
 						return (
 							<div className="grid grid-cols-2 font-semibold">
-								<h5 key={id} className="border-b-2 border-secondary my-1">
+								<h5 key={id} className="my-1 border-b-2 border-secondary">
 									{day}
 								</h5>
-								<h5 key={id} className="border-b-2 border-secondary my-1">
+								<h5 key={id} className="my-1 border-b-2 border-secondary">
 									{time}
 								</h5>
 							</div>
@@ -44,7 +44,7 @@ export default function Details({ setAlert }) {
 									`Phone number \"${number}\" has been copied to your clipboard.`,
 								])
 							}}
-							className="border-b-2 border-secondary my-1 flex gap-x-2 cursor-pointer font-semibold">
+							className="my-1 flex cursor-pointer gap-x-2 border-b-2 border-secondary font-semibold">
 							<PhoneIC className="text-lg" />
 							{number}
 						</h5>

@@ -11,9 +11,9 @@ export default function ImageModel({ currIndex, docs, setSelected }) {
 	const [index, _] = useState(currIndex)
 	const [thumbsSwiper, setThumbsSwiper] = useState(null)
 	return (
-		<div className="w-[99vw] h-[100vh] bg-[rgba(0,0,0,.9)] grid place-items-center fixed z-40 top-0">
+		<div className="fixed top-0 z-40 grid h-[100vh] w-[99vw] place-items-center bg-[rgba(0,0,0,.9)]">
 			<MdClose
-				className="text-light text-3xl lg:text-5xl absolute z-10 top-3 right-3 cursor-pointer"
+				className="absolute top-3 right-3 z-10 cursor-pointer text-3xl text-light lg:text-5xl"
 				onClick={() => setSelected(null)}
 			/>
 			<Swiper
@@ -30,11 +30,11 @@ export default function ImageModel({ currIndex, docs, setSelected }) {
 				navigation={true}
 				initialSlide={index}
 				modules={[FreeMode, Zoom, Thumbs]}
-				className="w-full h-full mb-[10px]">
+				className="mb-[10px] h-full w-full">
 				{Object.entries(docs).map(([alt, url]) => (
-					<SwiperSlide key={alt} className="rounded-xl overflow-hidden">
+					<SwiperSlide key={alt} className="overflow-hidden rounded-xl">
 						<div className="swiper-zoom-container">
-							<img src={url} alt={alt} className="w-full h-full" />
+							<img src={url} alt={alt} className="h-full w-full" />
 						</div>
 					</SwiperSlide>
 				))}
@@ -47,15 +47,14 @@ export default function ImageModel({ currIndex, docs, setSelected }) {
 				freeMode={true}
 				watchSlidesProgress={true}
 				modules={[FreeMode, Navigation, Thumbs]}
-				className="mySwiper w-full h-[96px]">
-				{Object.entries(docs).map((doc) => (
+				className="mySwiper h-[96px] w-full">
+				{docs.map((doc) => (
 					<SwiperSlide
-						key={doc[0]}
-						className="rounded-md overflow-hidden w-gallery-swiper-important">
+						key={doc}
+						className="w-gallery-swiper-important overflow-hidden rounded-md">
 						<img
-							src={doc[1]}
-							alt={doc[0]}
-							className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+							src={doc}
+							className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
 						/>
 					</SwiperSlide>
 				))}

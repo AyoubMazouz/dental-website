@@ -1,8 +1,6 @@
 // React Router Dom Imports.
-import { useNavigate, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 // Components Imports.
-import Profile from "./Profile"
-import Notification from "./Notification"
 import Logo from "../Logo"
 // Icons Imports.
 import {
@@ -13,20 +11,12 @@ import {
 	TwitterIC,
 	WhatsappIC,
 	ArrowRightIC,
-	CloseIC,
 	MenuIC,
-	RoundedProfileIC,
 } from "../../data/icons.data"
 // Data Imports.
-import { links, socialLinks } from "../../data"
-import { useState } from "react"
+import { links, socialLinks } from "../../data/links.data"
 
-export default function NavBarSmall({
-	currUser,
-	menuState,
-	setMenuState,
-	scrolling,
-}) {
+export default function NavBarSmall({ setMenuState, scrolling }) {
 	const getLinks = () => {
 		return Object.entries(links).map(([label, link]) => {
 			if (typeof link?.subLinks === "undefined")
@@ -35,7 +25,7 @@ export default function NavBarSmall({
 						to={link}
 						key={label}
 						onClick={() => setMenuState(false)}
-						className="relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[''] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-gray hover:text-primary font-bold pb-1 border-b-[3px] border-gray/25">
+						className="relative border-b-[3px] border-gray/25 pb-1 font-bold text-gray after:absolute after:-bottom-[.2rem] after:left-0 after:h-[.2rem] after:w-0 after:bg-secondary after:transition-all after:duration-300 after:content-[''] hover:text-primary after:hover:w-full">
 						{label}
 					</Link>
 				)
@@ -45,19 +35,19 @@ export default function NavBarSmall({
 						<Link
 							tabindex="0"
 							to={link.link}
-							className="relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[''] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-gray hover:text-primary font-bold pb-1 border-b-[3px] border-gray/25 flex justify-between ml-[-1rem] text-base">
+							className="relative ml-[-1rem] flex justify-between border-b-[3px] border-gray/25 pb-1 text-base font-bold text-gray after:absolute after:-bottom-[.2rem] after:left-0 after:h-[.2rem] after:w-0 after:bg-secondary after:transition-all after:duration-300 after:content-[''] hover:text-primary after:hover:w-full">
 							{label}
 							<ArrowRightIC />
 						</Link>
 						<ul
 							tabindex="0"
-							className="bg-light w-72 text-base space-y-2 py-6 px-4 rounded-md">
+							className="w-72 space-y-2 rounded-md bg-light py-6 px-4 text-base">
 							{Object.entries(link.subLinks).map(([subLabel, subLink]) => (
 								<Link
 									to={subLink}
 									key={subLabel}
 									onClick={() => setMenuState(false)}
-									className="relative after:absolute after:-bottom-[.2rem] after:left-0 after:content-[''] after:w-0 after:h-[.2rem] after:bg-secondary after:hover:w-full after:transition-all after:duration-300 text-gray hover:text-primary font-bold pb-1 border-b-[3px] border-gray/25">
+									className="relative border-b-[3px] border-gray/25 pb-1 font-bold text-gray after:absolute after:-bottom-[.2rem] after:left-0 after:h-[.2rem] after:w-0 after:bg-secondary after:transition-all after:duration-300 after:content-[''] hover:text-primary after:hover:w-full">
 									{subLabel}
 								</Link>
 							))}
@@ -88,7 +78,7 @@ export default function NavBarSmall({
 	}
 	return (
 		<nav
-			className={`lg:hidden sticky top-0 w-full min-h-[80px] transition-all duration-500 bg-light text-gray shadow-lg z-20`}>
+			className={`sticky top-0 z-20 min-h-[80px] w-full bg-light text-gray shadow-lg transition-all duration-500 lg:hidden`}>
 			<div className="flex items-center justify-between px-4 py-4">
 				{/* Toggle menu */}
 				<div className="dropdown">
@@ -97,27 +87,12 @@ export default function NavBarSmall({
 					</label>
 					<ul
 						tabindex="0"
-						className="menu menu-compact dropdown-content shadow-md bg-light rounded-md w-52 text-base flex flex-col space-y-2 py-6 px-4">
+						className="dropdown-content menu menu-compact flex w-52 flex-col space-y-2 rounded-md bg-light py-6 px-4 text-base shadow-md">
 						{getLinks()}
 					</ul>
 				</div>
 				{/* Logo */}
 				<Logo />
-				<div className="flex items-center gap-x-6 text-xl">
-					{currUser ? (
-						<>
-							<Notification />
-							<Profile />
-						</>
-					) : (
-						<Link
-							to="login"
-							className="text-accent font-semibold border-[3px] border-accent rounded py-2 px-4 shadow-md hover:bg-accent hover:text-light hover:shadow-accent transition-all duration-300 flex gap-x-3 text-base items-center">
-							<RoundedProfileIC className="text-3xl" />
-							Se Connecter
-						</Link>
-					)}
-				</div>
 			</div>
 		</nav>
 	)

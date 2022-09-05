@@ -21,7 +21,7 @@ export default function ServicesSlider({ servicesData }) {
 				{Object.entries(servicesData).map((serviceData, id) => (
 					<SwiperSlide
 						key={id}
-						className="lg:max-h-[32rem] lg:max-w-[28rem] max-h-[28rem] max-w-[20rem] overflow-hidden rounded-xl">
+						className="max-h-[28rem] max-w-[20rem] overflow-hidden rounded-xl lg:max-h-[32rem] lg:max-w-[28rem]">
 						<ServicesCard
 							{...{ link: `services/${serviceData[0]}`, ...serviceData[1] }}
 						/>
@@ -32,30 +32,34 @@ export default function ServicesSlider({ servicesData }) {
 	)
 }
 
-const ServicesCard = ({ imgUrl, alt, description, title, link }) => {
+const ServicesCard = ({ imgUrl, alt, description, title }) => {
 	const navigate = useNavigate()
 	return (
-		<div className="lg:h-[32rem] lg:w-[28rem] h-[28rem] w-[20rem] relative group transition-transform duration-300">
+		<div className="group relative h-[28rem] w-[20rem] transition-transform duration-300 lg:h-[32rem] lg:w-[28rem]">
 			<img
 				src={imgUrl}
 				alt={alt}
-				className="object-cover w-full h-full"
-				onClick={() => navigate(link)}
+				className="h-full w-full object-cover"
+				onClick={() =>
+					navigate("/services/" + title.toLowerCase().replace(" ", "_"))
+				}
 			/>
-			<div className="absolute z-10 bottom-[-25rem] group-hover:bottom-[-4rem] w-full h-[30rem] backdrop-blur bg-light/[65%] text-gray px-4 transition-all duration-300 rounded-xl">
-				<h4 className="text-center text-primary mt-[1.6rem] font-semibold group-hover:hidden">
+			<div className="absolute bottom-[-25rem] z-10 h-[30rem] w-full rounded-xl bg-light/[65%] px-4 text-gray backdrop-blur transition-all duration-300 group-hover:bottom-[-4rem]">
+				<h4 className="mt-[1.6rem] text-center font-semibold text-primary group-hover:hidden">
 					{title}
 				</h4>
 
 				<div className="font-semibold">
-					<h4 className="text-center text-primary mt-[1.6rem] font-semibold">
+					<h4 className="mt-[1.6rem] text-center font-semibold text-primary">
 						{title}
 					</h4>
-					<p className="text-left mt-8 text-ellipsis-service-card h-[7char]">
+					<p className="text-ellipsis-service-card mt-8 h-[7char] text-left">
 						{description}
 					</p>
 					<p>
-						<Link to={link} className="link flex gap-x-2 my-4">
+						<Link
+							to={"/services/" + title.toLowerCase().replace(" ", "_")}
+							className="link my-4 flex gap-x-2">
 							Lire la suite
 							<LinkArrowIC className="text-4xl" />
 						</Link>
@@ -64,7 +68,7 @@ const ServicesCard = ({ imgUrl, alt, description, title, link }) => {
 			</div>
 			<Link
 				to="contact"
-				className="gap-1 flex items-center p-2 cursor-pointer bg-secondary text-light absolute top-3 right-3 transition-all duration-300 rounded-full hover:underline text-sm font-semibold hover:bg-secondary/75 hover:scale-105 ">
+				className="absolute top-3 right-3 flex cursor-pointer items-center gap-1 rounded-full bg-secondary p-2 text-sm font-semibold text-light transition-all duration-300 hover:scale-105 hover:bg-secondary/75 hover:underline ">
 				<CalendarIC className="text-2xl" />
 				Rendez vous
 			</Link>

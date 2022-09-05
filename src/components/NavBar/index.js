@@ -2,14 +2,11 @@
 import { useState } from "react"
 // Components Imports.
 import Alert from "./Alert"
-// Contexts Imports.
-import { useAuth } from "../../contexts/AuthContext"
 // Components Imports.
 import NavBarLg from "./NavBarLg"
 import NavBarSm from "./NavBarSm"
 
 export default function NavBar() {
-	const { currUser } = useAuth()
 	// Set Nav Width According to Scroll State.
 	const [scrolling, setScrolling] = useState(false)
 	// Toggle Nav Menu.
@@ -21,7 +18,6 @@ export default function NavBar() {
 	})
 
 	const values = {
-		currUser,
 		menuState,
 		setMenuState,
 		scrolling,

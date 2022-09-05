@@ -5,8 +5,6 @@ import { useParams, Link } from "react-router-dom"
 // Swiperjs Imports.
 import { Swiper, SwiperSlide } from "swiper/react"
 import { FreeMode, Scrollbar, Pagination } from "swiper"
-// Hooks Imports.
-import useDoc from "../../hooks/useDoc"
 // Components Imports.
 import Hero from "../../components/Hero"
 import ImageModel from "./components/ImageModel"
@@ -17,10 +15,10 @@ import Photos from "./Photos"
 import Videos from "./Videos"
 import BeforeAndAfter from "./BeforeAndAfter"
 import Page404 from "../Page404"
-// Utilities Imports.
-import { getThumbnailFromUrl } from "../../util/video"
 // Icon Imports.
 import { LinkArrowIC } from "../../data/icons.data"
+// Data Imports.
+import { videos, beforeAndAfter, photos } from "../../data"
 
 export default function Gallery() {
 	const { mediaPage } = useParams()
@@ -38,20 +36,14 @@ export default function Gallery() {
 		} else setPage(<Page404 />)
 	}, [mediaPage])
 
-	// Images From db.
-	const { document: photosDocs } = useDoc("gallery", "photos")
 	// Selected Image to Display on the Model.
 	const [photoModel, setPhotoModel] = useState(null)
 	// Number of Images to show.
 	const IMG_AT_ONCE = 20
 
-	// Video Url From db.
-	const { document: videosDocs } = useDoc("gallery", "videos")
 	// Selected Video to Display on the Model.
 	const [videoModel, setVideoModel] = useState(null)
 
-	// Images From db.
-	const { document: beforeAndAfterDocs } = useDoc("gallery", "before_and_after")
 	const BEFORE_AND_AFTER_AT_ONCE = 4
 
 	if (mediaPage?.length > 0) return page
@@ -62,14 +54,14 @@ export default function Gallery() {
 			{typeof photoModel === "number" && (
 				<ImageModel
 					currIndex={photoModel}
-					docs={photosDocs}
+					docs={photos}
 					setSelected={setPhotoModel}
 				/>
 			)}
 			{typeof videoModel === "number" && (
 				<VideoModel
 					currIndex={videoModel}
-					docs={videosDocs}
+					docs={videos}
 					setSelected={setVideoModel}
 				/>
 			)}
@@ -81,7 +73,7 @@ export default function Gallery() {
 						<Link
 							to="photos"
 							className="link flex items-center gap-x-2 py-3 font-bold">
-							<p>More</p>
+							<p>Plus</p>
 							<LinkArrowIC className="text-4xl text-accent" />
 						</Link>
 					</div>
@@ -92,16 +84,15 @@ export default function Gallery() {
 						slidesPerView={"auto"}
 						pagination={{ clickable: true }}
 						className="h-[190px] overflow-hidden rounded-lg">
-						{photosDocs &&
-							Object.entries(photosDocs).map(([alt, url], index) => {
+						{photos.length &&
+							photos.map((url, index) => {
 								if (IMG_AT_ONCE > index)
 									return (
 										<SwiperSlide
-											key={alt}
+											key={url}
 											className="max-h-[190px] max-w-[340px] overflow-hidden rounded-md">
 											<img
 												src={url}
-												alt={alt}
 												onClick={() => setPhotoModel(index)}
 												className="h-full w-full object-cover"
 											/>
@@ -110,19 +101,13 @@ export default function Gallery() {
 								if (index === IMG_AT_ONCE + 1)
 									return (
 										<SwiperSlide
-											key={alt}
+											key={url}
 											className="relative max-h-[190px] max-w-[340px] overflow-hidden rounded-md">
-											<img
-												src={url}
-												alt={alt}
-												className="h-full w-full object-cover"
-											/>
+											<img src={url} className="h-full w-full object-cover" />
 											<Link
 												to="photos"
 												className="absolute top-0 grid h-full w-full place-items-center bg-black/75 text-lg font-semibold text-white">
-												{`${
-													Object.keys(photosDocs).length - IMG_AT_ONCE
-												}+ More`}
+												{`${photos.length - IMG_AT_ONCE}+ More`}
 											</Link>
 										</SwiperSlide>
 									)
@@ -132,9 +117,9 @@ export default function Gallery() {
 					<div className="mb-4 mt-12 flex items-center justify-between">
 						<h1 className="font-bold text-primary">Videos</h1>
 						<Link
-							to="photos"
+							to="videos"
 							className="link flex items-center gap-x-2 py-3 font-bold">
-							<p>More</p>
+							<p>Plus</p>
 							<LinkArrowIC className="text-4xl text-accent" />
 						</Link>
 					</div>
@@ -145,16 +130,15 @@ export default function Gallery() {
 						slidesPerView={"auto"}
 						pagination={{ clickable: true }}
 						className="h-[190px] overflow-hidden rounded-lg">
-						{videosDocs &&
-							Object.entries(videosDocs).map(([id, url], index) => {
+						{videos.length &&
+							videos.map((url, index) => {
 								if (IMG_AT_ONCE > index)
 									return (
 										<SwiperSlide
-											key={id}
+											key={url}
 											className="max-h-[190px] max-w-[340px] overflow-hidden rounded-md">
 											<img
-												src={getThumbnailFromUrl(url)}
-												alt={id}
+												src={"//img.youtube.com/vi/" + url + "/0.jpg"}
 												onClick={() => setVideoModel(index)}
 												className="h-full w-full object-cover"
 											/>
@@ -163,19 +147,16 @@ export default function Gallery() {
 								if (index === IMG_AT_ONCE + 1)
 									return (
 										<SwiperSlide
-											key={id}
+											key={url}
 											className="relative max-h-[190px] max-w-[340px] overflow-hidden rounded-md">
 											<img
-												src={getThumbnailFromUrl(url)}
-												alt={id}
+												src={"//img.youtube.com/vi/" + url + "/0.jpg"}
 												className="h-full w-full object-cover"
 											/>
 											<Link
 												to="videos"
 												className="absolute top-0 grid h-full w-full place-items-center bg-black/75 text-lg font-semibold text-white">
-												{`${
-													Object.keys(videosDocs).length - IMG_AT_ONCE
-												}+ More`}
+												{`${videos.length - IMG_AT_ONCE}+ More`}
 											</Link>
 										</SwiperSlide>
 									)
@@ -183,55 +164,42 @@ export default function Gallery() {
 					</Swiper>
 					{/* Before And After */}
 					<div className="mb-4 mt-12 flex items-center justify-between">
-						<h1 className="font-bold text-primary">Before And After</h1>
+						<h1 className="font-bold text-primary">Avant et après</h1>
 						<Link
 							to="before_and_after"
 							className="link flex items-center gap-x-2 py-3 font-bold">
-							<p>More</p>
+							<p>Plus</p>
 							<LinkArrowIC className="text-4xl text-accent" />
 						</Link>
 					</div>
 					<div className="flex flex-wrap justify-around gap-2">
 						{/* Map trough the Array of Images and Only Display the Allowed Numnber of Images */}
-						{Object.entries(beforeAndAfterDocs).map(
-							([alt, [before, after]], index) => {
-								if (index < BEFORE_AND_AFTER_AT_ONCE)
-									return (
-										<div
-											key={alt}
-											className="aspect-video h-[190px] overflow-hidden rounded-lg">
-											<Slider
-												id={alt}
-												alt={alt}
-												before={before}
-												after={after}
-											/>
-										</div>
-									)
+						{beforeAndAfter.map(([before, after], index) => {
+							if (index < BEFORE_AND_AFTER_AT_ONCE)
+								return (
+									<div
+										key={before}
+										className="aspect-video h-[190px] overflow-hidden rounded-lg">
+										<Slider id={before} before={before} after={after} />
+									</div>
+								)
 
-								if (index === BEFORE_AND_AFTER_AT_ONCE + 1)
-									return (
-										<div
-											key={alt}
-											className="relative aspect-video h-[190px] overflow-hidden rounded-lg">
-											<Slider
-												id={alt}
-												alt={alt}
-												before={before}
-												after={after}
-											/>
-											<Link
-												to="before_and_after"
-												className="absolute top-0 grid h-full w-full place-items-center bg-black/75 text-lg font-semibold text-white">
-												{`${
-													Object.keys(beforeAndAfterDocs).length -
-													BEFORE_AND_AFTER_AT_ONCE
-												}+ More`}
-											</Link>
-										</div>
-									)
-							}
-						)}
+							if (index === BEFORE_AND_AFTER_AT_ONCE + 1)
+								return (
+									<div
+										key={after}
+										className="relative aspect-video h-[190px] overflow-hidden rounded-lg">
+										<Slider id={after} before={before} after={after} />
+										<Link
+											to="before_and_after"
+											className="absolute top-0 grid h-full w-full place-items-center bg-black/75 text-lg font-semibold text-white">
+											{`${
+												beforeAndAfter.length - BEFORE_AND_AFTER_AT_ONCE
+											}+ Plus`}
+										</Link>
+									</div>
+								)
+						})}
 					</div>
 				</div>
 			</div>

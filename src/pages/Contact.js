@@ -3,7 +3,7 @@ import Hero from "../components/Hero"
 import ContactForm from "../components/ContactForm"
 import GoogleMaps from "../components/GoogleMaps"
 // Data Imports.
-import { info } from "../data"
+import { info } from "../data/info.data"
 
 export default function Contact() {
 	const heroValues = {

@@ -3,7 +3,7 @@ import emailjs from "emailjs-com"
 // Components Imports.
 import Input from "../Input"
 // Hooks Imports.
-import useForm from "../../hooks/useFom"
+import useForm from "../../hooks/useForm"
 
 // Form Parameters.
 const formParams = [
@@ -118,7 +118,7 @@ export default function Form({ setAlert }) {
 			<button
 				disabled={loading}
 				type="submit"
-				className="submit-btn text-lg lg:text-2xl h-[3.4rem] w-full col-span-2 bg-secondary hover:bg-secondary/75">
+				className="submit-btn col-span-2 h-[3.4rem] w-full bg-secondary text-lg hover:bg-secondary/75 lg:text-2xl">
 				Send
 			</button>
 		</form>

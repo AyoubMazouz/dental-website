@@ -1,8 +1,6 @@
 // React Router Dom Imports.
 import { Link } from "react-router-dom"
 // Components Imports.
-import Profile from "./Profile"
-import Notification from "./Notification"
 import Logo from "../Logo"
 // Icons Imports.
 import {
@@ -14,14 +12,13 @@ import {
 	WhatsappIC,
 	ArrowDownIC,
 	LocationArrowIC,
-	RoundedProfileIC,
-	NotificationIC,
 } from "../../data/icons.data"
 
 // Data Imports.
-import { links, socialLinks, info } from "../../data"
+import { links, socialLinks } from "../../data/links.data"
+import { info } from "../../data/info.data"
 
-export default function NavBarFull({ currUser, scrolling }) {
+export default function NavBarFull({ scrolling }) {
 	// Nav Links.
 	const getLinks = (label, link, id) => {
 		// Only one Link.
@@ -44,7 +41,7 @@ export default function NavBarFull({ currUser, scrolling }) {
 						{label}
 						<ArrowDownIC className="-mr-2 text-2xl opacity-75" />
 					</Link>
-					<ul className="invisible absolute z-20 flex w-[22rem] flex-col space-y-4 rounded bg-light py-8 px-6 text-base shadow-lg group-hover:visible">
+					<ul className="invisible absolute z-20 flex w-[20rem] flex-col space-y-4 rounded bg-light py-8 px-6 text-base shadow-lg group-hover:visible">
 						{Object.entries(link.subLinks).map(([subLabel, subLink]) => (
 							<Link
 								key={subLabel}
@@ -113,29 +110,14 @@ export default function NavBarFull({ currUser, scrolling }) {
 				</div>
 			)}
 			{/* bottom */}
-			<div className="flex h-[75%] w-full max-w-[1920px] items-center justify-between px-8">
-				<ul className="flex h-full w-full items-center justify-between text-gray">
+			<div className="flex h-[75%] w-full max-w-[1920px] items-center justify-around">
+				<ul className="flex h-full w-full items-center justify-between px-24 text-gray">
 					{/* Logo */}
 					<Logo />
 					{/* NavLinks */}
-					<div className="flex gap-x-6 text-lg">
+					<div className="flex gap-x-8 pr-10 text-lg">
 						{Object.entries(links).map(([label, link], id) =>
 							getLinks(label, link, id)
-						)}
-					</div>
-					<div className="flex items-center gap-x-6">
-						{currUser ? (
-							<>
-								<Notification />
-								<Profile />
-							</>
-						) : (
-							<Link
-								to="login"
-								className="btn flex gap-x-3 rounded border-[3px] border-accent text-accent shadow-md transition-all duration-300 hover:border-accent hover:bg-accent hover:text-light hover:shadow-accent">
-								<RoundedProfileIC className="text-2xl" />
-								Se Connecter
-							</Link>
 						)}
 					</div>
 				</ul>

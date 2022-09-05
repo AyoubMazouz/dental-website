@@ -9,14 +9,14 @@ import Hero from "../../components/Hero"
 import ServicesSlider from "../../components/ServicesSlider"
 import Summary from "../../components/Summary"
 // Data Imports.
-import { SERVICES_MD_URL, servicesData } from "../../data"
+import { servicesData } from "../../data"
 
 export default function Services() {
 	const [markdown, setMarkdown] = useState()
 	const [headersList, setHeadersList] = useState([])
 
 	useEffect(() => {
-		fetch(SERVICES_MD_URL)
+		fetch("/assets/services/text/index.md")
 			.then((response) => response.text())
 			.then((result) => setMarkdown(result))
 	}, [])

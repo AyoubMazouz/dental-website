@@ -1,16 +1,15 @@
 // React Imports.
 import { useState } from "react"
-// Hooks Imports.
-import useDoc from "../../hooks/useDoc"
 // Components Imports.
 import Hero from "../../components/Hero"
 import Slider from "./components/Slider"
+// Data Imports.
+import { beforeAndAfter } from "../../data"
 
 export default function BeforeAndAfterGallery() {
 	// How Many Images to Show At Once.
 	const [eleAtOnce, setEleAtOnce] = useState(25)
-	// Images From db.
-	const { document } = useDoc("gallery", "before_and_after")
+
 	return (
 		<div>
 			<Hero title="Before and after" parent="Gallery" />
@@ -18,24 +17,24 @@ export default function BeforeAndAfterGallery() {
 			<div className="mb-[6rem] grid justify-center">
 				<div className="max-width flex flex-wrap justify-center gap-4">
 					{/* Map trough the Array of Images and Only Display the Allowed Numnber of Images */}
-					{Object.entries(document).map(
-						([alt, [before, after]], index) =>
+					{beforeAndAfter.map(
+						([before, after], index) =>
 							index < eleAtOnce && (
 								<div
-									key={alt}
+									key={before}
 									className="aspect-video h-[190px] overflow-hidden rounded-lg">
-									<Slider id={alt} alt={alt} before={before} after={after} />
+									<Slider id={before} before={before} after={after} />
 								</div>
 							)
 					)}
 				</div>
 				{/* Load More Button */}
-				{Object.keys(document).length > eleAtOnce ? (
+				{beforeAndAfter.length > eleAtOnce ? (
 					<div className="mt-[3rem] grid justify-center">
 						<button
 							onClick={() => setEleAtOnce((prev) => prev + 10)}
 							className="submit-btn">
-							Load More
+							Charger plus
 						</button>
 					</div>
 				) : (

@@ -26,7 +26,7 @@ export default function Services() {
 		const servicesList = Object.keys(servicesData)
 		// Check if page Exist.
 		if (servicesList.includes(serviceId)) {
-			fetch(servicesData[serviceId].textUrl)
+			fetch("/assets/services/text/" + serviceId + ".md")
 				.then((response) => response.text())
 				.then((result) => {
 					setMarkdown(result)

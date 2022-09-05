@@ -1,13 +1,13 @@
 import { useState } from "react"
-import useDoc from "../hooks/useDoc"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Pagination, Navigation, FreeMode, Thumbs } from "swiper"
 import "swiper/css/free-mode"
 import "swiper/css/navigation"
 import "swiper/css/thumbs"
+// Data Imports.
+import { photos } from "../data"
 
 export default function Gallery() {
-	const { document } = useDoc("gallery", "photos")
 	const [thumbsSwiper, setThumbsSwiper] = useState(null)
 	return (
 		<>
@@ -23,13 +23,12 @@ export default function Gallery() {
 				navigation={true}
 				grabCursor
 				modules={[FreeMode, Navigation, Thumbs]}
-				className="mySwiper2 rounded-xl w-full max-w-[1400px] h-[448px] lg:h-[768px] mb-[10px]">
-				{Object.entries(document).map((doc) => (
-					<SwiperSlide key={doc[0]}>
+				className="mySwiper2 mb-[10px] h-[448px] w-full max-w-[1400px] rounded-xl lg:h-[768px]">
+				{photos.map((doc) => (
+					<SwiperSlide key={doc}>
 						<img
-							src={doc[1]}
-							alt={doc[0]}
-							className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+							src={doc}
+							className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
 						/>
 					</SwiperSlide>
 				))}
@@ -42,15 +41,14 @@ export default function Gallery() {
 				grabCursor
 				watchSlidesProgress={true}
 				modules={[FreeMode, Navigation, Thumbs]}
-				className="mySwiper w-full max-w-[1400px] h-[96px]">
-				{Object.entries(document).map((doc) => (
+				className="mySwiper h-[96px] w-full max-w-[1400px]">
+				{photos.map((doc) => (
 					<SwiperSlide
-						key={doc[0]}
-						className="rounded-md overflow-hidden w-gallery-swiper-important">
+						key={doc}
+						className="w-gallery-swiper-important overflow-hidden rounded-md">
 						<img
-							src={doc[1]}
-							alt={doc[0]}
-							className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+							src={doc}
+							className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
 						/>
 					</SwiperSlide>
 				))}

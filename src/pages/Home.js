@@ -10,7 +10,9 @@ import Gallery from "../components/Gallery"
 // Icons Imports.
 import { LinkArrowIC } from "../data/icons.data"
 // Data Imports.
-import { servicesData, stats, US_IMG, SLIDESHOW_IMGS, info } from "../data"
+import { servicesData, US_IMG, SLIDESHOW_IMGS } from "../data"
+import { info } from "../data/info.data"
+import { stats } from "../data/stats.data"
 
 export default function Home() {
 	return (
@@ -43,7 +45,7 @@ export default function Home() {
 							avec <b>une prise en charge rapide, globale et personnalisée.</b>
 						</p>
 						<Link to="/services" className="link flex items-center gap-x-1">
-							Our Services
+							Notre Services
 							<LinkArrowIC className="text-3xl text-accent" />
 						</Link>
 					</p>
@@ -77,24 +79,10 @@ export default function Home() {
 							<b>dentiste de leur choix qui les accompagne tout au […]</b>
 						</p>
 						<Link to="/about" className="link flex items-center gap-x-1">
-							About Us
+							À-propos
 							<LinkArrowIC className="text-3xl text-accent" />
 						</Link>
 					</p>
-				</div>
-			</div>
-
-			{/* Gallery */}
-			<div className="page-padding w-full max-w-[1800px]">
-				<div className="flex items-center justify-between">
-					<h1 className="my-6 w-full font-bold text-primary">Gallery</h1>
-					<Link to="/gallery" className="link flex items-center gap-x-1">
-						<p>More</p>
-						<LinkArrowIC className="text-3xl text-accent" />
-					</Link>
-				</div>
-				<div className="page-padding overflow-hidden rounded-xl">
-					<Gallery />
 				</div>
 			</div>
 

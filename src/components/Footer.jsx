@@ -13,9 +13,8 @@ import {
 } from "../data/icons.data"
 // Components Imports.
 import Logo from "./Logo"
-import Input from "./Input"
 // Data Imports.
-import { links, socialLinks } from "../data"
+import { links, socialLinks } from "../data/links.data"
 const { whatsapp, linkedin, youtube, twitter, instagram, facebook } =
 	socialLinks
 
@@ -25,50 +24,50 @@ const Footer = () => {
 	const getIcons = () => (
 		<>
 			{facebook && (
-				<a href={facebook} target="__blanc__" className="group footer-icon">
-					<FacebookIC className="group-hover:text-facebook group-hover:bg-light" />
+				<a href={facebook} target="__blanc__" className="footer-icon group">
+					<FacebookIC className="group-hover:bg-light group-hover:text-facebook" />
 				</a>
 			)}
 			{youtube && (
-				<a href={youtube} target="__blanc__" className="group footer-icon">
-					<YoutubeIC className="group-hover:text-youtube group-hover:bg-light" />
+				<a href={youtube} target="__blanc__" className="footer-icon group">
+					<YoutubeIC className="group-hover:bg-light group-hover:text-youtube" />
 				</a>
 			)}
 			{twitter && (
-				<a href={twitter} target="__blanc__" className="group footer-icon">
-					<TwitterIC className=" group-hover:text-twitter group-hover:bg-light" />
+				<a href={twitter} target="__blanc__" className="footer-icon group">
+					<TwitterIC className=" group-hover:bg-light group-hover:text-twitter" />
 				</a>
 			)}
 			{instagram && (
-				<a href={instagram} target="__blanc__" className="group footer-icon">
-					<InstagramIC className="group-hover:text-instagram group-hover:bg-light" />
+				<a href={instagram} target="__blanc__" className="footer-icon group">
+					<InstagramIC className="group-hover:bg-light group-hover:text-instagram" />
 				</a>
 			)}
 			{linkedin && (
-				<a href={linkedin} target="__blanc__" className="group footer-icon">
-					<LinkedinIC className=" group-hover:text-linkedin group-hover:bg-light" />
+				<a href={linkedin} target="__blanc__" className="footer-icon group">
+					<LinkedinIC className=" group-hover:bg-light group-hover:text-linkedin" />
 				</a>
 			)}
 			{whatsapp && (
-				<a href={whatsapp} target="__blanc__" className="group footer-icon">
-					<WhatsappIC className=" group-hover:text-whatsapp group-hover:bg-light" />
+				<a href={whatsapp} target="__blanc__" className="footer-icon group">
+					<WhatsappIC className=" group-hover:bg-light group-hover:text-whatsapp" />
 				</a>
 			)}
 		</>
 	)
 	return (
-		<div className="text-light max-w-[2500px] w-full">
+		<div className="w-full max-w-[2500px] text-light">
 			{/* News Letter */}
-			<div className="w-full bg-accent text-center py-[5rem] page-padding">
-				<h1 className="text-center">SubScribe To Our News Letter</h1>
+			<div className="page-padding w-full bg-accent py-[5rem] text-center">
+				<h1 className="text-center">Abonnez-vous à notre newsletter</h1>
 
 				<p className="my-4 mb-12">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias,
 					vero sapiente?
 				</p>
 
-				<form className="relative flex flex-col sm:flex-row justify-center items-center gap-4">
-					<div className="border-r-[3px] border-gray/25 absolute left-0 text-accent text-3xl grid items-center px-3 md:px-6 h-[4rem]">
+				<form className="relative flex flex-col items-center justify-center gap-4 sm:flex-row">
+					<div className="absolute left-0 grid h-[4rem] items-center border-r-[3px] border-gray/25 px-3 text-3xl text-accent md:px-6">
 						<MailIC className="" />
 					</div>
 					<input
@@ -76,19 +75,19 @@ const Footer = () => {
 						placeHolder="Votre address email..."
 						value={formValues.email}
 						onChange={(e) => setFormValues({ email: e.target.value })}
-						className="input w-full h-[4rem] pl-16 md:pl-24"
+						className="input h-[4rem] w-full pl-16 md:pl-24"
 					/>
 
 					<button
 						type="submit"
-						className="bg-accent hover:bg-accent/75 px-6 rounded font-semibold absolute right-[.2rem] top-[50%] translate-y-[-50%] h-[3.6rem] shadow-none">
-						Subscribe
+						className="absolute right-[.2rem] top-[50%] h-[3.6rem] translate-y-[-50%] rounded bg-accent px-6 font-semibold shadow-none hover:bg-accent/75">
+						S'abonner
 					</button>
 				</form>
 			</div>
 
 			{/* Nav Links */}
-			<div className="bg-gray w-full page-padding max-w-[2500px] py-[5rem] flex flex-wrap justify-between gap-6 ">
+			<div className="page-padding flex w-full max-w-[2500px] flex-wrap justify-between gap-6 bg-gray py-[5rem] ">
 				<div className="col-span-2 flex flex-col gap-6">
 					{/* logo */}
 					<Logo />
@@ -141,19 +140,20 @@ const Footer = () => {
 				</ul>
 			</div>
 			{/* CopyRight, Policy & Terms of Service */}
-			<div className="w-full text-center py-1 bg-gray">
+			<div className="w-full bg-gray py-1 text-center">
 				<h5>
 					Copyright 2021 {"| "}
 					<Link
 						to="#"
-						className="font-semibold hover:underline hover:opacity-75 text-accent">
+						className="font-semibold text-accent hover:underline hover:opacity-75">
 						Policy
 					</Link>
 					<Link
 						to="#"
-						className="font-semibold hover:underline hover:opacity-75 text-accent">
+						className="font-semibold text-accent hover:underline hover:opacity-75">
 						, Terms of Service
 					</Link>
+					{" |"} created by Mazouz Ayoub
 				</h5>
 			</div>
 		</div>

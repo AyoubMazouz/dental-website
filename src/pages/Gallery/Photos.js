@@ -1,25 +1,22 @@
 // React Imports.
 import { useState } from "react"
-// Hooks Imports.
-import useDoc from "../../hooks/useDoc"
 // Components Imports.
 import ImageModel from "./components/ImageModel"
 import Hero from "../../components/Hero"
+import { photos } from "../../data/"
 
 export default function Photos() {
 	// Selected Image to Display on the Model.
 	const [selected, setSelected] = useState(null)
 	// How Many Images to Show At Once.
 	const [eleAtOnce, setEleAtOnce] = useState(25)
-	// Images From db.
-	const { document } = useDoc("gallery", "photos")
 	return (
 		<>
 			<Hero title="Photos" parent="Gallery" />
 			{typeof selected === "number" && (
 				<ImageModel
 					currIndex={selected}
-					docs={document}
+					docs={photos}
 					setSelected={setSelected}
 				/>
 			)}
@@ -27,12 +24,11 @@ export default function Photos() {
 			<div className="mb-[6rem] grid justify-center">
 				<div className="max-width flex flex-wrap justify-center gap-4">
 					{/* Map trough the Array of Images and Only Display the Allowed Numnber of Images */}
-					{Object.entries(document).map(([alt, url], index) =>
+					{photos.map((url, index) =>
 						index < eleAtOnce ? (
-							<div key={alt} className="overflow-hidden rounded-lg">
+							<div key={url} className="overflow-hidden rounded-lg">
 								<img
 									src={url}
-									alt={alt}
 									onClick={() => setSelected(index)}
 									className="h-[220px] w-[332px] select-none object-cover transition-transform duration-500 hover:scale-110"></img>
 							</div>
@@ -40,12 +36,12 @@ export default function Photos() {
 					)}
 				</div>
 				{/* Load More Button */}
-				{Object.keys(document).length > eleAtOnce ? (
+				{photos?.length > eleAtOnce ? (
 					<div className="mt-[3rem] grid justify-center">
 						<button
 							onClick={() => setEleAtOnce((prev) => prev + 10)}
 							className="submit-btn">
-							Load More
+							Charger plus
 						</button>
 					</div>
 				) : (
